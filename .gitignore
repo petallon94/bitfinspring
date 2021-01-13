@@ -1,4 +1,8 @@
 @@ -0,0 +1,96 @@
+
+#ignore properties
+*.properties 
+
 # Compiled class file
 *.class
 
@@ -96,5 +100,6 @@ local.properties
 
 .settings
 .properties
+*.MF
 
 # End of https://www.toptal.com/developers/gitignore/api/eclipse
