@@ -1,4 +1,7 @@
 @@ -0,0 +1,96 @@
+#ignore properties
+*.properties 
+
 # Compiled class file
 *.class
 
