@@ -101,5 +101,6 @@ local.properties
 
 .settings
 .properties
+*.MF
 
 # End of https://www.toptal.com/developers/gitignore/api/eclipse
