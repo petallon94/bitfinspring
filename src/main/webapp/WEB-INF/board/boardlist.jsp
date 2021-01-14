@@ -16,7 +16,7 @@
 <body>
 	<div class="layout">
 		보드 레이아웃입니다.
-		<div class="hashtagform">해시태그 출력
+		<div class="hashtagform">해시태그 출력 하고싶다
 		<div class="hashtag"><span class="glyphicon glyphicon-ok"></span> 수진이</div>
 		
 		
