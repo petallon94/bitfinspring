@@ -13,7 +13,7 @@
         <!--탭 박스-->
         <div class="hospital__list_tabbox">
             <div id="hospital__list_tablist">
-                <a class="hospital__list_listitem active">국민안심병원</a>
+                <a class="hospital__list_listitem active1">국민안심병원</a>
                 <a class="hospital__list_listitem">호흡기전담클리닉</a>
                 <a class="hospital__list_listitem">선별진료소</a>
                 <a class="hospital__list_listitem">승차검진 선별진료소</a>
@@ -88,12 +88,12 @@
                 var btns = tablist.getElementsByClassName("hospital__list_listitem");
                 for (var i = 0; i < btns.length; i++) {
                     btns[i].addEventListener("click", function () {
-                        var current = document.getElementsByClassName("active");
+                        var current = document.getElementsByClassName("active1");
                         if (current.length > 0) {
-                            current[0].className = current[0].className.replace(" active", "");
+                            current[0].className = current[0].className.replace(" active1", "");
                             title.nodeValue = btns.textContent;
                         }
-                        this.className += " active";
+                        this.className += " active1";
                     });
                 }
 
@@ -103,7 +103,7 @@
                 function changeTitle() {
                     var x = document.getElementById("hospital__list_title");
                     var tablist = document.getElementById("hospital__list_tablist");
-                    var btns = tablist.getElementsByClassName("hospital__list_listitem active");
+                    var btns = tablist.getElementsByClassName("hospital__list_listitem active1");
                     x.value = btns;
                 }
             </script>
