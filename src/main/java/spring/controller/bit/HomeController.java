@@ -23,5 +23,9 @@ public class HomeController {
 	   {
 	      return "/layout/main";
 	   }
-	
+
+	@GetMapping("/hospital")
+	public String goHospital() {
+		return "/hospital/hospitalmain";
+	}
 }

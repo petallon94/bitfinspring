@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
-   <insert id="insertOfMember" parameterType="mdto">
-      insert into member (mid,mnick,mpw,mhp,memail,mrole,mchat) values (
-      #{mid},#{mnick},#{mpw},#{mhp},#{memail},#{mrole},#{mchat})
-   </insert>
+
+	<insert id="insertOfMember" parameterType="mdto">
+		insert into MEMBER (mid,mnick,mpw,mhp,mrole,mchat) values (
+		#{mid},#{mnick},#{mpw},#{mhp},#{mrole},#{mchat})
+	</insert>
+
 </mapper>
