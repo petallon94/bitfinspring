@@ -15,12 +15,14 @@
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"
 ></script>
-  
+
 <!-- CSS 파일 -->
 <link rel="stylesheet" href="${root}/css/fullpage.min.css" />
 <link rel="stylesheet" href="${root}/css/layout.css" />
 <link rel="stylesheet" href="${root}/css/hospital.css" />
+
 <link rel="stylesheet" href="${root}/css/member.css" />
+
 <!-- JS 파일 -->
 <script src="${root}/js/fullpage.min.js" ></script>
 
