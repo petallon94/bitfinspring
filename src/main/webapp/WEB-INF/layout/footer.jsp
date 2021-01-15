@@ -7,6 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-푸터
+<div class="footer_container">
+	<div class="footer1">
+		개인정보뭐시기
+	</div>
+	<div class="footer2">
+		언제 다 할 수 있을까뭐시기
+	</div>
+</div>
 </body>
 </html>
