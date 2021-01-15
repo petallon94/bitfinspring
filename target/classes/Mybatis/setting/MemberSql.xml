@@ -3,8 +3,8 @@
 <mapper namespace="member">
 
 	<insert id="insertOfMember" parameterType="mdto">
-		insert into member (mid,mnick,mpw,mhp,memail,mrole,mchat) values (
-		#{mid},#{mnick},#{mpw},#{mhp},#{memail},#{mrole},#{mchat})
+		insert into MEMBER (mid,mnick,mpw,mhp,mrole,mchat) values (
+		#{mid},#{mnick},#{mpw},#{mhp},#{mrole},#{mchat})
 	</insert>
 
 </mapper>
