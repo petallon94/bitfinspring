@@ -20,13 +20,15 @@
 <link rel="stylesheet" href="${root}/css/fullpage.min.css" />
 <link rel="stylesheet" href="${root}/css/layout.css" />
 <link rel="stylesheet" href="${root}/css/hospital.css" />
+
+<link rel="stylesheet" href="${root}/css/member.css" />
+
 <!-- JS 파일 -->
 <script src="${root}/js/fullpage.min.js" ></script>
 
 </head>
 <body>
 <div class="layout">
-   레이아웃입니다.
    <div id="header">
       <tiles:insertAttribute name="header"/>
    </div>
