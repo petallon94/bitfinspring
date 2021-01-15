@@ -1,7 +1,7 @@
 package spring.dto;
 
 public class MemberDto {
-	/// dgiadadfasdf
+	/// dgiadadfasdf 우와아아아아아
 	private int mnum;
 	   private String mid;
 	   private String mnick;
