@@ -26,6 +26,7 @@
 </head>
 <body>
 <div class="layout">
+   레이아웃입니다.
    <div id="header">
       <tiles:insertAttribute name="header"/>
    </div>
