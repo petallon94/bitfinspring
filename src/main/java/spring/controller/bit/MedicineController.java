@@ -16,7 +16,7 @@ public class MedicineController {
 	@GetMapping({"/medicine"})
 	   public String goMed() 
 	 {	
-		
+		//222222
 		
 	      return "/medicine/medlayout";
 	 }
