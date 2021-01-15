@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+*{
+	box-sizing : border-box;
+}
+
+.hashtagform{
+	
+	background-color: #eee;
+	padding : 20px;
+}
+
+.hashtag{
+	
+	width : 170px;
+	border : 1px solid black;
+}
+
+.search{
+	background-color: #eee;	
+	margin-top: 10px;
+}
+
+.boardleft{
+   float: left;
+   width: 75%;
+}
+
+.boardright{
+   float: left;
+   width: 25%;
+   background-color: #eee;
+   padding-left: 20px;
+}
