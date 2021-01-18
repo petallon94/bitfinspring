@@ -3,6 +3,14 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="root" value="<%=request.getContextPath() %>"/>
+<c:if test="${totalCount==0 }">
+	<div class="alert alert-info"><b>등록된 글이 없습니다</b></div>
+</c:if>
+<c:if test="${totalCount>0 }">
+	<div class="alert alert-info">
+		<b>총 ${totalCount }개의 글이 있습니다</b>
+	</div>
+</c:if>
 <!DOCTYPE html>
 <html>
 <head>
@@ -260,6 +268,8 @@ html, body {
 		});
 
 	});
+	
+	
 </script>
 <body>
 	<div class="menu_bar">
@@ -317,7 +327,7 @@ html, body {
 		</div>
 	</div>
 	<button type="button" style="width: 100px;"
-		onclick="location.href='dcomwriteform'">글작성</button>
+		onclick="location.href='writeform'">글작성</button>
 	<div class="dcom-prod-list-bar con">
 		<div class="dcom-prod-list-box">
 			<ul class="dcom-row">
