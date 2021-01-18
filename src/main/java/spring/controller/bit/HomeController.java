@@ -24,8 +24,24 @@ public class HomeController {
 	      return "/layout/main";
 	   }
 
-	@GetMapping("/hospital")
+	@GetMapping("/hospitalmain")
 	public String goHospital() {
 		return "/hospital/hospitalmain";
+	}
+	@GetMapping("/hospitallist")
+	public String goHlist() {
+		return "/hospital/hospitallist";
+	}
+	@GetMapping("/hospitaldetail")
+	public String goHdetail() {
+		return "/hospital/hospitaldetail";
+	}
+	@GetMapping("/hospitalrsv")
+	public String goHreserve() {
+		return "/hospital/hospitalreserve";
+	}
+	@GetMapping("/hospitalsuccess")
+	public String goHsuccess() {
+		return "/hospital/hospitalsuccess";
 	}
 }
