@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="root" value="<%=request.getContextPath() %>"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -85,27 +86,50 @@ html,body {
 </style>
 <script type="text/javascript">
 
-/* var xhr = new XMLHttpRequest();
-var url = 'http://apis.data.go.kr/1262000/SafetyNewsList/getCountrySafetyNewsList'; /*URL*/
-var queryParams = '?' + encodeURIComponent('ServiceKey') + '='+'0ikkJvVW7UM8H0a5VZwT%2BrON8XVeS2aeZC%2Bi51wnHpOIh34ihoZ5AMOhPDGnyKSOzSChEVHk2q1Ap8E%2BZrodSg%3D%3D'; /*Service Key*/
-	queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10'); /**/
-	queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
-	queryParams += '&' + encodeURIComponent('title1') + '=' + encodeURIComponent('입국'); /**/
-	queryParams += '&' + encodeURIComponent('title2') + '=' + encodeURIComponent('코로나'); /**/
-	queryParams += '&' + encodeURIComponent('title3') + '=' + encodeURIComponent('운항'); /**/
-	queryParams += '&' + encodeURIComponent('title4') + '=' + encodeURIComponent('항공권'); /**/
-	queryParams += '&' + encodeURIComponent('title5') + '=' + encodeURIComponent('격리'); /**/
-	xhr.open('GET', url + queryParams);
-	
-	xhr.onreadystatechange = function () {
-    if (this.readyState == 4) {
-        alert('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseText);
-    }
-};
+$(document).ready(function() {
 
-xhr.send(''); */
+	$('.total').click(function() {
+		$(this).toggleClass('on');
+		$('.slide_bar').toggleClass('on');
+	});
+
+	$('.menu_login').hover(function() {
+		$('.login_icon0').css('opacity', '0');
+		$('.login_icon1').css('opacity', '1');
+	}, function() {
+		$('.login_icon0').css('opacity', '1');
+		$('.login_icon1').css('opacity', '0');
+	});
+
+});
+
 </script>
 <body>
+	<div class="menu_bar">
+		<div class="total">
+			<span></span>
+		</div>
+		<div class="menu_title">
+			<a href="${root}/home">COVID-OUT</a>
+		</div>
+		<div class="menu_login">
+			<a href="${root}/member/login"> <img class="login_icon0"
+				src="${root}/image/login_red.svg" /> <img class="login_icon1"
+				src="${root}/image/login_green.svg" />
+			</a>
+		</div>
+	</div>
+
+
+	<div class="slide_bar">
+		<ul class="slide_bar_list">
+			<li><a href="">우리집</a></li>
+			<li><a href="">강아지는</a></li>
+			<li><a href="">복슬강</a></li>
+			<li><a href="">아지~</a></li>
+		</ul>
+		<div class="slide_bar_login"></div>
+	</div>
 
 	<div class="safe-top-box safe-con">
 		<div class="safe-img-box">
