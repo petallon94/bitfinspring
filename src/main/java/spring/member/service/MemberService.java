@@ -47,6 +47,12 @@ public class MemberService implements MemberServiceInter{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public MemberDto getLogin(MemberDto dto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	
