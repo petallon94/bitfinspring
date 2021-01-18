@@ -4,13 +4,22 @@
 	box-sizing : border-box;
 }
 
-.search{
+.med_search{
 	
 	background-color: #eee;
 	padding : 20px;
 }
 
-.searchlist{
+.med_searchlist{
 	background-color: #eee;
 	padding : 20px;
+}
+
+.med_layout{
+	background-color: #1f2c59;
+	background-size: cover; /*크기*/
+	background-position: center; /*포지션*/
+	text-align: center; /*가운데로 옮기게 도와주는것*/
+	padding: 150px 0;
+
 }
