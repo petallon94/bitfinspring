@@ -15,11 +15,11 @@
 
 </head>
 <body>
+
 	<div class="board_layout">
-		
+	
 		<div class ="board_main">
 		<h3>의료정보 커뮤니티</h3>
-		
 		<div style ="display : flex;justify-content : center;">
 		<div class="hashtagform">
 			<span>해시태그를 통해서 검색해 보세요!</span>
@@ -38,7 +38,7 @@
 		<hr>
 		<div class="boardlist">
 			<div class="boardleft">
-				제목
+				<h4>제목</h4>
 				<div class="boardcontent">
 					본문
 					<p>14일 방송되는 SBS 예능프로그램 ‘맛남의 광장’에서는 백종원, 양세형, 김희철, 유병재, 김동준이 게스트
