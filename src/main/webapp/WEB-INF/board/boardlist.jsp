@@ -19,8 +19,8 @@
 	<div class="board_layout">
 	
 		<div class ="board_main">
-		<h3>의료정보 커뮤니티</h3>
-		<div style ="display : flex; justify-content : center;">
+		<h3>의료정보  커뮤니티</h3>
+		<div style ="display : flex;justify-content : center;">
 		<div class="hashtagform">
 			<span>해시태그를 통해서 검색해 보세요!</span>
 			<div class="hashtag">
@@ -54,10 +54,6 @@
 		<hr>
 	</div>
 	
-	<div class="boardpage">
-	<p>보드페이지</p>
-	
-	<button type ="button" class = "board_write_btn">글쓰기</button>
-	</div> 
+	<div class="boardpage">보드페이지</div>
 </body>
 </html>

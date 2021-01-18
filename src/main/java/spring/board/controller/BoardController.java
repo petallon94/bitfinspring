@@ -11,12 +11,5 @@ public class BoardController {
 	 {	
 	    return "/board/boardlist";
 	 }
-	
-	@GetMapping({"/board/boardwrite"})
-	   public String gobowrite() 
-	 {	
-	    return "/board/boardwriteform";
-	 }
-	
 
 }
