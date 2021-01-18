@@ -44,6 +44,12 @@ public class MemberDao extends SqlSessionDaoSupport implements MemberDaoInter {
 		return 0;
 	}
 
+	@Override
+	public MemberDto getLogin(MemberDto dto) {
+		// TODO Auto-generated method stub
+		return getSqlSession().selectOne("loginOfMember", dto);
+	}
+
 	
 	
 }
