@@ -1,14 +1,15 @@
 package spring.dto;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class ReserveDto {
 	private int rnum;
-	   private int rmnum;
-	   private int rdmnum;
-	   private String rmemo;
-	   private Date rtime;
-	   private Date rdate;
+	private int rmnum;
+	private int rdmnum;
+	private String rmemo;
+	private Timestamp rtime;
+	private Timestamp rdate;
+	
 	public int getRnum() {
 		return rnum;
 	}
@@ -33,20 +34,18 @@ public class ReserveDto {
 	public void setRmemo(String rmemo) {
 		this.rmemo = rmemo;
 	}
-	public Date getRtime() {
+	public Timestamp getRtime() {
 		return rtime;
 	}
-	public void setRtime(Date rtime) {
+	public void setRtime(Timestamp rtime) {
 		this.rtime = rtime;
 	}
-	public Date getRdate() {
+	public Timestamp getRdate() {
 		return rdate;
 	}
-	public void setRdate(Date rdate) {
+	public void setRdate(Timestamp rdate) {
 		this.rdate = rdate;
 	}
-	   
-	   
-	   
-	   
+
+	
 }
