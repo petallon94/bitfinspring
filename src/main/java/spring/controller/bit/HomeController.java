@@ -28,6 +28,7 @@ public class HomeController {
 	public String goHospital() {
 		return "/hospital/hospitalmain";
 	}
+
 	@GetMapping("/hospitallist")
 	public String goHlist() {
 		return "/hospital/hospitallist";
@@ -44,4 +45,5 @@ public class HomeController {
 	public String goHsuccess() {
 		return "/hospital/hospitalsuccess";
 	}
+
 }
