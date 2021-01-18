@@ -26,6 +26,8 @@
 <!-- JS 파일 -->
 <script src="${root}/js/fullpage.min.js" ></script>
 
+
+
 </head>
 <body>
 <div class="layout">

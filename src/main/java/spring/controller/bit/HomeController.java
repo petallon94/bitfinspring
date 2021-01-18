@@ -28,4 +28,5 @@ public class HomeController {
 	public String goHospital() {
 		return "/hospital/hospitalmain";
 	}
+	
 }

@@ -11,7 +11,7 @@
 <body>
 <div class="insert_member_container">
 	<div class="insert_member_wrapper">
-		<form action="savemember" method="post">
+		<form action="savemember" method="post" id="signupform">
 			<input type="hidden" name="mrole" value="1">
 			
 			<h1>전문인 회원가입</h1>
@@ -29,6 +29,11 @@
 			<label class="signup_input">
 				<input type="text" name="mpw" class="mpw">
 				<span class="signup_input_sp">Password</span>
+			</label>
+			
+			<label class="signup_input">
+				<input type="text" name="mpw2" class="mpw">
+				<span class="signup_input_sp">Check Your Password</span>
 			</label>
 			
 			<label class="signup_input">
