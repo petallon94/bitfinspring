@@ -15,7 +15,9 @@
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"
 ></script>
-  
+
+<!-- Boot Strap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <!-- CSS 파일 -->
 <link rel="stylesheet" href="${root}/css/fullpage.min.css" />
 <link rel="stylesheet" href="${root}/css/layout.css" />
