@@ -19,7 +19,7 @@
 	<div class="board_layout">
 	
 		<div class ="board_main">
-		<h3>의료정보 커뮤니티</h3>
+		<h3>의료정보  커뮤니티</h3>
 		<div style ="display : flex;justify-content : center;">
 		<div class="hashtagform">
 			<span>해시태그를 통해서 검색해 보세요!</span>
