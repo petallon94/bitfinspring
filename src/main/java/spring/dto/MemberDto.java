@@ -9,6 +9,7 @@ public class MemberDto {
 	   private String memail;
 	   private int mrole;
 	   private int mchat;
+	   
 	public int getMnum() {
 		return mnum;
 	}

@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
@@ -25,7 +26,6 @@
 <link rel="stylesheet" href="${root}/css/member.css" />
 <!-- JS 파일 -->
 <script src="${root}/js/fullpage.min.js" ></script>
-<script src="${root}/js/member.js"></script>
 
 
 
@@ -43,4 +43,5 @@
    </div>
 </div>
 </body>
+
 </html>
