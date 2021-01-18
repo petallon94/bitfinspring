@@ -9,12 +9,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Insert title here</title>
+<!-- JQuery minimal version 입니당.-->
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"
+></script>
+
+<!-- CSS 파일 -->
 <link rel="stylesheet" href="${root}/css/fullpage.min.css" />
+<link rel="stylesheet" href="${root}/css/layout.css" />
+<link rel="stylesheet" href="${root}/css/hospital.css" />
+
+<link rel="stylesheet" href="${root}/css/member.css" />
+
+<!-- JS 파일 -->
 <script src="${root}/js/fullpage.min.js" ></script>
+<script src="${root}/js/map.js" ></script>
+
 </head>
 <body>
 <div class="layout">
-   레이아웃입니다.
    <div id="header">
       <tiles:insertAttribute name="header"/>
    </div>
