@@ -22,7 +22,7 @@
 			<div style="display: flex; justify-content: center;"></div>
 		</div>
 		<div class="board_writeform">
-			<h3>제목</h3> <input type="text" class="board_topic" />
+			<h3>제_목</h3> <input type="text" class="board_topic" />
 		</div>
 		<hr>
 		
