@@ -13,13 +13,13 @@ public class CardDao extends SqlSessionDaoSupport implements CardDaoInter {
 	@Override
 	public int getNumMax() {
 		// TODO Auto-generated method stub
-		return 0;
+		return getSqlSession().selectOne("maxNumOfCard");
 	}
 
 	@Override
 	public int getTotalCount() {
 		// TODO Auto-generated method stub
-		return 0;
+		return getSqlSession().selectOne("totalCountOfCard");
 	}
 
 	@Override
