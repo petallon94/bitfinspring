@@ -99,6 +99,7 @@
 } */
 
 /* 병원 검색 목록 */
+
 .hospital__list {
 	background-size: cover;
 	background-position: center;
@@ -106,6 +107,10 @@
 	padding: 150px 0;	
 }
 
+#hospital__list_title{
+	font-size: 30px;
+	color: #0770bb;	
+}
 .hospital__list_tabbox {
     display: flex;
 	overflow: hidden;
@@ -203,6 +208,21 @@
 	margin: 0;
 }
 
+/* 병원디테일페이지 */
+.hospital_detail{
+	flex-direction: column;
+	justify-content: center;
+}
+#hospital__detail_title{
+	font-size: 40px;
+	color: #0770bb;
+	margin-top: 100px;	
+}
+#hospital__map{
+	width:1000px; 
+	height:500px; 
+	margin: 50px;
+}
 
 
 /* media queries */
