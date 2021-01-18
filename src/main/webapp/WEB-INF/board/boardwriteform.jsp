@@ -11,20 +11,18 @@
 
 <!-- smarteditior -->
 <script type="text/javascript" src="../se2/js/HuskyEZCreator.js" charset="utf-8"></script>
-<link rel="stylesheet" href="${root}/css/board/boardmain.css" />
+<link rel="stylesheet" href="${root}/css/board/boardwrite.css" />
 
 </head>
 <body>
-	<div class="board_layout">
+	<div class="board_writelayout">
 
-		<div class="board_main">
+		<div class="board_writemain">
 			<h3>의료정보 커뮤니티</h3>
 			<div style="display: flex; justify-content: center;"></div>
 		</div>
-		<div class="search">
-			<h3>#해시태그 검색</h3>
-			<input type="text" class="board_textfield" />
-			<button type="button" class="board_searchbtn">검색하기</button>
+		<div class="board_writeform">
+			<h3>제목</h3> <input type="text" class="board_topic" />
 		</div>
 		<hr>
 		
@@ -35,10 +33,16 @@
 						<textarea name="notice_content" id="smartEditor"
 							style="width: 100%; height: 412px;"></textarea>
 					</div>
-					<button type ="button" class ="savebutton">발행하기</button>
+					
 				</div>
 			</div>
-		<hr>
+			<hr>
+			<input type="text" class ="board_hashtag" />
+			<button type="button" class ="board_hashbtn">해시태그 추가</button>
+			<hr>
+			<button type="button" class="board_listbtn">목록</button>
+			<button type ="button" id ="board_savebutton">저장</button>
+		
 	</div>
 
 </body>
@@ -63,13 +67,12 @@
 	});
 
 	$(function() {
-		$("#savebutton").click(
+		$("#board_savebutton").click(
 				function() {
 					oEditors.getById["smartEditor"].exec(
 							"UPDATE_CONTENTS_FIELD", []);
 					//textarea의 id를 적어줍니다.
 
-					var selcatd = $("#selcatd > option:selected").val();
 					var title = $("#title").val();
 					var content = document.getElementById("smartEditor").value;
 					;
