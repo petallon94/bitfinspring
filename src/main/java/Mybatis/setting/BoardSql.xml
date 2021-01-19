@@ -4,5 +4,10 @@
 	<select id ="selectDataOfBoard" resultType="bdto">
 	select * from board 
 	</select>
-
+	<insert id="insertOfBoard" parameterType="bdto">
+		insert into board (bmidnum,bwriter,bsubject,bcontent,bwritedate,breadcount) values (13,"보드테스트",#{bsubject},#{bcontent},now(),0)
+	</insert>
+	<select id ="selectoneOfBoard" resultType="bdto">
+	select * from board where bnum = #{bnum} 
+	</select>
 </mapper>

@@ -5,33 +5,43 @@
 	background-color: #1f2c59;
 	background-size: cover;
 	background-position: center;
-	text-align: center;
 	padding: 150px 0;
 }
 
 .board_writemain h3 {
 	color: white;
 	font-size : 3em;
+	text-align: center;
 }
 
 
 .board_writeform{
-	background: #f2f3f5;	
-	padding: 20px 0;
-	text-align: center;
+	background-color: #f2f3f5;	
+	padding: 5px 10px;
+	text-align : left;
 }
 
 .search h3{
-	
 	font-size : 16px;
+}
+
+#smartEditor{
+	background-color: #f2f3f5;
+	color : #f2f3f5;
+	
+}
+
+.board_writecontents{
+	width : 80%;
+	
 }
 
 .board_topic {
 	width: 500px;
-	padding: 14px 20px;
+	padding: 0px 10px;
 	box-sizing: border-box;
 	border: 2px solid #ccc;
-	height: 55px;
+	height: 30px;
 	font-size: 16px;
 	vertical-align: middle;
 }

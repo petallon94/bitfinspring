@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="root" value="<%=request.getContextPath()%>" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,11 +10,11 @@
 <title>Insert title here</title>
 
 <!-- css -->
-
+<link rel="stylesheet" href="${root}/css/board/boardwrite.css" />
 
 <!-- smarteditior -->
 <script type="text/javascript" src="../se2/js/HuskyEZCreator.js" charset="utf-8"></script>
-<link rel="stylesheet" href="${root}/css/board/boardwrite.css" />
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
 </head>
 <body>
@@ -21,21 +24,27 @@
 			<h3>의료정보 커뮤니티</h3>
 			<div style="display: flex; justify-content: center;"></div>
 		</div>
-		<div class="board_writeform">
-			<h3>제_목</h3> <input type="text" class="board_topic" />
-		</div>
-		<hr>
+		<form id="editor_upimage" name="editor_upimage" method="post" enctype="multipart/form-data" onSubmit="return false;">
 		
+		<div class="board_writeform">
+			<h3>제_목</h3><input type="text" class="board_topic" id="board_topic" />
+		</div>
+			<div class ="board_writecontents">
 			<div class="jsx-2303464893 editor">
 				<div class="fr-box fr-basic fr-top" role="application">
 					<div class="fr-wrapper show-placeholder" dir="auto"
 						style="overflow: scroll;">
-						<textarea name="notice_content" id="smartEditor"
-							style="width: 100%; height: 412px;"></textarea>
+						<textarea name="smartEditor" id="smartEditor"
+							style="width: 100%; height: 412px; background-color : white; opacity : 1;" ></textarea>
 					</div>
 					
 				</div>
 			</div>
+			</div>
+		</form>		
+		
+		<hr>
+		
 			<hr>
 			<input type="text" class ="board_hashtag" />
 			<button type="button" class ="board_hashbtn">해시태그 추가</button>
@@ -62,7 +71,7 @@
 			bUseVerticalResizer : false,
 
 			// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-			bUseModeChanger : false
+			bUseModeChanger : true
 		}
 	});
 
@@ -73,17 +82,13 @@
 							"UPDATE_CONTENTS_FIELD", []);
 					//textarea의 id를 적어줍니다.
 
-					var title = $("#title").val();
+					var title = $("#board_topic").val();
 					var content = document.getElementById("smartEditor").value;
-					;
+					
 
-					if (selcatd == "") {
-						alert("카테고리를 선택해주세요.");
-						return;
-					}
 					if (title == null || title == "") {
 						alert("제목을 입력해주세요.");
-						$("#title").focus();
+						$("#board_topic").focus();
 						return;
 					}
 					if (content == "" || content == null || content == '&nbsp;'
@@ -94,7 +99,7 @@
 						return;
 					} //이 부분은 스마트에디터 유효성 검사 부분이니 참고하시길 바랍니다.
 
-					var result = confirm("발행 하시겠습니까?");
+					var result = confirm("글을 작성하시겠습니까?");
 
 					if (result) {
 						alert("발행 완료!");
