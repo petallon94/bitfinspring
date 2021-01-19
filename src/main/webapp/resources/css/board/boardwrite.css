@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+.board_writelayout{
+	
+	background-color: #1f2c59;
+	background-size: cover;
+	background-position: center;
+	padding: 150px 0;
+}
+
+.board_writemain h3 {
+	color: white;
+	font-size : 3em;
+	text-align: center;
+}
+
+
+.board_writeform{
+	background-color: #f2f3f5;	
+	padding: 5px 10px;
+	text-align : left;
+}
+
+.search h3{
+	font-size : 16px;
+}
+
+#smartEditor{
+	background-color: #f2f3f5;
+	color : #f2f3f5;
+	
+}
+
+.board_writecontents{
+	width : 80%;
+	
+}
+
+.board_topic {
+	width: 500px;
+	padding: 0px 10px;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	height: 30px;
+	font-size: 16px;
+	vertical-align: middle;
+}
+
+
+.board_hashtag{
+	width: 500px;
+	padding: 14px 20px;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	height: 55px;
+	font-size: 16px;
+	vertical-align: middle;
+}
+
+.board_hashbtn{
+	width: 120px;
+	padding: 14px 20px;
+	height: 55px;
+	font-size : 1em;
+	margin-left : 25px;
+}
+
+.board_savebutton{
+	
+	width: 120px;
+	padding: 14px 20px;
+	height: 55px;
+	font-size : 1em;
+	margin-left : 25px;
+}
+
+.board_searchbtn{
+	
+	width: 100px;
+	padding: 14px 20px;
+	height: 40px;
+	font-size : 1em;
+	margin-left : 25px;
+	background-color : #ccc;
+	margin-bottom : 20px;
+}
+
+
+@media screen and (max-width: 600px) {
+	
+	.board_textfield {
+	width: 300px;
+	padding: 14px 20px 20px 20px;
+	box-sizing: border-box;
+	border: 4px solid #ccc;
+	height: 55px;
+	font-size: 16px;
+	vertical-align: middle;
+	
+}
+	
+    .board_searchbtn{
+	
+	margin-top : 10px;
+}
+}
+
+
