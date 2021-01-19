@@ -1,10 +1,15 @@
 package spring.board.dao;
 
+import java.util.HashMap;
 import java.util.List;
+
+import org.mybatis.spring.support.SqlSessionDaoSupport;
+import org.springframework.stereotype.Repository;
 
 import spring.dto.BoardDto;
 
-public class BoardDao implements BoardDaoInter {
+@Repository
+public class BoardDao extends SqlSessionDaoSupport implements BoardDaoInter {
 
 	@Override
 	public int getNumMax() {
@@ -15,6 +20,11 @@ public class BoardDao implements BoardDaoInter {
 	@Override
 	public void updateRestep(int regroup, int restep) {
 		// TODO Auto-generated method stub
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+	      map.put("regroup", regroup);
+	      map.put("restep", restep);
+	      
+	      getSqlSession().update("updateRestepOfBoard", map);
 		
 	}
 
@@ -33,13 +43,15 @@ public class BoardDao implements BoardDaoInter {
 	@Override
 	public void insertBoard(BoardDto dto) {
 		// TODO Auto-generated method stub
-		
+		getSqlSession().insert("insertOfBoard", dto);
 	}
 
 	@Override
 	public List<BoardDto> getList(int start, int perpage) {
-		// TODO Auto-generated method stub
-		return null;
+		HashMap<String, Integer> map=new HashMap<String, Integer>();
+	      map.put("start", start);
+	      map.put("perpage", perpage);
+	      return getSqlSession().selectList("selectAllOfBoard", map);
 	}
 
 	@Override

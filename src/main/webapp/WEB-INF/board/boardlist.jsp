@@ -36,6 +36,47 @@
 			<button type="button" class ="board_searchbtn">검색하기</button>
 		</div>
 		<hr>
+		
+	<table class ="table table-bordered">
+	<tr bgcolor = "#ddd">
+		<th style ="width : 60px;">번호</th>
+		<th style ="width : 400px;">제목</th>
+		<th style ="width : 80px;">작성자</th>
+		<th style ="width : 120px;">작성일</th>
+		<th style ="width : 60px;">조회</th>
+		
+	</tr>
+	<c:forEach var ="a" items ="${list}">
+		<tr style="cursor:pointer" onclick="location.href='content?num=${a.bnum}&pageNum=${currentPage}&key=list'">
+			<td align="center">
+			</td>
+
+			<td>
+			<a href="location.href='content?num=${a.bnum }&pageNum=${currentPage}&key=list"></a>
+			<c:forEach var ="sp" begin ="1" end ="${a.relevel}">
+			&nbsp;&nbsp;&nbsp;
+			</c:forEach>
+			<c:if test="${a.restep>0}">
+			<img src="../image/re.png">
+			</c:if><a>
+			${a.bsubject }
+			
+			<td align ="center">
+			${a.bwriter}
+			</td>
+			<td align = "center">
+			<fmt:formatDate value="${a.bwritedate}" pattern="yyyy-MM-dd"/>
+			</td>
+			<td align ="center">
+			${a.readcount}
+			</td>
+		
+		</tr>
+	
+	</c:forEach>
+	
+</table>
+		
 		<div class="boardlist">
 			<div class="boardleft">
 				<h4>제목</h4>
@@ -51,13 +92,35 @@
 			</div>
 
 		</div>
+	
 		<hr>
 	</div>
 	
-	<div class="boardpage">
-	<p>보드페이지</p>
+	<div style ="width:800px;text-align:center;">
+	<ul class ="pagination">
+		<c:forEach var="pp" begin="${startPage}" end="${endPage}">
+          <c:if test="${pp==currentPage}">
+             <li class="active">
+                <a href="list?pageNum=${pp}">${pp}</a>
+             </li>
+          </c:if>
+          <c:if test="${pp!=currentPage}">
+             <li>
+                <a href="list?pageNum=${pp}">${pp}</a>
+             </li>
+          </c:if>
+       </c:forEach>
+       <c:if test="${endPage<totalPage}">
+       <li>
+          <a href="list?pageNum=${endPage+1}">다음</a>
+       </li>
+       </c:if>
+
+	</ul>
+	</div>
 	
-	<button type ="button" class = "board_write_btn">글쓰기</button>
-	</div> 
+	<button type ="button" class = "board_write_btn" onclick="location.href='board/boardwrite'">글쓰기</button>
+	
+	
 </body>
 </html>

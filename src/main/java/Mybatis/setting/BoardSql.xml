@@ -10,4 +10,10 @@
 	<select id ="selectoneOfBoard" resultType="bdto">
 	select * from board where bnum = #{bnum} 
 	</select>
+	<select id = "selectAllOfBoard" parameterType="HashMap" resultType ="bdto">
+	select * from board order by regroup desc, restep asc limit #{start},#{perpage}
+	</select>
+	<update id = "updateRestepOfBoard" parameterType ="HashMap">
+	<![CDATA[ update creboard set restep = restep+1 where regroup = #{regroup} and restep>#{restep}</!>]]>
+	</update>
 </mapper>

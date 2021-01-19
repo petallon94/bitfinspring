@@ -24,17 +24,17 @@
 			<h3>의료정보 커뮤니티</h3>
 			<div style="display: flex; justify-content: center;"></div>
 		</div>
-		<form id="editor_upimage" name="editor_upimage" method="post" enctype="multipart/form-data" onSubmit="return false;">
+		<form action="write" id="editor_upimage" name="editor_upimage" method="post" enctype="multipart/form-data" >
 		
 		<div class="board_writeform">
-			<h3>제_목</h3><input type="text" class="board_topic" id="board_topic" />
+			<h3>제_목</h3> <input type="text" class="board_topic" id="board_topic" name = "bsubject" />
 		</div>
 			<div class ="board_writecontents">
 			<div class="jsx-2303464893 editor">
-				<div class="fr-box fr-basic fr-top" role="application">
+				<div class="fr-box fr-basic fr-top" role="application" >
 					<div class="fr-wrapper show-placeholder" dir="auto"
 						style="overflow: scroll;">
-						<textarea name="smartEditor" id="smartEditor"
+						<textarea name="smartEditor" id="smartEditor" name = "bcontent"
 							style="width: 100%; height: 412px; background-color : white; opacity : 1;" ></textarea>
 					</div>
 					
