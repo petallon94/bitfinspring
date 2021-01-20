@@ -26,7 +26,7 @@
 <link rel="stylesheet" href="${root}/css/member.css" />
 <!-- JS 파일 -->
 <script src="${root}/js/fullpage.min.js" ></script>
-
+<script src="${root}/js/member.js"></script>
 
 
 
@@ -34,13 +34,7 @@
 <body>
 <div class="layout">
    <div id="header">
-	<%//세션 로그인 확인
-	String loginok=(String)session.getAttribute("loginok");
-    	if(loginok==null){%>
-          	<tiles:insertAttribute name="header"/>
-    	<%}else{%>
-          	<tiles:insertAttribute name="header2"/>
-   <%}%>
+      <tiles:insertAttribute name="header"/>
    </div>
    <div id="main">
       <tiles:insertAttribute name="main"/>
