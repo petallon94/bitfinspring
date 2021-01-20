@@ -23,4 +23,10 @@ public class CardWriteFormController {
 	{
 		return "/dcommu/dcomwriteform";
 	}
+	
+	@GetMapping("/docter/detail")
+	public String goCardDetail()
+	{
+		return "/dcommu/dcomdetail";
+	}
 }
