@@ -14,12 +14,16 @@
 	</select>
 	<!-- insert -->
 	<insert id="insertOfCard" parameterType="cdto">
-		insert into card (cmidnum, cwriter, csubject, ccontent, cwritedate, cphoto, creadcount) values 
-		(#{cmidnum}, #{cwriter}, #{csubject}, #{ccontent}, now(), #{cphoto}, #{creadcount})
+		insert into card (cmidnum, cwriter, csubject, ccontent, cwritedate, cphoto) values 
+		(#{cmidnum}, #{cwriter}, #{csubject}, #{ccontent}, now(), #{cphoto})
 	</insert>
 	<!-- 조회수 얻기 -->
 	<update id="updateReadCountCard" parameterType="String">
+<<<<<<< HEAD
 		update card set readcount=readcount+1 where cnum=#{cnum}
+=======
+		update card set creadcount=creadcount+1 where cnum=#{cnum}
+>>>>>>> feature/5
 	</update>
 	<!--   num에 해당하는 게시글 가져오기 -->
 	<select id="selectOneOfCard" parameterType="String" resultType="cdto">
