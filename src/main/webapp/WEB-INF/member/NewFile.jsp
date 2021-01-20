@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-바보야!!
+조장이 제일 바보입니다.
 </body>
 </html>
