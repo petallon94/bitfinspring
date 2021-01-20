@@ -1,5 +1,7 @@
 package spring.member.service;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +23,7 @@ public class MemberService implements MemberServiceInter{
 	@Override
 	public void updateMember(MemberDto dto) {
 		// TODO Auto-generated method stub
-		
+		dao.updateMember(dto);
 	}
 
 	@Override
@@ -31,45 +33,40 @@ public class MemberService implements MemberServiceInter{
 	}
 
 	@Override
-	public MemberDto getData(String mnum) {
+	public MemberDto getData(String mid) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.getData(mid);
 	}
 
 	@Override
 	public int idCheck(String mid) {
 		// TODO Auto-generated method stub
-		int a = dao.idCheck(mid);
-		return a;
+		return dao.idCheck(mid);
 	}
 
 	@Override
-	public int pwCheck(String mid, String mpw) {
+	public boolean pwCheck(String mid, String mpw) {
 		// TODO Auto-generated method stub
-		return 0;
+		return dao.pwCheck(mid, mpw);
 	}
 
+
+
 	@Override
-	public MemberDto getLogin(MemberDto dto) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	@Override
-	public String loginMember(String mid, String mpw) {
-		int logincheck = dao.loginmember(mid, mpw); //id,pwÍ∞Ä Í∞ôÏùÄÍ≤å Ï°¥Ïû¨ÌïòÎ©¥1, ÏïÑÎãàÎ©¥ 0
-		String loginok;
-		System.out.println("loginok method");
-		if(logincheck==1) {
-			loginok="ok";
-			System.out.println("login ok!@!!!@!@!");
-		}else {
-			loginok=null;
-			System.out.println("login ok null");
-		}
-		System.out.println("login okÏùò Í∞íÏùÄ:" + loginok);
-		return loginok;
-	}
-	
+	   public String loginMember(String mid, String mpw) {
+
+	      int logincheck = dao.loginmember(mid, mpw); //id,pw∞° ∞∞¿∫∞‘ ¡∏¿Á«œ∏È1, æ∆¥œ∏È 0
+	      String loginok;
+	      System.out.println("loginok method");
+	      if(logincheck==1) {
+	         loginok="ok";
+	         System.out.println("login ok!@!!!@!@!");
+	      }else {
+	         loginok=null;
+	         System.out.println("login ok null");
+	      }
+	      System.out.println("login ok¿« ∞™¿∫:" + loginok);
+	      return loginok;
+	   }
 	
 }

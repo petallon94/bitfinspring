@@ -1,5 +1,7 @@
 package spring.member.dao;
 
+import javax.servlet.http.HttpSession;
+
 import spring.dto.MemberDto;
 
 
@@ -7,11 +9,8 @@ public interface MemberDaoInter {
 	public void insertMember(MemberDto dto);
 	public void updateMember(MemberDto dto);
 	public void deleteMember(String mnum);
-	public MemberDto getData(String mnum);
+	public MemberDto getData(String mid);
 	public int idCheck(String mid);
-	public int pwCheck(String mid, String mpw);
-	public MemberDto getLogin(MemberDto dto	);
-	
+	public boolean pwCheck(String mid, String mpw);
 	public int loginmember(String mid, String mpw);
-
 }
