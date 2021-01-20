@@ -2,6 +2,7 @@ package spring.member.dao;
 
 
 import java.util.HashMap;
+import java.util.Map;
 
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.stereotype.Repository;
@@ -10,6 +11,7 @@ import spring.dto.MemberDto;
 
 @Repository
 public class MemberDao extends SqlSessionDaoSupport implements MemberDaoInter {
+	
 
 	@Override
 	public void insertMember(MemberDto dto) {
@@ -20,6 +22,7 @@ public class MemberDao extends SqlSessionDaoSupport implements MemberDaoInter {
 	@Override
 	public void updateMember(MemberDto dto) {
 		// TODO Auto-generated method stub
+		getSqlSession().update("updateOfMember", dto);
 		
 	}
 
@@ -30,39 +33,44 @@ public class MemberDao extends SqlSessionDaoSupport implements MemberDaoInter {
 	}
 
 	@Override
-	public MemberDto getData(String mnum) {
+	public MemberDto getData(String mid) {
 		// TODO Auto-generated method stub
-		return null;
+		return getSqlSession().selectOne("selectOneOfMember", mid);
 	}
 
-	@Override // 아이디 존재시 1 반환
+	@Override
 	public int idCheck(String mid) {
+		// TODO Auto-generated method stub
 		return getSqlSession().selectOne("idCheckOfMember", mid);
 	}
 
 	@Override
-	public int pwCheck(String mid, String mpw) {
+	public boolean pwCheck(String mid, String mpw) {
 		// TODO Auto-generated method stub
-		return 0;
+		boolean result=false;
+		Map<String, String> map=new HashMap<String, String>();
+		map.put("mid",mid);
+		map.put("mpw",mpw);
+		int count=getSqlSession().selectOne("pwCheckOfMember", map);
+		if(count==1) result=true;
+		return result;
 	}
 
-	@Override
-	public MemberDto getLogin(MemberDto dto) {
-		// TODO Auto-generated method stub
-		return getSqlSession().selectOne("loginOfMember", dto);
-	}
+
+
 	
 	@Override
-	public int loginmember(String mid,String mpw) {
+	public int loginmember(String mid,String mpw)
+	{
 		HashMap<String, String> params=new HashMap<String, String>();
 		params.put("mid", mid);
 		params.put("mpw", mpw);
 		System.out.println(mid+","+mpw);
 		System.out.println(params);
+		System.out.println(getSqlSession().selectOne("loginOfMember",params));
+	
 		return getSqlSession().selectOne("loginOfMember",params);
 	}
-	
-
 	
 	
 }

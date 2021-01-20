@@ -5,19 +5,19 @@
 
 	<!-- 가입 -->
 	<insert id="insertOfMember" parameterType="mdto">
-		insert into MEMBER (mid,mnick,mpw,mhp,mrole,mchat) values (
+		insert into member (mid,mnick,mpw,mhp,mrole,mchat) values (
 		#{mid},#{mnick},#{mpw},#{mhp},#{mrole},#{mchat})
 	</insert>
 
 	<!-- 정보가져오기 -->
 	<select id="selectOneOfMember" parameterType="String" resultType="mdto">
-		select * from member where mnum=#{mnum}
+		select * from member where mid=#{mid}
 	</select>
 
 	<!-- 수정-->
 	<update id="updateOfMember" parameterType="mdto">
-		update member set mnick=#{mnick},mpw=#{mpw},mhp=#{mhp},mchat=#{mchat}
-		 where mnum=#{mnum}
+		update member set mnick=#{mnick},mhp=#{mhp},mchat=#{mchat}
+		 where mid=#{mid}
 	</update>
 
 	<!-- 삭제 -->
@@ -25,20 +25,20 @@
 		delete from member where mnum=#{mnum}
 	</delete>
 
-	<!-- ID 확인 -->
-	<select id="idCheckOfMember" parameterType="String" resultType="int">
+	<!-- ID 중복확인 -->
+	<select id="idCheckOfMember" resultType="int">
 		select count(*) from member where mid=#{mid}
 	</select>
 
 	<!-- 비번확인 -->
-	<select id="pwCheckOfMember" parameterType="HashMap" resultType="int">
+	<select id="pwCheckOfMember" resultType="int">
 		select count(*) from member where mid=#{mid} and mpw=#{mpw}
 	</select>
 
 	<!-- 로그인 -->
 	<select id="loginOfMember" parameterType="String" resultType="int">
-		select EXISTS (select * from member where mid=#{mid} and mpw=#{mpw}) as success
-	</select>
-	
-
+      select EXISTS (select * from member where mid=#{mid} and mpw=#{mpw}) as success
+   </select>
+   
+   
 </mapper>
