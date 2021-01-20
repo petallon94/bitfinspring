@@ -39,7 +39,8 @@ public class MemberService implements MemberServiceInter{
 	@Override
 	public int idCheck(String mid) {
 		// TODO Auto-generated method stub
-		return 0;
+		int a = dao.idCheck(mid);
+		return a;
 	}
 
 	@Override
@@ -54,6 +55,21 @@ public class MemberService implements MemberServiceInter{
 		return null;
 	}
 	
+	@Override
+	public String loginMember(String mid, String mpw) {
+		int logincheck = dao.loginmember(mid, mpw); //id,pw가 같은게 존재하면1, 아니면 0
+		String loginok;
+		System.out.println("loginok method");
+		if(logincheck==1) {
+			loginok="ok";
+			System.out.println("login ok!@!!!@!@!");
+		}else {
+			loginok=null;
+			System.out.println("login ok null");
+		}
+		System.out.println("login ok의 값은:" + loginok);
+		return loginok;
+	}
 	
 	
 }

@@ -40,4 +40,6 @@ public class HomeController {
 		 * @GetMapping("/hospitalsuccess") public String goHsuccess() { return
 		 * "/hospital/hospitalsuccess"; }
 		 */
+
 }
+

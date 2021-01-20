@@ -1,5 +1,8 @@
 package spring.member.dao;
 
+
+import java.util.HashMap;
+
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.stereotype.Repository;
 
@@ -32,10 +35,9 @@ public class MemberDao extends SqlSessionDaoSupport implements MemberDaoInter {
 		return null;
 	}
 
-	@Override
+	@Override // 아이디 존재시 1 반환
 	public int idCheck(String mid) {
-		// TODO Auto-generated method stub
-		return 0;
+		return getSqlSession().selectOne("idCheckOfMember", mid);
 	}
 
 	@Override
@@ -49,6 +51,18 @@ public class MemberDao extends SqlSessionDaoSupport implements MemberDaoInter {
 		// TODO Auto-generated method stub
 		return getSqlSession().selectOne("loginOfMember", dto);
 	}
+	
+	@Override
+	public int loginmember(String mid,String mpw) {
+		HashMap<String, String> params=new HashMap<String, String>();
+		params.put("mid", mid);
+		params.put("mpw", mpw);
+		System.out.println(mid+","+mpw);
+		System.out.println(params);
+		System.out.println(getSqlSession().selectOne("loginOfMember",params));
+		return getSqlSession().selectOne("loginOfMember",params);
+	}
+	
 
 	
 	

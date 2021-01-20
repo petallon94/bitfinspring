@@ -200,7 +200,6 @@ p.normal_member{
 	top:0;
 	transition: all 0.5s;
 	font-size:1.5em;
-	
 }
 p.normal_member:before{
 	content: "NORMAL";
@@ -250,7 +249,7 @@ a.pro_m:hover ::before{
 }
 
 
-/* 이게 되네 ㅎㅎ */
+/* // 이게 되네 ㅎㅎ */
 
 @media screen and (max-width:939px){
 	.signup_container{
@@ -277,8 +276,8 @@ div.insert_member_container{
 	background-position: center;
 	text-align: center;
 	width:100%;
-	height:1000px;
-	padding:80px 0;
+	height:100%;
+	padding:100px 0;
 	display:flex;
 	justify-content: space-around;
 	align-items: center;
@@ -286,8 +285,8 @@ div.insert_member_container{
 }
 
 div.insert_member_wrapper{
-	width:80%;
-	height:80%;
+	width:550px;
+	height: 80%;
 	background-color: white;
 	display:flex;
 	justify-content: center;
@@ -297,32 +296,188 @@ div.insert_member_wrapper{
 }
 
 div.insert_member_wrapper > form{
-	width:80%;
+	width:90%;
 	margin:30px 0;
 	display:flex;
 	justify-content: center;
+	align-items:center;
 	flex-direction: column;
 }
 
-label.signup_input{
-	position:relative;
-}
 
-.signup_input_sp{
-	position:absolute;
+h2.signup_main_title{
+	display:block;
+	width:80%;
+	text-align: left;
+	font-weight:bold;
+	border-width: 0px 0px 3px 0px;
+	border-style:solid;
+	border-color:#ddd;
+	padding-bottom:15px;
 	
 }
 
 
 
-div.insert_member_btn button[type="submit"]{
-	background-color:red;	
+/* 회원가입 INPUT */
+
+label.signup_input{
+	position:relative;
+	width:80%;
+	margin-top:25px;
 }
 
-div.insert_member_btn button[type="button"]{
-	background-color:blue;
+label.signup_input > input{
+	width:100%;
+	background: none;
+	padding:12px;
+	border-radius: 3px;
+	outline:none;
+	border:2px solid #ddd;
 }
 
+.signup_input_sp{
+	position:absolute;
+	left:12px;
+	top:calc(50%);
+	color: #aaa;
+	transform:translateY(-50%);
+	transition: 0.3s;
+	font-weight:bold;
+	vertical-align: center;
+}
+
+label.signup_input > input:valid,
+label.signup_input > input:focus{
+	border-color:#222;
+	transition-delay:0.1s;
+}
+
+
+label.signup_input > input:valid + .signup_input_sp,
+label.signup_input > input:focus + .signup_input_sp{
+	top:-1px;
+	background:#fff;
+	font-size:15px;
+	color:#222;
+}
+
+/* YES OR NO 설명 */
+div.signup_exbox{
+	border-width:2px 0;
+	border-style:solid;
+	border-color:#ddd;
+	border-radius: 3px;
+	padding:20px;
+	width:100%;
+	margin-top:25px;
+}
+
+
+div.signup_explain{
+	color:black;
+	font-weight: bold;
+	margin-top:20px;
+	
+}
+
+/*  YES or NO  */
+
+.signup_radio{
+	margin: 20px 0 10px 0;
+}
+
+.signup_radio label input[type="radio"]{
+	display:none;
+}
+
+.signup_radio label > span{
+	display:block;
+	border:4px solid rgb(223,227,239);
+	color:gray;
+	border-radius:4px;
+	cursor:pointer;
+	margin:10px 10px;
+	padding:10px auto;
+	width:80px;
+	box-shadow: inset 0px 0px 0px rgb(19,58,168);
+	transition:0.5s;
+}
+
+.signup_radio label input[type="radio"]:checked ~ span{
+	color:rgb(19,58,168);
+	border-color: rgb(19,58,168);
+	box-shadow: inset 100px 100px 100px rgb(19,58,168);
+	color:white;
+}
+
+
+/* 회원가입 제출 버튼! */
+
+div.insert_member_btn{
+	margin-top:25px;
+	width:100%;
+	display:flex;
+	flex-direction: column;
+}
+
+div.insert_member_btn .insrt_membtn{
+	position:relative;
+	box-shadow: inset 0px 0px 500px rgb(19,58,168);
+	border:none;
+	color:white;
+	font-weight:bold;
+	border-radius: 4px;
+	height:44px;
+	transition:0.2s;
+}
+
+div.insert_member_btn .insrt_membtn:before{
+	content:"";
+	position:absolute;
+	bottom:0;
+	left:50%;
+	height:0px;
+	width:0px;
+	background-color:yellow;
+	transition: ease-out 0.5s;
+}
+
+div.insert_member_btn .insrt_membtn:hover{
+	box-shadow: inset 0px 0px 0px rgb(19,58,168);
+	color:rgb(19,58,168);
+	border-width:2px 2px 0px 2px;
+	border-style: solid;
+	border-color:rgb(19,58,168); 
+}
+
+div.insert_member_btn .insrt_membtn:hover:before{
+	background-color:rgb(19,58,168);
+	left:0;
+	right:0;
+	height:2px;
+	width:100%;
+}
+
+div.insert_member_btn .insrt_membtn2{
+	color:black;
+	box-shadow:inset 0px 0px 500px rgb(223,227,239);
+}
+
+div.insert_member_btn .insrt_membtn2:hover{
+	box-shadow: inset 0px 0px 0px red;
+	color:red;
+	border-color:red; 
+	background-color:white;
+}
+
+div.insert_member_btn .insrt_membtn2:hover:before{
+	background-color:red;
+	left:0;
+	right:0;
+	height:2px;
+	width:100%;
+}
 
 
 
