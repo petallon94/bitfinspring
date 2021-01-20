@@ -109,8 +109,7 @@ public class BoardController {
 	   
 	    return "/board/boardlist";
 	 }
-<<<<<<< HEAD
-=======
+
 	
 	///////////리스트 출력 완료
 	
@@ -131,9 +130,6 @@ public class BoardController {
 		dao.insertBoard(dto);
 		return "redirect:list?";
 	}
-	
-	
-	
->>>>>>> feature/1
+
 
 }

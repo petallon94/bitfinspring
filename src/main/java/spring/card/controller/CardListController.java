@@ -17,11 +17,8 @@ public class CardListController {
 	@Autowired
 	private CardDaoInter carddi;
 	
-<<<<<<< HEAD
+
 	@GetMapping("/docter/list")
-=======
-	@GetMapping("doctor/list")
->>>>>>> feature/5
 	public String goCardList(@RequestParam(value="pageNum",defaultValue="1") int currentPage, Model model)
 	{
 		int totalCount = carddi.getTotalCount();
@@ -51,16 +48,12 @@ public class CardListController {
 		
 		//db 로부터 출력할 목록 가져오기
 		List<CardDto> list = carddi.getCardList(start, perPage);
-<<<<<<< HEAD
-		/*
-		 * if(list.size()==0) { return "redirect:list?pageNum="+(currentPage-1); }
-		 */
-=======
+
 //		if(list.size()==0)
 //		{
 //			return "redirect:list?pageNum="+(currentPage-1);
 //		}
->>>>>>> feature/5
+
 		
 		//model에 저장
 		model.addAttribute("currentPage", currentPage);
@@ -73,8 +66,6 @@ public class CardListController {
 		
 		return "/dcommu/dcomlist";
 	}	
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> feature/5
+
