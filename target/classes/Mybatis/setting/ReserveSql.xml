@@ -13,8 +13,8 @@
 	<select id="selectOneOfReserve" parameterType="String" resultType="rdto">
 		select * from reserve where rnum=#{rnum}
 	</select>
-	<!-- update : 수정폼 -->
-	<select id="selectAllOfReserve" parameterType="rdto">
+	<!-- list출력 -->
+	<select id="selectAllOfReserve" resultType="rdto">
 		select * from reserve order by rnum asc
 	</select>
 	<!-- update -->

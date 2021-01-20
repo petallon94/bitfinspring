@@ -2,6 +2,9 @@ package spring.hospital.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +30,7 @@ public class ReserveController {
 		int totalCount=dao.getTotalCount();
 		//전체 데이터 얻기
 		List<ReserveDto> list=dao.getAllDatas();
+		
 		//model에 저장
 		model.addAttribute("totalCount", totalCount);
 		model.addAttribute("list", list);
@@ -47,7 +51,7 @@ public class ReserveController {
 	public String reserveInsert(
 			@ModelAttribute ReserveDto dto)
 	{
-		dao.inserReserve(dto);
+		dao.insertReserve(dto);
 		return "redirect:list";
 	}
 	
@@ -67,22 +71,5 @@ public class ReserveController {
 		
 		return model;
 	}
-	
-	//update
-	@PostMapping("/reserve/update")
-	public String updateReserve(
-			@ModelAttribute ReserveDto dto)
-	{
-		dao.updateReserve(dto);
-		return "redirect:list";
-	}
-	
-	//delete
-	@GetMapping("/reserve/delete")
-	public String deleteReserve(
-			@RequestParam String num)
-	{
-		dao.deleteReserve(num);
-		return "redirect:list";
-	}
 }
+	

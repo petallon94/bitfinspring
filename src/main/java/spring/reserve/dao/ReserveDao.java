@@ -15,7 +15,7 @@ public class ReserveDao extends SqlSessionDaoSupport implements ReserveDaoInter 
 	}
 
 	@Override
-	public void inserReserve(ReserveDto dto) {
+	public void insertReserve(ReserveDto dto) {
 		// TODO Auto-generated method stub
 		getSqlSession().insert("insertOfReserve", dto);
 	}
