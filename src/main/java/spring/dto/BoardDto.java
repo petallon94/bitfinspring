@@ -11,7 +11,35 @@ public class BoardDto {
 	private String bcontent;
 	private Timestamp bwritedate;
 	private int breadcount;
+	private int readcount;
+	private int regroup;
+	private int restep;
+	private int relevel;
 	
+	public int getReadcount() {
+		return readcount;
+	}
+	public void setReadcount(int readcount) {
+		this.readcount = readcount;
+	}
+	public int getRegroup() {
+		return regroup;
+	}
+	public void setRegroup(int regroup) {
+		this.regroup = regroup;
+	}
+	public int getRestep() {
+		return restep;
+	}
+	public void setRestep(int restep) {
+		this.restep = restep;
+	}
+	public int getRelevel() {
+		return relevel;
+	}
+	public void setRelevel(int relevel) {
+		this.relevel = relevel;
+	}
 	public int getBnum() {
 		return bnum;
 	}

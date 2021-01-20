@@ -334,8 +334,13 @@
     	var tempFile,
     		sUploadURL;
     	
+<<<<<<< HEAD
     	sUploadURL= '/common/multiplePhotoUpload.do'; 	//upload URL
     	//sUploadURL= '/common/multiplePhotoUpload.do'; 	//upload URL
+=======
+    	sUploadURL= 'html5upload.php';  	//upload URL
+    	sUploadURL= '/common/multiplePhotoUpload.do'; 	//upload URL
+>>>>>>> feature/1
 
     	//파일을 하나씩 보내고, 결과를 받음.
     	for(var j=0, k=0; j < nImageInfoCnt; j++) {
@@ -456,7 +461,11 @@
 	 * Ajax 통신 시 error가 발생할 때 처리하는 함수입니다.
 	 * @return
 	 */
+<<<<<<< HEAD
 	function onAjaxError (){
+=======
+	function onAjaxError (e){
+>>>>>>> feature/1
 		alert("[가이드]사진 업로더할 서버URL셋팅이 필요합니다.-onAjaxError"+e._response.responseText); //설치 가이드 안내 문구임. 실 서비스에서는 삭제. 
 	}
 
@@ -477,8 +486,13 @@
  	 */
  	function callFileUploader (){
  		oFileUploader = new jindo.FileUploader(jindo.$("uploadInputBox"),{
+<<<<<<< HEAD
  			sUrl  : '/common/photoUpload.do',	//샘플 URL입니다.
  	        sCallback : '/se2/quick_photo_uploader/popup/callback.html',	//업로드 이후에 iframe이 redirect될 콜백페이지의 주소
+=======
+ 			sUrl  : '/common/photoUpload.do', //변경 URL입니다.
+			sCallback : '/naver_editor/sample/photo_uploader/callback.html',
+>>>>>>> feature/1
  	    	sFiletype : "*.jpg;*.png;*.bmp;*.gif",						//허용할 파일의 형식. ex) "*", "*.*", "*.jpg", 구분자(;)	
  	    	sMsgNotAllowedExt : 'JPG, GIF, PNG, BMP 확장자만 가능합니다',	//허용할 파일의 형식이 아닌경우에 띄워주는 경고창의 문구
  	    	bAutoUpload : false,									 	//파일이 선택됨과 동시에 자동으로 업로드를 수행할지 여부 (upload 메소드 수행)

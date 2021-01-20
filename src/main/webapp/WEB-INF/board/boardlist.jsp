@@ -36,12 +36,53 @@
 			<button type="button" class ="board_searchbtn">검색하기</button>
 		</div>
 		<hr>
+		
+	<table class ="table table-bordered">
+	<tr bgcolor = "#ddd">
+		<th style ="width : 60px;">번호</th>
+		<th style ="width : 400px;">제목</th>
+		<th style ="width : 80px;">작성자</th>
+		<th style ="width : 120px;">작성일</th>
+		<th style ="width : 60px;">조회</th>
+		
+	</tr>
+	<c:forEach var ="a" items ="${list}">
+		<tr style="cursor:pointer" onclick="location.href='content?num=${a.bnum}&pageNum=${currentPage}&key=list'">
+			<td align="center">
+			</td>
+
+			<td>
+			<a href="location.href='content?num=${a.bnum }&pageNum=${currentPage}&key=list"></a>
+			<c:forEach var ="sp" begin ="1" end ="${a.relevel}">
+			&nbsp;&nbsp;&nbsp;
+			</c:forEach>
+			<c:if test="${a.restep>0}">
+			<img src="../image/re.png">
+			</c:if><a>
+			${a.bsubject }
+			
+			<td align ="center">
+			${a.bwriter}
+			</td>
+			<td align = "center">
+			<fmt:formatDate value="${a.bwritedate}" pattern="yyyy-MM-dd"/>
+			</td>
+			<td align ="center">
+			${a.readcount}
+			</td>
+		
+		</tr>
+	
+	</c:forEach>
+	
+</table>
+		
 		<div class="boardlist">
 			<div class="boardleft">
 				<h4>제목</h4>
 				<div class="boardcontent">
 					본문
-					<p>14일 방송되는 SBS 예능프로그램 ‘맛남의 광장’에서는 백종원, 양세형, 김희철, 유병재, 김동준이 게스트
+					<p>14일 방송되는 SBS 예능프로그램 ‘맛남의 광장’fdgsdfsdgd에서는 백종원, 양세형, 김희철, 유병재, 김동준이 게스트
 						이지아와 함께 제철 시금치 소비 촉진을 위해 포항으로 향하는 모습이 그려진다.</p>
 				</div>
 			</div>
@@ -51,9 +92,39 @@
 			</div>
 
 		</div>
+	
 		<hr>
 	</div>
 	
+<<<<<<< HEAD
 	<div class="boardpage">보드페이지</div>
+=======
+	<div style ="width:800px;text-align:center;">
+	<ul class ="pagination">
+		<c:forEach var="pp" begin="${startPage}" end="${endPage}">
+          <c:if test="${pp==currentPage}">
+             <li class="active">
+                <a href="list?pageNum=${pp}">${pp}</a>
+             </li>
+          </c:if>
+          <c:if test="${pp!=currentPage}">
+             <li>
+                <a href="list?pageNum=${pp}">${pp}</a>
+             </li>
+          </c:if>
+       </c:forEach>
+       <c:if test="${endPage<totalPage}">
+       <li>
+          <a href="list?pageNum=${endPage+1}">다음</a>
+       </li>
+       </c:if>
+
+	</ul>
+	</div>
+	
+	<button type ="button" class = "board_write_btn" onclick="location.href='board/boardwrite'">글쓰기</button>
+	
+	
+>>>>>>> feature/1
 </body>
 </html>
