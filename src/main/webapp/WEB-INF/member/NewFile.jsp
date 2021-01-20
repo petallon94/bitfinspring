@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-이해가 덜가요...
+바보야!!
 </body>
 </html>
