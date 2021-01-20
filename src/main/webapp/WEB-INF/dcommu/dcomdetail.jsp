@@ -23,16 +23,15 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 	 	<!-- hidden start-->
         <input type="hidden" id="cnum" value="${dto.cnum}">
         <!-- hidden end-->
-		<div class="con-title"><h1><b>${dto.csubject }안녕하세요</b></h1></div>
-		<div class="con-writer"><b>${dto.cwriter }이상헌</b></div>
+		<div class="con-title"><h1><b>${dto.csubject }</b></h1></div>
+		<div class="con-writer"><b>${dto.cwriter }</b></div>
 		<div class="con-writedate">
-			2021-01-20 20:22
-			<fmt:formatDate value="${dto.writedate }" pattern="yyyy-MM-dd HH:mm"/>
+			<fmt:formatDate value="${dto.cwritedate }" pattern="yyyy-MM-dd HH:mm"/>
 		</div>
-		<div class="con-readcount">조회 ${dto.creadcount }0</div>
+		<div class="con-readcount">조회 ${dto.creadcount }</div>
 		<div class="con-content">
 			<hr class="con-line">
-			<pre>${dto.ccontent}에베베베</pre>
+			<pre>${dto.ccontent}</pre>
 			<hr class="con-line">
 		</div>
 		<div class="con-btn">		
