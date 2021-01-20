@@ -7,7 +7,7 @@ import spring.dto.ReserveDto;
 public interface ReserveDaoInter {
 	//출력
 	public int getTotalCount();
-	public void inserReserve(ReserveDto dto);
+	public void insertReserve(ReserveDto dto);
 	public ReserveDto getData(String num);
 	public List<ReserveDto> getAllDatas();
 	
