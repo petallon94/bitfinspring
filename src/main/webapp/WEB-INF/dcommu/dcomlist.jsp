@@ -51,7 +51,7 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 		<div class="dcom-prod-list-box">
 			<ul class="dcom-row">
 			<c:forEach var="dto" items="${list }" varStatus="i">
-				<li class="dcom-cell"><a href="datail?num=${dto.cnum}&pageNum=${currentPage }&key=list">
+				<li class="dcom-cell"><a href="detail?num=${dto.cnum}&pageNum=${currentPage }&key=list">
 						<input type="text" value="${i.count}">
 						<div class="dcom-img-box">
 							<img

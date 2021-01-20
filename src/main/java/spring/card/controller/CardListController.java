@@ -18,7 +18,7 @@ public class CardListController {
 	private CardDaoInter carddi;
 	
 
-	@GetMapping("/docter/list")
+	@GetMapping("/doctor/list")
 	public String goCardList(@RequestParam(value="pageNum",defaultValue="1") int currentPage, Model model)
 	{
 		int totalCount = carddi.getTotalCount();
