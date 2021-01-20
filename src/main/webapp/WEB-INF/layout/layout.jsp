@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
@@ -16,15 +17,17 @@
   crossorigin="anonymous"
 ></script>
 
+<!-- Boot Strap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <!-- CSS 파일 -->
 <link rel="stylesheet" href="${root}/css/fullpage.min.css" />
 <link rel="stylesheet" href="${root}/css/layout.css" />
 <link rel="stylesheet" href="${root}/css/hospital.css" />
-
 <link rel="stylesheet" href="${root}/css/member.css" />
-
 <!-- JS 파일 -->
 <script src="${root}/js/fullpage.min.js" ></script>
+
+
 
 </head>
 <body>
@@ -40,4 +43,5 @@
    </div>
 </div>
 </body>
+
 </html>

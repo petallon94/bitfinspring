@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="card">
+	<select id="maxNumOfCard" resultType="int">
+		select ifnull(max(cnum),0) from card
+	</select>
 	<!-- 전체 데이터 리스트 얻기 -->
 	<select id="selectAllOfCard" resultType="cdto">
-		select * from card order by num desc
+		select * from card order by cnum desc
 	</select>
 	<!-- 전체 갯수 얻기 -->
 	<select id="totalCountOfCard" resultType="int">
@@ -15,18 +18,18 @@
 		(#{cmidnum}, #{cwriter}, #{csubject}, #{ccontent}, now(), #{cphoto}, #{creadcount})
 	</insert>
 	<!-- 조회수 얻기 -->
-	<update id="updateReadCount" parameterType="String">
-		update card set readcount=readcount+1 where num=#{num}
+	<update id="updateReadCountCard" parameterType="String">
+		update card set readcount=readcount+1 where cnum=#{cnum}
 	</update>
 	<!--   num에 해당하는 게시글 가져오기 -->
 	<select id="selectOneOfCard" parameterType="String" resultType="cdto">
-		select * from card where num=#{num}
+		select * from card where cnum=#{cnum}
 	</select>
 	<update id="updateOfCard" parameterType="cdto">
 		update card set cwriter=#{cwriter}, csubject=#{csubject}, ccontent=#{content}, 
-		<if test="cphoto!=null">, cphoto=#{cphoto}</if> where num=#{num}
+		<if test="cphoto!=null">, cphoto=#{cphoto}</if> where cnum=#{cnum}
 	</update>
 	<delete id="deleteOfCard" parameterType="String">
-		delete from card where num=#{num}
+		delete from card where cnum=#{cnum}
 	</delete>
 </mapper>

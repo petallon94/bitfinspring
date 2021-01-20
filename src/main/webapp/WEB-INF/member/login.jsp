@@ -10,18 +10,24 @@
 </head>
 <body>
 <div class="login_container">
-	<div>
+	<div class="login_wrapper">
 		<form action="#" method="post">
-			<div>
-				<p>로그인</p>
-				<input type="text" name="login_id" class="login_id" placeholder="ID" />
-				<input type="text" name="login_pw" class="login_pw" placeholder="PW" />
+			<div class="login_symbol_background">
+				<img src="${root}/image/covid_symbol.png" >
 			</div>
-			<div>
-				<button type="submit">로그인</button>
-				<button type="button" onclick="location.href='signup'">회원가입</button>
-				<button type="button" onclick="location.href=''">아이디 패스워드 찾는고</button>
-				
+			<div class="login_input1">
+				<input type="text" name="login_id" class="login_id" required />
+				<div class="underline"></div>
+				<label><span class="glyphicon glyphicon-user"></span>  ID</label>
+			</div>
+			<div class="login_input1">
+				<input type="text" name="login_pw" class="login_id" required />
+				<div class="underline"></div>
+				<label><span class="glyphicon glyphicon-lock"></span>  Password</label>
+			</div>
+			<div class="login_btns">
+				<button type="submit" class="login_btn">L o g  I n</button><br>
+				<button type="button" class="login_btn signup_btn" onclick="location.href='signup'">S I G N  U P</button>
 			</div>
 		</form>
 	</div>
