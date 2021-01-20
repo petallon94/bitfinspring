@@ -99,7 +99,7 @@ local.properties
 .sts4-cache/
 
 .settings
-.properties
+target/*.properties
 *.MF
 
 # End of https://www.toptal.com/developers/gitignore/api/eclipse
