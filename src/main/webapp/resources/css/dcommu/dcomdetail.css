@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #1f2c59
+}
+html,body {
+	overflow-x: hidden;
+}
+
+.con-table {
+	margin: 0 auto;
+	max-width: 1200px;
+	
+}
+
+.con-box {
+	top: 150px;
+	position: relative;
+	background-color: white;
+	border-radius: 10px;
+}
+
+.con-writer {
+	position: relative; top: 0px;
+	font-size: 1.2em;
+}
+.con-writedate {
+	position: relative; top: 0px;
+	color: gray;
+}
+.con-readcount{
+	position: relative; top: -21px; color: gray;
+	left: 140px;
+}
+.con-content {
+	position: relative;
+	top: -40px;
+}
+
+
+.con-line{
+	background-color: #bdbdbd;
+}
+
+.con-btn{
+	position: relative;
+	left: 920px;
+	top: -30px;
+}
