@@ -1,5 +1,8 @@
 package spring.member.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,18 +51,34 @@ public class MemberController {
 	@PostMapping("member/savemember")
 	public String insertMember(@ModelAttribute MemberDto dto)
 	{
-		
 		service.insertMember(dto);
 		return "redirect:login";
+	};
+	
+	@PostMapping("member/loginmethod")
+	public String loginMethod(
+			HttpServletRequest request, HttpServletResponse response,
+			@RequestParam String mid, @RequestParam String mpw) {
+		String loginok = service.loginMember(mid,mpw);
+		String path;
+		if(loginok=="ok") {
+			path="redirect:/";
+			System.out.println(path);
+			request.getSession().setAttribute("loginok","ok");
+			request.getSession().setAttribute("loginid",mid);
+		}else {
+			path="/member/nidlogin";
+		}
+		System.out.println(path);
+		return path;
+	};
+	
+	@GetMapping("member/logout")
+	public String loginMethod(
+			HttpServletRequest request, HttpServletResponse response) {
+		
+		request.getSession().invalidate();
+		
+		return "redirect:/";
 	}
-
-	
-	
-	
-	
-
-	
-	
-	
-	
 }

@@ -5,8 +5,8 @@
 
 	<!-- 가입 -->
 	<insert id="insertOfMember" parameterType="mdto">
-		insert into member (mid,mnick,mpw,mhp,memail,mrole,mchat) values (
-		#{mid},#{mnick},#{mpw},#{mhp},#{memail},#{mrole},#{mchat})
+		insert into MEMBER (mid,mnick,mpw,mhp,mrole,mchat) values (
+		#{mid},#{mnick},#{mpw},#{mhp},#{mrole},#{mchat})
 	</insert>
 
 	<!-- 정보가져오기 -->
@@ -36,8 +36,9 @@
 	</select>
 
 	<!-- 로그인 -->
-	<select id="loginOfMember" parameterType="String" resultType="mdto">
-		select * from member where mid=#{mid} and mpw=#{mpw}
+	<select id="loginOfMember" parameterType="String" resultType="int">
+		select EXISTS (select * from member where mid=#{mid} and mpw=#{mpw}) as success
 	</select>
+	
 
 </mapper>

@@ -11,5 +11,7 @@ public interface MemberDaoInter {
 	public int idCheck(String mid);
 	public int pwCheck(String mid, String mpw);
 	public MemberDto getLogin(MemberDto dto	);
+	
+	public int loginmember(String mid, String mpw);
 
 }
