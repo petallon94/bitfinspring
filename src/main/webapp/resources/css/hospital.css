@@ -1,4 +1,4 @@
-/* º´¿ø°Ë»ö ¸ŞÀÎ */
+/* ë³‘ì›ê²€ìƒ‰ ë©”ì¸ */
 .hospital__main {
 	background-color: #1f2c59;
 	background-size: cover;
@@ -87,7 +87,7 @@
 	height: 100px;
 	margin-bottom: 20px;
 }
-/* ¾Ö´Ï¸ŞÀÌ¼Ç³ÖÀ»·Á°íÇŞÁö¸¸ ¾ÈµÊ
+/* ì• ë‹ˆë©”ì´ì…˜ë„£ì„ë ¤ê³ í–‡ì§€ë§Œ ì•ˆë¨
 .hospital__main_menu ul li a img.grow-img 
 {
 	width: 100px;
@@ -98,7 +98,8 @@
 	transition: 2s ease-in-out;
 } */
 
-/* º´¿ø °Ë»ö ¸ñ·Ï */
+/* ë³‘ì› ê²€ìƒ‰ ëª©ë¡ */
+
 .hospital__list {
 	background-size: cover;
 	background-position: center;
@@ -106,6 +107,10 @@
 	padding: 150px 0;	
 }
 
+#hospital__list_title{
+	font-size: 30px;
+	color: #0770bb;	
+}
 .hospital__list_tabbox {
     display: flex;
 	overflow: hidden;
@@ -130,7 +135,9 @@
 	text-decoration: none;
 	vertical-align: middle;	
 }
-.active {
+
+.active1 {
+
     position: relative;
     border-left: 2px solid #0770bb;
     border-top: 2px solid #0770bb;
@@ -201,6 +208,21 @@
 	margin: 0;
 }
 
+/* ë³‘ì›ë””í…Œì¼í˜ì´ì§€ */
+.hospital_detail{
+	flex-direction: column;
+	justify-content: center;
+}
+#hospital__detail_title{
+	font-size: 40px;
+	color: #0770bb;
+	margin-top: 100px;	
+}
+#hospital__map{
+	width:1000px; 
+	height:500px; 
+	margin: 50px;
+}
 
 
 /* media queries */

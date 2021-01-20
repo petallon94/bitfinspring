@@ -10,4 +10,7 @@ public interface MemberServiceInter {
 	public MemberDto getData(String mnum);
 	public int idCheck(String mid);
 	public int pwCheck(String mid, String mpw);
+	public MemberDto getLogin(MemberDto dto	);
+	
+	public String loginMember(String mid, String mpw);
 }
