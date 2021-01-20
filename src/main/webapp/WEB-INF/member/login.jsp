@@ -11,17 +11,17 @@
 <body>
 <div class="login_container">
 	<div class="login_wrapper">
-		<form action="#" method="post">
+		<form action="loginmethod" method="post">
 			<div class="login_symbol_background">
 				<img src="${root}/image/covid_symbol.png" >
 			</div>
 			<div class="login_input1">
-				<input type="text" name="login_id" class="login_id" required />
+				<input type="text" name="mid" class="login_id" required />
 				<div class="underline"></div>
 				<label><span class="glyphicon glyphicon-user"></span>  ID</label>
 			</div>
 			<div class="login_input1">
-				<input type="text" name="login_pw" class="login_id" required />
+				<input type="text" name="mpw" class="login_id" required />
 				<div class="underline"></div>
 				<label><span class="glyphicon glyphicon-lock"></span>  Password</label>
 			</div>

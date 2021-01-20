@@ -29,11 +29,18 @@
 
 
 
+
 </head>
 <body>
 <div class="layout">
    <div id="header">
-      <tiles:insertAttribute name="header"/>
+	<%//세션 로그인 확인
+	String loginok=(String)session.getAttribute("loginok");
+    	if(loginok==null){%>
+          	<tiles:insertAttribute name="header"/>
+    	<%}else{%>
+          	<tiles:insertAttribute name="header2"/>
+   <%}%>
    </div>
    <div id="main">
       <tiles:insertAttribute name="main"/>

@@ -11,17 +11,47 @@
 <body>
 <div class="insert_member_container">
 	<div class="insert_member_wrapper">
-		<form action="savemember" method="post">
+		<form action="savemember" method="post" id="signupform">
 			<input type="hidden" name="mrole" value="0">
-			<input type="text" name="mid" class="mid" placeholder="id">
-			<input type="text" name="mnick" class="mnick" placeholder="nick">
-			<input type="text" name="mpw" class="mpw" placeholder="pw">
-			<input type="text" name="mhp" class="mhp" placeholder="hp">
 			<input type="hidden" name="mchat" value="0">
 			
+			<h2 class="signup_main_title">일반인 회원가입</h2>
+			
+			<label class="signup_input">
+				<input type="text" name="mid" class="mid" required>
+				<span class="signup_input_sp"> <span class="glyphicon glyphicon-user"></span> ID</span>
+			</label>
+			
+			<label class="signup_input">
+				<input type="text" name="mnick" class="mnick" required>
+				<span class="signup_input_sp"> <span class="glyphicon glyphicon-user"></span> Nick Name</span>
+			</label>
+			
+			<label class="signup_input">
+				<input type="text" name="memail" class="memail" required>
+				<span class="signup_input_sp"> <span class="glyphicon glyphicon-envelope"></span> Email</span>
+			</label>
+			
+			<label class="signup_input">
+				<input type="text" name="mpw" class="mpw" required>
+				<span class="signup_input_sp"> <span class="glyphicon glyphicon-lock"></span> Password</span>
+			</label>
+			
+			<label class="signup_input">
+				<input type="text" name="mpw2" class="mpw" required>
+				<span class="signup_input_sp"> <span class="glyphicon glyphicon-lock"></span> Check Your Password</span>
+			</label>
+			
+			<label class="signup_input">
+				<input type="text" name="mhp" class="mhp" required>
+				<span class="signup_input_sp"> <span class="glyphicon glyphicon-earphone"></span> Phone Number</span>
+			</label>
+			
+			
+			
 			<div class="insert_member_btn">
-				<button type="submit">가입</button>
-				<button type="button" onclick="history.back();">취소</button>
+				<button class="insrt_membtn" type="submit">가입</button><br>
+				<button class="insrt_membtn insrt_membtn2" type="button" onclick="history.back();">취소</button>
 			</div>
 		</form>
 	</div>

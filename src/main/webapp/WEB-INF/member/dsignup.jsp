@@ -14,44 +14,65 @@
 		<form action="savemember" method="post" id="signupform">
 			<input type="hidden" name="mrole" value="1">
 			
-			<h1>전문인 회원가입</h1>
+			<h2 class="signup_main_title">전문인 회원가입</h2>
 			
 			<label class="signup_input">
 				<input type="text" name="mid" class="mid" required>
-				<span class="signup_input_sp">ID</span>
+				<span class="signup_input_sp"> <span class="glyphicon glyphicon-user"></span> ID</span>
 			</label>
 			
 			<label class="signup_input">
 				<input type="text" name="mnick" class="mnick" required>
-				<span class="signup_input_sp">Nick Name</span>
+				<span class="signup_input_sp"> <span class="glyphicon glyphicon-user"></span> Nick Name</span>
 			</label>
 			
 			<label class="signup_input">
-				<input type="text" name="mpw" class="mpw">
-				<span class="signup_input_sp">Password</span>
+				<input type="text" name="memail" class="memail" required>
+				<span class="signup_input_sp"> <span class="glyphicon glyphicon-envelope"></span> Email</span>
 			</label>
 			
 			<label class="signup_input">
-				<input type="text" name="mpw2" class="mpw">
-				<span class="signup_input_sp">Check Your Password</span>
+				<input type="text" name="mpw" class="mpw" required>
+				<span class="signup_input_sp"> <span class="glyphicon glyphicon-lock"></span> Password</span>
 			</label>
 			
 			<label class="signup_input">
-			<input type="text" name="mhp" class="mhp">
-			<span class="signup_input_sp">Phone Number</span>
+				<input type="text" name="mpw2" class="mpw" required>
+				<span class="signup_input_sp"> <span class="glyphicon glyphicon-lock"></span> Check Your Password</span>
 			</label>
 			
+			<label class="signup_input">
+				<input type="text" name="mhp" class="mhp" required>
+				<span class="signup_input_sp"> <span class="glyphicon glyphicon-earphone"></span> Phone Number</span>
+			</label>
 			
-			
-			저희 코드아웃사이트는 고객과의 채팅프로그램이 설계되어 있습니다.
-			해당 기능을 희망하시면 희망함에 체크해주세요.
-			<div>
-				<label><input type="radio" name="mchat" value="1">희망함</label>
-				<label><input type="radio" name="mchat" value="0">희망안함</label>
+			<div class="signup_exbox">
+				<div class="signup_explain">
+				 저희 코드아웃사이트는 고객과의 채팅프로그램이 설계되어 있습니다.<br>
+				해당 기능을 희망하시면 희망함에 체크해주세요.
+				</div>
+				
+				
+				
+				
+				<div class="signup_radio">
+					<label>
+						<input type="radio" name="mchat" value="1">
+						<span>Yes</span>
+					</label>
+					<label>
+						<input type="radio" name="mchat" value="0">
+						<span>No</span>
+					</label>
+				</div>
 			</div>
+			
+			
+			
+			
 			<div class="insert_member_btn">
-				<button type="submit">가입</button>
-				<button type="button" onclick="history.back();">취소</button>
+				<button class="insrt_membtn" type="submit">가입</button><br>
+				<button class="insrt_membtn insrt_membtn2" type="button" onclick="history.back();">취소</button>
 			</div>
 		</form>
 	</div>
