@@ -7,7 +7,6 @@ import spring.dto.CardDto;
 public interface CardDaoInter {
 	public int getNumMax();
 	public int getTotalCount();
-	public int getCheckPass(String num, String pass);
 	public void updateReadCount(String num);
 	public void insertCard(CardDto dto);
 	public List<CardDto> getCardList(int start, int perpage);

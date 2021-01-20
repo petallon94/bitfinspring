@@ -1,5 +1,6 @@
 package spring.card.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.support.SqlSessionDaoSupport;
@@ -23,45 +24,43 @@ public class CardDao extends SqlSessionDaoSupport implements CardDaoInter {
 	}
 
 	@Override
-	public int getCheckPass(String num, String pass) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public void updateReadCount(String num) {
 		// TODO Auto-generated method stub
-
+		getSqlSession().update("updateReadCountCard", num);
 	}
 
 	@Override
 	public void insertCard(CardDto dto) {
 		// TODO Auto-generated method stub
-
+		getSqlSession().insert("insertOfCard", dto);
 	}
 
 	@Override
 	public List<CardDto> getCardList(int start, int perpage) {
 		// TODO Auto-generated method stub
-		return null;
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("start", start);
+		map.put("perpage", perpage);
+		
+		return getSqlSession().selectList("selectAllOfCard", map);
 	}
 
 	@Override
 	public CardDto getCardData(String num) {
 		// TODO Auto-generated method stub
-		return null;
+		return getSqlSession().selectOne("selectOneOfCard", num);
 	}
 
 	@Override
 	public void updateCard(CardDto dto) {
 		// TODO Auto-generated method stub
-
+		getSqlSession().update("updateOfCard", dto);
 	}
 
 	@Override
 	public void deleteCard(String num) {
 		// TODO Auto-generated method stub
-
+		getSqlSession().delete("deleteOfCard", num);
 	}
 
 }

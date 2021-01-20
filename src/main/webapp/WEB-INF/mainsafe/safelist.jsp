@@ -19,7 +19,7 @@ body,ul,li {
 	list-style: none;
 }
 
-a {
+a  {
 	color: inherit;
 	text-decoration: none;
 }

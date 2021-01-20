@@ -16,7 +16,7 @@
 	<resources mapping="/image/**" location="/resources/image/" />
 	<resources mapping="/js/**" location="/resources/js/" />
 	<resources mapping="/css/**" location="/resources/css/" />
-
+	<resources mapping="/se2/**" location="/se2/" />
 	
 	<!-- file upload settion code -->
 	<beans:bean id ="multipartResolver" class ="org.springframework.web.multipart.commons.CommonsMultipartResolver">
