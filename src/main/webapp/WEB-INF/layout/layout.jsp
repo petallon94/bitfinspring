@@ -33,15 +33,23 @@
 </head>
 <body>
 <div class="layout">
-   <div id="header">
-      <tiles:insertAttribute name="header"/>
-   </div>
-   <div id="main">
-      <tiles:insertAttribute name="main"/>
-   </div>
-   <div id="footer">
-      <tiles:insertAttribute name="footer"/>
-   </div>
+	<div id="header">
+		<%//세션에서 로그인 상태를 알 수 있는 loginok 얻기
+	        String loginok=(String)session.getAttribute("loginok");
+	        if(loginok==null){%>
+            	<tiles:insertAttribute name="header"/>
+            <%}else{%>
+            	<tiles:insertAttribute name="header2"/>
+          	<%}%>
+	</div>
+	
+	<div id="main">
+	   <tiles:insertAttribute name="main"/>
+	</div>
+	
+	<div id="footer">
+	   <tiles:insertAttribute name="footer"/>
+	</div>
 </div>
 </body>
 
