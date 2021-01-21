@@ -71,5 +71,24 @@ public class ReserveController {
 		
 		return model;
 	}
+	
+	//update
+	   @PostMapping("/reserve/update")
+	   public String updateReserve(
+	         @ModelAttribute ReserveDto dto)
+	   {
+	      dao.updateReserve(dto);
+	      return "redirect:list";
+	   }
+	   
+	   //delete
+	   @GetMapping("/reserve/delete")
+	   public String deleteReserve(
+	         @RequestParam String num)
+	   {
+	      dao.deleteReserve(num);
+	      return "redirect:list";
+	   }
+
 }
 	

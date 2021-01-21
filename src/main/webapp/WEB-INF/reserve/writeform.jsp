@@ -69,22 +69,20 @@
 							<option value="17:30">17:30</option>
 							<option value="18:00">18:00</option>
 							<option value="18:30">18:30</option>
-						</select> 			 	
+				</select>  	
 			</td>
 		</tr>
 			<tr>
 			<td colspan="2" align="center">
 				<button type="submit" class="btn btn-info btn-sm"
 				style="width: 100px;" >예약하기</button>
-				<button type="button" class="btn btn-info btn-sm"
-				style="width: 100px;"
+				<button type="button" class="btn btn-warning btn-sm"
+				style="width: 150px;"
 				onclick="location.href='list'">나의 예약목록보기</button>
 			</td>
 		</tr>
 		</table>
 </div>
 </form>
-
-
 </body>
 </html>
