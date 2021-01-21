@@ -21,18 +21,23 @@ html,body {
 	background-color: white;
 	border-radius: 10px;
 }
-
+.con-title{
+	position: relative;
+	left: 10px;
+}
 .con-writer {
 	position: relative; top: 0px;
 	font-size: 1.2em;
+	left: 10px;
 }
 .con-writedate {
 	position: relative; top: 0px;
 	color: gray;
+	left: 10px;
 }
 .con-readcount{
 	position: relative; top: -21px; color: gray;
-	left: 140px;
+	left: 150px;
 }
 .con-content {
 	position: relative;

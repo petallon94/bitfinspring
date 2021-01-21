@@ -118,7 +118,7 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 			<button type="button" class="dcom-search-btn" onclick="">검색하기</button>
 			<!-- <div class="dcom-write-box"> -->
 			<button type="button" class="dcom-write-btn" style="width: 100px;"
-				onclick="location.href='writeform?cmidnum='">게시글작성</button>
+				onclick="location.href='writeform?cmidnum=${mdto.mnum}'">게시글작성</button>
 			<!-- </div> -->
 		</div>
 	</div>

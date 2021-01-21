@@ -37,7 +37,7 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 enctype="multipart/form-data" onsubmit="return false;" action="insert">
 	<!-- hidden -->
 	<input type="hidden" name="pageNum" value="${pageNum }">
- 	<input type="hidden" name="cmidnum" value="${cmidnum }">		
+ 	<input type="hidden" name="cmidnum" value="${mdto.mnum}">		
    <!-- SmartEditor2 -->
    <div class="jsx-2303464893 editor dcom-con">
       <div style="height: 100px;">
@@ -57,7 +57,7 @@ enctype="multipart/form-data" onsubmit="return false;" action="insert">
          <b>작성자</b>
             <input type="text" class="form-control dcom-row"
                      style="width: 120px;" required="required"
-                     name="cwriter" placeholder="작성자"> 
+                     name="cwriter" value="${mdto.mnick }"> 
          </div>
       </div>
       <div class="fr-box fr-basic fr-top" role="application">
