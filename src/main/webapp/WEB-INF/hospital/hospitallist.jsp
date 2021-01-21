@@ -120,6 +120,28 @@
                         this.className += " active1";                    
                     });
                 }
+                
+                /* Javascript 샘플 코드 */
+
+
+                var xhr = new XMLHttpRequest();
+                var url = 'http://apis.data.go.kr/B551182/pubReliefHospService/getpubReliefHospList'; /*URL*/
+                var queryParams = '?' + encodeURIComponent('ServiceKey') + '='+'ELPlnUlo0CxXA8FbXT0V%2B0wkutn45xHxgWifiU35dIFwr3r1ngGdPJCbxlz59QRhYMoSmt2nzUIZYiCxjFQXgg%3D%3D'; /*Service Key*/
+                queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
+                queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10'); /**/
+                queryParams += '&' + encodeURIComponent('spclAdmTyCd') + '=' + encodeURIComponent('A0'); /**/
+                xhr.open('GET', url + queryParams);
+                xhr.onreadystatechange = function () {
+                    if (this.readyState == 4) {
+                    	//console.log(this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseText);
+                        alert('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseText);
+                    }
+                };
+
+                xhr.send('');
+                
+                
+                
 				<!--탭클릭시 타이틀 변경 작동안됨 ㅋㅋ-->
                 document.getElementById("hospital__list_title").addEventListener("change", changeTitle);
                 function changeTitle() {

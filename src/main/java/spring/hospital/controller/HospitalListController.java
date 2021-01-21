@@ -5,17 +5,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HospitalListController {
-	@GetMapping("/hospitalmain")
+	@GetMapping("/hospital/main")
    public String goHospital() {
       return "/hospital/hospitalmain";
    }
 	
-   @GetMapping("/hospitallist")
+   @GetMapping("/hospital/list")
    public String goHlist() {
       return "/hospital/hospitallist";
    }
    
-   @GetMapping("/hospitaldetail")
+   @GetMapping("/hospital/detail")
    public String goHdetail() {
       return "/hospital/hospitaldetail";
    }
