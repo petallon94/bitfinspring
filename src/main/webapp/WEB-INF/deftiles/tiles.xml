@@ -12,7 +12,6 @@
     <put-attribute name="main" value="/WEB-INF/layout/main.jsp"/>
     </definition>
     
-    
     <definition name ="/*/*" extends ="layout">
        <put-attribute name="main" value="/WEB-INF/{1}/{2}.jsp"/>    
     </definition>

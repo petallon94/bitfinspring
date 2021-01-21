@@ -62,6 +62,10 @@ public class CardDao extends SqlSessionDaoSupport implements CardDaoInter {
 		// TODO Auto-generated method stub
 		getSqlSession().delete("deleteOfCard", num);
 	}
+	@Override
+	public List<CardDto> getCardRank(String creadcount){
+		return getSqlSession().selectList("selectRankOfCard", creadcount);
+	}
 
 }
 

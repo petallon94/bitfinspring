@@ -13,4 +13,5 @@ public interface CardDaoInter {
 	public CardDto getCardData(String num);
 	public void updateCard(CardDto dto);
 	public void deleteCard(String num);
+	public List<CardDto> getCardRank(String creadcount);
 }
