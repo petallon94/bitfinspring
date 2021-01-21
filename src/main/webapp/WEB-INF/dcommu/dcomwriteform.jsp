@@ -36,8 +36,8 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 <form id="frm" name="editor_upimage" method="post" 
 enctype="multipart/form-data" onsubmit="return false;" action="insert">
 	<!-- hidden -->
-	<input type="hidden" name="pageNum" value=${pageNum }>
- 	<input type="hidden" name="cmidnum" value=1>		
+	<input type="hidden" name="pageNum" value="${pageNum }">
+ 	<input type="hidden" name="cmidnum" value="${cmidnum }">		
    <!-- SmartEditor2 -->
    <div class="jsx-2303464893 editor dcom-con">
       <div style="height: 100px;">
