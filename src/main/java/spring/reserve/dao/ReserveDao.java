@@ -14,6 +14,7 @@ public class ReserveDao extends SqlSessionDaoSupport implements ReserveDaoInter 
 		return getSqlSession().selectOne("totalCountOfReserve");
 	}
 
+	//insert
 	@Override
 	public void insertReserve(ReserveDto dto) {
 		// TODO Auto-generated method stub
