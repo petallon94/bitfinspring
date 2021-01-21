@@ -46,7 +46,7 @@ public class BoardController {
 	  // System.out.println(totalCount);
 	   
 	   int perPage=5;       //이런 한글이 왜 깨지는 거야
-	   int perBlock=4;     // 
+	   int perBlock=4;     // 한글 나쁜놈 왜 깨지는 거징ㅠㅠ
 	   int totalPage;      //
 	   int startPage;      //
 	   int endPage;      //
