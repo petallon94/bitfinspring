@@ -29,10 +29,11 @@ html, body {
 	float: left;
 }
 
-.dcom-img-box img {
+.dcom-img-mainbox img {
 	display: block;
 	width: 100%;
 }
+
 
 /*커스텀*/
 .dcom-con {
@@ -113,18 +114,30 @@ html, body {
 
 
 /* 리스트 강조*/
-.dcom-prod-list-bar .dcom-prod-list-box>ul>li>a>.dcom-img-box {
+.dcom-prod-list-bar .dcom-prod-list-box>ul>li>a>.dcom-img-bar {
 	overflow: hidden;
 	position: relative;
 	border-top-left-radius: 10px; border-top-right-radius: 10px;
 	border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;
-	background-color: black;
 	border: 2px solid #4a4643;
-	
-	
+	padding-top: 75%;
+	background-color: black;
+}
+.dcom-img-bar .dcom-img-box {
+	position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
+	-webkit-transform: translate(50%,50%); 
+	-ms-transform: translate(50%,50%); 
+	transform: translate(50%,50%);
+	border-top-left-radius: 7px; border-top-right-radius: 7px;
+}
+.dcom-img-bar .dcom-img-box img {
+	position: absolute; top: 0; left: 0; width: auto; height: 100%; 
+	-webkit-transform: translate(-50%,-50%); 
+	-ms-transform: translate(-50%,-50%); transform: translate(-50%,-50%);
+
 }
 /* 리스트 강조-배경*/
-.dcom-prod-list-bar .dcom-prod-list-box>ul>li>a>.dcom-img-box::before {
+.dcom-prod-list-bar .dcom-prod-list-box>ul>li>a>.dcom-img-bar::before {
 	content: "";
 	position: absolute;
 	top: 0;
@@ -138,13 +151,13 @@ html, body {
 	
 }
 
-.dcom-prod-list-bar .dcom-prod-list-box>ul>li:hover>a>.dcom-img-box::before
+.dcom-prod-list-bar .dcom-prod-list-box>ul>li:hover>a>.dcom-img-bar::before
 	{
 	opacity: 0.5;
 	
 }
 /* 리스트 강조-view*/
-.dcom-prod-list-bar .dcom-prod-list-box>ul>li>a>.dcom-img-box::after {
+.dcom-prod-list-bar .dcom-prod-list-box>ul>li>a>.dcom-img-bar::after {
 	content: "VIEW";
 	position: absolute;
 	top: 50%;
@@ -157,9 +170,10 @@ html, body {
 	transition: opacity 0.5s;
 	border-radius: 10px;
 	z-index: 2;
+	
 }
 
-.dcom-prod-list-bar .dcom-prod-list-box>ul>li:hover>a>.dcom-img-box::after
+.dcom-prod-list-bar .dcom-prod-list-box>ul>li:hover>a>.dcom-img-bar::after
 	{
 	opacity: 1;
 	
@@ -176,6 +190,7 @@ html, body {
 .dcom-search-box{
 	background-color: #4a4643;
 	padding : 20px;
+	
 }
 
 .dcom-search {
@@ -211,8 +226,7 @@ html, body {
 	padding: 10px 50px;
 	
 }
-.slide-img-box {
-	background-color: black;
+.slide-img-bar {
 	margin-top: 20px;
 	border: 2px solid #4a4643;
 	border-top-left-radius: 10px; border-top-right-radius: 10px;
@@ -220,11 +234,22 @@ html, body {
 	width: 97%;
 	overflow: hidden;
 	position: relative;
+	padding-top: 75%;
+	background-color: black;
+	
 }
-.slide-img-box img {
-	display: block;
-	width: 100%;
+.slide-img-bar .slide-img-box {
+	position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
+	-webkit-transform: translate(50%,50%); 
+	-ms-transform: translate(50%,50%); 
+	transform: translate(50%,50%);
 	border-top-left-radius: 7px; border-top-right-radius: 7px;
+}
+.slide-img-bar .slide-img-box img {
+	position: absolute; top: 0; left: 0; width: auto; height: 100%;
+	-webkit-transform: translate(-50%,-50%); 
+	-ms-transform: translate(-50%,-50%); transform: translate(-50%,-50%);
+
 }
 
 .dcom-slide>a>.slide-img-box::before {
@@ -265,3 +290,13 @@ html, body {
 	opacity: 1;
 	
 }
+
+/* 페이징 */
+.page-bar{
+	margin: 0 auto;
+	text-align: center;
+}
+.page-box{
+	max-width: 100%;
+}
+/* 페이징 */
