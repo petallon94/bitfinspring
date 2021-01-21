@@ -92,9 +92,9 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 	
 	
 	<div class="dcom-top-bn-box con">
-		<div class="dcom-img-box">
+		<div class="dcom-img-mainbox">
 			<img style="height: 400px;"
-				src="https://pds.joins.com//news/component/htmlphoto_mmdata/201803/15/358b703f-2d05-4ebc-8911-9e91e56048e0.jpg"
+				src="https://www.fashionseoul.com/wp-content/uploads/2017/01/20170112_SBS-2.jpg"
 				alt="">
 		</div>
 	</div>
@@ -127,21 +127,24 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 	<!-- slide start-->
 	<div class="dcom-slide-bar">
 		<div class="dcom-slide-box">
-			<div style="color: white;"><h4><b>인기 조회수 게시물</b></h4></div>
+			<div style="color: white;"><h4><b>인기 조회 게시물</b></h4></div>
 			<ul class="dcom-slide-list" id="dcom-slider-list">
 				<c:forEach var="d" items="${list }" varStatus="i">
 					<li class="dcom-slide"><a
 						href="detail?num=${d.cnum}&pageNum=${currentPage }&key=list">
 							<input type="hidden" value="${i.count}">
-							<div class="slide-img-box">
-								<img
-									src="https://pds.joins.com//news/component/htmlphoto_mmdata/201803/15/358b703f-2d05-4ebc-8911-9e91e56048e0.jpg"
+							<div class="slide-img-bar">
+								<div class="slide-img-box">
+									<img
+									src="https://thewiki.ewr1.vultrobjects.com/data/4861736874656173657232303230303132355f322e6a7067.jpg"
 									alt="">
-								<div class="dcom-prod-subject">${d.csubject}</div>
-								<div class="dcom-prod-writer">${d.cwriter}</div>
-								<div class="dcom-prod-day">
-									<fmt:formatDate value="${d.cwritedate}"
-										pattern="yyyy MM-dd HH:mm" />
+								</div>
+								<div style="position: relative; max-width: 100%; background-color: black;">
+									<div class="dcom-prod-subject">${d.csubject}</div>
+									<div class="dcom-prod-writer">${d.cwriter}</div>
+									<div class="dcom-prod-day">
+										<fmt:formatDate value="${d.cwritedate}" pattern="yyyy MM-dd HH:mm" />
+									</div>
 								</div>
 							</div>
 					</a></li>
@@ -159,15 +162,19 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 					<li class="dcom-cell"><a
 						href="detail?num=${d.cnum}&pageNum=${currentPage }&key=list">
 							<input type="hidden" value="${i.count}">
-							<div class="dcom-img-box">
-								<img
-									src="https://pds.joins.com//news/component/htmlphoto_mmdata/201803/15/358b703f-2d05-4ebc-8911-9e91e56048e0.jpg"
-									alt="">
-								<div class="dcom-prod-subject">${d.csubject}</div>
-								<div class="dcom-prod-writer">${d.cwriter}</div>
-								<div class="dcom-prod-day">
-									<fmt:formatDate value="${d.cwritedate}"
-										pattern="yyyy MM-dd HH:mm" />
+							<div class="dcom-img-bar">
+								<div class="dcom-img-box">
+									<img
+										src="https://thewiki.ewr1.vultrobjects.com/data/4861736874656173657232303230303132355f322e6a7067.jpg"
+										alt="">
+								</div>
+								<div style="position: relative; max-width: 100%; background-color: black;">
+									<div class="dcom-prod-subject">${d.csubject}</div>
+									<div class="dcom-prod-writer">${d.cwriter}</div>
+									<div class="dcom-prod-day">
+										<fmt:formatDate value="${d.cwritedate}"
+											pattern="yyyy MM-dd HH:mm" />
+									</div>
 								</div>
 							</div>
 					</a></li>
@@ -176,5 +183,32 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 		</div>
 	</div>
 	<!-- card end-->
+<div class="page-bar">
+		<ul class="pagination page-box">
+			<c:if test="${startPage>1 }">
+				<li class="page-item">
+					<a class="page-link" href="list?pageNum=${startPage-1 }">이전</a>
+				</li>
+			</c:if>
+			<!-- 페이지 번호 -->
+			<c:forEach var="pp" begin="${startPage }" end="${endPage }">
+				<c:if test="${pp==currentPage }">
+					<li class="page-item">
+						<a class="page-link" href="list?pageNum=${pp }">${pp }</a>
+					</li>
+				</c:if>
+				<c:if test="${pp!=currentPage }">
+					<li class="page-item">
+						<a class="page-link" href="list?pageNum=${pp }">${pp }</a>
+					</li>
+				</c:if>
+			</c:forEach>
+			<c:if test="${endPage<totalPage}">
+				<li class="page-item">
+					<a class="page-link" href="list?pageNum=${endPage+1 }">이전</a>
+				</li>
+			</c:if>
+		</ul>
+</div>
 </body>
 </html>

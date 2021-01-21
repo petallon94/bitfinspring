@@ -44,7 +44,8 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 			<div class="con-readcount">조회 ${dto.creadcount }</div>
 			<div class="con-content">
 				<hr class="con-line">
-				<pre>${dto.ccontent}</pre>
+				<pre style="background-color: #fff;padding:10px;
+				overflow: auto;white-space: pre-wrap;border: none; ">${dto.ccontent}</pre>
 				<hr class="con-line">
 			</div>
 			<div class="con-btn">
@@ -64,7 +65,7 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 
 	<!-- 모달 -->
 
-	<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal fade" id="myModal" role="dialog" style="margin-top: 100px;">
 		<div class="modal-dialog">
 
 			<!-- Modal content-->
@@ -90,5 +91,7 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 			</div>
 		</div>
 	</div>
+	
+	<!-- 모달 -->
 </body>
 </html>
