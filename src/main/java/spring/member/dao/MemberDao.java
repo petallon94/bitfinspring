@@ -67,7 +67,6 @@ public class MemberDao extends SqlSessionDaoSupport implements MemberDaoInter {
 		params.put("mpw", mpw);
 		System.out.println(mid+","+mpw);
 		System.out.println(params);
-		System.out.println(getSqlSession().selectOne("loginOfMember",params));
 	
 		return getSqlSession().selectOne("loginOfMember",params);
 	}
