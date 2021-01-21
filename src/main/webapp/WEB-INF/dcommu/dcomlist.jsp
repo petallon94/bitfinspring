@@ -118,7 +118,7 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 			<button type="button" class="dcom-search-btn" onclick="">검색하기</button>
 			<!-- <div class="dcom-write-box"> -->
 			<button type="button" class="dcom-write-btn" style="width: 100px;"
-				onclick="location.href='writeform?cmidnum=${mdto.mnum}'">게시글작성</button>
+				onclick="location.href='writeform?cmidnum=${mdto.mnum}&pageNum=${currentPage }'">게시글작성</button>
 			<!-- </div> -->
 		</div>
 	</div>
@@ -135,8 +135,9 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 							<input type="hidden" value="${i.count}">
 							<div class="slide-img-bar">
 								<div class="slide-img-box">
+								<!-- 상대경로  ${pageContext.request.contextPath}-->
 									<img
-									src="https://thewiki.ewr1.vultrobjects.com/data/4861736874656173657232303230303132355f322e6a7067.jpg"
+									src="${pageContext.request.contextPath}/resources/save/${d.cphoto }"
 									alt="">
 								</div>
 								<div style="position: relative; max-width: 100%; background-color: black;">
@@ -164,8 +165,9 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 							<input type="hidden" value="${i.count}">
 							<div class="dcom-img-bar">
 								<div class="dcom-img-box">
-									<img
-										src="https://thewiki.ewr1.vultrobjects.com/data/4861736874656173657232303230303132355f322e6a7067.jpg"
+								<!-- 상대경로  ${pageContext.request.contextPath}-->
+									<img	
+										src="${pageContext.request.contextPath}/resources/save/${d.cphoto }"
 										alt="">
 								</div>
 								<div style="position: relative; max-width: 100%; background-color: black;">

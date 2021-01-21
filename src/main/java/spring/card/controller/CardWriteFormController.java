@@ -35,7 +35,7 @@ public class CardWriteFormController {
 	public String cardWrite(@ModelAttribute CardDto dto,@RequestParam MultipartFile file, HttpServletRequest request,@RequestParam String pageNum)
 	{
 		ModelAndView model = new ModelAndView();
-		String path = request.getSession().getServletContext().getRealPath("/WEB-INF/save");
+		String path = request.getSession().getServletContext().getRealPath("/resources/save");
 		System.out.println(path);
 		
 		SpringFileWriter writer = new SpringFileWriter();

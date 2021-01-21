@@ -49,11 +49,11 @@ public class CardListController {
 		//db 로부터 출력할 목록 가져오기
 		List<CardDto> list = carddi.getCardList(start, perPage);
 
-//		if(list.size()==0)
-//		{
-//			return "redirect:list?pageNum="+(currentPage-1);
-//		}
-
+		if(list.size()==0)
+		{
+			return "redirect:list?pageNum="+(currentPage-1);
+		}
+		
 		
 		//model에 저장
 		model.addAttribute("currentPage", currentPage);

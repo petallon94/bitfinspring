@@ -33,11 +33,16 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
             alt="">
       </div>
    </div>
+	<%
+		String pageNum = request.getParameter("pageNum");
+		String cmidnum = request.getParameter("cmidnum");
+	%>
 <form id="frm" name="editor_upimage" method="post" 
-enctype="multipart/form-data" onsubmit="return false;" action="insert">
+enctype="multipart/form-data" action="insert">
 	<!-- hidden -->
-	<input type="hidden" name="pageNum" value="${pageNum }">
- 	<input type="hidden" name="cmidnum" value="${mdto.mnum}">		
+	<input type="hidden" name="cmidnum" value="<%=cmidnum %>">		
+	<input type="hidden" name="pageNum" value="<%=pageNum %>">
+ 	
    <!-- SmartEditor2 -->
    <div class="jsx-2303464893 editor dcom-con">
       <div style="height: 100px;">
@@ -68,7 +73,7 @@ enctype="multipart/form-data" onsubmit="return false;" action="insert">
          </div>
       </div>
       <div class="dcom-con">
-         <input type="button" value="게시글등록"
+         <input type="submit" value="게시글등록"
               class="btn btn-default btn-block dcom-button"
               style="border: 2px solid #70788d"
                onclick="submitContents(this)">
