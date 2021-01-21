@@ -2,6 +2,7 @@
 package spring.card.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,8 +25,9 @@ public class CardWriteFormController {
 	
 	
 	@GetMapping("/doctor/writeform")
-	public String goCardWriteForm()
+	public String goCardWriteForm(HttpServletRequest request, HttpServletResponse response)
 	{
+		request.getSession().setAttribute("cmidnum","1");
 		return "/dcommu/dcomwriteform";
 	}
 	
