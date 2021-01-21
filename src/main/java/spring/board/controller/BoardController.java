@@ -45,38 +45,32 @@ public class BoardController {
 	 {	int totalCount = dao.getTotalCount();
 	  // System.out.println(totalCount);
 	   
-	   int perPage=5;       //한페이지당 보여질 글의 갯수
-	   int perBlock=4;    //한 블럭당 출력할 페이지의 갯수
-	   int totalPage;      //총 페이지의 갯수
-	   int startPage;      //각 블럭당 시작할 페이지번호
-	   int endPage;      //각 블럭당 끝 페이지 번호
-	   int start;         //각 블럭당 불러올 글의 시작번호  
+	   int perPage=5;       //이런 한글이 왜 깨지는 거야
+	   int perBlock=4;     // 
+	   int totalPage;      //
+	   int startPage;      //
+	   int endPage;      //
+	   int start;         //
 
 	   
 	   totalPage=totalCount/perPage+(totalCount%perPage>0?1:0);
 	   
-	   //시작페이지와 끝페이지 구하기(시작페이지=sp, 끝페이지=ep)
-	   //예:한페이지당 3개만 볼 경우 현재 페이지가 2라면 sp:1, ep:3
-	   //현재 페이지가 7이라면 sp:7, ep:9
+	   
 	   startPage=(currentPage-1)/perBlock*perBlock+1;
 	   endPage=startPage+perBlock-1;
 	   
-	   //마지막 블럭은 endPage를 totalPage로 해놔야 한다
+	   
 	   if(endPage>totalPage)
 	      endPage=totalPage;
 	   
-	   //mysql은 첫 글이 0번(오라클은 1번이라서 +1을 해줬었음)
+	   
 	   start=(currentPage-1)*perPage;
 	   
-	   //각 페이지에서 출력할 시작번호
-	   //총 50개일 경우 1페이지는 50, 2페이지는 40
+	   
 	   int no = totalCount-(currentPage-1)*perPage;
 	   
 	  
 	   List<BoardDto> list =dao.getList(start, perPage);
-	   // 게시물의 글들 시작되는 글번호부터 10개 출력
-	 ///////////////////////////////////////////////////////
-	   
 	   
 	  // @Autowired
 	
@@ -88,7 +82,7 @@ public class BoardController {
 	   }
 	   
 		
-		/* 댓글 : 추후에 구현
+		/* �뙎湲� : 異뷀썑�뿉 援ы쁽
 		 * for(BoardDto dto:list) {
 		 * 
 		 * int n= adao.getAnswerList(dto.getNum()).size(); dto.setCnt(n);
@@ -111,7 +105,7 @@ public class BoardController {
 	 }
 
 	
-	///////////리스트 출력 완료
+	///////////由ъ뒪�듃 異쒕젰 �셿猷�
 	
 	
 	@GetMapping({"/board/boardwrite"})
