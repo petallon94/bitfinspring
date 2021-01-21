@@ -68,7 +68,7 @@
 		<li><a href="">강아지는</a></li>
 		<li><a href="">복슬강</a></li>
 		<li><a href="">아지~</a></li>
-		<li><a href="${root}/mypage">마이페이지</a></li>
+		<li><a href="${root}/mypage.main">마이페이지</a></li>
 	</ul>
 	
 	<div class="slide_bar_login">
