@@ -14,9 +14,11 @@
 		My Page
 	</div>
 	
+	<!-- 메뉴 -->
+	
 	<div class="mypage_menubar">
 		<ul class="mypage_menu_icon">
-			<li class="mpick">
+			<li>
 				<a href="${root}/mypage.main">
 					<div class="mypage_icon icon_mycontent"></div>
 					마이페이지
@@ -41,7 +43,7 @@
 					예약내역
 				</a>
 			</li>
-			<li>
+			<li class="mpick">
 				<a href="${root}/mypage.information">
 					<div class="mypage_icon icon_myinformation"></div>
 					나의 정보
@@ -50,9 +52,14 @@
 		</ul>
 	</div>
 	
-	<div class="mypage_main_image">
 	
-	</div>
+	<!-- 내용 시작 -->
+	
+	<button type="button" onclick.href="../member/
+	
+	
+	
+	
 </div>
 </body>
 </html>

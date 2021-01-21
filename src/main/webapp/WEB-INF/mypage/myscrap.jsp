@@ -14,9 +14,11 @@
 		My Page
 	</div>
 	
+	<!-- 메뉴 -->
+	
 	<div class="mypage_menubar">
 		<ul class="mypage_menu_icon">
-			<li class="mpick">
+			<li>
 				<a href="${root}/mypage.main">
 					<div class="mypage_icon icon_mycontent"></div>
 					마이페이지
@@ -29,7 +31,7 @@
 					내가 쓴 글
 				</a>
 			</li>
-			<li>
+			<li class="mpick">
 				<a href="${root}/mypage.scrap">
 					<div class="mypage_icon icon_scrap"></div>
 					스크랩
@@ -50,9 +52,12 @@
 		</ul>
 	</div>
 	
-	<div class="mypage_main_image">
 	
-	</div>
+	<!-- 내용 시작 -->
+	
+	
+	
+	
 </div>
 </body>
 </html>
