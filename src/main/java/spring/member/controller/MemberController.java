@@ -31,7 +31,7 @@ public class MemberController {
 	private MemberServiceInter service;
 	
 	
-
+	//123123
 	@GetMapping("/member/login")
 	public String goLogin()
 	{
