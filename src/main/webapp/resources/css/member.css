@@ -346,6 +346,13 @@ label.signup_input > input{
 	font-weight:bold;
 	vertical-align: center;
 }
+.signup_input_sp.update{
+	top:-1px;
+	background:#fff;
+	font-size:15px;
+	color:#222;
+}
+
 
 label.signup_input > input:valid,
 label.signup_input > input:focus{

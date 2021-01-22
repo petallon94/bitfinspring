@@ -55,7 +55,7 @@ public class MemberService implements MemberServiceInter{
 	@Override
 	   public String loginMember(String mid, String mpw) {
 
-	      int logincheck = dao.loginmember(mid, mpw); //id,pw°¡ °°Àº°Ô Á¸ÀçÇÏ¸é1, ¾Æ´Ï¸é 0
+	      int logincheck = dao.loginmember(mid, mpw); //id,pwï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½1, ï¿½Æ´Ï¸ï¿½ 0
 	      String loginok;
 	      System.out.println("loginok method");
 	      if(logincheck==1) {
@@ -65,14 +65,14 @@ public class MemberService implements MemberServiceInter{
 	         loginok=null;
 	         System.out.println("login ok null");
 	      }
-	      System.out.println("login okÀÇ °ªÀº:" + loginok);
+	      System.out.println("login okï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½:" + loginok);
 	      return loginok;
 	   }
 
 	@Override
-	public void updatePW(MemberDto dto) {
+	public void updatePW(String mid, String mpw) {
 		// TODO Auto-generated method stub
-		dao.updatePW(dto);
+		dao.updatePW(mid,mpw);
 	}
 	
 	

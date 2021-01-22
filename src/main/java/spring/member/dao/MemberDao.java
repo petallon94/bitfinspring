@@ -76,14 +76,14 @@ public class MemberDao extends SqlSessionDaoSupport implements MemberDaoInter {
 	
 	
 	@Override
-	public void updatePW(MemberDto dto) {
+	public void updatePW(String mid, String mpw) {
 		// TODO Auto-generated method stub
-		getSqlSession().update("updatePwOfMember", dto);
+		HashMap<String, String> params=new HashMap<String, String>();
+		params.put("mid", mid);
+		params.put("mpw", mpw);
+		getSqlSession().update("updatePwOfMember",params );
 	}
 	
-	
-	
-	
-	
+
 	
 }

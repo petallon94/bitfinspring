@@ -17,32 +17,24 @@
 			<h2 class="signup_main_title">전문인 정보수정</h2>
 			
 			<label class="signup_input">
-				<input type="text" name="mid" class="mid" readonly>
-				<span class="signup_input_sp"> <span class="glyphicon glyphicon-user"></span> ID</span>
+				<input type="text" name="mid" class="mid" value="${mdto.mid}" readonly>
+				<span class="signup_input_sp update"> <span class="glyphicon glyphicon-user"></span> ID</span>
 			</label>
 			
 			<label class="signup_input">
-				<input type="text" name="mnick" class="mnick" required>
+				<input type="text" name="mnick" class="mnick" value="${mdto.mnick}" required>
 				<span class="signup_input_sp"> <span class="glyphicon glyphicon-user"></span> Nick Name</span>
 			</label>
 			
 			<label class="signup_input">
-				<input type="text" name="memail" class="memail" required>
+				<input type="text" name="memail" class="memail" value="${mdto.memail}" required>
 				<span class="signup_input_sp"> <span class="glyphicon glyphicon-envelope"></span> Email</span>
 			</label>
 			
-			<label class="signup_input">
-				<input type="text" name="mpw" class="mpw" required>
-				<span class="signup_input_sp"> <span class="glyphicon glyphicon-lock"></span> Password</span>
-			</label>
+			<input type="hidden" name="mpw" class="mpw" required>
 			
 			<label class="signup_input">
-				<input type="text" name="mpw2" class="mpw" required>
-				<span class="signup_input_sp"> <span class="glyphicon glyphicon-lock"></span> Check Your Password</span>
-			</label>
-			
-			<label class="signup_input">
-				<input type="text" name="mhp" class="mhp" required>
+				<input type="text" name="mhp" class="mhp" value="${mdto.mhp}" required>
 				<span class="signup_input_sp"> <span class="glyphicon glyphicon-earphone"></span> Phone Number</span>
 			</label>
 			
@@ -57,11 +49,13 @@
 				
 				<div class="signup_radio">
 					<label>
-						<input type="radio" name="mchat" value="1">
+					
+					
+						<input type="radio" name="mchat" value="1" <c:if test="${mdto.mchat==1}">checked</c:if>>
 						<span>Yes</span>
 					</label>
 					<label>
-						<input type="radio" name="mchat" value="0">
+						<input type="radio" name="mchat" value="0" <c:if test="${mdto.mchat==0}">checked</c:if>>
 						<span>No</span>
 					</label>
 				</div>
@@ -71,7 +65,7 @@
 			
 			
 			<div class="insert_member_btn">
-				<button class="insrt_membtn" type="submit">가입</button><br>
+				<button class="insrt_membtn" type="submit">수정</button><br>
 				<button class="insrt_membtn insrt_membtn2" type="button" onclick="history.back();">취소</button>
 			</div>
 		</form>

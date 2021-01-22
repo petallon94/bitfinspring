@@ -70,7 +70,7 @@
 			</tr>
 			<tr>
 				<th>이메일</th>
-				<td></td>
+				<td>${mdto.memail}</td>
 			</tr>
 			<tr>
 				<th>전화번호</th>
@@ -111,7 +111,7 @@
 						정보 수정을 원하시면 비밀번호를 입력해주세요.
 					</h4>
 				</div>
-				<form action="${root}/member/updatepwchk" method="post" class="form-inline">
+				<form action="${root}/member/update.passcheck" method="post" class="form-inline">
 					<input type="text" name="mid" value="${mdto.mid}">
 					<input type="hidden" name="mid" value="${mdto.mrole}">
   					<input type="text" name="mpw" >

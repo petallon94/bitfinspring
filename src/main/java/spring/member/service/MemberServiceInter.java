@@ -11,5 +11,5 @@ public interface MemberServiceInter {
 	public int idCheck(String mid);
 	public boolean pwCheck(String mid, String mpw);
 	public String loginMember(String mid, String mpw);
-	public void updatePW(MemberDto dto);
+	public void updatePW(String mid, String mpw);
 }
