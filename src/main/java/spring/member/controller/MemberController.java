@@ -66,7 +66,7 @@ public class MemberController {
 				service.insertMember(dto);
 				model.addAttribute("alert_title","회원가입이 되었습니다.");
 				model.addAttribute("alert_icon","success");
-				model.addAttribute("url","/bit/member/login");
+				model.addAttribute("url","/member/login");
 				return "/member/alert";
 			}else{
 				model.addAttribute("alert_title","패스워드가 일치하지 않습니다.");
@@ -100,14 +100,11 @@ public class MemberController {
 		    //mdto를 세션에 넣음.
 			request.getSession().setAttribute("mdto",mdto);
 			
-			System.out.println(mdto.getMemail());
-			
-			
 			//새 화면 띄우고 alert 하는거.. 좀 그래도
 			//장점은 여러군데 쉽게 사용가능함... 다른방법은 코드가 너무 지저분해짐..
 			model.addAttribute("alert_title","환영합니다.");
 			model.addAttribute("alert_icon","success");
-			model.addAttribute("url","/bit/");
+			model.addAttribute("url","/");
 			return "/member/alert";
 		}else {
 			//실패시 nidlogin페이지로 이동
@@ -128,7 +125,7 @@ public class MemberController {
       //alert 기능
       model.addAttribute("alert_title","로그아웃이 되었습니다.");
       model.addAttribute("alert_icon","success");
-      model.addAttribute("url","/bit/");
+      model.addAttribute("url","/");
       return "/member/alert";
    }
 	  
@@ -162,7 +159,7 @@ public class MemberController {
 		   //비밀번호가 틀릴 경우 마이페이지의 마이 인포메이션으로 가기.
 		   model.addAttribute("alert_title","패스워드가 맞지 않습니다.");
 		   model.addAttribute("alert_icon","error");
-		   model.addAttribute("url","/bit/mypage.information");
+		   model.addAttribute("url","/mypage.information");
 		   return "/member/alert";
 	   }
 	   
@@ -179,7 +176,7 @@ public class MemberController {
       request.getSession().setAttribute("mdto",dto);
       model.addAttribute("alert_title","정보가 수정되었습니다.");
 	  model.addAttribute("alert_icon","success");
-	  model.addAttribute("url","/bit/mypage.information");
+	  model.addAttribute("url","/mypage.information");
       return "/member/alert";
    }
 	
@@ -208,7 +205,7 @@ public class MemberController {
 			//결과가 틀리면 마이페이지로 돌아가기
 		    model.addAttribute("alert_title","패스워드가 알맞지 않습니다.");
 			model.addAttribute("alert_icon","error");
-			model.addAttribute("url","/bit/mypage.information");
+			model.addAttribute("url","/mypage.information");
 			return "/member/alert";
 		}
 		
@@ -216,7 +213,7 @@ public class MemberController {
 	      request.getSession().invalidate();
 	      model.addAttribute("alert_title","회원탈퇴를 하였습니다.");
 		  model.addAttribute("alert_icon","success");
-		  model.addAttribute("url","/bit");
+		  model.addAttribute("url","/");
 		  return "/member/alert";
 	}
 		
@@ -244,13 +241,13 @@ public class MemberController {
 		}else {
 		    model.addAttribute("alert_title","패스워드가 알맞지 않습니다.");
 			model.addAttribute("alert_icon","error");
-			model.addAttribute("url","/bit/mypage.information");
+			model.addAttribute("url","/mypage.information");
 			return "/member/alert";
 		}
 		//성공 메세지 후, 리턴
 	    model.addAttribute("alert_title","패스워드가 수정되었습니다.");
 		model.addAttribute("alert_icon","success");
-		model.addAttribute("url","/bit/mypage.information");
+		model.addAttribute("url","/mypage.information");
 		return "/member/alert";
 	}
 }

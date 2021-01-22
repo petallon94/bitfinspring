@@ -57,15 +57,11 @@ public class MemberService implements MemberServiceInter{
 
 	      int logincheck = dao.loginmember(mid, mpw); //id,pw�� ������ �����ϸ�1, �ƴϸ� 0
 	      String loginok;
-	      System.out.println("loginok method");
 	      if(logincheck==1) {
 	         loginok="ok";
-	         System.out.println("login ok!@!!!@!@!");
 	      }else {
 	         loginok=null;
-	         System.out.println("login ok null");
 	      }
-	      System.out.println("login ok�� ����:" + loginok);
 	      return loginok;
 	   }
 
