@@ -1,30 +1,18 @@
 package spring.member.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.file.FileSystemLoopException;
-import java.util.HashMap;
-import java.util.Map;
 
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 import spring.dto.MemberDto;
 import spring.member.service.MemberServiceInter;
@@ -64,34 +52,34 @@ public class MemberController {
 		return "/member/dsignup";
 	}
 	
-	//입력한 회원정보 저장하고 로그인화면으로 이동.
+	//회원가입하고 로그인화면으로 이동. ( 1. 아이디 중복확인 ,2. 패스워드 같은지 확인 )
 	@PostMapping("/member/savemember")
-	public String insertMember(@ModelAttribute MemberDto dto)
+	public String insertMember(@ModelAttribute MemberDto dto,
+			@RequestParam String mpw1,
+			Model model)
 	{
+		int idcheck = service.idCheck(dto.getMid()); //1이면 존재, 0이면 존재안함.
+		boolean passcheck = mpw1.equals(dto.getMpw());
 		
-		service.insertMember(dto);
-		return "redirect:login";
-	}
-
-	
-	
-	
-	//중복 아이디 확인
-	@ResponseBody
-	@PostMapping("/member/idcheck")
-	public String idCheck(String mid)
-	{
-		int result=service.idCheck(mid);
-		
-		if(result!=0)
-		{
-			return "fail";
+		if(idcheck==0) {
+			if(passcheck) {
+				service.insertMember(dto);
+				model.addAttribute("alert_title","회원가입이 되었습니다.");
+				model.addAttribute("alert_icon","success");
+				model.addAttribute("url","/bit/member/login");
+				return "/member/alert";
+			}else{
+				model.addAttribute("alert_title","패스워드가 일치하지 않습니다.");
+				model.addAttribute("alert_icon","error");
+				return "/member/alert_back";
+				
+			}
 		}else {
-			return "success";
+			model.addAttribute("alert_title","아이디가 이미 존재합니다.");
+			model.addAttribute("alert_icon","error");
+			return "/member/alert_back";
 		}
 	}
-	
-	
 	
 	
 	//로그인 기능 구현
@@ -101,7 +89,7 @@ public class MemberController {
 		@RequestParam String mid, @RequestParam String mpw,
 		Model model)
 	{
-	      
+		
 		String loginok = service.loginMember(mid,mpw);
 		
 		if(loginok=="ok") {
@@ -184,9 +172,11 @@ public class MemberController {
    //업데이트 하기
    @PostMapping("/member/updatemember")
    public String memberUpdate(@ModelAttribute MemberDto dto,
+		   HttpServletRequest request, HttpServletResponse response,
 		   Model model)
    {
       service.updateMember(dto);
+      request.getSession().setAttribute("mdto",dto);
       model.addAttribute("alert_title","정보가 수정되었습니다.");
 	  model.addAttribute("alert_icon","success");
 	  model.addAttribute("url","/bit/mypage.information");
@@ -232,22 +222,35 @@ public class MemberController {
 		
 		
 	//패스워드 변경하기
-	@PostMapping("updatepass")
+	@PostMapping("/member/updatepass")
 	public String updatePass(@RequestParam String mpw,
-			@RequestParam String upmpw,
+			@RequestParam String upmpw0,
+			@RequestParam String upmpw1,
 			HttpServletRequest request,
-			HttpServletResponse response){
+			HttpServletResponse response,
+			Model model){
 		
 		//세션에서 mdto 가져오기
 		MemberDto mdto = (MemberDto)request.getSession().getAttribute("mdto");
 		boolean result=service.pwCheck(mdto.getMid(), mpw);
-		if(result)
+		//패스워드가 알맞고, 수정 패스워드 2개가 일치해야 변경됨.
+		if(result&&(upmpw0.equals(upmpw1)))
 		{
-			//결과가 맞으면 패스워드 업데이트 시키기.
-			service.updatePW(mdto.getMid(),upmpw);
+			//일치하다면
+			//패스워드 변경하고
+			service.updatePW(mdto.getMid(),upmpw0);
+			//세션 패스워드 변경해줌.(안해줘도 되지만 혹여나...)
+			request.getSession().setAttribute("mdto.mpw", upmpw0);
 		}else {
-			return "/mypage/myinformation";
+		    model.addAttribute("alert_title","패스워드가 알맞지 않습니다.");
+			model.addAttribute("alert_icon","error");
+			model.addAttribute("url","/bit/mypage.information");
+			return "/member/alert";
 		}
-		return "/mypage/myinformation";
+		//성공 메세지 후, 리턴
+	    model.addAttribute("alert_title","패스워드가 수정되었습니다.");
+		model.addAttribute("alert_icon","success");
+		model.addAttribute("url","/bit/mypage.information");
+		return "/member/alert";
 	}
 }

@@ -58,6 +58,7 @@
 	나의 정보
 	<button type="button" id="mupdate_btn">정보수정</button>
 	<button type="button" id="mdelete_btn">회원탈퇴</button>
+	<button type="button" id="updatempw_btn">비밀번호 변경</button>
 	<hr>
 	<table>
 		<tbody>
@@ -150,17 +151,61 @@
 </div>
 <!--//회원정보 삭제 모달 -->
 
+<!-- 회원정보 삭제 모달 -->
+<div class="modal fade" id=updatempw role="dialog">
+	<div class="modal-dialog">
+
+		<div class="modal-content" style="z-index: 11;">
+			<div class="modal-header">
+		    	<button type="button" class="close" data-dismiss="modal">&times;</button>
+		    	<h4 class="modal-title">비밀번호를 입력해주세요.</h4>
+			</div>
+			<form action="${root}/member/updatepass" method="post">
+			  	<div class="modal-body" style="display:flex; justify-content: center; align-items: center; flex-direction: column;">
+					<label class="signup_input">
+						<input type="password" name="mpw" class="mpw" required>
+						<span class="signup_input_sp"> <span class="glyphicon glyphicon-lock"></span> Password</span>
+					</label>
+					<br>
+					<label class="signup_input">
+						<input type="password" name="upmpw0" class="mpw" required>
+						<span class="signup_input_sp"> <span class="glyphicon glyphicon-lock"></span> Update Your Password</span>
+					</label>
+					<br>
+					<label class="signup_input">
+						<input type="password" name="upmpw1" class="mpw" required>
+						<span class="signup_input_sp"> <span class="glyphicon glyphicon-lock"></span> Check your Password</span>
+					</label>
+			  	</div>
+			  	<div class="modal-footer">
+			  		<button type="submit" class="btn btn-default">수정하기</button>
+			    	<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+			  	</div>
+		  	</form>
+		</div>
+    </div>
+</div>
+<!--//회원정보 삭제 모달 -->
+
 
 </body>
 <script type="text/javascript">
+//정보수정
 	$(document).ready(function(){
 		$("#mupdate_btn").click(function(){
 			$("#updateMember").modal();
 		});
 	});
+//회원탈퇴
 	$(document).ready(function(){
 		$("#mdelete_btn").click(function(){
 			$("#deleteMember").modal();
+		});
+	});
+//비밀번호 수정
+	$(document).ready(function(){
+		$("#updatempw_btn").click(function(){
+			$("#updatempw").modal();
 		});
 	});
 </script>
