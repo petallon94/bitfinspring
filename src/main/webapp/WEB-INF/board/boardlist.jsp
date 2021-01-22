@@ -9,8 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
 <link rel="stylesheet" href="${root}/css/board/boardmain.css" />
 
@@ -20,20 +19,19 @@
 	<div class="board_layout">
 
 		<div class="board_main">
-			<h3>의료정보 커뮤니티</h3>
+			<h3 onclick ="location.href='../board/'">의료정보 커뮤니티</h3>
 			<div style="display: flex; justify-content: center;">
 
 				<div class="hashtagform">
 					<span>해시태그를 눌러서 검색해 보세요!</span>
 					<div style="margin-top: 10px;">
 						<!-- ★여기에 해시태그 for each 넣어야됩니당★ -->
+						<c:forEach var="a" items="${hashlist}">
 						<div class="hashtag">
-							<span class="glyphicon glyphicon-ok"></span> 수진이
+							<span class="glyphicon glyphicon-ok"></span> ${a.hashtag}
 						</div>
+						</c:forEach>
 
-						<div class="hashtag">
-							<span class="glyphicon glyphicon-ok"></span> 민정이
-						</div>
 					</div>
 				</div>
 
@@ -51,10 +49,9 @@
 	<div>
 	<c:forEach var="b" items="${list}">
 		<div class="board_list">
-			<div class="board_left">
+			<div class="board_left" onclick="location.href='./boardcontent?bnum=${b.bnum}&pageNum=${currentPage}'">
 				<h4>${b.bsubject}</h4>
-				<div class="board_content">
-					본문
+				<div class="board_content">					
 					<p>${b.bcontent}</p>
 				</div>
 				<div class="board_content_bottom">
@@ -82,8 +79,8 @@
 
 
 	<hr>
-	<div class="boardpage" style="width: 800px; text-align: center;">
-		end
+	<div style="width: 800px; text-align: center;">
+		
 		<ul class="pagination">
 			<c:forEach var="pp" begin="${startPage}" end="${endPage}">
 				<c:if test="${pp==currentPage}">
@@ -101,8 +98,9 @@
 	</div>
 
 	<div class="board_bottom">
+	
 		<button type="button" class="board_write_btn"
-			onclick="location.href='board/boardwrite'">글쓰기</button>
+			onclick="location.href='./boardwrite'">글쓰기</button>
 
 	</div>
 	

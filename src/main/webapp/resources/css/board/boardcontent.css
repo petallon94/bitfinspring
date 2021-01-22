@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+
+.board_contentlayout{
+	
+	background-color: #1f2c59;
+	background-size: cover;
+	background-position: center;
+	padding: 150px 0;
+}
+
+.board_contentsmain h3 {
+	color: white;
+	font-size : 3em;
+	text-align: center;
+	cursor : pointer;
+}
+
+/* 본문 폼 쪽 css*/
+
+.board_contentsc{
+	
+	background-color: #f2f3f5;
+	text-align : center;
+	padding-bottom : 30px;
+	
+}
+.board_contentsform{
+	background-color: #f2f3f5;	
+	padding: 5px 10px;
+	text-align : left;
+	margin-left : 5%;
+}
+
+.board_contentsform ul li{
+	list-style-type: none; float : left; margin-left : 5px
+}
+
+
+
+.board_concon{
+	width : 90%;
+	margin-left : 5%;
+	background-color : #f2f3f5;
+	height : 500px;
+}
+
+
+
+.board_clistbtn,.board_cupdbutton,.board_cdelbutton{
+	
+	width: 100px;
+	padding: 5px 10px;
+	height: 40px;
+	font-size : 1.2em;
+	margin-left : 25px;
+	background-color : #ccc;
+	margin-bottom : 20px;
+}
+
+.board_conbtngrp{
+	background-color: #f2f3f5;
+	text-align : center; 
+	padding-top:30px;
+	padding-bottom: 30px;
+}
+
+

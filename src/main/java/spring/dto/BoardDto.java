@@ -15,7 +15,23 @@ public class BoardDto {
 	private int regroup;
 	private int restep;
 	private int relevel;
+	private int hbnum;
+	private String hashtag;
 	
+	
+	
+	public int getHbnum() {
+		return hbnum;
+	}
+	public void setHbnum(int hbnum) {
+		this.hbnum = hbnum;
+	}
+	public String getHashtag() {
+		return hashtag;
+	}
+	public void setHashtag(String hashtag) {
+		this.hashtag = hashtag;
+	}
 	public int getReadcount() {
 		return readcount;
 	}

@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 
 <!-- css -->
-<link rel="stylesheet" href="${root}/css/board/boardwrite.css" />
+<link rel="stylesheet" href="${root}/css/board/boardupdate.css" />
 
 <!-- smarteditior -->
 <script type="text/javascript" src="../se2/js/HuskyEZCreator.js"
@@ -20,60 +20,57 @@
 
 </head>
 <body>
-	<div class="board_writelayout">
+	<div class="board_updatelayout">
 
-		<div class="board_writemain">
+		<div class="board_updatemain">
 			<h3 "location.href='../board/'" >의료정보 커뮤니티</h3>
 			<div style="display: flex; justify-content: center;"></div>
 		</div>
 	</div>
 
-	<div class="board_writec">
-		<form action="write" method="post" enctype="multipart/form-data"
-			class="board_writeform">
+	<div class="board_updatec">
+		<form action="update" method="post" enctype="multipart/form-data">
 
-			<div class="jsx-2303464893 editor">
+			<div class="board_updateform">
 				<h3>글제목</h3>
-				<input type="text" class="board_topic" id="board_topic"
-					name="bsubject" /> <input type="text" class="board_id"
-					id="board_id" name="bmidnum" value="${mdto.mnum}" /> <input
-					type="text" class="board_nick" id="board_nick" name="bwriter"
-					value="${mdto.mnick}" /> <input type="hidden" name="pageNum"
-					value="${pageNum}"> <input type="hidden" name="regroup"
-					value="${regroup}"> <input type="hidden" name="restep"
-					value="${restep}"> <input type="hidden" name="relevel"
-					value="${relevel}">
+				<input type="text" class="board_topic" id="board_topic" name="bsubject" value ="${dto.bsubject}"/>
+				<input type="text" class="board_bid" id="board_bid" name="bnum" value="${dto.bnum}" />
+				<input type="text" class="board_id" id="board_id" name="bmidnum" value="${mdto.mnum}" />
+				<input type="text" class="board_nick" id="board_nick" name="bwriter" value="${mdto.mnick}"/>
+				<input type ="hidden" name="pageNum" value ="${pageNum}">
+				<input type ="hidden" name="regroup" value ="${dto.regroup}">
+				<input type ="hidden" name="restep" value ="${dto.restep}">
+				<input type ="hidden" name="relevel" value ="${dto.relevel}">
+			</div>
 
+			<hr>
+			<div class="board_updatecontents">
+				<div class="jsx-2303464893 editor">
+					<div class="fr-box fr-basic fr-top" role="application">
+						<div class="fr-wrapper show-placeholder" dir="auto"
+							style="overflow: scroll;">
+							<textarea name="smartEditor" id="smartEditor" name="bcontent" 
+								style="width: 100%; height: 412px; background-color: white; opacity: 1;">${dto.bcontent}</textarea>
+						</div>
 
-				<div class="fr-box fr-basic fr-top" role="application">
-					<div class="fr-wrapper show-placeholder" dir="auto"
-						style="overflow: scroll;">
-						<textarea name="bcontent" id="smartEditor"
-							style="width: 100%; height: 412px; background-color: white; opacity: 1;"></textarea>
 					</div>
-
 				</div>
-
-
-
-
-				<div class="board_hashform"> 
-					<hr>
-					<input type="text" class="board_hashtag" />
-					<button type="button" class="board_hashbtn">태그 추가</button>
-				</div>
+			</div>
+			<div class="board_hashform">
 				<hr>
-				<div class="board_btngroup">
-					<button type="button" class="board_listbtn"
-						onclick="location.href='../list'">목록</button>
-					<button type="button" class="board_savebutton" onclick="submitContents(this)" >저장</button>
-
-				</div>
+				<input type="text" class="board_hashtag" />
+				<button type="button" class="board_hashbtn">태그 추가</button>
+			</div>
+			<hr>
+			<div class ="board_btngroup" >
+			<button type="button" class="board_listbtn" onclick="location.href='../list'">목록</button>
+			<button type="submit" class="board_savebutton" onclick="submitContents(this)" >저장</button>
+			
 			</div>
 		</form>
 	</div>
 
-	<script type="text/javascript">
+<script type="text/javascript">
 var oEditors = []; 
 
 nhn.husky.EZCreator.createInIFrame({ 
@@ -112,11 +109,7 @@ function submitContents(elClickedObj) {
 
 }
 </script>
-
-
 </body>
-
-
 </html>
 
 
