@@ -65,12 +65,12 @@ public class ReserveController {
 	//getData:dto보내기
 	@GetMapping("/reserve/updateform")
 	public ModelAndView updateForm(
-			@RequestParam String num)
+			@RequestParam String rnum)
 	{
 		//선언
 		ModelAndView model=new ModelAndView();
 		//db로부터 num에 해당하는 dto를 얻는다
-		ReserveDto dto=dao.getData(num);
+		ReserveDto dto=dao.getData(rnum);
 		//model에 저장
 		model.addObject("dto", dto);
 		//포워드
@@ -80,22 +80,29 @@ public class ReserveController {
 	}
 	
 	//update
-	   @PostMapping("/reserve/update")
-	   public String updateReserve(
-	         @ModelAttribute ReserveDto dto)
-	   {
-	      dao.updateReserve(dto);
-	      return "redirect:list";
-	   }
-	   
-	   //delete
-	   @GetMapping("/reserve/delete")
-	   public String deleteReserve(
-	         @RequestParam String num)
-	   {
-	      dao.deleteReserve(num);
-	      return "redirect:list";
-	   }
+    @PostMapping("/reserve/update")
+    public String updateReserve(
+         @ModelAttribute ReserveDto dto)
+    {
+		dao.updateReserve(dto);
+		return "redirect:list";
+    }
+   
+    //delete
+    @GetMapping("/reserve/delete")
+    public String deleteReserve(
+         @RequestParam String rnum)
+    {
+	    dao.deleteReserve(rnum);
+	    return "redirect:list";
+    }
+   
+    //success
+    @GetMapping("/reserve/success")
+    public String successPage()
+    {
+    	return "/reserve/success";
+	}
 
 }
 	
