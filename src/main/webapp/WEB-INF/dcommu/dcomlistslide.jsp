@@ -74,13 +74,13 @@
 	<!-- slide start-->
 	<div class="dcom-slide-bar">
 		<div class="dcom-slide-box">
-			<div style="color: white;"><h4><b>인기 조회 게시물 TOP10</b></h4></div>
+			<!-- <div style="color: white;"><h4><b>인기 조회 게시물 TOP10</b></h4></div> -->
 			<ul class="dcom-slide-list" id="dcom-slider-list">
 				<c:forEach var="d" items="${dlist }" varStatus="i">
 					<li class="dcom-slide"><a
 						href="detail?num=${d.cnum}&pageNum=${currentPage }&key=list">
 							<input type="hidden" value="${i.count}">
-							<div class="slide-img-bar">
+							<div class="slide-img-bar" id="slide-img-bar">
 								<div class="slide-img-box">
 								<!-- 상대경로  ${pageContext.request.contextPath}-->
 									<img
