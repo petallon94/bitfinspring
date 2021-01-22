@@ -19,7 +19,7 @@
 	</select>
 	<!-- update -->
 	<update id="updateOfReserve" parameterType="rdto">
-		update reserve set rmemo=#{rmemo},rtime=#{rtime},rdate=#{rdate} where rnum=#{rnum}
+		update reserve set rmnum=#{rmnum},rdmnum=#{rdmnum},rmemo=#{rmemo},rtime=#{rtime},rdate=#{tdate} where rnum=#{rnum}
 	</update>
 	<!-- delete-->
 	<delete id="deleteOfReserve" parameterType="String">

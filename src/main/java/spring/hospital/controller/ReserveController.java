@@ -57,18 +57,11 @@ public class ReserveController {
 	@PostMapping("/reserve/insert")
 	public String reserveInsert(
 			@ModelAttribute ReserveDto dto)
-	{			
+	{				
 		dao.insertReserve(dto);
-		return "/reserve/success";
+		return "redirect:list";
 	}
 	
-	//success
-    @GetMapping("/reserve/success")
-    public String successPage()
-    {
-    	return "/reserve/success";
-	}
-    
 	//getData:dto보내기
 	@GetMapping("/reserve/updateform")
 	public ModelAndView updateForm(
@@ -104,6 +97,12 @@ public class ReserveController {
 	    return "redirect:list";
     }
    
+    //success
+    @GetMapping("/reserve/success")
+    public String successPage()
+    {
+    	return "/reserve/success";
+	}
 
 }
 	
