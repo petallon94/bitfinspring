@@ -25,6 +25,8 @@
 <link rel="stylesheet" href="${root}/css/hospital.css" />
 <link rel="stylesheet" href="${root}/css/member.css" />
 <link rel="stylesheet" href="${root}/css/mypage/m_member.css" />
+<link rel="stylesheet" href="${root}/css/dcommu/dcomlist.css">
+<link rel="stylesheet" href="${root}/css/dcommu/normalize.8.0.1.css">
 <!-- JS 파일 -->
 <script src="${root}/js/fullpage.min.js" ></script>
 <script src="${root}/js/member.js"></script>

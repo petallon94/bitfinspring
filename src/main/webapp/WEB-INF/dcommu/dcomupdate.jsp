@@ -43,7 +43,7 @@ enctype="multipart/form-data" onsubmit="return false;" action="update">
    <!-- hidden end-->
    <div class="jsx-2303464893 editor dcom-con">
       <div style="height: 100px;">
-         <div class="dcom-row dcom-start" style="color: white;"><h3><b>게시글작성</b></h3></div>
+         <div class="dcom-row dcom-start" style="color: white;"><h3><b>게시글수정</b></h3></div>
          <div class="dcom-con dcom-title">
          <b>제목</b>
             <input type="text" class="form-control dcom-row"
