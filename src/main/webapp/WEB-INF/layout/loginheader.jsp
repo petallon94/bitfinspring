@@ -64,10 +64,11 @@
 <div class="slide_bar">
 
 	<ul class="slide_bar_list">
-		<li><a href="">우리집</a></li>
-		<li><a href="">강아지는</a></li>
-		<li><a href="">복슬강</a></li>
-		<li><a href="">아지~</a></li>
+		<li><a href="">병원안내/예약</a></li>
+		<li><a href="">방역수칙</a></li>
+		<li><a href="">카드뉴스</a></li>
+		<li><a href="">커뮤니티</a></li>
+		<li><a href="">의약품검색</a></li>
 		<li><a href="${root}/mypage.main">마이페이지</a></li>
 	</ul>
 	
