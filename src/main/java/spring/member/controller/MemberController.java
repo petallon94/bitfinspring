@@ -165,9 +165,10 @@ public class MemberController {
 		   if(mrole==0)
 		   {
 			   //일반회원
-			   return "/member/dupdatemember";
-		   }else {
 			   return "/member/mupdatemember";
+		   }else {
+			   //병원
+			   return "/member/dupdatemember";
 		   }
 	   }else {
 		   //비밀번호가 틀릴 경우 마이페이지의 마이 인포메이션으로 가기.
@@ -195,10 +196,11 @@ public class MemberController {
 	   
 	
     //삭제 패스워드 확인
-	@PostMapping("/member/delpasscheck")
+	@PostMapping("/member/del.passcheck")
 	public String goDelForm(@RequestParam String mpw
 			,HttpServletRequest request
-			, HttpServletResponse response
+			,HttpServletResponse response
+			,Model model 
 			)
 	{
 		
@@ -214,13 +216,18 @@ public class MemberController {
 			service.deleteMember(mdto.getMid());
 		}else{
 			//결과가 틀리면 마이페이지로 돌아가기
-			return "/mypage/myinformation";		
+		    model.addAttribute("alert_title","패스워드가 알맞지 않습니다.");
+			model.addAttribute("alert_icon","error");
+			model.addAttribute("url","/bit/mypage.information");
+			return "/member/alert";
 		}
 		
 	      //세션을 다 지워버림.
 	      request.getSession().invalidate();
-	      //메인으로 돌아감.
-	      return "redirect:/";
+	      model.addAttribute("alert_title","회원탈퇴를 하였습니다.");
+		  model.addAttribute("alert_icon","success");
+		  model.addAttribute("url","/bit");
+		  return "/member/alert";
 	}
 		
 		
