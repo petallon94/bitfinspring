@@ -86,6 +86,7 @@
 				</div>
 			</div>
 		</div>
+	
 		<!-- 페이징처리할것 -->
 		<div style="width: 800px; text-align: center;">
 			<ul class="pagination">
@@ -106,6 +107,7 @@
 				</c:if>
 			</ul>
 		</div>
+		<div id="button">button</div>
 	</div>
 	<script>
                 var tablist = document.getElementById("hospital__list_tablist");
@@ -121,11 +123,21 @@
                     });
                 }
                 
-                /* Javascript 샘플 코드 */
 
+               /*  var cards= document.querySelector("hospital__list_cards");
 
+                cards.forEach(function(element){
+                    console.log(element);
+                });
+                 */
+               
+                /* API 목록 Javascript 샘플 코드 */
+				var button = document.getElementById('button');
+                button.addEventListener('click', getHospitaData);
+                
+				function getHospitaData() {
                 var xhr = new XMLHttpRequest();
-                var url = 'http://apis.data.go.kr/B551182/pubReliefHospService/getpubReliefHospList'; /*URL*/
+                var url = 'http://apis.data.go.kr/B551182/pubReliefHospService'; /*URL*/
                 var queryParams = '?' + encodeURIComponent('ServiceKey') + '='+'ELPlnUlo0CxXA8FbXT0V%2B0wkutn45xHxgWifiU35dIFwr3r1ngGdPJCbxlz59QRhYMoSmt2nzUIZYiCxjFQXgg%3D%3D'; /*Service Key*/
                 queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
                 queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10'); /**/
@@ -138,17 +150,20 @@
                     }
                 };
 
-                xhr.send('');
+                xhr.send();
+                }
                 
                 
                 
-				<!--탭클릭시 타이틀 변경 작동안됨 ㅋㅋ-->
+                
+                
+				/* <!--탭클릭시 타이틀 변경 작동안됨 ㅋㅋ-->
                 document.getElementById("hospital__list_title").addEventListener("change", changeTitle);
                 function changeTitle() {
                     var x = document.getElementById("hospital__list_title");
                     var tablist = document.getElementById("hospital__list_tablist");
                     var btns = tablist.getElementsByClassName("hospital__list_listitem active1");
                     x.value = btns;
-                }
-            </script>
+                } */
+           </script>
 </body>
