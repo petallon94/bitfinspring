@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="insert_member_container">
-	<div class="insert_member_wrapper">
+	<div class="insert_member_wrapper mform">
 		<form action="savemember" method="post" id="signupform">
 			<input type="hidden" name="mrole" value="0">
 			<input type="hidden" name="mchat" value="0">

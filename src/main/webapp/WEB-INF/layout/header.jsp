@@ -22,9 +22,7 @@
     	   $('.login_icon0').css('opacity','1');
     	   $('.login_icon1').css('opacity','0');
        });
-       
     });
-    
 </script>
 
 </head>
@@ -55,10 +53,9 @@
 		<li><a href="${root}/doctor/list">카드뉴스</a></li>
 		<li><a href="">커뮤니티</a></li>
 		<li><a href="">의약품검색</a></li>
-
 	</ul>
+	
 	<div class="slide_bar_login">
-		
 	</div>
 </div>
 </body>

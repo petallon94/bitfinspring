@@ -23,9 +23,10 @@ p{
 	
 }
 
+/* 바 */
 .menu_bar {
 	position: absolute;
-	background-color: rgba(0, 0, 0, 50%);
+	background-color: rgba(255, 255, 255, 50%);
 	z-index: 10;
 	width: 100%;
 	height: 60px;
@@ -36,19 +37,20 @@ p{
 	display: block;
 	position: absolute;
 	top: calc(50% - 25px);
-	left: 5px;
-	width: 50px;
-	height: 50px;
+	left: 10px;
+	width: 45px;
+	height: 45px;
 	cursor: pointer;
 }
 
 .total span {
 	display: block;
 	position: absolute;
-	top: calc(50% - 5px);
+	top: calc(50% - 2px);
 	width: 100%;
-	height: 8px;
-	background-color: rgba(255, 255, 255, 1);
+	height: 5px;
+	border-radius:3px;
+	background-color: rgba(0, 0, 0, 0.5);
 	color: transparent;
 	transition: all 0.5s;
 }
@@ -59,32 +61,38 @@ p{
 	left: 0;
 	top: 0;
 	width: 100%;
-	height: 8px;
-	background-color: rgba(255, 255, 255, 1);
+	height: 5px;
+	border-radius:3px;
+	background-color: rgba(0, 0, 0, 0.5);
 	transition: all 0.5s;
 }
 
 .total span:before {
-	top: -15px;
+	top: -14px;
 }
 
 .total span:after {
-	top: 15px;
+	top: 14px;
 }
 
 .total.on span {
-	background-color: rgba(255, 255, 255, 0);
+	background-color: rgba(0, 0, 0, 0);
 }
 
 .total.on span:before {
 	top: 0;
+	background-color: rgba(0, 0, 0, 1);
 	transform: rotate(45deg);
 }
 
 .total.on span:after {
 	top: 0;
+	background-color: rgba(0, 0, 0, 1);
 	transform: rotate(-45deg);
 }
+
+
+/* //햄버거 끝 */
 
 .menu_bar .menu_title {
 	position: absolute;
@@ -101,7 +109,7 @@ p{
 
 .menu_bar .menu_title>a {
 	position:relative;
-	color: white;
+	color: black;
 	text-decoration: none;
 	transition:0.35;
 }
@@ -210,7 +218,7 @@ div.slide_bar>ul>li>a:hover {
 /* section 0 */
 .sec0 .fp-tableCell {
 	width: 100%;
-	background-image: url('../image/mainback.jpg');
+	background-image: url('../image/sec0.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -233,9 +241,11 @@ div.slide_bar>ul>li>a:hover {
 /* section 1 */
 .sec1 .fp-tableCell {
 	width: 100%;
-	background-color: white;
+	height:100vh;
+	background-image: url('../image/sec1.png');
 	background-repeat: no-repeat;
 	background-size: cover;
+	background-position: center;
 	display: flex;
 	justify-content: space-around;
 	align-content: center;
@@ -253,9 +263,10 @@ div.slide_bar>ul>li>a:hover {
 /* section 2 */
 .sec2 .fp-tableCell {
 	width: 100%;
-	background-image: url('../image/mainback.jpg');
+	background-image: url('../image/se00.png');
 	background-repeat: no-repeat;
 	background-size: cover;
+	background-position: center;
 	display: flex;
 	justify-content: space-around;
 	align-content: center;
@@ -285,26 +296,46 @@ div.slide_bar>ul>li>a:hover {
 /* //main end */
 
 /* Footer (메인페이지 footer은 따로 있음 fullpage때매 동작 안함) */
-#footer {
-	background-color: rgba(0, 0, 0, 0.9);
+footer div.footer_info{
+    display:flex;
+    justify-content:space-evenly;
+    flex-wrap: wrap;
+    background-color:rgb(221, 221, 221);
+    padding-top:30px;
+    padding-bottom:30px;
+}
+footer div div.info{
+    display:inline-block;
+    margin-top:30px;
+    margin-bottom: 30px;
+}
+footer div div.help{
+    display:inline-block;
+    margin-top:30px;
+    margin-bottom: 30px;
+
+}
+footer div div p.footer_title{
+    font-size:22px;
+    font-weight: bolder;
+}
+span.phone{
+    color:orange;
+    font-size:28px;
+    display:block;
+}
+span.alert{
+    color:gray;
+}
+footer div div pre{
+	background-color: rgba(255,255,255,0.5);
+	border-radius: 15px;
+	width:400px;
+	height:200px;
+	vertical-align: center;
 	
 }
 
-.footer_container {
-	
-}
-
-.footer_container>div {
-	
-}
-
-.footer_container>div.footer1 {
-	
-}
-
-.footer_container>div.footer1 {
-	
-}
 /* //footer end */
 
 

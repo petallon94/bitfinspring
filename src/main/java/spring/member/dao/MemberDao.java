@@ -26,9 +26,9 @@ public class MemberDao extends SqlSessionDaoSupport implements MemberDaoInter {
 	}
 
 	@Override
-	public void deleteMember(String mnum) {
+	public void deleteMember(String mid) {
 		// TODO Auto-generated method stub
-		
+		getSqlSession().delete("updateOfMember", mid);
 	}
 
 	@Override
