@@ -5,8 +5,8 @@
 
 	<!-- 가입 -->
 	<insert id="insertOfMember" parameterType="mdto">
-		insert into member (mid,mnick,email,mpw,mhp,mrole,mchat) values (
-		#{mid},#{mnick},#{email},#{mpw},#{mhp},#{mrole},#{mchat})
+		insert into member (mid,mnick,memail,mpw,mhp,mrole,mchat) values (
+		#{mid},#{mnick},#{memail},#{mpw},#{mhp},#{mrole},#{mchat})
 	</insert>
 
 	<!-- 정보가져오기 -->
@@ -16,7 +16,7 @@
 
 	<!-- 수정-->
 	<update id="updateOfMember" parameterType="mdto">
-		update member set mid=#{mid},mnick=#{mnick},email=#{email},mhp=#{mhp},mchat=#{mchat}
+		update member set mid=#{mid},mnick=#{mnick},memail=#{memail},mhp=#{mhp},mchat=#{mchat}
 		 where mid=#{mid}
 	</update>
 
@@ -41,7 +41,7 @@
 	</select>
    
    <!-- 비번변경 -->
-   <update id="updatePwOfMember" parameterType="mdto">
+   <update id="updatePwOfMember" parameterType="String">
 		update member set mpw=#{mpw} where mid=#{mid}
    </update>
 </mapper>
