@@ -14,7 +14,7 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 <script src="<%=request.getContextPath()%>/se2/js/HuskyEZCreator.js"
    type="text/javascript" charset="utf-8"></script>
 <script
-   src="<%=request.getContextPath()%>/se2/quick_photo_uploader/plugin/hp_SE2M_AttachQuickPhoto.js"
+   src="<%=request.getContextPath()%>/se2/sample/js/plugin/hp_SE2M_AttachQuickPhoto.js"
    type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
@@ -131,7 +131,7 @@ function submitContents(elClickedObj) {
 // textArea에 이미지 첨부
 
 function pasteHTML(filepath){
-    var sHTML = '<img src="<%=request.getContextPath()%>/save/'+filepath+'">';
+    var sHTML = '<img src="<%=request.getContextPath()%>resources/photo_upload/'+filepath+'">';
     oEditors.getById["smartEditor"].exec("PASTE_HTML", [sHTML]); 
 
 }
