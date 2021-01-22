@@ -56,7 +56,8 @@
 	<!-- 내용 시작 -->
 	
 	나의 정보
-	<button type="button" id="mupdate_btn">버튼</button>
+	<button type="button" id="mupdate_btn">정보수정</button>
+	<button type="button" id="mdelete_btn">회원탈퇴</button>
 	<hr>
 	<table>
 		<tbody>
@@ -99,40 +100,67 @@
 
 
 <!-- 회원수정 모달 -->
+<div class="modal fade" id="updateMember" role="dialog">
+	<div class="modal-dialog">
 
-	<div class="modal fade" id="updateMember" role="dialog" style="margin-top: 100px;">
-		<div class="modal-dialog">
-
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header" style="padding: 35px 50px;">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4>
-						정보 수정을 원하시면 비밀번호를 입력해주세요.
-					</h4>
-				</div>
-				<form action="${root}/member/update.passcheck" method="post" class="form-inline">
-					<input type="text" name="mid" value="${mdto.mid}">
-					<input type="hidden" name="mid" value="${mdto.mrole}">
-  					<input type="text" name="mpw" >
-					<div class="modal-body" style="padding: 40px 50px; text-align: center;">
-						<button type="submit" style="width: 80px;">
-							<span class="glyphicon glyphicon-trash"></span> 수정하기
-						</button>
-						<button type="button" style="width: 80px;" data-dismiss="modal">
-							<span class="glyphicon glyphicon-remove"></span> 취소
-						</button>
-					</div>
-				</form>
+		<div class="modal-content" style="z-index: 11;">
+			<div class="modal-header">
+		    	<button type="button" class="close" data-dismiss="modal">&times;</button>
+		    	<h4 class="modal-title">회원정보를 수정하시려면 비밀번호를 입력해주세요.</h4>
 			</div>
+			<form action="${root}/member/update.passcheck" method="post">
+			  	<div class="modal-body" style="display:flex; justify-content: center; align-items: center;">
+					<label class="signup_input">
+						<input type="password" name="mpw" class="mpw" required>
+						<span class="signup_input_sp"> <span class="glyphicon glyphicon-lock"></span> Password</span>
+					</label>
+			  	</div>
+			  	<div class="modal-footer">
+			  		<button type="submit" class="btn btn-default">수정하기</button>
+			    	<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+			  	</div>
+		  	</form>
 		</div>
-	</div>
+    </div>
+</div>
+<!--// 회원수정 모달 -->
+<!-- 회원정보 삭제 모달 -->
+<div class="modal fade" id=deleteMember role="dialog">
+	<div class="modal-dialog">
+
+		<div class="modal-content" style="z-index: 11;">
+			<div class="modal-header">
+		    	<button type="button" class="close" data-dismiss="modal">&times;</button>
+		    	<h4 class="modal-title">탈퇴를 원하시면 비밀번호를 입력해주세요.</h4>
+			</div>
+			<form action="${root}/member/del.passcheck" method="post">
+			  	<div class="modal-body" style="display:flex; justify-content: center; align-items: center;">
+					<label class="signup_input">
+						<input type="password" name="mpw" class="mpw" required>
+						<span class="signup_input_sp"> <span class="glyphicon glyphicon-lock"></span> Password</span>
+					</label>
+			  	</div>
+			  	<div class="modal-footer">
+			  		<button type="submit" class="btn btn-default">수정하기</button>
+			    	<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+			  	</div>
+		  	</form>
+		</div>
+    </div>
+</div>
+<!--//회원정보 삭제 모달 -->
+
 
 </body>
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#mupdate_btn").click(function(){
 			$("#updateMember").modal();
+		});
+	});
+	$(document).ready(function(){
+		$("#mdelete_btn").click(function(){
+			$("#deleteMember").modal();
 		});
 	});
 </script>
