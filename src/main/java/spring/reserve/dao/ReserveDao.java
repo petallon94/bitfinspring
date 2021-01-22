@@ -21,9 +21,9 @@ public class ReserveDao extends SqlSessionDaoSupport implements ReserveDaoInter 
 	}
 
 	@Override
-	public ReserveDto getData(String num) {
+	public ReserveDto getData(String rnum) {
 		// TODO Auto-generated method stub
-		return getSqlSession().selectOne("selectOneOfReserve", num);
+		return getSqlSession().selectOne("selectOneOfReserve", rnum);
 	}
 
 	@Override
@@ -39,9 +39,9 @@ public class ReserveDao extends SqlSessionDaoSupport implements ReserveDaoInter 
 	}
 
 	@Override
-	public void deleteReserve(String num) {
+	public void deleteReserve(String rnum) {
 		// TODO Auto-generated method stub
-		getSqlSession().delete("deleteOfReserve", num);
+		getSqlSession().delete("deleteOfReserve", rnum);
 	}
 
 }
