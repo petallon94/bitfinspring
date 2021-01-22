@@ -36,18 +36,18 @@ public class CardUpdateController {
 	
 	@PostMapping("/doctor/update")
 	public String updateCard(@ModelAttribute CardDto dto, 
-							@RequestParam MultipartFile cphoto, 
+							@RequestParam MultipartFile file, 
 							@RequestParam String pageNum, 
 							HttpServletRequest request)
 	{
 		MemberDto mdto=(MemberDto)request.getSession().getAttribute("mdto");
-		String path = request.getSession().getServletContext().getRealPath("/WEB-INF/save");
+		String path = request.getSession().getServletContext().getRealPath("/resources/save");
 		System.out.println(path);
 		
 		SpringFileWriter writer = new SpringFileWriter();
-		String fileName=writer.changeFilename(cphoto.getOriginalFilename());
+		String fileName=writer.changeFilename(file.getOriginalFilename());
 		
-		writer.writeFile(cphoto, fileName, path);
+		writer.writeFile(file, fileName, path);
 		
 		//저장된 파일 먼저 삭제
 		String deleteFile=carddi.getCardData(dto.getCnum()).getCphoto();

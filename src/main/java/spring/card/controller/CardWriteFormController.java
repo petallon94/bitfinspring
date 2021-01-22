@@ -28,24 +28,24 @@ public class CardWriteFormController {
 	@GetMapping("/doctor/writeform")
 	public String goCardWriteForm(HttpServletRequest request, HttpServletResponse response)
 	{
-		request.getSession().setAttribute("cmidnum","1");
+		MemberDto mdto=(MemberDto)request.getSession().getAttribute("mdto");
+		request.getSession().setAttribute("cmidnum", mdto.getMnum());
 		return "/dcommu/dcomwriteform";
 	}
 	
 	@PostMapping("/doctor/insert")
-	public String cardWrite(@ModelAttribute CardDto dto,@RequestParam MultipartFile cphoto, HttpServletRequest request,@RequestParam String pageNum)
+	public String cardWrite(@ModelAttribute CardDto dto,@RequestParam MultipartFile file, HttpServletRequest request,@RequestParam String pageNum)
 	{
-		MemberDto mdto=(MemberDto)request.getSession().getAttribute("mdto");
-		ModelAndView model = new ModelAndView();
 		String path = request.getSession().getServletContext().getRealPath("/resources/save");
 		System.out.println(path);
 		
 		SpringFileWriter writer = new SpringFileWriter();
-		String fileName=writer.changeFilename(cphoto.getOriginalFilename());
+		String fileName=writer.changeFilename(file.getOriginalFilename());
 		
-		writer.writeFile(cphoto, fileName, path);
+		writer.writeFile(file, fileName, path);
 		
 		dto.setCphoto(fileName);
+		System.out.println(dto.getCphoto());
 		
 		carddi.insertCard(dto);
 		

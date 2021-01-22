@@ -25,7 +25,7 @@ public class CardDeleteController {
 	{
 		MemberDto mdto=(MemberDto)request.getSession().getAttribute("mdto");
 		//파일 업로드 경로 구하기
-		String path=request.getSession().getServletContext().getRealPath("/WEB-INF/save");
+		String path=request.getSession().getServletContext().getRealPath("/resources/save");
 		System.out.println(path);
 		//db에 저장된 파일명 얻기
 		String deleteFile=carddi.getCardData(cnum).getCphoto();
