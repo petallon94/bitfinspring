@@ -35,9 +35,9 @@ public class BoardDao extends SqlSessionDaoSupport implements BoardDaoInter {
 	}
 
 	@Override
-	public void updateReadCount(String num) {
+	public void updateReadCount(String bnum) {
 		// TODO Auto-generated method stub
-		
+		getSqlSession().update("updateReadcountOfBoard",bnum);
 	}
 
 	@Override
@@ -55,27 +55,40 @@ public class BoardDao extends SqlSessionDaoSupport implements BoardDaoInter {
 	}
 
 	@Override
-	public BoardDto getData(String num) {
+	public BoardDto getData(String bnum) {
 		// TODO Auto-generated method stub
-		return null;
+		 //System.out.println(bnum);
+		 return getSqlSession().selectOne("selectoneOfBoard",bnum);
 	}
 
 	@Override
 	public void updateBoard(BoardDto dto) {
 		// TODO Auto-generated method stub
-		
+		getSqlSession().update("updateOfBoard",dto);
 	}
 
 	@Override
-	public void deleteBoard(String num) {
+	public void deleteBoard(String bnum) {
 		// TODO Auto-generated method stub
-		
+		getSqlSession().delete("deleteOfBoard",bnum);
 	}
 
 	@Override
 	public int getTotalCount() {
 		// TODO Auto-generated method stub
-		return 0;
+		return getSqlSession().selectOne("totalCountOfBoard");
+	}
+
+	@Override
+	public List<BoardDto> getTagList() {
+		// TODO Auto-generated method stub
+		return getSqlSession().selectList("selecthashtag");
+	}
+
+	@Override
+	public List<BoardDto> getOneTagList(String bnum) {
+		// TODO Auto-generated method stub
+		return getSqlSession().selectList("selectboardtag",bnum);
 	}
 
 }

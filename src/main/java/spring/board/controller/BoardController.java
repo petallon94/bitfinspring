@@ -13,6 +13,7 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,10 +26,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import spring.board.dao.BoardDao;
 import spring.dto.BoardDto;
 import spring.dto.BoardPhotoDto;
+import spring.dto.MemberDto;
 
 
 @Controller
@@ -37,12 +40,16 @@ public class BoardController {
 	@Autowired
 	private BoardDao dao;
 	
-	@GetMapping({"/board"})
+	@GetMapping({"/board/list"})
 	   public String goboard(
 			   @RequestParam(value="pageNum",defaultValue="1")int currentPage,
 				Model model
 			   ) 
-	 {	int totalCount = dao.getTotalCount();
+	 {	
+		
+		
+		
+	  int totalCount = dao.getTotalCount();
 	  // System.out.println(totalCount);
 	   
 	   int perPage=5;       //이런 한글이 왜 깨지는 거야
@@ -77,24 +84,25 @@ public class BoardController {
 	   if(list.size()==0)
 	   {
 		   
-		   return "redirect : list?pageNum="+(currentPage-1);
+		   return "redirect:list?pageNum="+(currentPage-1);
 		   
 	   }
 	   
 		
-		/* �뙎湲� : 異뷀썑�뿉 援ы쁽
-		 * for(BoardDto dto:list) {
-		 * 
-		 * int n= adao.getAnswerList(dto.getNum()).size(); dto.setCnt(n);
-		 * 
-		 * }
-		 */
+	   //hashtag 불러오는 함수들//
 	   
+	   List<BoardDto> hashlist = dao.getTagList();
+	   
+	   //// 각 글 리스트 따오기
+	   
+	   //List<BoardDto> boardtaglist = dao.getOneTagList();
 	   
 	   
 	//////////////////////////////////   
 	   model.addAttribute("currentPage",currentPage);
 	   model.addAttribute("list",list);
+	   model.addAttribute("hashlist",hashlist);
+	   //model.addAttribute("boardtaglist",boardtaglist);
 	   model.addAttribute("no",no);
 	   model.addAttribute("startPage",startPage);
 	   model.addAttribute("endPage",endPage);
@@ -103,27 +111,46 @@ public class BoardController {
 	   
 	    return "/board/boardlist";
 	 }
-
-	
-	///////////由ъ뒪�듃 異쒕젰 �셿猷�
 	
 	
 	@GetMapping({"/board/boardwrite"})
-	   public String gobowrite() 
+	   public ModelAndView gobowrite(HttpServletRequest request,
+				@RequestParam(value="regroup",defaultValue="0") int regroup,
+				@RequestParam(value="restep",defaultValue="0") int restep,
+				@RequestParam(value="relevel",defaultValue="0") int relevel,
+				@RequestParam(defaultValue="1") String pageNum
+			   
+			   )
 	{	
-	    return "/board/boardwriteform";
+		ModelAndView mview=new ModelAndView();
+		HttpSession session = request.getSession();
+	    //String name = (String) session.getAttribute("loginid");
+	    MemberDto mdto=(MemberDto)request.getSession().getAttribute("mdto");
+	    
+	    mview.addObject("mdto",mdto);
+	    //mview.addObject("name",name);
+	    mview.addObject("regroup",regroup);
+		mview.addObject("restep",restep);
+		mview.addObject("relevel",relevel);
+		mview.addObject("pageNum",pageNum);
+	    
+		mview.setViewName("/board/boardwriteform");
+	    return mview;
 	}
 	
 	
 	
 	@PostMapping("/board/write")
 	public String write(
-			@ModelAttribute BoardDto dto
+			@ModelAttribute BoardDto dto,
+			HttpServletRequest request,
+			@RequestParam String pageNum
 			)
 	{
+		
 		dao.insertBoard(dto);
-		return "redirect:list?";
+		return "redirect:/list?";
 	}
-
-
+	
+	
 }

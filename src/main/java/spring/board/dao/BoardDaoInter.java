@@ -17,5 +17,6 @@ public interface BoardDaoInter {
 	   public void updateBoard(BoardDto dto);
 	   public void deleteBoard(String num);
 	   public int getTotalCount();
-
+	   public List<BoardDto> getTagList();
+	   public List<BoardDto> getOneTagList(String num);
 }
