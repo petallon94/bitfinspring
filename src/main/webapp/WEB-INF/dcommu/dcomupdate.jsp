@@ -25,9 +25,6 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 <link rel="stylesheet"
    href="<%=request.getContextPath()%>/css/dcommu/dcomwriteform.css" />
 <body style="background-color: #1f2c59">
-<style>
-
-</style>
    <div class="dcom-top-bn-box dcom-con2">
       <div class="dcom-img-box">
          <img style="height: 400px;"
@@ -59,7 +56,7 @@ enctype="multipart/form-data" onsubmit="return false;" action="update">
          <b>작성자</b>
             <input type="text" class="form-control dcom-row"
                      style="width: 120px;" required="required"
-                     name="cwriter" value="${dto.writer }"> 
+                     name="cwriter" value="${dto.cwriter }"> 
          </div>
       </div>
       <div class="fr-box fr-basic fr-top" role="application">

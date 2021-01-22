@@ -51,7 +51,7 @@ enctype="multipart/form-data" onsubmit="return false;" action="insert">
          <div class="dcom-con dcom-photo">
          <b>메인사진</b>
             <input type="file" class="form-control dcom-row"
-                     style="width: 300px;" name="file" required="required">    
+                     style="width: 300px;" name="cphoto" required="required">    
          </div>
          <div class="dcom-con dcom-writer">
          <b>작성자</b>
