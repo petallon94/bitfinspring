@@ -4,12 +4,13 @@
 	background-size: cover;
 	background-position: center;
 	text-align: center;
-	padding: 150px 0;	
+	padding: 140px 0;	
 }
-.hospital__main_title h3 {
+.hospital__main_title h2 {
 	color: white;
 	font-size: 60px;	
 }
+
 .hospital__main_title span {
 	color: #70788d;
 	font-size: 22px;
@@ -21,14 +22,12 @@
 
 .hospital__searchcont {	
 	background: #f2f3f5;
-	padding: 20px 0;
+	padding: 30px 0;
 	text-align: center;
-	margin-bottom: 20px;
+	margin-bottom: 25px;
 	margin-top: 50px;
 	font-size: 14px;
-	color: #222;
-	letter-spacing: -0.25px;
-	border: 1px solid #ddd;
+	color: #222;	
 }
 
 .hospital__search_text {
@@ -69,24 +68,58 @@
 	font-size: 16px;
 	vertical-align: middle;
 }
-
-.hospital__main_menu ul{
-	list-style-type: none;
+.hospital__search_info {
+	margin-top: 10px;
+}
+.hospital__main_tiles {
 	display: flex;
 	justify-content: center;
 }
-.hospital__main_menu ul li{
-	margin: 50px;  
+.hospital__main_inner{
+	max-width: 1200px;	
 }
-.hospital__main_menu ul li a{
+
+/* main_inner media queries */
+@media (min-width: 500px) {
+  .hospital__main_inner ul{
+  	list-style-type: none;
+  	display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+
+@media (min-width: 800px) {
+  .hospital__main_inner ul {
+  	list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .hospital__main_inner ul {
+  	list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.hospital__main_tiles li a img {
+	max-width: 100%;	
+	padding: 50px 30% 20px;
+	box-sizing: border-box;
+}
+
+.hospital__main_tiles li a p {
 	color: #fff;
 	text-decoration: none;
+	font-weight: 500;
+	margin-bottom: 10px;
+	font-size: 16px;	
 }
-.hospital__main_menu ul li a img {
-	width: 100px;
-	height: 100px;
-	margin-bottom: 20px;
-}
+
+
 /* 애니메이션넣을려고햇지만 안됨
 .hospital__main_menu ul li a img.grow-img 
 {
@@ -219,11 +252,15 @@
 	margin-top: 100px;	
 }
 #hospital__map{
-	width:1000px; 
-	height:500px; 
+	width:1000px;	
+	height: 500px;
 	margin: 50px;
+/* 	border: 1px solid rgba(0,0,0,.2);
+	border-bottom: none;
+	box-shadow: 0 0 20px rgba(0,0,0,.2);
+	box-sizing: border-box; */
+	
 }
-
 
 /* media queries */
 @media (max-width: 800px) {
