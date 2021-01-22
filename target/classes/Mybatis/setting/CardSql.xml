@@ -26,7 +26,7 @@
 		select * from card where cnum=#{cnum}
 	</select>
 	<update id="updateOfCard" parameterType="cdto">
-		update card set cwriter=#{cwriter}, csubject=#{csubject}, ccontent=#{content}, 
+		update card set cwriter=#{cwriter}, csubject=#{csubject}, ccontent=#{ccontent} 
 		<if test="cphoto!=null">, cphoto=#{cphoto}</if> where cnum=#{cnum}
 	</update>
 	<delete id="deleteOfCard" parameterType="String">

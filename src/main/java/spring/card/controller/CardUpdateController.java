@@ -1,17 +1,17 @@
-
 package spring.card.controller;
 
+import java.io.File;
+
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import spring.card.dao.CardDaoInter;
 import spring.dto.CardDto;
@@ -19,25 +19,29 @@ import spring.dto.MemberDto;
 import upload.util.SpringFileWriter;
 
 @Controller
-public class CardWriteFormController {
+public class CardUpdateController {
 	
 	@Autowired
 	private CardDaoInter carddi;
 	
-	
-	@GetMapping("/doctor/writeform")
-	public String goCardWriteForm(HttpServletRequest request, HttpServletResponse response)
+	@GetMapping("/doctor/updateform")
+	public String goCardUpdate(Model model, String num, String pageNum)
 	{
-		request.getSession().setAttribute("cmidnum","1");
-		return "/dcommu/dcomwriteform";
+		CardDto dto = carddi.getCardData(num);
+		model.addAttribute("dto", dto);
+		model.addAttribute("pageNum", pageNum);
+		
+		return "/dcommu/dcomupdate";
 	}
 	
-	@PostMapping("/doctor/insert")
-	public String cardWrite(@ModelAttribute CardDto dto,@RequestParam MultipartFile cphoto, HttpServletRequest request,@RequestParam String pageNum)
+	@PostMapping("/doctor/update")
+	public String updateCard(@ModelAttribute CardDto dto, 
+							@RequestParam MultipartFile cphoto, 
+							@RequestParam String pageNum, 
+							HttpServletRequest request)
 	{
 		MemberDto mdto=(MemberDto)request.getSession().getAttribute("mdto");
-		ModelAndView model = new ModelAndView();
-		String path = request.getSession().getServletContext().getRealPath("/resources/save");
+		String path = request.getSession().getServletContext().getRealPath("/WEB-INF/save");
 		System.out.println(path);
 		
 		SpringFileWriter writer = new SpringFileWriter();
@@ -45,11 +49,19 @@ public class CardWriteFormController {
 		
 		writer.writeFile(cphoto, fileName, path);
 		
+		//저장된 파일 먼저 삭제
+		String deleteFile=carddi.getCardData(dto.getCnum()).getCphoto();
+		if(!deleteFile.equals("no"))
+		{
+			File files=new File(path+"\\"+deleteFile);
+			if(files.exists())
+				files.delete();
+		}
+		
 		dto.setCphoto(fileName);
 		
-		carddi.insertCard(dto);
+		carddi.updateCard(dto);
 		
-		return "redirect:list?pageNum="+pageNum;
+		return "redirect:detail?num="+dto.getCnum()+"&pageNum="+pageNum;
 	}
-
 }

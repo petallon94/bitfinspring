@@ -55,7 +55,7 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 
 				<button type="button" class="btn btn-success btn-sm"
 					style="width: 80px;"
-					onclick="location.href='update?num=${dto.cnum}&pageNum=${pageNum}'">수정</button>
+					onclick="location.href='updateform?num=${dto.cnum}&pageNum=${pageNum}'">수정</button>
 
 				<button type="button" class="btn btn-danger btn-sm" id="delete-btn"
 					style="width: 80px;">삭제</button>

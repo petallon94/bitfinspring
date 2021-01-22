@@ -25,9 +25,6 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 <link rel="stylesheet"
    href="<%=request.getContextPath()%>/css/dcommu/dcomwriteform.css" />
 <body style="background-color: #1f2c59">
-<style>
-
-</style>
    <div class="dcom-top-bn-box dcom-con2">
       <div class="dcom-img-box">
          <img style="height: 400px;"
