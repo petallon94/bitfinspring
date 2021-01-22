@@ -67,6 +67,9 @@ public class MemberController {
 	}
 
 	
+	
+	
+	//아이디중복확인
 	@ResponseBody
 	@PostMapping("/member/idcheck")
 	public String idCheck(String mid)
@@ -84,7 +87,7 @@ public class MemberController {
 	
 	
 	
-	
+	//로그인세션 dto가져오기
 	@PostMapping("member/loginmethod")
 	   public String loginMethod(
 	         HttpServletRequest request, HttpServletResponse response,
@@ -102,7 +105,7 @@ public class MemberController {
 	         String loginid=(String)request.getSession().getAttribute("loginid");
 	         
 	         MemberDto mdto=service.getData(loginid);
-	         System.out.println("로그인"+mdto);
+	         //System.out.println("로그인"+mdto);
 			 request.getSession().setAttribute("mdto",mdto);
 	      }else {
 	         path="/member/nidlogin";
@@ -112,7 +115,7 @@ public class MemberController {
 	   };
 
 	  
-	   
+	   //로그아웃
 	   @GetMapping("member/logout")
 	   public String loginMethod(
 	         HttpServletRequest request, HttpServletResponse response)
@@ -132,10 +135,11 @@ public class MemberController {
 	   
 	   
 	   
-	   
-	   @GetMapping("/member/updatepwchk")
-	   public String updatePwCheck(HttpServletRequest request,
-			   HttpServletResponse response)
+	   //수정 비번확인
+	   @GetMapping("/member/uppasscheck")
+		public String updatePwCheck(/*
+									 * HttpServletRequest request, HttpServletResponse response
+									 */)
 	   {
 //		   request.getSession().setAttribute("loginid","soo");
 //		   String loginid=(String)request.getSession().getAttribute("loginid");
@@ -155,22 +159,16 @@ public class MemberController {
 //			   path="/member/updatepwchk";
 //		   }
 //		   
-		   return "/member/updatepwchk";
+		   return "/member/uppasscheck";
 	   }
 	   
-	   
-	   
-	   
-	   
-	   @PostMapping("/member/updatepwchk")
+ 
+	   @PostMapping("/member/uppasscheck")
 	   public String goUpdateForm(@ModelAttribute MemberDto dto,
 			   HttpServletRequest request,
 			   HttpServletResponse response
 			   )
 	   {
-		   
-		   
-		   
 		   //request.getSession().setAttribute("loginid",dto.getMid());
 		   //MemberDto mdto=service.getData(dto.getMid());
 		   
@@ -178,9 +176,9 @@ public class MemberController {
 		   MemberDto mdto=(MemberDto)request.getSession().getAttribute("mdto");
 		   int mrole=mdto.getMrole();
 		   
-		   boolean result=service.pwCheck(dto.getMid(), dto.getMpw());
+		   boolean result=service.pwCheck(mdto.getMid(), dto.getMpw());
 		   //int mrole=mdto.getMrole();
-		   System.out.println("mrole:"+mrole);
+		   //System.out.println("mrole:"+mrole);
 		   if(result)
 		   {
 			   if(mrole>0)
@@ -190,13 +188,13 @@ public class MemberController {
 				   return "redirect:/member/mupdatemember";
 			   }
 		   }else {
-			   return "/member/updatepwchk";
+			   return "/member/uppasscheck";
 		   }
 		   
 	   }
 	   
 	   
-	   
+	   //수정폼
 	   @GetMapping("/member/mupdatemember")
 		public String goMUpdate()
 		{
@@ -209,16 +207,12 @@ public class MemberController {
 			return "/member/dupdatemember";
 		}
 	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   @GetMapping("/member/updateform")
-	   public String goUpdateForm(
-			   HttpServletRequest request, HttpServletResponse response)
-	   {
+
+		
+//	   @GetMapping("/member/updateform")
+//	   public String goUpdateForm(
+//			   HttpServletRequest request, HttpServletResponse response)
+//	   {
 //		   //세션잠깐너어둔거
 //		   request.getSession().setAttribute("loginid","soo1");
 //		   String loginid=(String)request.getSession().getAttribute("loginid");
@@ -226,12 +220,12 @@ public class MemberController {
 //		   request.getSession().setAttribute("mdto",mdto);
 //		   System.out.println(loginid);
 //		   System.out.println(mdto);
-		   return "/member/updateform";
-	   }
+//		   return "/member/updateform";
+//	   }
 	   
 	   
-	   
-	   @PostMapping("/member/update")
+	 //수정하기
+	   @PostMapping("/member/updatemember")
 	   public String memberUpdate(MemberDto dto)
 	   {
 
@@ -244,11 +238,96 @@ public class MemberController {
 	   
 	   
 	   
-	   public String delPwChk()
+	   //삭제
+	   @GetMapping("/member/delpasscheck")
+	   public String delpasscheck()
 	   {
-		   return "";
+		   return "/member/delpasscheck";
 	   }
 	   
 	
+	@PostMapping("/member/delpasscheck")
+	public String goDelForm(@ModelAttribute MemberDto dto
+			,@RequestParam String mid
+			,HttpServletRequest request
+			, HttpServletResponse response
+			)
+	{
+		boolean result=service.pwCheck(dto.getMid(), dto.getMpw());
+		
+		if(result)
+		{
+			service.deleteMember(mid);
+		}else{
+			//비번틀리면어디루가
+			return "redirect:/member/delpasscheck";		
+		}
+		
+		//삭제완료되면 세션도없애기
+		request.getSession().invalidate();
+		//비번바꾸고어디루가
+		return "redirect:/";
+	}
+	
+	
+	
+	
+	
+	
+		
+	
+
+	
+	
+	
+	
+	
+	//비번변경
+	@GetMapping("/member/updatepass")
+	public String goUpPass()
+	{
+		return "/member/updatepass";
+	}
+	
+	
+	@PostMapping("updatepass")
+	public String updatePass(@ModelAttribute MemberDto dto)
+	{
+		boolean result=service.pwCheck(dto.getMid(), dto.getMpw());
+		if(result)
+		{
+			//수정
+			service.updatePW(dto);
+		}else {
+			//비번불일치시 
+			return "";
+		}
+		return "redirect:/";
+	}
+	
+
+//	@PostMapping("")
+//	public String updatePw(@ModelAttribute MemberDto dto,
+//			HttpServletRequest request,
+//			HttpServletResponse response
+//			)
+//	{
+//		MemberDto mdto=(MemberDto)request.getSession().getAttribute("mdto");
+//		
+//		return "";
+//	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//아디비번찾기
+	//
 	
 }

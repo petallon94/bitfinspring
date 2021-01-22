@@ -27,9 +27,9 @@ public class MemberDao extends SqlSessionDaoSupport implements MemberDaoInter {
 	}
 
 	@Override
-	public void deleteMember(String mnum) {
+	public void deleteMember(String mid) {
 		// TODO Auto-generated method stub
-		
+		getSqlSession().update("deleteOfMember", mid);
 	}
 
 	@Override
@@ -67,10 +67,23 @@ public class MemberDao extends SqlSessionDaoSupport implements MemberDaoInter {
 		params.put("mpw", mpw);
 		System.out.println(mid+","+mpw);
 		System.out.println(params);
-		System.out.println(getSqlSession().selectOne("loginOfMember",params));
 	
 		return getSqlSession().selectOne("loginOfMember",params);
 	}
+
+	
+	
+	
+	
+	@Override
+	public void updatePW(MemberDto dto) {
+		// TODO Auto-generated method stub
+		getSqlSession().update("updatePwOfMember", dto);
+	}
+	
+	
+	
+	
 	
 	
 }

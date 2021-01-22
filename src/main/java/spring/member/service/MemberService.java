@@ -27,9 +27,9 @@ public class MemberService implements MemberServiceInter{
 	}
 
 	@Override
-	public void deleteMember(String mnum) {
+	public void deleteMember(String mid) {
 		// TODO Auto-generated method stub
-		
+		dao.deleteMember(mid);
 	}
 
 	@Override
@@ -68,5 +68,18 @@ public class MemberService implements MemberServiceInter{
 	      System.out.println("login okÀÇ °ªÀº:" + loginok);
 	      return loginok;
 	   }
+
+	@Override
+	public void updatePW(MemberDto dto) {
+		// TODO Auto-generated method stub
+		dao.updatePW(dto);
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 }
