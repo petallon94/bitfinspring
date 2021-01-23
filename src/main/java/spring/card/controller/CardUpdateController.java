@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import spring.card.dao.CardDaoInter;
 import spring.dto.CardDto;
@@ -35,11 +36,12 @@ public class CardUpdateController {
 	}
 	
 	@PostMapping("/doctor/update")
-	public String updateCard(@ModelAttribute CardDto dto, 
+	public ModelAndView updateCard(@ModelAttribute CardDto dto, 
 							@RequestParam MultipartFile file, 
 							@RequestParam String pageNum, 
 							HttpServletRequest request)
 	{
+		ModelAndView mview = new ModelAndView();
 		MemberDto mdto=(MemberDto)request.getSession().getAttribute("mdto");
 		String path = request.getSession().getServletContext().getRealPath("/resources/save");
 		System.out.println(path);
@@ -62,6 +64,9 @@ public class CardUpdateController {
 		
 		carddi.updateCard(dto);
 		
-		return "redirect:detail?num="+dto.getCnum()+"&pageNum="+pageNum;
+		mview.addObject("mdto", mdto);
+		mview.addObject("dto",dto);
+		mview.setViewName("/detail?num="+dto.getCnum()+"&pageNum="+pageNum);
+		return mview;
 	}
 }
