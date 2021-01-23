@@ -12,7 +12,7 @@
     
        $('.total').click(function(){
             $(this).toggleClass('on');
-            $('.slide_bar').toggleClass('on');
+            $('.slide_bar_out').toggleClass('on');
        });
        
        $('.menu_login').hover(function(){
@@ -45,18 +45,23 @@
     </div>
 </div>
 
-
-<div class="slide_bar">
-	<ul class="slide_bar_list">
-		<li><a href="">병원안내/예약</a></li>
-		<li><a href="">방역수칙</a></li>
-		<li><a href="${root}/doctor/list">카드뉴스</a></li>
-		<li><a href="">커뮤니티</a></li>
-		<li><a href="">의약품검색</a></li>
-	</ul>
-	
-	<div class="slide_bar_login">
+<div class="slide_bar_out">
+	<div class="slide_bar">
+		<ul class="slide_bar_list">
+			<li><a href="">병원안내/예약</a></li>
+			<li><a href="">방역수칙</a></li>
+			<li><a href="${root}/doctor/list">카드뉴스</a></li>
+			<li><a href="">커뮤니티</a></li>
+			<li><a href="">의약품검색</a></li>
+		</ul>
+		<ul class="slide_bar_list end">
+			<li><a href="${root}/member/login">로그인</a></li>
+			<li><a href="${root}/member/signup">회원가입</a></li>
+		</ul>
 	</div>
 </div>
+	
+
+
 </body>
 </html>

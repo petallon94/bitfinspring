@@ -7,12 +7,17 @@
     <title>알림창</title>
 </head>
 <style>
-	body{
+	div.memeber_alert{
 		background-color:#1f2c59;
+		width:100%;
+		height:1980px;;
 	}
 	
 </style>
 <body>
+<div class="memeber_alert">
+
+</div>
 <script>
 	swal({
         title: "${alert_title}",
