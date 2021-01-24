@@ -103,6 +103,12 @@ public class ReserveController {
     {
     	return "/reserve/success";
 	}
+    
+    @GetMapping("/new")
+    public String newPage()
+    {
+    	return "/reserve/NewFile";
+	}
 
 }
 	
