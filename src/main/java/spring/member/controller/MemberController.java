@@ -1,6 +1,8 @@
 package spring.member.controller;
 
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,7 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -250,4 +252,45 @@ public class MemberController {
 		model.addAttribute("url","/mypage.information");
 		return "/member/alert";
 	}
+	
+	
+	//######################## 카카오 로그인 ################################
+	@RequestMapping("/member/kakaologin")
+    public String home( HttpServletRequest request ,Model model){
+		String memail=request.getParameter("memail");
+		String mnick=request.getParameter("mnick");
+		
+		int idcheck = service.idCheck(mnick+"_kakao");
+		
+		if(idcheck==0) {
+			MemberDto kmdto = new MemberDto();
+			kmdto.setMchat(0); 
+			kmdto.setMemail(memail);
+			kmdto.setMhp("kakao"); 
+			kmdto.setMid(mnick+"_kakao"); 
+			kmdto.setMnick(mnick);
+			kmdto.setMpw(memail); 
+			kmdto.setMrole(0);
+
+			service.insertMember(kmdto);
+			
+			
+			
+		}
+
+		
+		request.getSession().setAttribute("loginok","ok");
+	    //입력된 id의 mdto를 가져옴.
+	    MemberDto mdto=service.getData(mnick+"_kakao");
+	    //mdto를 세션에 넣음.
+		request.getSession().setAttribute("mdto",mdto);
+		
+		
+		model.addAttribute("alert_title","환영합니다.");
+		model.addAttribute("alert_icon","success");
+		model.addAttribute("url","/");
+		
+		return "/member/alert";
+    }
+
 }
