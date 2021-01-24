@@ -59,8 +59,7 @@ public class MemberDao extends SqlSessionDaoSupport implements MemberDaoInter {
 
 	
 	@Override
-	public int loginmember(String mid,String mpw)
-	{
+	public int loginmember(String mid,String mpw){
 		HashMap<String, String> params=new HashMap<String, String>();
 		params.put("mid", mid);
 		params.put("mpw", mpw);
