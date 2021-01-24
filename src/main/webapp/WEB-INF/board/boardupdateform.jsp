@@ -23,7 +23,7 @@
 	<div class="board_updatelayout">
 
 		<div class="board_updatemain">
-			<h3 "location.href='../board/'" >의료정보 커뮤니티</h3>
+			<h3 "location.href='../board/list'" >의료정보 커뮤니티</h3>
 			<div style="display: flex; justify-content: center;"></div>
 		</div>
 	</div>
@@ -49,7 +49,7 @@
 					<div class="fr-box fr-basic fr-top" role="application">
 						<div class="fr-wrapper show-placeholder" dir="auto"
 							style="overflow: scroll;">
-							<textarea name="smartEditor" id="smartEditor" name="bcontent" 
+							<textarea  id="smartEditor" name="bcontent" 
 								style="width: 100%; height: 412px; background-color: white; opacity: 1;">${dto.bcontent}</textarea>
 						</div>
 
@@ -108,6 +108,13 @@ function submitContents(elClickedObj) {
  }
 
 }
+
+function pasteHTML(filepath){
+    var sHTML = '<img src="<%=request.getContextPath()%>resources/photo_upload/'+filepath+'">';
+    oEditors.getById["smartEditor"].exec("PASTE_HTML", [sHTML]); 
+
+}
+
 </script>
 </body>
 </html>
