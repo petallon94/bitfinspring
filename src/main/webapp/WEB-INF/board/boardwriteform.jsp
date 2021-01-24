@@ -23,7 +23,7 @@
 	<div class="board_writelayout">
 
 		<div class="board_writemain">
-			<h3 "location.href='../board/'" >의료정보 커뮤니티</h3>
+			<h3 "location.href='../board/list'" >의료정보 커뮤니티</h3>
 			<div style="display: flex; justify-content: center;"></div>
 		</div>
 	</div>
@@ -109,6 +109,11 @@ function submitContents(elClickedObj) {
  } catch(e) { 
 
  }
+
+}
+function pasteHTML(filepath){
+    var sHTML = '<img src="<%=request.getContextPath()%>resources/photo_upload/'+filepath+'">';
+    oEditors.getById["smartEditor"].exec("PASTE_HTML", [sHTML]); 
 
 }
 </script>

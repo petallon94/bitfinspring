@@ -12,6 +12,10 @@
 <!-- css -->
 <link rel="stylesheet" href="${root}/css/board/boardcontent.css" />
 
+<!-- bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 <!-- smarteditior -->
 <script type="text/javascript" src="../se2/js/HuskyEZCreator.js" charset="utf-8"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -48,6 +52,25 @@
 			<button type="button" class="board_clistbtn" onclick = "location.href='../board/list'">목록</button>
 			<button type ="button" class ="board_cupdbutton" onclick="location.href='updatepassform?num=${dto.bnum}&pageNum=${pageNum}'" >수정</button>			
 			<button type ="button" class ="board_cdelbutton" onclick="location.href='deletepassform?num=${dto.bnum}'">삭제</button>
+			<button type ="button" class ="board_cdelbutton" >스크랩</button>
+			
+			</div>
+			<div class ="comments_section">
+			<span class="glyphicon glyphicon-expand">  댓글 총 00개</span>
+			<hr>
+			<div class ="board_comments">
+			<div> <a>writer    </a>   <span> writedate </span></div>
+			<div class ="board_memo">memo</div>
+			</div>
+			
+			<hr>
+			<form action="answrite" method="post" enctype="multipart/form-data" class="ans_writeform" >
+			<div>
+			<div class ="ans_id"><h3>아이디</h3></div>
+			<textarea class = "ans_writearea"> </textarea><br>
+			</div>
+			<button class ="ans_savebtn" type =button >댓글쓰기</button>
+			</form>
 			</div>
 </body>
 

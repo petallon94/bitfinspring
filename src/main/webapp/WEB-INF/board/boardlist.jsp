@@ -19,7 +19,7 @@
 	<div class="board_layout">
 
 		<div class="board_main">
-			<h3 onclick ="location.href='../board/'">의료정보 커뮤니티</h3>
+			<h3 onclick ="location.href='../board/list'">의료정보 커뮤니티</h3>
 			<div style="display: flex; justify-content: center;">
 
 				<div class="hashtagform">
@@ -52,7 +52,7 @@
 			<div class="board_left" onclick="location.href='./boardcontent?bnum=${b.bnum}&pageNum=${currentPage}'">
 				<h4>${b.bsubject}</h4>
 				<div class="board_content">					
-					<p>${b.bcontent}</p>
+					
 				</div>
 				<div class="board_content_bottom">
 					<div>

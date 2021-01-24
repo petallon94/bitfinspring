@@ -65,6 +65,12 @@ public class MemberDao extends SqlSessionDaoSupport implements MemberDaoInter {
 		params.put("mpw", mpw);
 		return getSqlSession().selectOne("loginOfMember",params);
 	}
+
+	@Override
+	public void updatePW(String mid, String mpw) {
+		// TODO Auto-generated method stub
+		
+	}
 	
     @Override
     public void updatePW(String mid, String mpw) {
