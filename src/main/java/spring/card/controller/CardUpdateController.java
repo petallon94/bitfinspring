@@ -66,7 +66,7 @@ public class CardUpdateController {
 		
 		mview.addObject("mdto", mdto);
 		mview.addObject("dto",dto);
-		mview.setViewName("/detail?num="+dto.getCnum()+"&pageNum="+pageNum);
+		mview.setViewName("redirect:detail?num="+dto.getCnum()+"&pageNum="+pageNum);
 		return mview;
 	}
 }

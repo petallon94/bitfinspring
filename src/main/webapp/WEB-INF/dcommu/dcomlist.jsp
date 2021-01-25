@@ -47,11 +47,11 @@ $(function(){
 			$.ajax({
 				type:"get",
 				dataType:"html",
-				url:"gonji/gonsavesession.jsp",
+				url:"",
 				data:{"searchType":searchType,"keyword":keyword},
 				success:function(data){
 					//페이지 번호를 없애고 전체 새로고침한다
-					location.href="list"
+					location.href="/doctor/list"
 				}
 			});//$.ajax close
 		});//$("#btndatasearch") close
