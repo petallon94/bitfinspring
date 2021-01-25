@@ -36,6 +36,13 @@ public class MemberDao extends SqlSessionDaoSupport implements MemberDaoInter {
 		// TODO Auto-generated method stub
 		return getSqlSession().selectOne("selectOneOfMember", mid);
 	}
+	
+	@Override
+	public MemberDto getData2(String memail) {
+		// TODO Auto-generated method stub
+		return getSqlSession().selectOne("selectOneToEmailOfMember", memail);
+		
+	}
 
 	@Override
 	public int idCheck(String mid) {
@@ -85,6 +92,12 @@ public class MemberDao extends SqlSessionDaoSupport implements MemberDaoInter {
 	public int mailCheck(String memail) {
 		// TODO Auto-generated method stub
 		return getSqlSession().selectOne("mailCheck", memail);
+	}
+	
+	@Override
+	public int mnickCheck(String mnick) {
+		// TODO Auto-generated method stub
+		return getSqlSession().selectOne("mnickCheck", mnick);
 	}
 
 	

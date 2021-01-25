@@ -69,9 +69,11 @@ public class MemberController {
 			Model model)
 	{
 		int idcheck = service.idCheck(dto.getMid()); //1이면 존재, 0이면 존재안함.
+		int nickcheck = service.mnickCheck(dto.getMnick()); //1이면 존재, 0이면 존재안함.
+		int emailcheck = service.mailCheck(dto.getMemail()); //1이면 존재, 0이면 존재안함.
 		boolean passcheck = mpw1.equals(dto.getMpw());
 		
-		if(idcheck==0) {
+		if(idcheck==0&&emailcheck==0&&nickcheck==0) {
 			if(passcheck) {
 				service.insertMember(dto);
 				model.addAttribute("alert_title","회원가입이 되었습니다.");
@@ -84,7 +86,19 @@ public class MemberController {
 				return "/member/alert_back";
 				
 			}
-		}else {
+		}else if(idcheck==0) {
+			if(emailcheck==1) {
+				model.addAttribute("alert_title","이메일이 이미 존재합니다.");
+				model.addAttribute("alert_icon","error");
+				return "/member/alert_back";
+			}
+			else {
+				model.addAttribute("alert_title","닉네임이 이미 존재합니다.");
+				model.addAttribute("alert_icon","error");
+				return "/member/alert_back";
+			}
+			
+		}else{
 			model.addAttribute("alert_title","아이디가 이미 존재합니다.");
 			model.addAttribute("alert_icon","error");
 			return "/member/alert_back";
@@ -203,7 +217,7 @@ public class MemberController {
 		
 		//세션 가져오기
 		MemberDto mdto=(MemberDto)request.getSession().getAttribute("mdto");
-		
+		System.out.println(mdto.getMid());
 		//세션의 아이디와 입력한 pw 비교.
 		boolean result=service.pwCheck(mdto.getMid(), mpw);
 		
@@ -267,33 +281,24 @@ public class MemberController {
     public String home( HttpServletRequest request ,Model model){
 		String memail=request.getParameter("memail");
 		String mnick=request.getParameter("mnick");
+		int emailcheck = service.mailCheck(memail);
 		
-		int idcheck = service.idCheck(mnick+"_kakao");
-		
-		if(idcheck==0) {
+		if(emailcheck==0) {
 			MemberDto kmdto = new MemberDto();
-			kmdto.setMchat(0); 
 			kmdto.setMemail(memail);
-			kmdto.setMhp("kakao"); 
-			kmdto.setMid(mnick+"_kakao"); 
-			kmdto.setMnick(mnick);
-			kmdto.setMpw(memail); 
-			kmdto.setMrole(0);
-
-			service.insertMember(kmdto);
+			kmdto.setMnick(mnick); 
 			
+			request.getSession().setAttribute("kmdto", kmdto);
 			
-			
+			return "/member/kakaosignup";
 		}
 
 		
 		request.getSession().setAttribute("loginok","ok");
-	    //입력된 id의 mdto를 가져옴.
-	    MemberDto mdto=service.getData(mnick+"_kakao");
+	    //입력된 이메일의 mdto를 가져옴.
+	    MemberDto mdto=service.getData2(memail);
 	    //mdto를 세션에 넣음.
 		request.getSession().setAttribute("mdto",mdto);
-		
-		
 		model.addAttribute("alert_title","환영합니다.");
 		model.addAttribute("alert_icon","success");
 		model.addAttribute("url","/");
