@@ -49,12 +49,12 @@ public class BoardContentController {
 		//login test
 		
 		HttpSession session = request.getSession();
-	    String name = (String) session.getAttribute("loginid");
+		MemberDto mdto=(MemberDto)request.getSession().getAttribute("mdto");
 	   
 		mview.addObject("dto", dto);
 		mview.addObject("hdto",hdto);
 		mview.addObject("pageNum", pageNum);
-		mview.addObject("name",name);
+		mview.addObject("mdto",mdto);
 
 		mview.setViewName("/board/boardcontent");
 		return mview; 

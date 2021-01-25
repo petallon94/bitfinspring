@@ -16,10 +16,48 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
+<!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <!-- smarteditior -->
 <script type="text/javascript" src="../se2/js/HuskyEZCreator.js" charset="utf-8"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<!-- jquery  -->
+<script type="text/javascript">
+$(function(){
+	
+	$("#ans_savebtn").click(function(){
+		
+		
+		
+		var acnum=$("#acnum").val();
+		var amidnum=$("#amidnum").val();
+		var awriter=$("#awriter").val();
+		var amemo = $("#amemo").val();
+		
+		//alert(acnum+"/"+amidnum+"//"+awriter+"///"+amemo);
+		
+		$.ajax({
+			type:"post",
+			url:"answersave",
+			data:{"acnum":acnum,"amidnum":amidnum,"awriter":awriter,"amemo":amemo},
+			dataType:"html",
+			success:function(data)
+			{
+				$("#amemo").val("");
+				alert("success!!!!!");
+				
+			}
 
+		});  
+
+	});
+	
+	
+	
+});
+
+</script>
 </head>
 <body>
 	<div class="board_contentlayout">
@@ -64,13 +102,19 @@
 			</div>
 			
 			<hr>
-			<form action="answrite" method="post" enctype="multipart/form-data" class="ans_writeform" >
+			<div class="ans_writeform form-inline form-group" >
 			<div>
-			<div class ="ans_id"><h3>아이디</h3></div>
-			<textarea class = "ans_writearea"> </textarea><br>
+			<div class ="ans_id">
+			<input type="text" class="form-control input-sm" id="acnum" value ="${dto.bnum}">
+			<input type="text" class="form-control input-sm" id="amidnum" value ="${mdto.mnum}">
+			<input type="text" class="form-control input-sm" id="awriter" value ="${mdto.mnick}">
+			
+			
 			</div>
-			<button class ="ans_savebtn" type =button >댓글쓰기</button>
-			</form>
+			<textarea class = "ans_writearea" id="amemo" name="amemo"> </textarea><br>
+			</div>
+			<button class ="ans_savebtn" id = "ans_savebtn" type ="button" >댓글쓰기</button>
+			</div>
 			</div>
 </body>
 
