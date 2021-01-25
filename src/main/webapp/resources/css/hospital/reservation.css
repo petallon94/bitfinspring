@@ -1,10 +1,14 @@
+.rsv__con{
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+		
+}
 .rsv__container{	
 	width: 1000px;	
 	border-top: 1px solid #000;
-	position: absolute;
-	transform: translate(-50%,-50%);
-	top: 50%;
-	left: 50%;
+	margin: 100px 0;
 }
 
 .hospital__rsv_sec {
