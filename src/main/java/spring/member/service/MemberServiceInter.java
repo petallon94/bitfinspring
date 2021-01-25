@@ -12,4 +12,6 @@ public interface MemberServiceInter {
 	public boolean pwCheck(String mid, String mpw);
 	public String loginMember(String mid, String mpw);
 	public void updatePW(String mid, String mpw);
+	public int mailCheck(String memail);
+	public MemberDto getMailId(String memail);
 }

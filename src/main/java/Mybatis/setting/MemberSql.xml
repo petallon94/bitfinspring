@@ -44,4 +44,18 @@
    <update id="updatePwOfMember" parameterType="String">
 		update member set mpw=#{mpw} where mid=#{mid}
    </update>
+   
+   
+   <!-- mail확인 -->
+   <select id="mailCheck" resultType="int">
+   		select count(*) from member where memail=#{memail}
+   </select>
+   
+   
+   <!-- mail로 id가져오기 -->
+	<select id="findIdOfMember" parameterType="String" resultType="mdto">
+		select * from member where memail=#{memail}
+	</select>
+   
+   
 </mapper>

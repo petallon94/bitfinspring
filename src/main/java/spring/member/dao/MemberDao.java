@@ -66,11 +66,7 @@ public class MemberDao extends SqlSessionDaoSupport implements MemberDaoInter {
 		return getSqlSession().selectOne("loginOfMember",params);
 	}
 
-	@Override
-	public void updatePW(String mid, String mpw) {
-		// TODO Auto-generated method stub
-		
-	}
+
 	
     @Override
     public void updatePW(String mid, String mpw) {
@@ -80,4 +76,28 @@ public class MemberDao extends SqlSessionDaoSupport implements MemberDaoInter {
         params.put("mpw", mpw);
         getSqlSession().update("updatePwOfMember",params );
     }
+
+    
+    
+    
+    
+	@Override
+	public int mailCheck(String memail) {
+		// TODO Auto-generated method stub
+		return getSqlSession().selectOne("mailCheck", memail);
+	}
+
+	
+	
+	
+	@Override
+	public MemberDto getMailId(String memail) {
+		// TODO Auto-generated method stub
+		return getSqlSession().selectOne("findIdOfMember", memail);
+	}
+    
+    
+    
+    
+    
 }

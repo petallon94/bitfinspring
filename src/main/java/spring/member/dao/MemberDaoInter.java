@@ -14,4 +14,6 @@ public interface MemberDaoInter {
 	public boolean pwCheck(String mid, String mpw);
 	public int loginmember(String mid, String mpw);
 	public void updatePW(String mid, String mpw);
+	public int mailCheck(String memail);
+	public MemberDto getMailId(String memail);
 }
