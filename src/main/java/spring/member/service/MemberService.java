@@ -1,8 +1,15 @@
 package spring.member.service;
 
+import java.util.Random;
+
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMessage.RecipientType;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import spring.dto.MemberDto;
@@ -13,6 +20,7 @@ public class MemberService implements MemberServiceInter{
 
 	@Autowired
 	private MemberDaoInter dao;
+	private JavaMailSender mailSender;
 
 	@Override
 	public void insertMember(MemberDto dto) {
@@ -70,6 +78,31 @@ public class MemberService implements MemberServiceInter{
 		// TODO Auto-generated method stub
 		dao.updatePW(mid,mpw);
 	}
+
+	
+	
+	
+	@Override
+	public int mailCheck(String memail) {
+		// TODO Auto-generated method stub
+		return dao.mailCheck(memail);
+	}
+
+	
+	
+	
+	@Override
+	public MemberDto getMailId(String memail) {
+		// TODO Auto-generated method stub
+		return dao.getMailId(memail);
+	}
+
+	
+	
+	
+	
+	
+
 	
 	
 	

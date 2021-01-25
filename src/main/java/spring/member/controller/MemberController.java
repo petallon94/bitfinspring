@@ -3,10 +3,17 @@ package spring.member.controller;
 
 import java.util.Map;
 
+import javax.annotation.Resource;
+import javax.mail.MessagingException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMessage.RecipientType;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +32,8 @@ public class MemberController {
 	@Autowired
 	private MemberServiceInter service;
 	
+	@Autowired
+	private JavaMailSender mailSender;
 	
 	//로그인 화면으로 이동
 	@GetMapping("/member/login")
@@ -293,4 +302,78 @@ public class MemberController {
 		return "/member/alert";
     }
 
+	
+	
+	
+	
+	
+	@GetMapping("member/test")
+	public String test()
+	{
+		return "/member/test";
+	}
+	
+	
+	//id찾기
+	@PostMapping("/member/testemail")
+	public String findId(@ModelAttribute MemberDto dto)
+	{
+		//가입된 메일주소 있는지확인
+		int emailcheck=service.mailCheck(dto.getMemail());
+		//메일주소있으면
+		if(emailcheck==1)
+		{
+			//메일로 id가져오기
+			String memberid=service.getMailId(dto.getMemail()).getMid();
+			System.out.println("아이디:"+memberid);
+			System.out.println("mail:"+dto.getMemail());
+			
+			//메일로 아이디보내기
+			
+			//테스트요
+			try {
+				MimeMessage message=mailSender.createMimeMessage();
+
+				message.addRecipient(RecipientType.TO, new InternetAddress(dto.getMemail()));
+				message.addFrom(new InternetAddress[] {
+						new InternetAddress("bitcovidout@gmail.com","COVIDOUT")
+				});
+				String htmlContent = "<strong>안녕하세요</strong>,아이디이거임."+memberid;
+			    message.setText(htmlContent, "UTF-8", "html");
+				message.setSubject("COVIDOUT입니다", "utf-8");
+
+				
+				mailSender.send(message);
+				
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			//요까지요
+			return "/member/login";
+		//메일주소없으면
+		}else {
+			return "/member/test";
+		}
+	}
+	
+	
+	
+	//sdfsd
+	//pw찾기
+	public String findPw(@ModelAttribute MemberDto dto)
+	{
+		//메일,아이디 입력시 존재할경우 메일로 비밀번호전송
+		int emailcheck=service.mailCheck(dto.getMemail());
+		int idcheck=service.idCheck(dto.getMid());
+		
+		if(emailcheck==1 && idcheck==1)
+		{
+			
+		}else {
+			
+		}
+		return "";
+	}
+	
 }
