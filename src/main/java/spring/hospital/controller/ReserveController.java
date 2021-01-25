@@ -59,7 +59,7 @@ public class ReserveController {
 			@ModelAttribute ReserveDto dto)
 	{				
 		dao.insertReserve(dto);
-		return "redirect:list";
+		return "/reserve/success";
 	}
 	
 	//getData:dto보내기
@@ -97,18 +97,6 @@ public class ReserveController {
 	    return "redirect:list";
     }
    
-    //success
-    @GetMapping("/reserve/success")
-    public String successPage()
-    {
-    	return "/reserve/success";
-	}
-    
-    @GetMapping("/new")
-    public String newPage()
-    {
-    	return "/reserve/NewFile";
-	}
 
 }
 	
