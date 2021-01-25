@@ -16,24 +16,27 @@
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 <body>
+<div class="rsv__con">
 <div class="rsv__container">
 		<h2 class="rsv__title">병원예약수정</h2>
-		<h3 class="rsv__section_title">산넘어산</h3>
+		<h3 class="rsv__section_title">산넘어산병원</h3>
 		<p class="rsv__section_txt">
 			영업시간: 월~ 금 8:30~ 16:00<br>
 		<hr>		
 		<form action="update" method="post" enctype="multipart/form-data">
 	<!-- hidden -->
 	<input type="hidden" name="rnum" value="${dto.rnum}">
+
 	<div class="rsv__section1">
 				<input type="text" id="rsv__select_date" name="rdate"
-					value="${dto.rdate}"/> <input type="text"
+					value="${dto.rdate}"/> 
+					<input type="text"
 					id="rsv__select_time" class="rsv__select" name="rtime"
 					value="${dto.rtime}"/>
 			</div>
 			<div class="rsv__section2">
-				<input type="text" name="rmnum" class="rsv__select" value="${dto.rmnum}"> 
-				<input type="text" name="rdmnum" class="rsv__select" value="${dto.rdmnum}">
+				<input type="text" name="rmnum" class="rsv__select" value="${dto.rmnum}" readonly="readonly"> 
+				<input type="text" name="rdmnum" class="rsv__select" value="${dto.rdmnum}" readonly="readonly">
 				<input id="rsv__memo" name="rmemo" class="rsv__select" value="${dto.rmemo}">
 			</div>
 		
@@ -44,9 +47,11 @@
 		</div>
 		</form>
 </div>
+</div>
 </body>
 <script type="text/javascript">
 
+//datepicker기능
 $("#rsv__select_date").flatpickr({ 
 inline: true,
 dateFormat: "Y-m-d",
@@ -54,6 +59,7 @@ minDate:"today",//오늘이전은 선택불가
 //maxDate: new Date().fp_incr(30) //오늘로부터 30일이후까지만 선택가능
 });
 
+//timepicker기능
 $("#rsv__select_time").flatpickr({ 
 	enableTime: true,
     noCalendar: true,
