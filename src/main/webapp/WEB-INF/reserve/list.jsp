@@ -45,8 +45,8 @@
 		<td>${a.rtime}</td>
 		
 		<td>
-			<button type="button">수정</button>
-			<button type="button">삭제</button>
+			<button type="button" class="btn btn-info btn-sm" onclick="location.href='updateform?rnum=${a.rnum}'" >수정</button>
+			<button type="button" class="btn btn-info btn-sm" onclick="location.href='delete?rnum=${a.rnum}'">삭제</button>
 		</td>
 		</tr>
 		</c:forEach> 

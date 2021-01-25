@@ -1,0 +1,126 @@
+.rsv__container{	
+	width: 1000px;	
+	border-top: 1px solid #000;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	top: 50%;
+	left: 50%;
+}
+
+.hospital__rsv_sec {
+	display: block;
+}
+
+.rsv__title, .rsv__section_title, .rsv__section_txt, .rsv__section3 {
+	text-align:center;	
+}
+.rsv__title{
+    font-weight: 700;
+    font-size: 32px;
+}
+
+.rsv__section_title{
+	font-weight: 500;
+    font-size: 40px;
+    line-height: 68px;	
+}
+
+.rsv__section_txt{
+	margin: 20px auto 0;
+    font-size: 20px;
+    line-height: 32px;
+    color: #555;
+    font-weight: 300;
+}
+.rsv__section1{
+	float: left;
+    width: 450px;
+
+}
+.rsv__section2{
+	float: right;
+    width: 450px;
+
+}
+.rsv__section3{
+	clear: both;
+}
+
+.rsv__select {
+float: left;
+width: 350px;
+height: 60px;
+line-height: 60px;
+font-size: 16px;
+border: 1px solid #bbb;
+padding:0 20px;
+box-sizing:border-box;
+margin-bottom: 20px;
+}
+
+#rsv__select_date{
+width: 350px;
+height: 60px;
+line-height: 60px;
+font-size: 16px;
+border: 1px solid #bbb;
+padding:0 20px;
+box-sizing:border-box;
+}
+#rsv__select_time{
+float: left;
+width: 350px;
+height: 60px;
+line-height: 60px;
+font-size: 16px;
+border: 1px solid #bbb;
+padding:0 20px;
+box-sizing:border-box;
+margin-top: 20px;	
+}
+#rsv__memo{
+	width: 350px;
+    height: 275px;    
+    box-sizing: border-box;
+    resize: none;
+    border: 1px solid #bbb;
+}
+.rsv__writeformbtn{
+	
+	width: 120px;
+    padding: 14px 20px;
+    height: 55px;
+    box-sizing: border-box;
+    border: 4px solid #70788d;
+    background-color: #70788d;
+    color: white;
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+
+/* updateform */
+
+.rsv__updateformbtn{
+	width: 120px;
+	padding: 14px 20px;
+	height: 55px;
+	box-sizing: border-box;
+	border: 4px solid #1f2c59;
+	background-color:#1f2c59; 
+	color: white;
+	font-size: 16px;
+	vertical-align: middle;
+}
+
+.rsv__gotolistbtn{
+	width: 120px;
+	padding: 14px 20px;
+	height: 55px;
+	box-sizing: border-box;
+	border: 4px solid #70788d;
+	background-color:#70788d; 
+	color: white;
+	font-size: 16px;
+	vertical-align: middle;
+}
