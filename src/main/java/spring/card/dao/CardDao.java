@@ -67,5 +67,12 @@ public class CardDao extends SqlSessionDaoSupport implements CardDaoInter {
 		return getSqlSession().selectList("selectRankOfCard", creadcount);
 	}
 
+	@Override
+	public List<CardDto> getCardSearch(CardDto dto,int start, int perpage) {
+		// TODO Auto-generated method stub
+		return getSqlSession().selectOne("SearchedCard",dto);
+	}
+
+	
 }
 

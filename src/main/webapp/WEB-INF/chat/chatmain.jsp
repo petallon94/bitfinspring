@@ -66,7 +66,7 @@
 								<div class="portlet-footer">
 									<div class="row">
 										<div class="form-group col-xs-4">
-											<input style="height: 40px;" type="text" id="chatName" class="form-control" placeholder="${mdto.mid}" >
+											<input style="height: 40px;" type="text" id="chatName" class="form-control" placeholder="${mdto.mnick}" >
 										</div>
 									</div>
 								</div>
