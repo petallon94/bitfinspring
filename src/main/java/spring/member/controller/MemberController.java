@@ -3,7 +3,6 @@ package spring.member.controller;
 
 import java.util.Map;
 
-import javax.annotation.Resource;
 import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
