@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +27,7 @@
 							<div class="clearfix"></div>
 						</div>
 						<div id="chat" class="paner-collapse collapse in">
-							<div class="portlet-body chat-widget" style="overflow-y:auto; width:300px;">
+							<div class="portlet-body chat-widget" style="overflow-y:auto; width:565px;">
 								<div class="row">
 									<div class="col-lg-12">
 										<p class="text-center text-mute small">2021년 1월 22</p>
@@ -37,7 +39,7 @@
 											<a class="pull-left" href="#">
 												<img class="media-object img-circle" src="/image/scappy.jpg">
 											</a>
-											<div class="media-body">
+									 		<div class="media-body">
 												<h4 class="media-heading">
 													김철남<span class="small pull-right">오전 12:23</span>
 												</h4>
@@ -58,6 +60,13 @@
 												</h4>
 											</div>
 											<p>어떤게 궁금하신가요?</p>
+										</div>
+									</div>
+								</div>
+								<div class="portlet-footer">
+									<div class="row">
+										<div class="form-group col-xs-4">
+											<input style="height: 40px;" type="text" id="chatName" class="form-control" placeholder="${mdto.mid}" >
 										</div>
 									</div>
 								</div>
