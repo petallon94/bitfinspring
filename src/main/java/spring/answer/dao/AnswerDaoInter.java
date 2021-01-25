@@ -11,4 +11,5 @@ public interface AnswerDaoInter {
 	public void deleteAnswer(String idx);
 	public AnswerDto getData(String idx);
 	public void updateAnswer(AnswerDto dto);
+	public int totalCountAnswer(String idx);
 }

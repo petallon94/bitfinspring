@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import spring.answer.dao.AnswerDao;
 import spring.board.dao.BoardDao;
 import spring.board.dao.BoardDaoInter;
 import spring.dto.BoardDto;
@@ -23,7 +24,8 @@ public class BoardContentController {
 	
 	@Autowired
 	private BoardDao dao;
-	private MemberServiceInter mservice;
+	private AnswerDao adao;
+	//private MemberServiceInter mservice;
 	
 	
 	@GetMapping({"/board/boardcontent"})
@@ -51,8 +53,11 @@ public class BoardContentController {
 		HttpSession session = request.getSession();
 		MemberDto mdto=(MemberDto)request.getSession().getAttribute("mdto");
 	   
+		//int totalCount = adao.totalCountAnswer(bnum);
+		
 		mview.addObject("dto", dto);
 		mview.addObject("hdto",hdto);
+		//mview.addObject("totalCount",totalCount);
 		mview.addObject("pageNum", pageNum);
 		mview.addObject("mdto",mdto);
 

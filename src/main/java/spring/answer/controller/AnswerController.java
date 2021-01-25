@@ -38,10 +38,9 @@ public class AnswerController {
 	}
 	
 	@GetMapping("/board/answerlist")
+	public List<AnswerDto> list (@RequestParam String acnum){
 
-	public List<AnswerDto> list (@RequestParam String num){
-
-		return dao.getAnswerList(num);
+		return dao.getAnswerList(acnum);
 
 	}
 	

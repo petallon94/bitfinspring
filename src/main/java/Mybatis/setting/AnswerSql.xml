@@ -4,6 +4,9 @@
 	<select id="SelectAnswer" parameterType="String" resultType="adto">
 		select * from answer where acnum =#{acnum}
 	</select>
+	<select id="CountAnswer" parameterType="String" resultType="int">
+		select count(*) from answer where acnum =#{acnum}
+	</select>
 	<insert id="insertOfAnswer" parameterType="adto">
 		insert into answer (acnum,amidnum,awriter,amemo,awritedate,arestep,arelevel,aregroup) values (#{acnum},#{amidnum},#{awriter},#{amemo},now(),0,0,0)
 	</insert>

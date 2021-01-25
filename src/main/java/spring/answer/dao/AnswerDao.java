@@ -17,9 +17,9 @@ public class AnswerDao extends SqlSessionDaoSupport implements AnswerDaoInter {
 	}
 
 	@Override
-	public List<AnswerDto> getAnswerList(String num) {
+	public List<AnswerDto> getAnswerList(String acnum) {
 		// TODO Auto-generated method stub
-		return getSqlSession().selectList("selectAllOfAnswer", num);
+		return getSqlSession().selectList("SelectAnswer", acnum);
 	}
 
 	@Override
@@ -38,6 +38,14 @@ public class AnswerDao extends SqlSessionDaoSupport implements AnswerDaoInter {
 	public void updateAnswer(AnswerDto dto) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public int totalCountAnswer(String acnum) {
+		// TODO Auto-generated method stub
+		
+				
+		return getSqlSession().selectOne("CountAnswer",acnum);
 	}
 
 }
