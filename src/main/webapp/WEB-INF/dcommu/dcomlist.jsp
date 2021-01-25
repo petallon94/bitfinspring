@@ -41,17 +41,18 @@ $(function(){
 			//변수
 			var search=$("#searchType").val();
 			var word=$("#keyword").val();
+			alert(word+","+search);
 			//alert(search+":"+word);
 			//검색한 값이랑 단어의 값을 넣으면
 			//전체 선택했을 경우,
 			$.ajax({
 				type:"get",
 				dataType:"html",
-				url:"",
+				url:"/doctor/dsearch",
 				data:{"searchType":searchType,"keyword":keyword},
 				success:function(data){
 					//페이지 번호를 없애고 전체 새로고침한다
-					location.href="/doctor/list"
+					location.href="/list"
 				}
 			});//$.ajax close
 		});//$("#btndatasearch") close
@@ -73,7 +74,7 @@ $(function(){
 		</div>
 	</div>
 
-	<!-- search start-->
+	<!— search start—>
 	<div class="dcom-search-bar">
 		<div class="dcom-search-box">
 			<div class="dcom-tc">
@@ -102,10 +103,66 @@ $(function(){
 			>게시글작성</button>
 		</div>
 	</div>
-	<!-- search end-->
+	<!— search end—>
 	<hr class="slideline">
 	<jsp:include page="dcomlistslide.jsp"></jsp:include>
 	<hr class="slideline">
-	<jsp:include page="dcomlistbox.jsp"></jsp:include>
+	<!-- card start-->
+   <div class="dcom-prod-list-bar dcom-con">
+      <div class="dcom-prod-list-box">
+         <ul class="dcom-row">
+            <c:forEach var="d" items="${list }" varStatus="i">
+               <li class="dcom-cell"><a
+                  href="detail?num=${d.cnum}&pageNum=${currentPage }&key=list">
+                     <input type="hidden" value="${i.count}">
+                     <div class="dcom-img-bar">
+                        <div class="dcom-img-box">
+                        <!-- 상대경로  ${pageContext.request.contextPath}-->
+                           <img   
+                              src="${pageContext.request.contextPath}/resources/save/${d.cphoto }"
+                              alt="">
+                        </div>
+                        <div style="position: relative; max-width: 100%; background-color: black; display: block; white-space: nowrap;">
+                           <div class="dcom-prod-subject">${d.csubject}</div>
+                           <div class="dcom-prod-writer">${d.cwriter}</div>
+                           <div class="dcom-prod-day">
+                              <fmt:formatDate value="${d.cwritedate}"
+                                 pattern="yyyy MM-dd HH:mm" />
+                           </div>
+                        </div>
+                     </div>
+               </a></li>
+            </c:forEach>
+         </ul>
+      </div>
+   </div>
+   <!-- card end-->
+<div class="page-bar">
+      <ul class="pagination page-box">
+         <c:if test="${startPage>1 }">
+            <li class="page-item">
+               <a class="page-link" href="list?pageNum=${startPage-1 }">이전</a>
+            </li>
+         </c:if>
+         <!-- 페이지 번호 -->
+         <c:forEach var="pp" begin="${startPage }" end="${endPage }">
+            <c:if test="${pp==currentPage }">
+               <li class="page-item">
+                  <a class="page-link" href="list?pageNum=${pp }">${pp }</a>
+               </li>
+            </c:if>
+            <c:if test="${pp!=currentPage }">
+               <li class="page-item">
+                  <a class="page-link" href="list?pageNum=${pp }">${pp }</a>
+               </li>
+            </c:if>
+         </c:forEach>
+         <c:if test="${endPage<totalPage}">
+            <li class="page-item">
+               <a class="page-link" href="list?pageNum=${endPage+1 }">이전</a>
+            </li>
+         </c:if>
+      </ul>
+</div>
 </body>
 </html>
