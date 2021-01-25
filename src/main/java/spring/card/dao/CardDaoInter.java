@@ -14,4 +14,5 @@ public interface CardDaoInter {
 	public void updateCard(CardDto dto);
 	public void deleteCard(String num);
 	public List<CardDto> getCardRank(String creadcount);
+	public List<CardDto> getCardSearch(CardDto dto,int start, int perpage);
 }
