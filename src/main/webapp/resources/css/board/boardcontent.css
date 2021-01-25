@@ -73,6 +73,13 @@
 	
 }
 
+.each_comments{
+	
+	border-top : 1px solid gray;
+}
+
+
+
 .comments_section hr{
 	border: 2px solid gray;
 	

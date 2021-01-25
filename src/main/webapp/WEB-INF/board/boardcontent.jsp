@@ -26,6 +26,8 @@
 <script type="text/javascript">
 $(function(){
 	
+	answer_list();
+	
 	$("#ans_savebtn").click(function(){
 		
 		
@@ -45,6 +47,7 @@ $(function(){
 			success:function(data)
 			{
 				$("#amemo").val("");
+				answer_list();
 				alert("success!!!!!");
 				
 			}
@@ -53,9 +56,37 @@ $(function(){
 
 	});
 	
-	
-	
 });
+
+/* function 끝*/
+
+function answer_list()
+
+	{
+		//db로부터 댓글 목록을 가져와서 id "answer" 출력하기
+		var acnum=$("#acnum").val();
+
+		$.ajax({
+			type:"get",
+			url:"answerlist",
+			dataType:"json",
+			data:{"acnum":acnum},
+			success:function(data){				
+				var s="<div class = 'each_comments'>";
+				$.each(data,function(i,n){
+
+					s+= "<div style ='padding-top : 10px;'><a>"+n.awriter+"</a><span >"+n.awritedate+"</span><a class='update' idx="+n.aidx+">수정</a><a class='del' idx="+n.aidx+">삭제</a></div>";
+					s+= "<div class ='board_memo' style ='padding-bottom : 10px;border-bottom : 1px solid gray'>"+n.amemo+"</div>";
+				});
+
+				s+="</div>";
+				$("#board_comments").html(s);
+			}
+
+		});
+
+	}
+
 
 </script>
 </head>
@@ -94,11 +125,10 @@ $(function(){
 			
 			</div>
 			<div class ="comments_section">
-			<span class="glyphicon glyphicon-expand">  댓글 총 00개</span>
+			<span class="glyphicon glyphicon-expand">  댓글 총 ${totalcount}개</span>
 			<hr>
-			<div class ="board_comments">
-			<div> <a>writer    </a>   <span> writedate </span></div>
-			<div class ="board_memo">memo</div>
+			<div id = "board_comments" class ="board_comments">
+			
 			</div>
 			
 			<hr>
