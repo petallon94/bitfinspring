@@ -66,6 +66,10 @@
 	<select id="findIdOfMember" parameterType="String" resultType="mdto">
 		select * from member where memail=#{memail}
 	</select>
-   
+	
+	<!-- id와 mail로 아이디 존재여부 확인 -->
+   <select id="findpwtologin" parameterType="String" resultType="int">
+   		select EXISTS (select * from member where mid=#{mid} and memail=#{memail}) as success
+   </select>
    
 </mapper>

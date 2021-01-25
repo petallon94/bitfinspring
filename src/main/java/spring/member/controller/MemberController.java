@@ -19,8 +19,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import spring.dto.MemberDto;
 import spring.member.service.MemberServiceInter;
@@ -306,43 +307,40 @@ public class MemberController {
 		return "/member/alert";
     }
 
-	
-	
-	
-	
-	
-	@GetMapping("member/test")
-	public String test()
-	{
-		return "/member/test";
-	}
-	
-	
-	//id찾기
-	@PostMapping("/member/testemail")
-	public String findId(@ModelAttribute MemberDto dto)
-	{
-		//가입된 메일주소 있는지확인
-		int emailcheck=service.mailCheck(dto.getMemail());
-		//메일주소있으면
-		if(emailcheck==1)
-		{
-			//메일로 id가져오기
-			String memberid=service.getMailId(dto.getMemail()).getMid();
-			System.out.println("아이디:"+memberid);
-			System.out.println("mail:"+dto.getMemail());
-			
-			//메일로 아이디보내기
-			
-			//테스트요
+//	==================================아이디 찾기
+	 @RequestMapping(value="/member/findmid", method=RequestMethod.POST,  produces = "application/text; charset=utf8")
+	 @ResponseBody
+	 public String findmemeberid(String memail) {
+		 
+		 int emailcheck=service.mailCheck(memail);
+		 if(emailcheck==1) {
+			String mid=service.getMailId(memail).getMid();
+			String answer="해당 이메일로 가입된 아이디는 \' "+mid+" \' 입니다.";
+			return answer;
+		 }else {
+			 return "해당하는 이메일이 없습니다.";
+		 }
+	 }
+	 
+//	====================================패스워드 찾기	 
+	 @RequestMapping(value="/member/findmpw", method=RequestMethod.POST,  produces = "application/text; charset=utf8")
+	 @ResponseBody
+	 public String findmemberpw(String memail,String mid) {
+		 System.out.println(memail);
+		 System.out.println(mid);
+		 int idandemailcheck=service.findPwToLogin(mid, memail);
+		 System.out.println(idandemailcheck);
+		 if(idandemailcheck==1) {
+			String newpw = Double.toString(Math.random()*1000000000);
+			service.updatePW(mid,newpw);
 			try {
 				MimeMessage message=mailSender.createMimeMessage();
 
-				message.addRecipient(RecipientType.TO, new InternetAddress(dto.getMemail()));
+				message.addRecipient(RecipientType.TO, new InternetAddress(memail));
 				message.addFrom(new InternetAddress[] {
 						new InternetAddress("bitcovidout@gmail.com","COVIDOUT")
 				});
-				String htmlContent = "<strong>안녕하세요</strong>,아이디이거임."+memberid;
+				String htmlContent = "<div style='width:800px; height:450px;background-color: #1f2c59; text-align: center;'><br><br><br><h1 style='color:white; text-align: center;'>COVID-OUT</h1><br><h3 style='color:white; text-align: center;'>귀하의 패스워드가 변경되었습니다.</h3><br><input style='width:500px;padding: 14px 20px;box-sizing: border-box;border: 4px solid #ccc;height: 55px;font-size: 16px;vertical-align: middle; ' type='text' value="+newpw+"></div>";
 			    message.setText(htmlContent, "UTF-8", "html");
 				message.setSubject("COVIDOUT입니다", "utf-8");
 
@@ -353,31 +351,10 @@ public class MemberController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			//요까지요
-			return "/member/login";
-		//메일주소없으면
-		}else {
-			return "/member/test";
-		}
-	}
-	
-	
-	
-	//sdfsd
-	//pw찾기
-	public String findPw(@ModelAttribute MemberDto dto)
-	{
-		//메일,아이디 입력시 존재할경우 메일로 비밀번호전송
-		int emailcheck=service.mailCheck(dto.getMemail());
-		int idcheck=service.idCheck(dto.getMid());
-		
-		if(emailcheck==1 && idcheck==1)
-		{
 			
-		}else {
-			
-		}
-		return "";
-	}
-	
+			return "변경된 비밀번호가 이메일로 전송되었습니다.";
+		 }else {
+			 return "해당하는 아이디 또는 이메일이 없습니다.";
+		 }
+	 }
 }

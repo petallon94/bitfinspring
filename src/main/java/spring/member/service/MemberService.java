@@ -108,6 +108,12 @@ public class MemberService implements MemberServiceInter{
 		// TODO Auto-generated method stub
 		return dao.getMailId(memail);
 	}
+	
+	@Override
+	public int findPwToLogin(String mid,String memail) {
+		// TODO Auto-generated method stub
+		return dao.findPwToLogin(mid, memail);
+	}
 
 	
 	
