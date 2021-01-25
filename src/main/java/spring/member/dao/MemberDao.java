@@ -109,6 +109,16 @@ public class MemberDao extends SqlSessionDaoSupport implements MemberDaoInter {
 		return getSqlSession().selectOne("findIdOfMember", memail);
 	}
     
+	@Override
+	public int findPwToLogin(String mid,String memail){
+		System.out.println(mid);
+		System.out.println(memail);
+		HashMap<String, String> params=new HashMap<String, String>();
+		params.put("mid", mid);
+		params.put("memail", memail);
+		System.out.println((int)getSqlSession().selectOne("findpwtologin",params));
+		return getSqlSession().selectOne("findpwtologin",params);
+	}
     
     
     

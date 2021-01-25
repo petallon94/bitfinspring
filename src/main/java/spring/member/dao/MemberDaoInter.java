@@ -18,5 +18,6 @@ public interface MemberDaoInter {
 	public int mailCheck(String memail);
 	public int mnickCheck(String mnick);
 	public MemberDto getMailId(String memail);
+	public int findPwToLogin(String mid,String memail);
 	
 }
