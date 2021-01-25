@@ -45,6 +45,12 @@ public class MemberService implements MemberServiceInter{
 		// TODO Auto-generated method stub
 		return dao.getData(mid);
 	}
+	
+	@Override
+	public MemberDto getData2(String memail) {
+		// TODO Auto-generated method stub
+		return dao.getData2(memail);
+	}
 
 	@Override
 	public int idCheck(String mid) {
@@ -86,6 +92,12 @@ public class MemberService implements MemberServiceInter{
 	public int mailCheck(String memail) {
 		// TODO Auto-generated method stub
 		return dao.mailCheck(memail);
+	}
+	
+	@Override
+	public int mnickCheck(String mnick) {
+		// TODO Auto-generated method stub
+		return dao.mailCheck(mnick);
 	}
 
 	
