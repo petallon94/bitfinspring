@@ -24,7 +24,7 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 	  $("#delete-btn").click(function(){
 	    $("#myModal").modal();
 	  });
-	});
+	});  
 </script>
 <body>
 	<div class="con-table">
@@ -49,16 +49,24 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 				<hr class="con-line">
 			</div>
 			<div class="con-btn">
-				<button type="button" class="btn btn-info btn-sm"
-					style="width: 80px;"
-					onclick="location.href='list?pageNum=${pageNum}'">목록</button>
-
+				
+				<%//세션에서 로그인 상태를 알 수 있는 loginok 얻기
+		        String loginok=(String)session.getAttribute("loginok");
+		        if(loginok!=null){%>
 				<button type="button" class="btn btn-success btn-sm"
 					style="width: 80px;"
 					onclick="location.href='updateform?num=${dto.cnum}&pageNum=${pageNum}'">수정</button>
 
 				<button type="button" class="btn btn-danger btn-sm" id="delete-btn"
 					style="width: 80px;">삭제</button>
+				<button type="button" class="btn btn-info btn-sm"
+				style="width: 80px;"
+				onclick="location.href='list?pageNum=${pageNum}'">목록</button>
+				<%}else{ %>
+				<button type="button" class="btn btn-info btn-sm"
+				style="width: 80px; margin-left: 160px;"
+				onclick="location.href='list?pageNum=${pageNum}'">목록</button>
+				<%} %>
 			</div>
 		</div>
 	</div>

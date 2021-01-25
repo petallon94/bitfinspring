@@ -33,7 +33,7 @@
 										src="${pageContext.request.contextPath}/resources/save/${d.cphoto }"
 										alt="">
 								</div>
-								<div style="position: relative; max-width: 100%; background-color: black;">
+								<div style="position: relative; max-width: 100%; background-color: black; display: block; white-space: nowrap;">
 									<div class="dcom-prod-subject">${d.csubject}</div>
 									<div class="dcom-prod-writer">${d.cwriter}</div>
 									<div class="dcom-prod-day">

@@ -26,10 +26,48 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 	href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 <title>Insert title here</title>
 </head>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript"
+	src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript">
+$(function(){
+		$("#btn-insert").click(function() {
+			var loginok= $("#loginok").val();
+			if(loginok != ""){
+				location.href="writeform?cmidnum=${mdto.mnum}&pageNum=${currentPage }";
+			}else{
+				alert("회원가입후 다시 이용해주세요");
+				location.href="/member/login";
+			}
+		});
+		//검색 
+		$("#searchBtn").click(function(){
+			//변수
+			var search=$("#searchType").val();
+			var word=$("#keyword").val();
+			//alert(search+":"+word);
+			//검색한 값이랑 단어의 값을 넣으면
+			//전체 선택했을 경우,
+			$.ajax({
+				type:"get",
+				dataType:"html",
+				url:"gonji/gonsavesession.jsp",
+				data:{"searchType":searchType,"keyword":keyword},
+				success:function(data){
+					//페이지 번호를 없애고 전체 새로고침한다
+					location.href="list"
+				}
+			});//$.ajax close
+		});//$("#btndatasearch") close
+		
+		//전체 선택하면 입력단어 지워주기
+		$("#searchType").change(function(){
+			$("#keyword").val("");
+		});
+	});//$function close
+</script>
 <body style="background-color: #1f2c59;">
-	
-	
+	<input type="hidden" id="loginok" value="${mdto.mid }" />
+
 	<div class="dcom-top-bn-box con">
 		<div class="dcom-img-mainbox">
 			<img style="height: 400px;"
@@ -53,12 +91,18 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 					</div>
 				</c:if>
 			</div>
-			<input class="dcom-search" id="dcom-search" type="text" />
-			<button type="button" class="dcom-search-btn" onclick="">검색하기</button>
-			<!-- <div class="dcom-write-box"> -->
-			<button type="button" class="dcom-write-btn" style="width: 100px;"
-				onclick="location.href='writeform?cmidnum=${mdto.mnum}&pageNum=${currentPage }'">게시글작성</button>
-			<!-- </div> -->
+			<div class="form-inline">
+				<select id="searchType" name="searchType">
+					<option value="all">전체조건</option>
+					<option value="t">제목</option>
+					<option value="c">내용</option>
+					<option value="w">작성자</option>
+				</select> <input class="form-control" type="text" id="keyword" name="keyword"
+					value="${pageMaker.cri.keyword}" placeholder="검색어를 입력하세요" />
+				<button id="searchBtn" class="btn btn-primary">Search</button>
+			</div>
+			<button type="button" id="btn-insert" class="dcom-write-btn" style="width: 100px;"
+			>게시글작성</button>
 		</div>
 	</div>
 	<!-- search end-->
