@@ -46,12 +46,13 @@ $(function(){
 			//전체 선택했을 경우,
 			$.ajax({
 				type:"get",
-				dataType:"html",
-				url:"gonji/gonsavesession.jsp",
+				dataType:"json",
+				contentType:"false",
+				url:"/doctor/dsearch",
 				data:{"searchType":searchType,"keyword":keyword},
 				success:function(data){
 					//페이지 번호를 없애고 전체 새로고침한다
-					location.href="list"
+					//location.href="/list"
 				}
 			});//$.ajax close
 		});//$("#btndatasearch") close
@@ -103,6 +104,7 @@ $(function(){
 		</div>
 	</div>
 	<!-- search end-->
+	
 	<hr class="slideline">
 	<jsp:include page="dcomlistslide.jsp"></jsp:include>
 	<hr class="slideline">

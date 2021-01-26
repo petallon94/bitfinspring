@@ -39,7 +39,8 @@ public class CardUpdateController {
 	public ModelAndView updateCard(@ModelAttribute CardDto dto, 
 							@RequestParam MultipartFile file, 
 							@RequestParam String pageNum, 
-							HttpServletRequest request)
+							HttpServletRequest request
+							)
 	{
 		ModelAndView mview = new ModelAndView();
 		MemberDto mdto=(MemberDto)request.getSession().getAttribute("mdto");
@@ -66,7 +67,7 @@ public class CardUpdateController {
 		
 		mview.addObject("mdto", mdto);
 		mview.addObject("dto",dto);
-		mview.setViewName("/detail?num="+dto.getCnum()+"&pageNum="+pageNum);
+		mview.setViewName("redirect:detail?num="+dto.getCnum()+"&pageNum="+pageNum);
 		return mview;
 	}
 }

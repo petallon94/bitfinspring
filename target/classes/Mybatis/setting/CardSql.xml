@@ -35,25 +35,28 @@
 	<select id="selectRankOfCard" resultType="cdto">
 		select * from card order by creadcount desc limit 0,9
 	</select>
-	<select id="SearchedCard" resultType="cdto">
+	<select id="SearchedCard" parameterType="HashMap" resultType="cdto">
 		<![CDATA[
 			SELECT * FROM card 
 		]]>
 		<include refid="dsearch"/>
 		<![CDATA[
-			ORDER BY cnum DESC, cwritedate DESC LIMIT #{start}, #{perpage}
+			ORDER BY cnum DESC
 		]]>
 	</select>
 	<sql id="dsearch">
 		<if test="searchType != null">
+			<if test="searchType == 'all'.toString()">
+				where where csubject Like CONCAT ('%', #{keyword}, '%') or ccontent Like CONCAT ('%', #{keyword}, '%') or cwriter Like CONCAT ('%', #{keyword}, '%')
+			</if>
 			<if test="searchType == 't'.toString()">
-				And title Like CONCAT ('%', #{keyword}, '%')
+				where csubject Like CONCAT ('%', #{keyword}, '%')
 			</if>
 			<if test="searchType == 'c'.toString()">
-				And content Like CONCAT ('%', #{keyword}, '%')
+				where ccontent Like CONCAT ('%', #{keyword}, '%')
 			</if>
 			<if test="searchType == 'w'.toString()">
-				And writer Like CONCAT ('%', #{keyword}, '%')
+				where cwriter Like CONCAT ('%', #{keyword}, '%')
 			</if>
 		</if>
 	</sql>
