@@ -54,7 +54,7 @@ enctype="multipart/form-data" onsubmit="return false;" action="update">
          </div>
          <div class="dcom-con dcom-writer">
          <b>작성자</b>
-            <input type="text" class="form-control dcom-row"
+            <input type="text" class="form-control dcom-row" readonly="readonly"
                      style="width: 120px;" required="required"
                      name="cwriter" value="${dto.cwriter }"> 
          </div>

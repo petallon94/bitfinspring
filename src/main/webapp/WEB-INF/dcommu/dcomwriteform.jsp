@@ -24,6 +24,14 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
    href="<%=request.getContextPath()%>/css/dcommu/normalize.8.0.1.css" />
 <link rel="stylesheet"
    href="<%=request.getContextPath()%>/css/dcommu/dcomwriteform.css" />
+<script type="text/javascript">
+      $(function() { 
+    	  $("#dcom-save").attr('disabled', true);
+    	  	$("#mainpicture").change(function() {
+    	  		$("#dcom-save").attr('disabled', false)
+    	  	});
+	   });
+</script>
 <body style="background-color: #1f2c59">
 
    <div class="dcom-top-bn-box dcom-con2">
@@ -55,12 +63,12 @@ enctype="multipart/form-data" action="insert">
          </div>
          <div class="dcom-con dcom-photo">
          <b>메인사진</b>
-            <input type="file" class="form-control dcom-row"
+            <input type="file" class="form-control dcom-row" id="mainpicture"
                      style="width: 300px;" name="file" required="required">    
          </div>
          <div class="dcom-con dcom-writer">
          <b>작성자</b>
-            <input type="text" class="form-control dcom-row"
+            <input type="text" class="form-control dcom-row" readonly="readonly"
                      style="width: 120px;" required="required"
                      name="cwriter" value="${mdto.mnick }"> 
          </div>
@@ -73,7 +81,7 @@ enctype="multipart/form-data" action="insert">
          </div>
       </div>
       <div class="dcom-con">
-         <input type="submit" value="게시글등록"
+         <input type="submit" value="게시글등록" id="dcom-save"
               class="btn btn-default btn-block dcom-button"
               style="border: 2px solid #70788d"
                onclick="submitContents(this)">
