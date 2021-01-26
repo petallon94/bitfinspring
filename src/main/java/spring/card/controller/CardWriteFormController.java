@@ -38,13 +38,16 @@ public class CardWriteFormController {
 		String path = request.getSession().getServletContext().getRealPath("/resources/save");
 		System.out.println(path);
 		
+		
 		SpringFileWriter writer = new SpringFileWriter();
-		String fileName=writer.changeFilename(file.getOriginalFilename());
-		
+		String fileName="";
+		//System.out.println(file.getOriginalFilename());
+	
+		fileName=writer.changeFilename(file.getOriginalFilename());
 		writer.writeFile(file, fileName, path);
-		
+	
 		dto.setCphoto(fileName);
-		System.out.println(dto.getCphoto());
+		//System.out.println(dto.getCphoto());
 		
 		carddi.insertCard(dto);
 		

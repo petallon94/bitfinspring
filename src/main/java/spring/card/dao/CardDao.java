@@ -1,7 +1,9 @@
 package spring.card.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.stereotype.Repository;
@@ -56,7 +58,6 @@ public class CardDao extends SqlSessionDaoSupport implements CardDaoInter {
 		// TODO Auto-generated method stub
 		getSqlSession().update("updateOfCard", dto);
 	}
-
 	@Override
 	public void deleteCard(String num) {
 		// TODO Auto-generated method stub
@@ -68,10 +69,17 @@ public class CardDao extends SqlSessionDaoSupport implements CardDaoInter {
 	}
 
 	@Override
-	public List<CardDto> getCardSearch(CardDto dto,int start, int perpage) {
+	public List<CardDto> getCardSearch(String searchType, String keyword) throws Exception{
 		// TODO Auto-generated method stub
-		return getSqlSession().selectOne("SearchedCard",dto);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("searchType", searchType);
+		map.put("keyword", keyword);
+		System.out.println(keyword);
+		System.out.println(searchType);
+		
+		return getSqlSession().selectList("SearchedCard",map);
 	}
+
 
 	
 }

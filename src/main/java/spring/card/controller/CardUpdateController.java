@@ -39,7 +39,8 @@ public class CardUpdateController {
 	public ModelAndView updateCard(@ModelAttribute CardDto dto, 
 							@RequestParam MultipartFile file, 
 							@RequestParam String pageNum, 
-							HttpServletRequest request)
+							HttpServletRequest request
+							)
 	{
 		ModelAndView mview = new ModelAndView();
 		MemberDto mdto=(MemberDto)request.getSession().getAttribute("mdto");
