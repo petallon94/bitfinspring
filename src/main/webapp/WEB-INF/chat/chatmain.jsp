@@ -48,6 +48,7 @@
 										</div>
 									</div>
 								</div>
+								<hr>
 								<div class="row">
 									<div class="col-lg-12">
 										<div class="media">
@@ -66,7 +67,16 @@
 								<div class="portlet-footer">
 									<div class="row">
 										<div class="form-group col-xs-4">
-											<input style="height: 40px;" type="text" id="chatName" class="form-control" placeholder="${mdto.mnick}" >
+											<input style="height: 40px;" type="text" id="chatName" readonly="readonly" class="form-control" placeholder="${mdto.mnick}" >
+										</div>
+									</div>
+									<div class="row" style="height: 90px; ">
+										<div class="form-group col-xs-10">
+											<textarea style="height: 80px; width: 420px; resize: none;" id="chatContent" class="form-control" placeholder="메세지를 입력하세요." maxlength="300"></textarea>
+										</div>
+										<div class="form-group col-cs-2">
+											<button type="button" class="btn btn-default pull-right" onclick="submitFunction();" style="margin-right: 15px; width: 70px; height: 80px;">전송</button>
+											<div class="clearfix"></div>
 										</div>
 									</div>
 								</div>

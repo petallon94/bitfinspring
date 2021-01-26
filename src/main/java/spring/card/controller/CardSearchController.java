@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import spring.card.dao.CardDaoInter;
 import spring.dto.CardDto;
 
-@Controller
-public class CardSearchData {
+@RestController
+public class CardSearchController {
 	
 	@Autowired
 	private CardDaoInter carddi;
@@ -22,7 +22,7 @@ public class CardSearchData {
 							@RequestParam(value = "keyword", required = false, defaultValue = "") String keyword) throws Exception
 	{	
 		List<CardDto> list = carddi.getCardSearch(searchType, keyword);
-		System.out.println(list.size());
+		
 		return list;
 	}
 }

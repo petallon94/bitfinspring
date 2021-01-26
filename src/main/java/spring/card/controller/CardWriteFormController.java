@@ -1,4 +1,3 @@
-
 package spring.card.controller;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,39 +18,36 @@ import upload.util.SpringFileWriter;
 
 @Controller
 public class CardWriteFormController {
-	
-	@Autowired
-	private CardDaoInter carddi;
-	
-	
-	@GetMapping("/doctor/writeform")
-	public String goCardWriteForm(HttpServletRequest request, HttpServletResponse response)
-	{
-		MemberDto mdto=(MemberDto)request.getSession().getAttribute("mdto");
-		request.getSession().setAttribute("cmidnum", mdto.getMnum());
-		return "/dcommu/dcomwriteform";
-	}
-	
-	@PostMapping("/doctor/insert")
-	public String cardWrite(@ModelAttribute CardDto dto,@RequestParam MultipartFile file, HttpServletRequest request,@RequestParam String pageNum)
-	{
-		String path = request.getSession().getServletContext().getRealPath("/resources/save");
-		System.out.println(path);
-		
-		
-		SpringFileWriter writer = new SpringFileWriter();
-		String fileName="";
-		//System.out.println(file.getOriginalFilename());
-	
-		fileName=writer.changeFilename(file.getOriginalFilename());
-		writer.writeFile(file, fileName, path);
-	
-		dto.setCphoto(fileName);
-		//System.out.println(dto.getCphoto());
-		
-		carddi.insertCard(dto);
-		
-		return "redirect:list?pageNum="+pageNum;
-	}
+   
+   @Autowired
+   private CardDaoInter carddi;
+   
+   
+   @GetMapping("/doctor/writeform")
+   public String goCardWriteForm(HttpServletRequest request, HttpServletResponse response)
+   {
+      MemberDto mdto=(MemberDto)request.getSession().getAttribute("mdto");
+      request.getSession().setAttribute("cmidnum", mdto.getMnum());
+      return "/dcommu/dcomwriteform";
+   }
+   
+   @PostMapping("/doctor/insert")
+   public String cardWrite(@ModelAttribute CardDto dto,@RequestParam MultipartFile file, HttpServletRequest request,@RequestParam String pageNum)
+   {
+      String path = request.getSession().getServletContext().getRealPath("/resources/save");
+      System.out.println(path);
+      
+      SpringFileWriter writer = new SpringFileWriter();
+      String fileName=writer.changeFilename(file.getOriginalFilename());
+      
+      writer.writeFile(file, fileName, path);
+      
+      dto.setCphoto(fileName);
+      System.out.println(dto.getCphoto());
+      
+      carddi.insertCard(dto);
+      
+      return "redirect:list?pageNum="+pageNum;
+   }
 
 }

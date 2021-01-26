@@ -39,20 +39,20 @@ $(function(){
 		//검색 
 		$("#searchBtn").click(function(){
 			//변수
-			var search=$("#searchType").val();
-			var word=$("#keyword").val();
-			alert(word+","+search);
+			var searchType=$("#searchType").val();
+			var keyword=$("#keyword").val();
+			//alert(word+","+search);
 			//alert(search+":"+word);
 			//검색한 값이랑 단어의 값을 넣으면
 			//전체 선택했을 경우,
 			$.ajax({
 				type:"get",
-				dataType:"html",
+				dataType:"json",
 				url:"/doctor/dsearch",
 				data:{"searchType":searchType,"keyword":keyword},
 				success:function(data){
 					//페이지 번호를 없애고 전체 새로고침한다
-					location.href="/list"
+					alert("success");
 				}
 			});//$.ajax close
 		});//$("#btndatasearch") close
@@ -103,7 +103,7 @@ $(function(){
 			>게시글작성</button>
 		</div>
 	</div>
-	<!— search end—>
+	<!-- search end -->
 	<hr class="slideline">
 	<jsp:include page="dcomlistslide.jsp"></jsp:include>
 	<hr class="slideline">

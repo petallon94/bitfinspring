@@ -1,9 +1,7 @@
 package spring.card.dao;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.stereotype.Repository;
@@ -69,13 +67,13 @@ public class CardDao extends SqlSessionDaoSupport implements CardDaoInter {
 	}
 
 	@Override
-	public List<CardDto> getCardSearch(String searchType, String keyword) throws Exception{
+	public List<CardDto> getCardSearch(String searchType, String keyword){
 		// TODO Auto-generated method stub
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("searchType", searchType);
 		map.put("keyword", keyword);
-		System.out.println(keyword);
-		System.out.println(searchType);
+		//System.out.println(keyword);
+		//System.out.println(searchType);
 		
 		return getSqlSession().selectList("SearchedCard",map);
 	}
