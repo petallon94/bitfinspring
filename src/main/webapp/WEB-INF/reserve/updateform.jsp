@@ -35,7 +35,7 @@
 					value="${dto.rtime}"/>
 			</div>
 			<div class="rsv__section2">
-				<input type="text" name="rmnum" class="rsv__select" value="${dto.rmnum}" readonly="readonly"> 
+				<input type="text" name="rmnum" class="rsv__select_name" value="${dto.rmnum}" readonly="readonly"> 
 				<input type="text" name="rdmnum" class="rsv__select" value="${dto.rdmnum}" readonly="readonly">
 				<input id="rsv__memo" name="rmemo" class="rsv__select" value="${dto.rmemo}">
 			</div>
