@@ -30,14 +30,15 @@
 					value="${mdto.mnum}">
 			<div class="rsv__section1">
 				<input type="text" id="rsv__select_date" name="rdate"
-					placeholder="예약날짜를 선택하세요." /> <input type="text"
+					placeholder="예약날짜를 선택하세요." required="required"/> 
+				<input type="text"
 					id="rsv__select_time" class="rsv__select" name="rtime"
-					placeholder="예약시간을 선택하세요."/>
+					placeholder="예약시간을 선택하세요." required="required"/>
 			</div>
 			<div class="rsv__section2">
-				 <div class="rsv__select">${mdto.mnick}님</div> 
+				 <div class="rsv__select_name">${mdto.mnick}님</div> 
 				<%--<c:if test="${mdto.mrole==1}">${mdto.mnick}</c:if>예약하시겠습니까? --%>
-					
+				<!-- 병원리스트 받아서 불러오는걸로 수정예정 -->	
 			<input type="text" name="rdmnum" class="rsv__select" required="required"
 					placeholder="병원를 입력해주세요.">
 				<textarea id="rsv__memo" name="rmemo" class="rsv__select"
@@ -67,9 +68,9 @@ $("#rsv__select_time").flatpickr({
     noCalendar: true,
     dateFormat: "H:i",
     
-    minTime: "08:00",
-    maxTime: "20:00",
-    minuteIncrement : "30"	
+    minTime: "08:00", //아침 8시부터
+    maxTime: "20:00", //저녁 8시까지
+    minuteIncrement : "30"	//30분간격
 	});
 </script>
 

@@ -48,7 +48,7 @@
 <div class="slide_bar_out">
 	<div class="slide_bar">
 		<ul class="slide_bar_list">
-			<li><a href="">병원안내/예약</a></li>
+			<li><a href="${root}/hospitalmain">병원안내/예약</a></li>
 			<li><a href="">방역수칙</a></li>
 			<li><a href="${root}/doctor/list">카드뉴스</a></li>
 			<li><a href="">커뮤니티</a></li>

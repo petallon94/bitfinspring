@@ -46,9 +46,7 @@ public class ReserveController {
 	@GetMapping("/reserve/writeform")
 	public String reserveForm()
 	{	
-		//member의 mnum확인하기
-		//mdto.getMnum();
-		//System.out.println("mnum: "+mdto.getMnum());
+
 		
 		return "/reserve/writeform";
 	}
