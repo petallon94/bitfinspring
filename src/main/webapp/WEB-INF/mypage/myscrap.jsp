@@ -24,7 +24,6 @@
 					마이페이지
 				</a>
 			</li>
-		
 			<li>
 				<a href="${root}/mypage.content">
 					<div class="mypage_icon icon_mycontent"></div>

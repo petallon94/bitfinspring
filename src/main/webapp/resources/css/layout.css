@@ -290,11 +290,29 @@ ul.slide_bar_list.end {
 	flex-wrap: wrap;
 }
 
-.sec0 .fp-tableCell>div.sec0_content {
-	background-color: rgba(0, 0, 0, 50%);
-	width: 100px;
-	height: 100px;
+.sec0 .fp-tableCell>div.sec0_content0 {
+
+
 }
+
+.sec0 .fp-tableCell>div.sec0_content1 {
+	width:600px;
+	height:400px;
+	border:1px solid #ddd;
+	padding:10px;
+	border-radius: 8px;
+	background-color:white;
+	
+
+}
+.sec0 .fp-tableCell>div.sec0_content1 canvas{
+	
+}
+
+
+
+
+
 /* navigation color
 #fp-nav ul li a span{
 	background-color:white;
