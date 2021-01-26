@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
@@ -14,6 +13,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- Sweet Alert -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- Chart JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
 <!-- Boot Strap -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -28,8 +29,8 @@
 <link rel="stylesheet" href="${root}/css/hospital/reservation.css" />
 <!-- JS 파일 -->
 <script src="${root}/js/fullpage.min.js" ></script>
-<script src="${root}/js/member.js"></script>
 <script src="${root}/js/map.js"></script>
+<script src="${root}/js/chart.js"></script>
 
 
 </head>

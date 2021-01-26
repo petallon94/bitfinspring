@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="root" value="<%=request.getContextPath() %>"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,18 +12,13 @@
 	
 	
 	
+	
 		<div class="section sec0">
-			<input type="hidden" name="inflectionpeople" value="${inflectionpeople}"/>
-
-			<input type="hidden" name="inflectiondate" value="${inflectiondate}"/>
-			
-			
-			<div class="sec0_content0">
-				
+			<div class="sec0_content">
+				내용1
 			</div>
-			<div class="sec0_content1">
-				<canvas id="line-chart">
-				</canvas>
+			<div class="sec0_content">
+				내용2
 			</div>
 		</div>
 		
