@@ -26,19 +26,13 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
    href="<%=request.getContextPath()%>/css/dcommu/dcomwriteform.css" />
 <script type="text/javascript">
       $(function() { 
-<<<<<<< HEAD
+
          $("#dcom-save").attr('disabled', true);
             $("#mainpicture").change(function() {
                $("#dcom-save").attr('disabled', false)
             });
       });
-=======
-    	  $("#dcom-save").attr('disabled', true);
-    	  	$("#mainpicture").change(function() {
-    	  		$("#dcom-save").attr('disabled', false)
-    	  	});
-	   });
->>>>>>> 3DO
+
 </script>
 <body style="background-color: #1f2c59">
 

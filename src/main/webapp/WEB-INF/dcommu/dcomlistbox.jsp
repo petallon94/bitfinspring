@@ -23,22 +23,18 @@
 		<div class="dcom-prod-list-box">
 			<ul class="dcom-row">
 				<c:forEach var="d" items="${list }" varStatus="i">
-					<li class="dcom-cell"><a
-						href="detail?num=${d.cnum}&pageNum=${currentPage }&key=list">
+					<li class="dcom-cell"><a href="detail?num=${d.cnum}&pageNum=${currentPage }&key=list">
 							<input type="hidden" value="${i.count}">
 							<div class="dcom-img-bar">
 								<div class="dcom-img-box">
 								<!-- 상대경로  ${pageContext.request.contextPath}-->
-									<img	
-										src="${pageContext.request.contextPath}/resources/save/${d.cphoto }"
-										alt="">
+									<img src="${pageContext.request.contextPath}/resources/save/${d.cphoto }"alt="">
 								</div>
 								<div style="position: relative; max-width: 100%; background-color: black; display: block; white-space: nowrap;">
 									<div class="dcom-prod-subject">${d.csubject}</div>
 									<div class="dcom-prod-writer">${d.cwriter}</div>
 									<div class="dcom-prod-day">
-										<fmt:formatDate value="${d.cwritedate}"
-											pattern="yyyy MM-dd HH:mm" />
+										<fmt:formatDate value="${d.cwritedate}" pattern="yyyy MM-dd HH:mm" />
 									</div>
 								</div>
 							</div>
@@ -48,6 +44,13 @@
 		</div>
 	</div>
 	<!-- card end-->
+	
+		s+='<div class="dcom-prod-list-bar dcom-con">';
+						s+='<div class="dcom-prod-list-box">';
+						s+='<ul class="dcom-row">';
+						s+='<li class="dcom-cell">';
+						
+						
 <div class="page-bar">
 		<ul class="pagination page-box">
 			<c:if test="${startPage>1 }">
