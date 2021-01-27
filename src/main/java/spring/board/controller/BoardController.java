@@ -32,6 +32,7 @@ import spring.board.dao.BoardDao;
 import spring.dto.BoardDto;
 import spring.dto.BoardPhotoDto;
 import spring.dto.MemberDto;
+import upload.util.SpringFileWriter;
 
 
 @Controller
@@ -144,12 +145,23 @@ public class BoardController {
 	public String write(
 			@ModelAttribute BoardDto dto,
 			HttpServletRequest request,
+			@RequestParam MultipartFile file,
 			@RequestParam String pageNum
 			)
 	{
+		String path = request.getSession().getServletContext().getRealPath("/resources/save");
+		System.out.println(path);
+		
+		SpringFileWriter writer = new SpringFileWriter();
+		String fileName=writer.changeFilename(file.getOriginalFilename());
+		
+		writer.writeFile(file, fileName, path);
+		
+		dto.setBphoto(fileName);
+		System.out.println(dto.getBphoto());
 		
 		dao.insertBoard(dto);
-		return "redirect:/list?";
+		return "redirect:list?pageNum="+pageNum;
 	}
 	
 	

@@ -91,4 +91,24 @@ public class BoardDao extends SqlSessionDaoSupport implements BoardDaoInter {
 		return getSqlSession().selectList("selectboardtag",bnum);
 	}
 
+	@Override
+	public void insertHashtag(BoardDto dto) {
+		// TODO Auto-generated method stub
+		getSqlSession().insert("inserthashtag", dto);
+	}
+
+	@Override
+	public void deleteHashtag(BoardDto dto) {
+		// TODO Auto-generated method stub
+		getSqlSession().delete("deletehashtag",dto);
+	}
+
+	@Override
+	public List<BoardDto> searchHashtag(String hashtag) {
+		// TODO Auto-generated method stub
+		return getSqlSession().selectList("searchHashtag",hashtag);
+	}
+	
+	
+
 }

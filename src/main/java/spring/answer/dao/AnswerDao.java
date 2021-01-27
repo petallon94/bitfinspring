@@ -29,15 +29,15 @@ public class AnswerDao extends SqlSessionDaoSupport implements AnswerDaoInter {
 	}
 
 	@Override
-	public AnswerDto getData(String idx) {
+	public AnswerDto getData(String aidx) {
 		// TODO Auto-generated method stub
-		return null;
+		return getSqlSession().selectOne("SelectOneAnswer",aidx);
 	}
 
 	@Override
 	public void updateAnswer(AnswerDto dto) {
 		// TODO Auto-generated method stub
-
+		getSqlSession().update("updateOfAnswer", dto);
 	}
 
 	@Override

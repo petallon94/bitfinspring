@@ -13,6 +13,89 @@
 
 <link rel="stylesheet" href="${root}/css/board/boardmain.css" />
 
+<script type="text/javascript">
+$(function(){
+	
+	//보드리스트 출력
+	//해시 누르면 갑 가져오기
+	 $(".board_searchbtn").click(function(){
+	 
+		 var hashtag = $(".board_textfield").val();
+		
+		 $.ajax({
+				type:"get",
+				url:"searchlist",
+				dataType : "JSON",
+				data:{"hashtag":hashtag},
+				success:function(data){					
+					var s="<div>";					
+					$.each(data,function(i,n){	
+						s+="<div class='board_left' onclick='location.href='./boardcontent?bnum="+n.bnum+"&pageNum="+currentPage+"'>";
+						s+="<h4>"+n.bsubject+"</h4>";
+						s+="<div class='board_content_bottom'><div><h5>"
+						s+= n.bwritedate+"</h5> <h5>"+n.bwriter+"</h5></div></div></div>";
+					    s+= "<div class='board_right'>";
+						s+= "<img src='${pageContext.request.contextPath}/resources/save/"+n.bphoto+"'";
+						s+= "style='width: 200px; height: 200px;' /></div>";		
+					});
+					s+= "</div>";
+					
+					$("#board_lli").html(s);
+					
+				
+				}
+				
+			});	
+		 
+	 });
+	
+	
+	
+	 $(".hashtag").click(function(){
+		 var index = $(".hashtag").index(this);
+		 var hashtag = $(".hashtag a").eq(index).text(); 
+		 var currentPage = $(".currentPage").text(); 
+		 
+		 $.ajax({
+				type:"get",
+				url:"searchlist",
+				dataType : "JSON",
+				data:{"hashtag":hashtag},
+				success:function(data){	
+					
+					var s="<div>";
+					
+					$.each(data,function(i,n){
+						
+						
+						s+="<div class='board_left' onclick='location.href='./boardcontent?bnum="+n.bnum+"&pageNum="+currentPage+"'>";
+						s+="<h4>"+n.bsubject+"</h4>";
+						s+="<div class='board_content_bottom'><div><h5>"
+						s+= n.bwritedate+"</h5> <h5>"+n.bwriter+"</h5></div></div></div>";
+					    s+= "<div class='board_right'>";
+						s+= "<img src='${pageContext.request.contextPath}/resources/save/"+n.bphoto+"'";
+						s+= "style='width: 200px; height: 200px;' /></div>";
+						
+							
+					});
+					s+= "</div>";
+					
+					$("#board_lli").html(s);
+					
+				
+				}
+				
+			});
+	 });
+	
+	
+});
+
+function search_list(){
+	
+};
+
+</script>
 </head>
 <body>
 
@@ -27,8 +110,8 @@
 					<div style="margin-top: 10px;">
 						<!-- ★여기에 해시태그 for each 넣어야됩니당★ -->
 						<c:forEach var="a" items="${hashlist}">
-						<div class="hashtag">
-							<span class="glyphicon glyphicon-ok"></span> ${a.hashtag}
+						<div class="hashtag" name = "hashtag">
+							<span class="glyphicon glyphicon-ok"></span> <a>${a.hashtag}</a>
 						</div>
 						</c:forEach>
 
@@ -38,22 +121,20 @@
 			</div>
 		</div>
 	</div>
-	<div class="board_search">
+	<div class="board_search" id ="board_search">
 			<h3>#해시태그 검색</h3>
 			<input type="text" class="board_textfield" />
+			<input type = "hidden" class = "currentPage" id ="currentPage" value ="${currentPage}">
 			<button type="button" class="board_searchbtn">검색하기</button>
 		</div>
 		
 
 	<!-- board 출력 -->
-	<div>
+	<div class = "board_lli" id ="board_lli">
 	<c:forEach var="b" items="${list}">
 		<div class="board_list">
 			<div class="board_left" onclick="location.href='./boardcontent?bnum=${b.bnum}&pageNum=${currentPage}'">
 				<h4>${b.bsubject}</h4>
-				<div class="board_content">					
-					
-				</div>
 				<div class="board_content_bottom">
 					<div>
 					<h5>
@@ -69,7 +150,7 @@
 			</div>
 			<div class="board_right">
 				<img
-					src="https://dispatch.cdnser.be/wp-content/uploads/2017/08/20170816091129_5.jpg"
+					src="${pageContext.request.contextPath}/resources/save/${b.bphoto}"
 					style="width: 200px; height: 200px;" />
 			</div>
 		</div>

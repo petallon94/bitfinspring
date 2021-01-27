@@ -19,4 +19,7 @@ public interface BoardDaoInter {
 	   public int getTotalCount();
 	   public List<BoardDto> getTagList();
 	   public List<BoardDto> getOneTagList(String num);
+	   public void insertHashtag(BoardDto dto);
+	   public void deleteHashtag(BoardDto dto);
+	   public List<BoardDto> searchHashtag(String hashtag);
 }

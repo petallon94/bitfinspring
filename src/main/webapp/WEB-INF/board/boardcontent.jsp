@@ -28,6 +28,26 @@ $(function(){
 	
 	answer_list();
 	
+	/// 댓글 삭제하기
+	$(document).on("click","a.del",function(){
+			//idx 읽기
+			var aidx=$(this).attr("aidx");
+			if(confirm("댓글을 삭제하려면 [확인]을 눌러주세요")==true){				
+				$.ajax({
+					type:"get",
+					url:"answerdelete",
+					data:{"aidx":aidx},
+					dataType:"html",
+					success:function(data)
+					{
+						answer_list();//댓글 다시 출력					
+					}
+				});
+			}
+		});
+	
+	
+	/////////////댓글 저장
 	$("#ans_savebtn").click(function(){
 		
 		
@@ -66,6 +86,7 @@ function answer_list()
 		//db로부터 댓글 목록을 가져와서 id "answer" 출력하기
 		var acnum=$("#acnum").val();
 
+		
 		$.ajax({
 			type:"get",
 			url:"answerlist",
@@ -75,7 +96,8 @@ function answer_list()
 				var s="<div class = 'each_comments'>";
 				$.each(data,function(i,n){
 
-					s+= "<div style ='padding-top : 10px;'><a>"+n.awriter+"</a><span >"+n.awritedate+"</span><a class='update' idx="+n.aidx+">수정</a><a class='del' idx="+n.aidx+">삭제</a></div>";
+					s+= "<div style ='padding-top : 10px;'><a>"+n.awriter+"</a><span>"+n.awritedate+"</span>";
+					s+= "<a class='update' href='answerupdpass?aidx="+n.aidx+"' aidx="+n.aidx+">수정</a><a class='del' aidx="+n.aidx+">삭제</a></div>";
 					s+= "<div class ='board_memo' style ='padding-bottom : 10px;border-bottom : 1px solid gray'>"+n.amemo+"</div>";
 				});
 

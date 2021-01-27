@@ -1,6 +1,9 @@
 package spring.answer.controller;
 
+import java.io.File;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,6 +38,13 @@ public class AnswerController {
 
 		dao.insertAnswer(dto);
 
+	}
+	
+	@GetMapping("/board/answerdelete")
+	public void delete(@RequestParam String aidx,
+			HttpServletRequest request)
+	{	System.out.println(aidx);
+		dao.deleteAnswer(aidx);
 	}
 	
 	@GetMapping("/board/answerlist")

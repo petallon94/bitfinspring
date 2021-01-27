@@ -4,6 +4,9 @@
 	<select id="SelectAnswer" parameterType="String" resultType="adto">
 		select * from answer where acnum =#{acnum}
 	</select>
+	<select id="SelectOneAnswer" parameterType="String" resultType="adto">
+		select * from answer where aidx =#{aidx}
+	</select>
 	<select id="CountAnswer" parameterType="String" resultType="int">
 		select count(*) from answer where acnum =#{acnum}
 	</select>
@@ -11,6 +14,9 @@
 		insert into answer (acnum,amidnum,awriter,amemo,awritedate,arestep,arelevel,aregroup) values (#{acnum},#{amidnum},#{awriter},#{amemo},now(),0,0,0)
 	</insert>
 	<delete id ="deleteOfAnswer" parameterType="String">
-		delete from answer where acnum =#{acnum}
+		delete from answer where aidx =#{aidx}
 	</delete>
+	<update id ="updateOfAnswer" parameterType = "adto">
+	update answer set amemo = #{amemo} where aidx = #{aidx}
+	</update>
 </mapper>
