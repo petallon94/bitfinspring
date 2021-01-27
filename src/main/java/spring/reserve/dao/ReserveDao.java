@@ -43,5 +43,10 @@ public class ReserveDao extends SqlSessionDaoSupport implements ReserveDaoInter 
 		// TODO Auto-generated method stub
 		getSqlSession().delete("deleteOfReserve", rnum);
 	}
-
+	
+	@Override
+	public List<ReserveDto> getDataRm(String rmnum) {
+		// TODO Auto-generated method stub
+		return getSqlSession().selectList("selectRmOfReserve", rmnum);
+	}
 }

@@ -1,3 +1,4 @@
+/* writeform */
 .rsv__con{
 	display:flex;
 	flex-direction: column;
@@ -10,7 +11,6 @@
 	margin: 100px 0;
 	align-items: center;
 }
-
 .rsv__title, .rsv__section_title, .rsv__section_txt, .rsv__section3 {
 	text-align:center;	
 }
@@ -18,13 +18,11 @@
     font-weight: 700;
     font-size: 32px;
 }
-
 .rsv__section_title{
 	font-weight: 500;
     font-size: 40px;
     line-height: 68px;	
 }
-
 .rsv__section_txt{
 	margin: 20px auto 0;
     font-size: 20px;
@@ -40,12 +38,10 @@
 .rsv__section2{
 	float: right;
     width: 450px;
-
 }
 .rsv__section3{
 	clear: both;
 }
-
 .rsv__select {
 float: left;
 width: 350px;
@@ -67,8 +63,7 @@ padding:0 20px;
 color: #1f2c59;
 box-sizing:border-box;
 margin-bottom: 20px;
-}
-	
+}	
 #rsv__select_date{
 width: 350px;
 height: 60px;
@@ -78,7 +73,6 @@ border: 1px solid #bbb;
 padding:0 20px;
 box-sizing:border-box;
 }
-
 #rsv__select_time{
 float: left;
 width: 350px;
@@ -90,7 +84,6 @@ padding:0 20px;
 box-sizing:border-box;
 margin-top: 20px;	
 }
-
 #rsv__memo{
 	width: 350px;
     height: 275px;    
@@ -125,7 +118,6 @@ margin-top: 20px;
 	font-size: 16px;
 	vertical-align: middle;
 }
-
 .rsv__gotolistbtn{
 	width: 120px;
 	padding: 14px 20px;
@@ -140,6 +132,7 @@ margin-top: 20px;
 
 
 /* list */
+
 .rsv__list_txt{
     font-size: 15px;
     color: #70788d;
@@ -151,7 +144,7 @@ margin-top: 20px;
     max-width: 710px;
     padding: 35px 0;
     margin: 0 auto;
-    border:1px solid #1f2c59;
+    border: 1px solid #1f2c59;
     font-size: 16px;
     line-height: 24px;
     color: #3A54B4;
@@ -216,4 +209,66 @@ margin-top: 20px;
     border: solid 1px #514d4d;
     text-align: center;
     transition: all 0.25s ease-in-out;
+}
+
+
+/* success */
+.rsv_success{
+	margin: auto; 
+	margin-top: 180px; 
+	width: 1000px;
+	align-items: center;	
+	display: flex;
+	justify-content: center;
+}
+.rsv_success_logo{
+	text-align: center;
+}
+.rsv_success_logo img{
+	width: 80px;
+}
+.rsv_success_main{
+	font-size: 24pt; 
+	text-align: center; 
+	font-weight: 700; 
+	display: grid;	
+}
+.rsv_success_nick{
+	color: #1f2c59; 
+	font-size: 27pt; 
+	font-weight: 800;
+}
+.rsv_success_text{
+	font-size: 20pt; 
+	text-align: 
+	center; 
+	font-weight: 500;
+}
+.rsv_success_btnlist{
+	margin: 30px;
+	align-items: center;	
+	display: flex;
+	justify-content: center;
+}
+.rsv__success_gotomainbtn{
+	width: 250px;
+	padding: 14px 20px;
+	height: 55px;
+	box-sizing: border-box;
+	border: 4px solid #1f2c59;
+	background-color:#1f2c59; 
+	color: white;
+	font-size: 16px;
+	vertical-align: middle;
+}
+.rsv__success_gotolistbtn{
+	width: 250px;
+	padding: 14px 20px;
+	height: 55px;
+	box-sizing: border-box;
+	border: 4px solid #70788d;
+	background-color:#70788d; 
+	color: white;
+	font-size: 16px;
+	vertical-align: middle;
 }

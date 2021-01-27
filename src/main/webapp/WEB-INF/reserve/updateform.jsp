@@ -43,7 +43,7 @@
 		<div class="rsv__section3">
 			<hr>
 			<button type="submit" class="rsv__updateformbtn">예약수정</button>
-			<button type="button" class="rsv__gotolistbtn" onclick="location.href='list'">목록</button>
+			<button type="button" class="rsv__gotolistbtn" onclick="location.href='list?rmnum=${dto.rmnum}'">목록</button>
 		</div>
 		</form>
 </div>

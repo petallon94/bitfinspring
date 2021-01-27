@@ -25,4 +25,8 @@
 	<delete id="deleteOfReserve" parameterType="String">
 		delete from reserve where rnum=#{rnum}
 	</delete>
+		<!-- getdataID: id로 데이터가져오기 -->
+	<select id="selectRmOfReserve" parameterType="String" resultType="rdto">
+		select * from reserve where rmnum=#{rmnum} order by rnum desc
+	</select>
 </mapper>
