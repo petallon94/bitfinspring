@@ -45,7 +45,7 @@ public class inflection2 {
             DateFormat dft = new SimpleDateFormat("HH");
             //12시부터 출력되도록 하자.
             int gogogo=Integer.parseInt(dft.format(cal.getTime()));
-            System.out.println("g:"+gogogo);
+            
             if(gogogo<12) {
             	cal.add(Calendar.DATE, -1);
             }
@@ -157,6 +157,13 @@ public class inflection2 {
             Calendar cal = Calendar.getInstance();
             cal.setTime(new Date());
             DateFormat df = new SimpleDateFormat("yyyyMMdd");
+            DateFormat dft = new SimpleDateFormat("HH");
+            //12시부터 출력되도록 하자.
+            int gogogo=Integer.parseInt(dft.format(cal.getTime()));
+            
+            if(gogogo<12) {
+            	cal.add(Calendar.DATE, -1);
+            }
             String searchDay=df.format(cal.getTime());
             String parameter = "&" + "startCreateDt="+searchDay;
             parameter = parameter + "&" + "endCreateDt="+searchDay;
