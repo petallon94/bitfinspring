@@ -277,7 +277,7 @@ ul.slide_bar_list.end {
 }
 
 
-/* section 0 */
+/* section 0=============================================== */
 .sec0 .fp-tableCell {
 	width: 100%;
 	background-image: url('../image/sec0.png');
@@ -298,10 +298,8 @@ ul.slide_bar_list.end {
 .sec0 .fp-tableCell>div.sec0_content1 {
 	width:600px;
 	height:400px;
-	border:1px solid #ddd;
 	padding:10px;
 	border-radius: 8px;
-	background-color:white;
 	
 
 }
@@ -318,7 +316,7 @@ ul.slide_bar_list.end {
 	background-color:white;
 } 
 */
-/* section 1 */
+/* section 1=============================================== */
 .sec1 .fp-tableCell {
 	width: 100%;
 	height:100vh;
@@ -332,15 +330,193 @@ ul.slide_bar_list.end {
 	flex-wrap: wrap;
 }
 
-.sec1 .fp-tableCell>div.sec1_content {
-	background-color: rgba(0, 0, 0, 50%);
-	width: 350px;
-	height: 100px;
-	opacity: 0;
-	transition: 0.35s;
+
+.sec1 .fp-tableCell>div.sec1_content0 {
+
+
 }
 
-/* section 2 */
+.sec1 .fp-tableCell>div.sec1_content1 {
+	width:600px;
+	height:400px;
+	padding:10px;
+	border-radius: 8px;
+	
+
+}
+.sec0 .fp-tableCell>div.sec1_content1 canvas{
+
+}
+
+
+
+
+
+
+
+
+/* 지도... */
+#main_maplayout{
+	position:relative;
+	width:480px;
+	min-width:480px;
+	margin:0 auto;
+}
+/* 박스안 */
+#main_maplayout button{
+	position:absolute;
+	border:0;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	margin:0;
+	padding:4px 8px;
+	background:#fff;
+	text-align:center;
+	box-shadow:2px 2px 4px rgb(100 100 100 /20%);
+	border-radius:2px;
+	transform:scale(1);
+	transition:0.3s;
+}
+
+#main_maplayout button span.name{
+	font-size:0.8em;
+}
+#main_maplayout button span.num{
+	font-size:0.9em;
+	font-weight: bold;
+}
+#main_maplayout button span.before{
+	font-size:0.8em;
+	color:#bbb;
+}
+#main_maplayout button:hover{
+	transform:scale(1.2);	
+}
+
+/* 포지션 정해주기 */
+/* 서울 */
+#main_maplayout button[data-city="map_city1"]{
+	left: 175px;
+    top: 68px;
+}
+/* 부산 */
+#main_maplayout button[data-city="map_city2"]{
+    left: 302px;
+    top: 338px;
+}
+/* 대구 */
+#main_maplayout button[data-city="map_city3"]{
+	left: 293px;
+    top: 252px;
+}
+/* 인천 */
+#main_maplayout button[data-city="map_city4"]{
+    left: 95px;
+    top: 62px;
+}
+/* 광주 */
+#main_maplayout button[data-city="map_city5"]{
+    left: 148px;
+    top: 333px;
+}
+/* 대전 */
+#main_maplayout button[data-city="map_city6"]{
+	left: 200px;
+    top: 200px;	
+}
+/* 울산 */
+#main_maplayout button[data-city="map_city7"]{
+	left: 355px;
+    top: 301px;
+}
+/* 세종 */
+#main_maplayout button[data-city="map_city8"]{
+    left: 154px;
+    top: 143px;
+}
+/* 경기 */
+#main_maplayout button[data-city="map_city9"]{
+    left: 174px;
+    top: -9px;
+}
+/* 강원 */
+#main_maplayout button[data-city="map_city10"]{
+    left: 276px;
+    top: 42px;
+}
+/* 충북 */
+#main_maplayout button[data-city="map_city11"]{
+    left: 220px;
+    top: 118px;
+}
+/* 충남 */
+#main_maplayout button[data-city="map_city12"]{
+    left: 96px;
+    top: 188px;
+}
+/* 전북 */
+#main_maplayout button[data-city="map_city13"]{
+    left: 151px;
+    top: 258px;
+}
+/* 전남 */
+#main_maplayout button[data-city="map_city14"]{
+    left: 84px;
+    top: 353px;	
+}
+/* 경북 */
+#main_maplayout button[data-city="map_city15"]{
+    left: 278px;
+    top: 173px;
+}
+/* 경남 */
+#main_maplayout button[data-city="map_city16"]{
+    left: 231px;
+    top: 304px;
+}
+/* 제주 */
+#main_maplayout button[data-city="map_city17"]{
+	left: 102px;
+    top: 450px;	
+}
+/* 검역 */
+#main_maplayout button[data-city="map_city18"]{
+	left: 328px;
+    top: 405px;
+}
+
+
+
+#main_maplayout svg{
+	width:100%;
+	margin:0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* section 2=============================================== */
 .sec2 .fp-tableCell {
 	width: 100%;
 	background-image: url('../image/se00.png');
@@ -358,6 +534,12 @@ ul.slide_bar_list.end {
 	width: 100px;
 	height: 100px;
 }
+
+
+
+
+
+
 /* section 3 (Footer) */
 .sec3 .fp-tableCell {
 	width: 100%;

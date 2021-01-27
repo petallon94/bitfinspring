@@ -22,13 +22,13 @@ public class HomeController {
 	@GetMapping({"/","/home"})
 	public String goMain(HttpServletRequest request, HttpServletResponse response)
 	{
+//		그래프데이터
 		HashMap<String, String> inflectionData=inflection2.getInflectionData();
-		String inflectionpeople =  inflectionData.get("inflectionPeople");
-		String inflectiondate = inflectionData.get("inflectionDay");
-
-		request.getSession().setAttribute("inflectionpeople", inflectionpeople);
-		request.getSession().setAttribute("inflectiondate", inflectiondate);
-		
+		request.getSession().setAttribute("inflectionpeople", inflectionData.get("inflectionPeople"));
+		request.getSession().setAttribute("inflectiondate", inflectionData.get("inflectionDay"));
+//		Map 데이터
+		HashMap<String, String[]> inflecMapData=inflection2.getinflectionMapData();
+		request.getSession().setAttribute("inflecMapData", inflecMapData);
 		return "/layout/main";
 	}
 }

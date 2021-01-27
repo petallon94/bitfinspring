@@ -1,6 +1,7 @@
 package spring.controller.bit;
 
 import java.text.DateFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,6 +11,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -51,7 +53,7 @@ public class inflection2 {
             addr = addr + servicekey + parameter;
             
             //직접 웹url에 테스트 해보세요~
-            System.out.println(addr);
+            //System.out.println(addr);
 			
             
             /*chap2. 읽기*/
@@ -120,8 +122,8 @@ public class inflection2 {
 
             String a = Arrays.toString(inflectionPeopleResult);
             String b = Arrays.toString(inflectionDayResult);
-            System.out.println(a);
-            System.out.println(b);
+            //System.out.println(a);
+            //System.out.println(b);
             HashMap<String, String> params=new HashMap<>();
             params.put("inflectionPeople", a);
     		params.put("inflectionDay", b);
@@ -137,6 +139,45 @@ public class inflection2 {
 	
 	
 	
+	public static HashMap<String, String[]> getinflectionMapData() {
+			try{
+			
+            String urlstr = "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?serviceKey=KLRsg8XwdmlVRNMjR2RLNRJqTtVc1KFTIPz%2BwNu8cuhlSEuF7Jg3V7CJ%2Bw0pXOx1VurMlU93VuWMn8IJOsP%2Bwg%3D%3D&pageNo=1&numOfRows=10&";
+            
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(new Date());
+            DateFormat df = new SimpleDateFormat("yyyyMMdd");
+            String searchDay=df.format(cal.getTime());
+            String parameter = "&" + "startCreateDt="+searchDay;
+            parameter = parameter + "&" + "endCreateDt="+searchDay;
+            
+            String addr = urlstr+parameter;
+
+			DocumentBuilderFactory dbFactoty = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactoty.newDocumentBuilder();
+			Document doc = dBuilder.parse(addr);
+            doc.getDocumentElement().normalize();
+            NodeList nList = doc.getElementsByTagName("item");
+            HashMap<String, String[]> params=new HashMap<>();
+            for(int temp = 0; temp < nList.getLength()-1; temp++){
+                Node nNode = nList.item(temp);
+                Element eElement = (Element) nNode;
+                //System.out.println(getTagValue("gubunEn", eElement));
+                String[] a = new String[2];
+                a[0] = NumberFormat.getInstance().format(Integer.parseInt(getTagValue("defCnt", eElement)));
+                a[1] = getTagValue("incDec", eElement);
+                String b = getTagValue("gubunEn", eElement).replace("-", "");
+        		params.put(b, a);
+        		
+            }
+            return params;
+		} catch (Exception e){	
+			e.printStackTrace();
+			return null;
+		}	
+		
+	}	
+
 	// tag값의 정보를 가져오는 메소드
 	private static String getTagValue(String tag, Element eElement) {
 	    NodeList nlList = eElement.getElementsByTagName(tag).item(0).getChildNodes();
