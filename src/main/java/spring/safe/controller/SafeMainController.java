@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class SafeMainController {
-   @RequestMapping(value = "/safe/list",method = {RequestMethod.GET,RequestMethod.POST})
+   @RequestMapping(value = "/safe/list",method = {RequestMethod.GET,RequestMethod.POST},produces="text/plain;charset=UTF-8")
    public String callapihttp() {
       StringBuffer result = new StringBuffer();
       try {
@@ -23,7 +23,6 @@ public class SafeMainController {
          URL url = new URL(urlstr);
          HttpURLConnection urlconnection = (HttpURLConnection) url.openConnection();
          urlconnection.setRequestMethod("GET");
-         
          BufferedReader br = new BufferedReader(new InputStreamReader(urlconnection.getInputStream(),"UTF-8"));
          
          String returnLine;

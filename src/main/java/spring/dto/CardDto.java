@@ -2,6 +2,10 @@ package spring.dto;
 
 import java.sql.Timestamp;
 
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+
 public class CardDto {
 	
 	private String cnum;
@@ -11,6 +15,7 @@ public class CardDto {
 	private String ccontent;
 	private String cphoto;
 	private int creadcount;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
 	private Timestamp cwritedate;
 	
 	public String getCnum() {
