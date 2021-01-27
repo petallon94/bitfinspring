@@ -47,7 +47,7 @@
 	<sql id="dsearch">
 		<if test="searchType != null">
 			<if test="searchType == 'all'.toString()">
-				where where csubject Like CONCAT ('%', #{keyword}, '%') or ccontent Like CONCAT ('%', #{keyword}, '%') or cwriter Like CONCAT ('%', #{keyword}, '%')
+				where csubject Like CONCAT ('%', #{keyword}, '%') or ccontent Like CONCAT ('%', #{keyword}, '%') or cwriter Like CONCAT ('%', #{keyword}, '%')
 			</if>
 			<if test="searchType == 't'.toString()">
 				where csubject Like CONCAT ('%', #{keyword}, '%')
