@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.board_updatelayout{
+.answer_updatelayout{
 	
 	background-color: #1f2c59;
 	background-size: cover;
@@ -8,7 +8,7 @@
 	padding: 150px 0;
 }
 
-.board_updatemain h3 {
+.answer_updatemain h3 {
 	color: white;
 	font-size : 3em;
 	text-align: center;
@@ -17,14 +17,14 @@
 
 /* 본문 폼 쪽 css*/
 
-.board_updatec{
+.answer_updatec{
 	
 	background-color: #f2f3f5;
 	text-align : center;
 	
 }
 
-.board_updateform{
+.answer_updateform{
 	background-color: #f2f3f5;	
 	padding: 5px 10px;
 	text-align : left;
@@ -37,12 +37,12 @@
 	
 }
 
-.board_updatecontents{
+.answer_updatecontents{
 	width : 90%;
 	margin-left : 5%;
 }
 
-.board_topic {
+.answer_topic {
 	width: 500px;
 	padding: 0px 10px;
 	box-sizing: border-box;
@@ -52,15 +52,13 @@
 	vertical-align: middle;
 }
 
-.board_hashform{
+.answer_hashform{
 	background-color: #f2f3f5;
 	text-align : center;
-	padding-left : 10%;
-	padding-right : 10%;
 }
 
 
-.board_hashtag{
+.answer_hashtag{
 	width: 500px;
 	padding: 14px 20px;
 	box-sizing: border-box;
@@ -70,19 +68,7 @@
 	vertical-align: middle;
 }
 
-.hashtag{
-	
-	float : left;
-	border: 2px solid #ccc;
-	cursor : pointer;
-	margin-left : 20px;
-	margin-right : 20px;
-	
-}
-
-
-
-.board_hashbtn{
+.answer_hashbtn{
 	width: 120px;
 	padding: 14px 20px;
 	height: 55px;
@@ -90,13 +76,13 @@
 	margin-left : 25px;
 }
 
-.board_btngroup{
+.answer_btngroup{
 	
 	text-align : center; padding-bottom: 30px
 }
 
 
-.board_listbtn, .board_savebutton{
+.answer_listbtn, .answer_savebutton{
 	
 	width: 120px;
 	padding: 14px 20px;

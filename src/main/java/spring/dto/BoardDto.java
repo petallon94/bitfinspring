@@ -9,6 +9,7 @@ public class BoardDto {
 	private String bwriter;
 	private String bsubject;
 	private String bcontent;
+	private String bphoto;
 	private Timestamp bwritedate;
 	private int breadcount;
 	private int readcount;
@@ -20,6 +21,12 @@ public class BoardDto {
 	
 	
 	
+	public String getBphoto() {
+		return bphoto;
+	}
+	public void setBphoto(String bphoto) {
+		this.bphoto = bphoto;
+	}
 	public int getHbnum() {
 		return hbnum;
 	}

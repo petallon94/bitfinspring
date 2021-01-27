@@ -35,14 +35,21 @@
 			<div class="jsx-2303464893 editor">
 				<h3>글제목</h3>
 				<input type="text" class="board_topic" id="board_topic"
-					name="bsubject" /> <input type="text" class="board_id"
-					id="board_id" name="bmidnum" value="${mdto.mnum}" /> <input
-					type="text" class="board_nick" id="board_nick" name="bwriter"
-					value="${mdto.mnick}" /> <input type="hidden" name="pageNum"
-					value="${pageNum}"> <input type="hidden" name="regroup"
-					value="${regroup}"> <input type="hidden" name="restep"
-					value="${restep}"> <input type="hidden" name="relevel"
-					value="${relevel}">
+					name="bsubject" /> 
+					<input type="text" class="board_id"
+					id="board_id" name="bmidnum" value="${mdto.mnum}" /> 
+					<input type="text" class="board_nick" id="board_nick" name="bwriter"
+					value="${mdto.mnick}" /> 
+					<input type="hidden" name="pageNum" value="${pageNum}"> 
+					<input type="hidden" name="regroup" value="${regroup}"> 
+					<input type="hidden" name="restep" value="${restep}"> 
+					<input type="hidden" name="relevel" value="${relevel}">
+					
+					<div class="dcom-con dcom-photo">
+         		<b>메인사진</b>
+            		<input type="file" class="form-control dcom-row"
+                     style="width: 300px;" name="file" required="required">    
+         </div>
 
 
 				<div class="fr-box fr-basic fr-top" role="application">
@@ -59,7 +66,7 @@
 
 				<div class="board_hashform"> 
 					<hr>
-					<input type="text" class="board_hashtag" />
+					<input type="text"  class="board_hashtag" />
 					<button type="button" class="board_hashbtn">태그 추가</button>
 				</div>
 				<hr>

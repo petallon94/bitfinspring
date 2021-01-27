@@ -5,7 +5,7 @@
 	select * from board 
 	</select>
 	<insert id="insertOfBoard" parameterType="bdto">
-		insert into board (bmidnum,bwriter,bsubject,bcontent,bwritedate,breadcount,regroup, restep, relevel) values (#{bmidnum},#{bwriter},#{bsubject},#{bcontent},now(),0,#{regroup},#{restep}, #{relevel})
+		insert into board (bmidnum,bwriter,bsubject,bcontent,bwritedate,bphoto,breadcount,regroup, restep, relevel) values (#{bmidnum},#{bwriter},#{bsubject},#{bcontent},now(),#{bphoto},0,#{regroup},#{restep}, #{relevel})
 	</insert>
 	<select id ="selectoneOfBoard" parameterType="String" resultType="bdto">
 	select * from board where bnum = #{bnum} 
@@ -32,7 +32,16 @@
 		delete from board where bnum=#{bnum}
 	</delete>
 	<update id ="updateOfBoard" parameterType="bdto">
-		update board set bsubject=#{bsubject}, bcontent=#{bcontent} where bnum = #{bnum}
+		update board set bsubject=#{bsubject}, bcontent=#{bcontent},
+		<if test="bphoto!=null">bphoto =#{bphoto}</if> where bnum = #{bnum}
 	</update>
-	
+	<delete id ="deletehashtag" parameterType="bdto">
+		delete from hashtag where hashtag = #{hashtag} and hbnum = #{hbnum}
+	</delete>
+	<insert id ="inserthashtag" parameterType ="bdto">
+		insert into hashtag (hbnum,hashtag) values (#{hbnum},#{hashtag}) 
+	</insert>
+	<select id = "searchHashtag" resultType ="bdto" parameterType ="String">
+	 select * from board b, hashtag h where hashtag = #{hashtag} and b.bnum=h.hbnum
+	</select>
 </mapper>
