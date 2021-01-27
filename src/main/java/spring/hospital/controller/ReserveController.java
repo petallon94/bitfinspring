@@ -3,7 +3,7 @@ package spring.hospital.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import spring.dto.MemberDto;
@@ -19,47 +20,56 @@ import spring.dto.ReserveDto;
 import spring.reserve.dao.ReserveDao;
 
 @Controller
+@SessionAttributes("mdto")
 public class ReserveController {
-	
+
+
 	@Autowired
 	ReserveDao dao;
-	
+
 	//member dao 선언
 	MemberDto mdto;
-	
+
 	@GetMapping("/reserve/list")
-	public String reserveList(Model model)
+	public String reserveList(Model model, 
+			@RequestParam String rmnum)
 	{
-		//전체 갯수 얻기
-		int totalCount=dao.getTotalCount();
-		//전체 데이터 얻기
-		List<ReserveDto> list=dao.getAllDatas();
 		
-		//model에 저장
-		model.addAttribute("totalCount", totalCount);
+		//전체 데이터 얻기		
+		List<ReserveDto> list=dao.getDataRm(rmnum);
+		
+		//model에 저장		
 		model.addAttribute("list", list);
-		
+
 		return "/reserve/list";
 	}
-	
+
 	//예약버튼을 눌렀을 때 입력하는 폼
 	@GetMapping("/reserve/writeform")
 	public String reserveForm()
 	{	
-
-		
 		return "/reserve/writeform";
 	}
-	
-	//insert
-	@PostMapping("/reserve/insert")
-	public String reserveInsert(
-			@ModelAttribute ReserveDto dto)
-	{				
-		dao.insertReserve(dto);
-		return "/reserve/success";
+
+	//insert	
+	@PostMapping("/reserve/insert") 
+	public ModelAndView reserveInsert(@ModelAttribute ReserveDto dto, 
+			HttpServletRequest request) 
+	{ 
+		ModelAndView model=new ModelAndView(); 
+		//@SessionAttributes("mdto")를 사용하면 model에 담아서 사용가능하다.
+		//HttpSession session = request.getSession();
+		//MemberDto mdto=(MemberDto)session.getAttribute("mdto");
+		
+		model.addObject("mdto", mdto); 
+		model.addObject("dto",dto);
+
+		model.setViewName("/reserve/success");
+
+		dao.insertReserve(dto); 
+		return model; 
 	}
-	
+
 	//getData:dto보내기
 	@GetMapping("/reserve/updateform")
 	public ModelAndView updateForm(
@@ -73,28 +83,30 @@ public class ReserveController {
 		model.addObject("dto", dto);
 		//포워드
 		model.setViewName("/reserve/updateform");
-		
+
 		return model;
 	}
-	
+
 	//update
-    @PostMapping("/reserve/update")
-    public String updateReserve(
-         @ModelAttribute ReserveDto dto)
-    {
+	@PostMapping("/reserve/update")
+	public String updateReserve(
+			@ModelAttribute ReserveDto dto,
+			@RequestParam String rmnum)
+	{
 		dao.updateReserve(dto);
-		return "redirect:list";
-    }
-   
-    //delete
-    @GetMapping("/reserve/delete")
-    public String deleteReserve(
-         @RequestParam String rnum)
-    {
-	    dao.deleteReserve(rnum);
-	    return "redirect:list";
-    }
-   
+		return "redirect:list?rmnum="+rmnum;
+	}
+
+	//delete
+	@GetMapping("/reserve/delete")
+	public String deleteReserve(
+			@RequestParam String rnum,
+			@RequestParam String rmnum)
+	{
+		
+		dao.deleteReserve(rnum);		
+		
+		return "redirect:list?rmnum="+rmnum;
+	}
 
 }
-	

@@ -15,5 +15,5 @@ public interface ReserveDaoInter {
 	public void updateReserve(ReserveDto dto);
 	public void deleteReserve(String rnum);
 	
-	
+	public List<ReserveDto> getDataRm(String rmnum);
 }

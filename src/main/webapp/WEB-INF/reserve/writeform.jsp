@@ -15,7 +15,9 @@
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
+<script type="text/javascript">
+$(document).ready(fu)
+</script>
 </head>
 <body>
 <div class="rsv__con">
@@ -28,11 +30,11 @@
 		<form action="insert" method="post">
 		<input type="hidden" name="rmnum" class="rsv__select"
 					value="${mdto.mnum}">
+					
 			<div class="rsv__section1">
 				<input type="text" id="rsv__select_date" name="rdate"
 					placeholder="예약날짜를 선택하세요." required="required"/> 
-				<input type="text"
-					id="rsv__select_time" class="rsv__select" name="rtime"
+				<input type="text" id="rsv__select_time" class="rsv__select" name="rtime"
 					placeholder="예약시간을 선택하세요." required="required"/>
 			</div>
 			<div class="rsv__section2">
