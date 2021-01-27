@@ -40,7 +40,7 @@ public class inflection2 {
             cal.setTime(new Date());
             DateFormat df = new SimpleDateFormat("yyyyMMdd");
             String enddate=df.format(cal.getTime());
-            cal.add(Calendar.MONTH, -1);
+            cal.add(Calendar.DATE, -31);
             String startdate=df.format(cal.getTime());
             
             //파라미터 날짜 데이터 추가
@@ -111,13 +111,12 @@ public class inflection2 {
 
             int[] inflectionPeopleResult = new int[31];
             String[] inflectionDayResult = new String[31];
-            for (int i = 1; i < inflectionpeople.length; i++) {
-            	inflectionPeopleResult[i-1]=inflectionpeople[31-i]-inflectionpeople[32-i];
+            for (int i = 0; i < inflectionpeople.length-1; i++) {
+            	inflectionPeopleResult[i]=inflectionpeople[30-i]-inflectionpeople[31-i];
             }
             for (int i = 0; i < inflectionday.length-1; i++) {
             	inflectionDayResult[i]= inflectionday[30-i];
             }
-            
 
             String a = Arrays.toString(inflectionPeopleResult);
             String b = Arrays.toString(inflectionDayResult);
