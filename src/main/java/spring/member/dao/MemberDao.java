@@ -116,7 +116,7 @@ public class MemberDao extends SqlSessionDaoSupport implements MemberDaoInter {
 		HashMap<String, String> params=new HashMap<String, String>();
 		params.put("mid", mid);
 		params.put("memail", memail);
-		System.out.println((int)getSqlSession().selectOne("findpwtologin",params));
+		//System.out.println((int)getSqlSession().selectOne("findpwtologin",params));
 		return getSqlSession().selectOne("findpwtologin",params);
 	}
     
