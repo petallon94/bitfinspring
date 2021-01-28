@@ -8,6 +8,10 @@
 <meta charset="utf-8">
 <title>Insert title here</title>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    
+    <!-- google signin api -->
+	<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+    
     <script>
         // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
         Kakao.init('87ba928e25c8fcc2c9de8e5b9ed0814f');
@@ -50,8 +54,9 @@
 			<!-- 카카오 자바 사용 스크립트 -->
 			<a href="javascript:loginWithKakao()"><img src="${root}/image/kakao_login.png" class="kakaologin_btn" alt="카카오 로그인 이미지"></a>
 			
-			
-			
+			<!-- 구글 -->
+			<div id="google_login" class="circle google" onclick="init();"><img alt="구글 로그인 이미지" src="${root}/image/google_login.png" class="googlelogin_btn"></div>
+			<%-- <a href="init();"><img alt="구글 로그인 이미지" src="${root}/image/google_login.png" class="googlelogin_btn"></a> --%>
 			
 			
 			
@@ -217,6 +222,45 @@ function sendPost(action, params) {
 	document.body.appendChild(form);
 	form.submit();
 }
+
+
+
+/* 구글 로그인 */
+//google signin API
+ var googleUser = {};
+ function init() {
+     gapi.load('auth2', function() {
+      //console.log("init()시작");
+      auth2 = gapi.auth2.init({
+            client_id: '450104102175-i935bf7sldgbe7063q28h96dd4t7js0p.apps.googleusercontent.com',
+            cookiepolicy: 'single_host_origin'
+          });
+          attachSignin(document.getElementById('google_login'));
+     });
+ }
+
+ //google signin API2
+ function attachSignin(element) {
+     auth2.attachClickHandler(element, {},
+         function(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        var id_token = googleUser.getAuthResponse().id_token;
+//           console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+//           console.log('ID토큰: ' + id_token);
+//           console.log('Name: ' + profile.getName());
+//           console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+          
+       sendPost('/member/googlelogin', {'mnick':profile.getName(),'memail':profile.getEmail()});   
+         }, 
+         function(error) {
+           //alert(JSON.stringify(error, undefined, 2));
+         }); 
+         
+         
+     //console.log("구글API 끝");
+   }
+
+
 
 
 

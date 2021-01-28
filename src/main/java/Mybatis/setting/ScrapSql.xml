@@ -4,7 +4,35 @@
 	<select id="selectAllOfScrap" resultType="sdto">
 		select * from scrap order by num desc
 	</select>
+	
 	<select id="totalCountOfScrap" resultType="int">
 		select count(*) from scrap
 	</select>
+	
+	<!-- insert -->
+	<insert id="insertOfScrap" parameterType="sdto">
+		insert into scrap (smidnum,sbnum,scnum) values (#{smidnum},#{sbnum},#{scnum})
+	</insert>
+	
+	<!-- card중복확인 -->
+	<select id="cardCheck" parameterType="String" resultType="int">
+   		select count(*) from scrap where scnum=#{scnum} and smidnum=#{smidnum}
+   </select>
+   
+   <!-- 정보가져오기 -->
+	<select id="selectOneOfCardScrap" parameterType="String" resultType="sdto">
+		select * from scrap where scnum=#{scnum}
+	</select>
+	
+	<!-- idnum에대한 갯수 -->
+	<select id="totalCountOfScrapID" parameterType="String"   resultType="int">
+		select count(*) from scrap where smidnum=#{smidnum}
+	</select>
+	
+	<!-- card스크랩삭제 -->
+	<delete id = "deleteOfCardScrap" parameterType="String">
+		delete from board where scnum=#{scnum}
+	</delete>
+	
+	
 </mapper>

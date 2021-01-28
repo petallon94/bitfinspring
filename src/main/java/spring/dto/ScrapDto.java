@@ -3,9 +3,9 @@ package spring.dto;
 public class ScrapDto {
 	
 	private String snum;
-	private int smidnum;
-	private int sbnum;
-	private int scnum;
+	private String smidnum;
+	private String sbnum;
+	private String scnum;
 	
 	public String getSnum() {
 		return snum;
@@ -13,24 +13,25 @@ public class ScrapDto {
 	public void setSnum(String snum) {
 		this.snum = snum;
 	}
-	public int getSmidnum() {
+	public String getSmidnum() {
 		return smidnum;
 	}
-	public void setSmidnum(int smidnum) {
+	public void setSmidnum(String smidnum) {
 		this.smidnum = smidnum;
 	}
-	public int getSbnum() {
+	public String getSbnum() {
 		return sbnum;
 	}
-	public void setSbnum(int sbnum) {
+	public void setSbnum(String sbnum) {
 		this.sbnum = sbnum;
 	}
-	public int getScnum() {
+	public String getScnum() {
 		return scnum;
 	}
-	public void setScnum(int scnum) {
+	public void setScnum(String scnum) {
 		this.scnum = scnum;
 	}
+	
 	
 
 }
