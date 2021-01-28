@@ -141,6 +141,7 @@ public class inflection2 {
     		return params;
     		
 		} catch (Exception e){	
+			
 			e.printStackTrace();
 			return null;
 		}	// try~catch end

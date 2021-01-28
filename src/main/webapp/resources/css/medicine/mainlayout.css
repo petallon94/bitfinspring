@@ -10,9 +10,11 @@
 	padding : 20px;
 }
 
+/*1200px*/
 .med_searchlist{
 	background-color: #eee;
 	padding : 20px;
+	width : 1200px
 }
 
 .med_layout{
