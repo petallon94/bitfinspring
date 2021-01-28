@@ -8,140 +8,162 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<style>
-	.area01,
-	.arae02{
-		color:red;
-		backgroud:red;
-	}
-</style>
 <body>
 	<!-- section 지정 -->
 	<div id="full-page">
+		<input type="hidden" name="inflectionpeople" value="${inflectionpeople}"/>
+		<input type="hidden" name="inflectiondate" value="${inflectiondate}"/>
 	
 	
-	
+		<!-- 홈페이지 소개 페이지 -->
 		<div class="section sec0">
-			<input type="hidden" name="inflectionpeople" value="${inflectionpeople}"/>
-			<input type="hidden" name="inflectiondate" value="${inflectiondate}"/>
-			
-			
-			<div class="sec0_content0">
-				
+			<div class="slide slideno1" data-anchor="slide1">
+				<video src="${root}/image/Virus.mp4" data-autoplay autoplay muted loop></video>
+				<div class="slideno1Content">
+					<h1>Covid-Out</h1>
+					<h3>코로나로부터 서로을 지키는 법</h3>
+					<h5>사회적거리두기</h5>
+				</div>
 			</div>
-			<div class="sec0_content1">
-				<canvas id="line-chart">
-				</canvas>
+			<div class="slide slideno2" data-anchor="slide2">
+				<video src="${root}/image/Virus3.mp4" data-autoplay autoplay muted loop></video>
+				<div class="slideno2Content">
+					<h1>Covid-Out</h1>
+					<h3>코로나로부터 자신을 지키는 법</h3>
+					<h5>손씻기를 생활화하기</h5>
+				</div>
+			</div>
+			<div class="slide slideno3" data-anchor="slide3">
+				<video src="${root}/image/Virus2.mp4" data-autoplay autoplay muted loop></video>
+				<div class="slideno3Content">
+					<h1>Covid-Out</h1>
+					<h3>우리모두 코로나를 물리쳐요!</h3>
+					
+				</div>
 			</div>
 		</div>
 		
 		
 		
-		
+		<!-- 코로나 그래프 페이지 -->
 		<div class="section sec1">
-			<input type="hidden" name="inflectgubunResult" value="${inflectgubunResult}"/>
-			<input type="hidden" name="inflectmapResult" value="${inflectmapResult}"/>
-			
-			
+			<!-- 그래프 소개 -->
 			<div class="sec1_content0">
-				
+			
 			</div>
+			<!-- 그래프  -->
 			<div class="sec1_content1">
-				<%-- <canvas id="polar-chart">
-				</canvas> --%>
+				<canvas id="line-chart">
+				</canvas>
+			</div>
+
+		</div>
+		
+		
+		
+		<!-- 코로나 지도 그래프 -->
+		<div class="section sec2">
+		
+			<!-- 지도 그래프 소개 -->
+			<div class="sec2_content0">
+				내용1
+			</div>
+			
+			<!-- 지도 그래프 -->
+			<div class="sec2_content1">
 				<div id="main_maplayout">
-                   	<button type="button" data-city="map_city1">
-                    	<span class="name">서울</span>
-                    	<span class="num">${inflecMapData.Seoul[0]}</span>
-                    	<span class="before">+${inflecMapData.Seoul[1]}</span>
-                   	</button>
-                   	<button type="button" data-city="map_city2">
-                    	<span class="name">부산</span>
-                    	<span class="num">${inflecMapData.Busan[0]}</span>
-                    	<span class="before">+${inflecMapData.Busan[1]}</span>
-                   	</button>
-                   	<button type="button" data-city="map_city3">
-                    	<span class="name">대구</span>
-                    	<span class="num">${inflecMapData.Daegu[0]}</span>
-                    	<span class="before">+${inflecMapData.Daegu[1]}</span>
-                   	</button>
-                   	<button type="button" data-city="map_city4">
-                    	<span class="name">인천</span>
-                    	<span class="num">${inflecMapData.Incheon[0]}</span>
-                    	<span class="before">+${inflecMapData.Incheon[1]}</span>
-                   	</button>
-                   	<button type="button" data-city="map_city5">
-	                   	<span class="name">광주</span>
-	                   	<span class="num">${inflecMapData.Gwangju[0]}</span>
-                    	<span class="before">+${inflecMapData.Gwangju[1]}</span>
-                   	</button>
-                   	<button type="button" data-city="map_city6">
-	                   	<span class="name">대전</span>
-	                   	<span class="num">${inflecMapData.Daejeon[0]}</span>
-                    	<span class="before">+${inflecMapData.Daejeon[1]}</span>
-                   	</button>
-                   	<button type="button" data-city="map_city7">
-	                   	<span class="name">울산</span>
-	                   	<span class="num">${inflecMapData.Ulsan[0]}</span>
-                    	<span class="before">+${inflecMapData.Ulsan[1]}</span>
-                   	</button>
-                   	<button type="button" data-city="map_city8">
-	                   	<span class="name">세종</span>
-	                   	<span class="num">${inflecMapData.Sejong[0]}</span>
-                    	<span class="before">+${inflecMapData.Sejong[1]}</span>
-                   	</button>
-                   	<button type="button" data-city="map_city9">
-	                   	<span class="name">경기</span>
-	                   	<span class="num">${inflecMapData.Gyeonggido[0]}</span>
-                    	<span class="before">+${inflecMapData.Gyeonggido[1]}</span>
-	                   	</button>
-                   	<button type="button" data-city="map_city10">
-	                   	<span class="name">강원</span>
-	                   	<span class="num">${inflecMapData.Gangwondo[0]}</span>
-                    	<span class="before">+${inflecMapData.Gangwondo[1]}</span>
-                   	</button>
-                   	<button type="button" data-city="map_city11">
-	                   	<span class="name">충북</span>
-	                   	<span class="num">${inflecMapData.Chungcheongbukdo[0]}</span>
-                    	<span class="before">+${inflecMapData.Chungcheongbukdo[1]}</span>
-                   	</button>
-                   	<button type="button" data-city="map_city12">
-	                   	<span class="name">충남</span>
-	                   	<span class="num">${inflecMapData.Chungcheongnamdo[0]}</span>
-                    	<span class="before">+${inflecMapData.Chungcheongnamdo[1]}</span>
-                   	</button>
-                   	<button type="button" data-city="map_city13">
-	                   	<span class="name">전북</span>
-	                   	<span class="num">${inflecMapData.Jeollabukdo[0]}</span>
-	                   	<span class="before">+${inflecMapData.Jeollabukdo[1]}</span>
-                   	</button>
-                   	<button type="button" data-city="map_city14">
-	                   	<span class="name">전남</span>
-	                   	<span class="num">${inflecMapData.Jeollanamdo[0]}</span>
-                    	<span class="before">+${inflecMapData.Jeollanamdo[1]}</span>
-                   	</button>
-                   	<button type="button" data-city="map_city15">
-	                   	<span class="name">경북</span>
-	                   	<span class="num">${inflecMapData.Gyeongsangbukdo[0]}</span>
-                    	<span class="before">+${inflecMapData.Gyeongsangbukdo[1]}</span>
-                   	</button>
-                   	<button type="button" data-city="map_city16">
-	                   	<span class="name">경남</span>
-	                   	<span class="num">${inflecMapData.Gyeongsangnamdo[0]}</span>
-                    	<span class="before">+${inflecMapData.Gyeongsangnamdo[1]}</span>
-                   	</button>
-                   	<button type="button" data-city="map_city17">
-	                   	<span class="name">제주</span>
-	                   	<span class="num">${inflecMapData.Jeju[0]}</span>
-                    	<span class="before">+${inflecMapData.Jeju[1]}</span>
-                   	</button>
-                   	<button type="button" data-city="map_city18">
-	                   	<span class="name">검역</span>
-	                   	<span class="num">${inflecMapData.Lazaretto[0]}</span>
-                    	<span class="before">+${inflecMapData.Lazaretto[1]}</span>
-                   	</button>
+                  	<button type="button" data-city="map_city1">
+                   	<span class="name">서울</span>
+                   	<span class="num">${inflecMapData.Seoul[0]}</span>
+                   	<span class="before">+${inflecMapData.Seoul[1]}</span>
+                 </button>
+               	<button type="button" data-city="map_city2">
+                	<span class="name">부산</span>
+                	<span class="num">${inflecMapData.Busan[0]}</span>
+                	<span class="before">+${inflecMapData.Busan[1]}</span>
+               	</button>
+               	<button type="button" data-city="map_city3">
+                	<span class="name">대구</span>
+                	<span class="num">${inflecMapData.Daegu[0]}</span>
+                	<span class="before">+${inflecMapData.Daegu[1]}</span>
+               	</button>
+               	<button type="button" data-city="map_city4">
+                	<span class="name">인천</span>
+                	<span class="num">${inflecMapData.Incheon[0]}</span>
+                	<span class="before">+${inflecMapData.Incheon[1]}</span>
+               	</button>
+               	<button type="button" data-city="map_city5">
+                	<span class="name">광주</span>
+                	<span class="num">${inflecMapData.Gwangju[0]}</span>
+                	<span class="before">+${inflecMapData.Gwangju[1]}</span>
+               	</button>
+               	<button type="button" data-city="map_city6">
+                	<span class="name">대전</span>
+                	<span class="num">${inflecMapData.Daejeon[0]}</span>
+                	<span class="before">+${inflecMapData.Daejeon[1]}</span>
+               	</button>
+               	<button type="button" data-city="map_city7">
+                	<span class="name">울산</span>
+                	<span class="num">${inflecMapData.Ulsan[0]}</span>
+                	<span class="before">+${inflecMapData.Ulsan[1]}</span>
+               	</button>
+               	<button type="button" data-city="map_city8">
+                	<span class="name">세종</span>
+                	<span class="num">${inflecMapData.Sejong[0]}</span>
+                	<span class="before">+${inflecMapData.Sejong[1]}</span>
+               	</button>
+               	<button type="button" data-city="map_city9">
+                	<span class="name">경기</span>
+                	<span class="num">${inflecMapData.Gyeonggido[0]}</span>
+                	<span class="before">+${inflecMapData.Gyeonggido[1]}</span>
+                	</button>
+               	<button type="button" data-city="map_city10">
+                	<span class="name">강원</span>
+                	<span class="num">${inflecMapData.Gangwondo[0]}</span>
+                	<span class="before">+${inflecMapData.Gangwondo[1]}</span>
+               	</button>
+               	<button type="button" data-city="map_city11">
+                	<span class="name">충북</span>
+                	<span class="num">${inflecMapData.Chungcheongbukdo[0]}</span>
+                	<span class="before">+${inflecMapData.Chungcheongbukdo[1]}</span>
+               	</button>
+               	<button type="button" data-city="map_city12">
+                	<span class="name">충남</span>
+                	<span class="num">${inflecMapData.Chungcheongnamdo[0]}</span>
+                	<span class="before">+${inflecMapData.Chungcheongnamdo[1]}</span>
+               	</button>
+               	<button type="button" data-city="map_city13">
+                	<span class="name">전북</span>
+                	<span class="num">${inflecMapData.Jeollabukdo[0]}</span>
+                	<span class="before">+${inflecMapData.Jeollabukdo[1]}</span>
+               	</button>
+               	<button type="button" data-city="map_city14">
+                	<span class="name">전남</span>
+                	<span class="num">${inflecMapData.Jeollanamdo[0]}</span>
+                	<span class="before">+${inflecMapData.Jeollanamdo[1]}</span>
+               	</button>
+               	<button type="button" data-city="map_city15">
+                	<span class="name">경북</span>
+                	<span class="num">${inflecMapData.Gyeongsangbukdo[0]}</span>
+                	<span class="before">+${inflecMapData.Gyeongsangbukdo[1]}</span>
+               	</button>
+               	<button type="button" data-city="map_city16">
+                	<span class="name">경남</span>
+                	<span class="num">${inflecMapData.Gyeongsangnamdo[0]}</span>
+                	<span class="before">+${inflecMapData.Gyeongsangnamdo[1]}</span>
+               	</button>
+               	<button type="button" data-city="map_city17">
+                	<span class="name">제주</span>
+                	<span class="num">${inflecMapData.Jeju[0]}</span>
+                	<span class="before">+${inflecMapData.Jeju[1]}</span>
+               	</button>
+               	<button type="button" data-city="map_city18">
+                	<span class="name">검역</span>
+                	<span class="num">${inflecMapData.Lazaretto[0]}</span>
+                	<span class="before">+${inflecMapData.Lazaretto[1]}</span>
+               	</button>
                    	
-                   	<!-- svg 시작. -->
+                <!-- svg(지도) 시작. -->
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="362px" height="480px" viewBox="0 0 400 530" enable-background="new 0 0 362 480" xml:space="preserve">
 						<g>
 							<!--서울 main_map_city1 //-->
@@ -283,24 +305,22 @@
 																
 						</g>
 					</svg>
-                                  </div>
-			</div>
+                </div>
 
+			</div>
 		</div>
 		
-		
-		
-		
-		<div class="section sec2">
-			<div class="sec2_content">
+		<!-- 페이지 이동할 수 있는 버튼들 -->
+		<div class="section sec3">
+			<div class="sec3_content0">
 				내용1
 			</div>
 		</div>
 		
 		
 		
-		
-		<div class="section sec3 fp-auto-height">
+		<!-- 풀페이지 Footer -->
+		<div class="section sec4 fp-auto-height">
 			<footer>
 				<div class="footer_info">
 		            <div class="info">
@@ -336,27 +356,81 @@ e-메일 : <a href="sanneommeo@bitcamp.com">sanneommeo@bitcamp.com</a> | Fax : 0
 <script>
 	new fullpage('#full-page',{
 		licenseKey:'6619A8BC-AED84394-82634D72-D582DA68',
+		anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
 		navigation:true,
-		navigationTooltips:['Home','About','Contact'],
+		navigationPosition:'right',
+		showActiveTooltip:true,
+		slidesNavigation:true,
+		slidesNavPosition:'bottom',
+		navigationTooltips:['Home','Graph','MapGraph','Contant','About'],
 		scrollingSpeed:1000,
 		//스크롤이 시작할 때.
 		//origin : 원래 있었던 섹션에 대한 정보(0부터)
 		//destination : 이동하는 섹션에 대한 정보
 		//direction : 방향
-		onLeave:function(origin, destination, direction){
-			if(destination.index == 1){
-				$('.sec1 .fp-tableCell > div.sec1_content').css('opacity','0');
-			}
-		},
-		//스크롤이 끝났을 때.
-		afterLoad:function(origin, destination, direction){
-			if(destination.index == 1){
-				$('.sec1 .fp-tableCell > div.sec1_content').css('opacity','1');
-			}
-		}
 		
-	});
-	
-	
+		
+		//slide
+		//after은 시작할 때
+		afterSlideLoad: function(section, origin, destination, direction){
+			var loadedSlide = this;
+			//첫째 구역의 첫째슬라이드 (도착지가 slide1)
+			if(section.index == 0 && destination.anchor == 'slide1'){
+				$('.slideno1Content h1').css({
+					"margin-left":"0",
+					"opacity":"1"
+				});
+				$('.slideno1Content h3').css({
+					"margin-left":"0",
+					"opacity":"1"
+				});
+			};
+
+		},
+		//떠나고 난 뒤...
+		onSlideLeave: function(section, origin, destination, direction){
+			// 떠나는곳이 slide1 (origin.index로 구분함.)
+			if(section.index == 0 && origin.index==0){
+				$('.slideno1Content h1').css({
+					"margin-left":"-10%",
+					"opacity":"0"
+				});
+				$('.slideno1Content h3').css({
+					"margin-left":"-10%",
+					"opacity":"0"
+				});
+			};
+		},
+
+		
+		//section
+		//실행
+		afterLoad:function(origin, destination, direction){
+			//섹션0를 실행할 때.
+			if(destination.index == 0){
+				//메뉴바 없애기.
+				$('.menu_bar').css({
+					"background-color": "rgba(255, 255, 255, 0.5)",
+					"opacity":"0"
+				});
+			}
+			
+			//섹션1을 실행할 때.
+			//메뉴바 나타내기.
+			if(destination.index == 1){
+				$('.menu_bar').css({
+					"background-color": "rgba(255, 255, 255, 0.5)",
+					"opacity":"1"
+				});
+			}
+			
+			
+		},
+		//끝나고나서...
+		onLeave:function(origin, destination, direction){
+			//섹션0을 떠났을 때.
+
+		}	
+	});//fullpage end	
 </script>
 </html>

@@ -26,11 +26,18 @@ p{
 /* 바 */
 .menu_bar {
 	position: absolute;
-	background-color: rgba(255, 255, 255, 50%);
+	background-color: rgba(255, 255, 255, 0);
+	opacity:0;
 	z-index: 10;
 	width: 100%;
 	height: 60px;
+	transition:0.3s;
 }
+.menu_bar:hover {
+	background-color: rgba(255, 255, 255, 0.5);
+	opacity:1;
+}
+
 
 /* 햄버거 버튼 */
 .total {
@@ -126,6 +133,8 @@ p{
 	transition: 0.35s;
 }
 
+/* 로그인아이콘 */
+
 .menu_login {
 	position: absolute;
 	width: 30px;
@@ -139,6 +148,26 @@ p{
 	opacity:1;
 	transition: all 1s;
 }
+
+/* 깜빡이 효과 호버 없애고 넣을지말지 고민.... */
+.blinking{
+	-webkit-animation:blink 1.5s ease-in-out infinite alternate;
+    -moz-animation:blink 1.5s ease-in-out infinite alternate;
+    animation:blink 1.5s ease-in-out infinite alternate;
+}
+@-webkit-keyframes blink{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+@-moz-keyframes blink{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+@keyframes blink{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
 .login_icon1{
 	opacity:0;
 }
@@ -164,12 +193,14 @@ div.slide_bar_out {
 	top: 0;
 	transform:translateX(-101%);
 	z-index:1;
+	opacity:0;
 	transition: all .5s cubic-bezier(0,0.05,0,1.3);
 }
 
 div.slide_bar_out.on {
 	transform:translateX(0);
 	transition:0;
+	opacity:1;
 }
 
 .slide_bar{
@@ -279,48 +310,187 @@ ul.slide_bar_list.end {
 
 /* section 0=============================================== */
 .sec0 .fp-tableCell {
-	width: 100%;
-	background-image: url('../image/sec0.png');
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-	display: flex;
-	justify-content: space-around;
-	align-content: center;
-	flex-wrap: wrap;
-}
-
-.sec0 .fp-tableCell>div.sec0_content0 {
-
-
-}
-
-.sec0 .fp-tableCell>div.sec0_content1 {
-	width:600px;
-	height:400px;
-	padding:10px;
-	border-radius: 8px;
-	
-
-}
-.sec0 .fp-tableCell>div.sec0_content1 canvas{
 	
 }
 
+/* 비디오 */
+.fp-tableCell video{
+	width:100%;
+	object-fit:cover;
+	height:100%;
+	z-index:-10;
+	margin-left:300px;
+}
+
+.slideno2 video{
+	margin-left:0;
+}
+.slideno3 video{
+	margin-left:0;
+}
+
+/* 홈 레이아웃 */
+.slideno1 .fp-tableCell{
+	position:relative;
+}
+.slideno2 .fp-tableCell{
+	position:relative;
+}
+.slideno3 .fp-tableCell{
+	position:relative;
+}
+
+/* 슬라이드1 글 넣을곳 레이아웃 */
+.slideno1 .fp-tableCell .slideno1Content{
+	position:absolute;
+	background-color:rgba(0,0,0,0);
+	width:100%;
+	height:100%;
+	z-index:0;
+	left:0;
+	top:0;
+	display:flex;
+	margin-top:10%;
+	margin-left:10%;
+	flex-direction: column;
+}
+.slideno1 .fp-tableCell .slideno1Content h1{
+	font-size:10rem;
+	font-weight:bold;
+	color:black;
+	margin-left:-10%;
+	opacity:0;
+	transition:ease-in 1s;
+}
+.slideno1 .fp-tableCell .slideno1Content h3{
+	font-size:5rem;
+	color:black;
+	margin-left:-10%;
+	opacity:0;
+	transition:ease-in 1s;
+}
+
+/* 슬라이드2 글 넣을곳 레이아웃 */
+.slideno2 .fp-tableCell .slideno2Content{
+	position:absolute;
+	background-color:rgba(0,0,0,0);
+	width:100%;
+	height:100%;
+	z-index:0;
+	left:0;
+	top:0;
+	display:flex;
+	margin-top:10%;
+	margin-left:10%;
+	flex-direction: column;
+}
+.slideno2 .fp-tableCell .slideno2Content h1{
+	font-size:10rem;
+	font-weight:bold;
+	color:black;
+	margin-left:-10%;
+	opacity:1;
+	transition:ease-in 1s;
+}
+.slideno2 .fp-tableCell .slideno2Content h3{
+	font-size:5rem;
+	color:black;
+	margin-left:-10%;
+	opacity:1;
+	transition:ease-in 1s;
+}
+
+
+/* 슬라이드3 글 넣을곳 레이아웃 */
+.slideno3 .fp-tableCell .slideno3Content{
+	position:absolute;
+	background-color:rgba(0,0,0,0);
+	width:100%;
+	height:100%;
+	z-index:0;
+	left:0;
+	top:0;
+	display:flex;
+	margin-top:10%;
+	margin-left:10%;
+	flex-direction: column;
+}
+.slideno3 .fp-tableCell .slideno3Content h1{
+	font-size:10rem;
+	font-weight:bold;
+	color:black;
+	margin-left:-10%;
+	opacity:1;
+	transition:ease-in 1s;
+}
+.slideno3 .fp-tableCell .slideno3Content h3{
+	font-size:5rem;
+	color:black;
+	margin-left:-10%;
+	opacity:1;
+	transition:ease-in 1s;
+}
 
 
 
 
-/* navigation color
+
+
+
+
+
+
+
+/*  navigation color */
 #fp-nav ul li a span{
-	background-color:white;
+	background-color:#1f2c59;
+}
+#fp-nav ul li .fp-tooltip{
+	color:#1f2c59;
+	font-weight: bold;
 } 
-*/
+.fp-controlArrow{
+	top:93%;
+}
+.fp-controlArrow.fp-prev{
+	border-width:27.5px 30px 27.5px 0;
+	border-color:transparent rgba(0,0,0,0.5) transparent transparent;
+}
+.fp-controlArrow.fp-next{
+	border-width:27.5px 0 27.5px 30px;
+	border-color:transparent transparent transparent rgba(0,0,0,0.5);
+}
+.fp-controlArrow{
+	transform:scale(1);
+	transition:0.3s;
+}
+.fp-controlArrow:hover{
+	transform:scale(1.2);
+}
+.fp-slidesNav ul{
+	display:flex;
+	justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* section 1=============================================== */
 .sec1 .fp-tableCell {
 	width: 100%;
 	height:100vh;
-	background-image: url('../image/sec1.png');
+	background-image: url('../image/mainimage01.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -353,6 +523,50 @@ ul.slide_bar_list.end {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* section 2=============================================== */
+.sec2 .fp-tableCell {
+	width: 100%;
+	background-image: url('../image/se00.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	justify-content: space-around;
+	align-content: center;
+	flex-wrap: wrap;
+}
+
+.sec2 .fp-tableCell>div.sec2_content {
+	background-color: rgba(0, 0, 0, 50%);
+	width: 100px;
+	height: 100px;
+}
 
 
 /* 지도... */
@@ -494,32 +708,10 @@ ul.slide_bar_list.end {
 	margin:0 auto;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* section 2=============================================== */
-.sec2 .fp-tableCell {
+/* section 3 (메뉴)======================= */
+.sec3 .fp-tableCell {
 	width: 100%;
-	background-image: url('../image/se00.png');
+	background-image: url('../image/mainimage01.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -529,24 +721,20 @@ ul.slide_bar_list.end {
 	flex-wrap: wrap;
 }
 
-.sec2 .fp-tableCell>div.sec2_content {
-	background-color: rgba(0, 0, 0, 50%);
-	width: 100px;
-	height: 100px;
-}
 
 
 
 
 
 
-/* section 3 (Footer) */
-.sec3 .fp-tableCell {
+
+/* section 4 (Footer)======================= */
+.sec4 .fp-tableCell {
 	width: 100%;
 	background-color: #bbb;
 }
 
-.sec3 div.main_footer {
+.sec4 div.main_footer {
 	display: flex;
 	justify-content: space-around;
 	align-content: center;

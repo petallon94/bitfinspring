@@ -39,7 +39,7 @@
     </div>
     <div class="menu_login">
     	<a href="${root}/member/login">
-    		<img class="login_icon0" src="${root}/image/login_red.svg"/>
+    		<img class="login_icon0 blinking" src="${root}/image/login_red.svg"/>
     		<img class="login_icon1" src="${root}/image/login_green.svg"/>
     	</a>
     </div>
