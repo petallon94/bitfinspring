@@ -24,6 +24,17 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 	  $("#delete-btn").click(function(){
 	    $("#myModal").modal();
 	  });
+	  
+	  
+	  $("#scrap-btn").click(function(){
+		$("#myModalscrap").modal();
+	  });
+	  
+	  $("#scrapdel-btn").click(function(){
+		$("#myModaldelscrap").modal();
+	  });
+	  
+	  
 	});  
 </script>
 <body>
@@ -58,6 +69,18 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 				<button type="button" class="btn btn-danger btn-sm" id="delete-btn"
 					style="width: 80px;">삭제</button>
 				</c:if>
+				<!-- 스크랩버튼추가 -->
+				<c:if test="${loginok!=null}">
+					<c:if test="${cardcheck>0}">
+						<button type="button" class="btn btn-info btn-sm" id="scrapdel-btn"
+							style="width: 80px;" >스크랩취소</button>
+					</c:if>
+					<c:if test="${cardcheck==0}">
+						<button type="button" class="btn btn-info btn-sm" id="scrap-btn"
+						style="width: 80px;" >스크랩</button>
+					</c:if>
+				</c:if>
+				<!-- 위까지 -->
 				<button type="button" class="btn btn-info btn-sm"
 				style="width: 80px;"
 				onclick="location.href='list?pageNum=${pageNum}'">목록</button>
@@ -96,6 +119,67 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 		</div>
 	</div>
 	
-	<!-- 모달 -->
+	<!-- 스크랩추가 모달 -->
+	<div class="modal fade" id="myModalscrap" role="dialog" style="margin-top: 100px;">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header" style="padding: 35px 50px;">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4>
+						게시물을 스크랩하시겠습니까?
+						cnum: ${dto.cnum}
+						cmidnum: ${mdto.mnum}
+						cardcheck: ${cardcheck}
+					</h4>
+				</div>
+				<form action="cardscrap" method="post" class="form-inline">
+					<input type="hidden" name="sbnum" value="0">
+					<input type="hidden" name="scnum" value="${dto.cnum}">
+  					<input type="hidden" name="smidnum" value="${mdto.mnum}">	
+					<div class="modal-body" style="padding: 40px 50px; text-align: center;">
+						<button type="submit" style="width: 80px;">
+							<span class="glyphicon glyphicon-trash"></span> 확인
+						</button>
+						<button type="button" style="width: 80px;" data-dismiss="modal">
+							<span class="glyphicon glyphicon-remove"></span> 취소
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 스크랩삭제 모달 -->
+	<div class="modal fade" id="myModaldelscrap" role="dialog" style="margin-top: 100px;">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header" style="padding: 35px 50px;">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4>
+						게시물을 스크랩취소하시겠습니까?
+						cnum: ${dto.cnum}
+						cmidnum: ${mdto.mnum}
+						cardcheck: ${cardcheck}
+					</h4>
+				</div>
+				<form action="cardscrapdel" method="post" class="form-inline">
+					<input type="hidden" name="sbnum" value="0">
+					<input type="hidden" name="scnum" value="${dto.cnum}">	
+					<div class="modal-body" style="padding: 40px 50px; text-align: center;">
+						<button type="submit" style="width: 80px;">
+							<span class="glyphicon glyphicon-trash"></span> 확인
+						</button>
+						<button type="button" style="width: 80px;" data-dismiss="modal">
+							<span class="glyphicon glyphicon-remove"></span> 취소
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

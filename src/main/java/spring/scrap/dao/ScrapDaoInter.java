@@ -6,8 +6,11 @@ import spring.dto.ScrapDto;
 
 public interface ScrapDaoInter {
 	public int getNumMax();
-	public int getTotalCount();
+	public int getTotalCount(String smidnum);
 	public List<ScrapDto> getScrapList(int start, int perpage);
 	public ScrapDto getScrapData(String num);
-	public void deleteScrap(String num);
+	public void deleteCardScrap(String scnum);
+	public void insertScrap(ScrapDto dto);
+	public int cardScrapCheck(String scnum, String smidnum);
+	public ScrapDto getCardData(String scnum);
 }

@@ -306,6 +306,46 @@ public class MemberController {
 		
 		return "/member/alert";
     }
+	
+	
+	
+	//######################## 구글 로그인 ################################
+	@RequestMapping("/member/googlelogin")
+	   public String googleLogin(HttpServletRequest request ,Model model)
+	   {
+	      
+	      
+	      String memail=request.getParameter("memail");
+	      String mnick=request.getParameter("mnick");
+	      //System.out.println(memail+","+mnick);
+	      
+	      int emailcheck = service.mailCheck(memail);
+	      
+	      if(emailcheck==0) {
+	         MemberDto gmdto = new MemberDto();
+	         gmdto.setMemail(memail);
+	         gmdto.setMnick(mnick); 
+	         
+	         request.getSession().setAttribute("gmdto", gmdto);
+	         
+	         return "/member/googlesignup";
+	      }
+	      
+	      request.getSession().setAttribute("loginok","ok");
+	       //입력된 이메일의 mdto를 가져옴.
+	       MemberDto mdto=service.getData2(memail);
+	       //mdto를 세션에 넣음.
+	      request.getSession().setAttribute("mdto",mdto);
+	      model.addAttribute("alert_title","환영합니다.");
+	      model.addAttribute("alert_icon","success");
+	      model.addAttribute("url","/");
+	      
+	      return "/member/alert";
+	   }
+
+	
+	
+	
 
 //	==================================아이디 찾기
 	 @RequestMapping(value="/member/findmid", method=RequestMethod.POST,  produces = "application/text; charset=utf8")
