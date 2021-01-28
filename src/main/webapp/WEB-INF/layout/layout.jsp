@@ -30,7 +30,8 @@
 <!-- JS 파일 -->
 <script src="${root}/js/fullpage.min.js" ></script>
 <script src="${root}/js/map.js"></script>
-<script src="${root}/js/chart.js"></script>
+<script src="${root}/js/mainpage.js"></script>
+
 
 
 </head>
