@@ -30,7 +30,7 @@ public class SafeMainController {
          while ((returnLine = br.readLine()) != null) {
             result.append(returnLine);
             System.out.println(br.readLine());
-            
+           
          }
          urlconnection.disconnect();
          
