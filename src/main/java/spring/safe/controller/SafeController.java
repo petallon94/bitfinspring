@@ -16,4 +16,5 @@ public class SafeController {
 	{
 		return "/mainsafe/safedetail";
 	}
+	
 }

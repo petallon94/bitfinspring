@@ -85,6 +85,8 @@ $(function(){
 			$("#keyword").val("");
 		});
 	});//$function close
+	
+
 </script>
 <style>
 	/* 배너 */

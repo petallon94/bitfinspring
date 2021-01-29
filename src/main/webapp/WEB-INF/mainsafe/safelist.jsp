@@ -10,6 +10,7 @@
 <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1, 
 user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script type="text/javascript" src="${root }/js/safelist.js"></script>
 <title>Insert title here</title>
 </head>
 <style>
@@ -94,6 +95,8 @@ html,body {
 .sub_visual{position: relative;background-image: url(https://previews.123rf.com/images/sapannpix/sapannpix1604/sapannpix160400008/54710924-%EC%9D%98%EC%82%AC%EC%99%80-%EA%B0%84%ED%98%B8%EC%82%AC-%EB%B0%8F-%EC%9D%98%EB%A3%8C-%EC%A7%81%EC%9B%90%EC%9D%80-%ED%8F%89%EB%A9%B4-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%95%84%EC%9D%B4%EC%BD%98-%EC%84%B8%ED%8A%B8.jpg);height: 600px;background-size:cover;background-position:center;}
 /* 배너 */
 
+
+
 </style>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
  
@@ -110,13 +113,15 @@ function callApiXml() {
             //alert(data);
             s="";
             $.each(data,function(index,item){
+      			//alert(item.content);
             	$.each(item,function(a,b){
             		//alert(b.content);
+            		var id = b.id;
+            		//alert(id);
             		s+="<li class='safe-cell'>";
-            		s+="<a href='detail'>";
+            		s+="<a href='detail?id="+id+"'>";
             		s+="<div class='safe-img-box'>";
             		s+="<img src='https://pds.joins.com//news/component/htmlphoto_mmdata/201803/15/358b703f-2d05-4ebc-8911-9e91e56048e0.jpg' alt=''>";
-            		
             		s+="<div class='safe-title'>"+b.countryName+"</div>";
             		s+="<div class='safe-content'>"+b.title+"</div>";
             		s+="<div class='safe-writer'>"+b.wrtDt+"</div>";
@@ -129,6 +134,36 @@ function callApiXml() {
          }
      });
 }
+function callApiCorona() {
+	 $.ajax({
+        url:'/mainsafe/list2',
+        type:'get',
+        dataType:'json', // 리턴해주는 타입을 지정해줘야함
+        success: function(data) {
+           //alert(data);
+           s="";
+           $.each(data,function(index,item){
+     			//alert(item.content);
+     			$.each(item,function(a,b){
+     				alert(b.content);
+           		s+="<li class='safe-cell'>";
+           		s+="<a href='detail?id="+id+"'>";
+           		s+="<div class='safe-img-box'>";
+           		s+="<img src='https://pds.joins.com//news/component/htmlphoto_mmdata/201803/15/358b703f-2d05-4ebc-8911-9e91e56048e0.jpg' alt=''>";
+           		s+="<div class='safe-title'>"+b.countryName+"</div>";
+           		s+="<div class='safe-content'>"+b.title+"</div>";
+           		s+="<div class='safe-writer'>"+b.wrtDt+"</div>";
+           		s+="</div>";
+           		s+="</a>";
+           		s+="</li>";
+           
+			});
+       	$("#safe").html(s);
+           });
+        }
+    });
+}
+
     
 </script>
 
@@ -140,6 +175,9 @@ function callApiXml() {
     </div>
     <div class="img-cover"></div>
 </div>
+	<!--코로나 주소: %EC%BD%94%EB%A1%9C%EB%82%98 -->
+	
+	<button type="button" id="safe-btn">코로나</button>
 	
 	<div class="safe-list-bar safe-con">
 		<div class="safe-list-box">

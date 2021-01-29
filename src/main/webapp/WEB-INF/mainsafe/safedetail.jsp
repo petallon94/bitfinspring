@@ -21,11 +21,6 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 </head>
 <script type="text/javascript">
 	$(document).ready(function(){
-	  $("#delete-btn").click(function(){
-	    $("#myModal").modal();
-	  });
-	  
-	  
 	  $("#scrap-btn").click(function(){
 		$("#myModalscrap").modal();
 	  });
@@ -33,9 +28,28 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 	  $("#scrapdel-btn").click(function(){
 		$("#myModaldelscrap").modal();
 	  });
-	  
-	  
 	});  
+	/* 
+	function callApiDetail() {
+		 $.ajax({
+	         url:'/mainsafe/detail',
+	         type:'get',
+	         dataType:'json', // 리턴해주는 타입을 지정해줘야함
+	         success: function(data) {
+	            //alert(data);
+	            s="";
+	            $.each(data,function(index,item){
+	            	$.each(item,function(a,b){
+	            		alert(b.content);
+	            		var id = b.id;
+	            		//alert(id);
+	            		
+	            	});
+	            	$("#safe").html(s);
+				});
+	         }
+	     });
+	} */
 </script>
 <body>
 	

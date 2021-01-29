@@ -58,14 +58,91 @@ public class SafeMainController {
 	 
 	        try {
 	 
-	            StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1262000/SafetyNewsList/getCountrySafetyNewsList");
+	        	StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1262000/SafetyNewsList/getCountrySafetyNewsList");
 	            urlBuilder.append("?"+URLEncoder.encode("serviceKey", "UTF-8")+"="+"0ikkJvVW7UM8H0a5VZwT%2BrON8XVeS2aeZC%2Bi51wnHpOIh34ihoZ5AMOhPDGnyKSOzSChEVHk2q1Ap8E%2BZrodSg%3D%3D");
+				urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8")+"="+"20");
+				urlBuilder.append("&" + URLEncoder.encode("pageNo", "UTF-8")+"="+"1");
+				urlBuilder.append("&" + URLEncoder.encode("title1","UTF-8") + "=" + URLEncoder.encode("입국", "UTF-8"));
+				
+	            
+				URL url = new URL(urlBuilder.toString());
+	 
+	            System.out.println("###url=>"+url);
+	 
+	            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	            conn.setRequestMethod("GET");
+				conn.setRequestProperty("Content-Type", "application/json");
+	            System.out.println("Response Code:"+conn.getResponseCode());
+	 
+	 
+	            BufferedReader rd;
+	            if (conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
+	                rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+	            } else {
+	                rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
+	            }
+	 
+	            StringBuilder sb = new StringBuilder();
+	            String line;
+	            while ((line=rd.readLine()) != null) {
+	                sb.append(line);
+	            }
+	            rd.close();
+	            conn.disconnect();
+	 
+	            org.json.JSONObject xmlJSONObj = XML.toJSONObject(sb.toString());
+	            String xmlJSONObjString = xmlJSONObj.toString();
+	            System.out.println("### xmlJSONObjString=>"+xmlJSONObjString);
+	 
+	            ObjectMapper objectMapper = new ObjectMapper();
+	            Map<String, Object> map = new HashMap<>();
+	            map = objectMapper.readValue(xmlJSONObjString, new TypeReference<Map<String, Object>>(){});
+	            Map<String, Object> response = (Map<String, Object>) map.get("response");
+	            Map<String, Object> body = (Map<String, Object>) response.get("body");
+	            Map<String, Object> items = null;
+				List<Map<String, Object>> item = null; 
+	 
+				items = (Map<String, Object>) body.get("items");
+				item = (List<Map<String, Object>>) items.get("item"); 
+			
+	 
+				
+				 System.out.println("### map="+map);
+				 System.out.println("### dataResponse="+response);
+				 System.out.println("### body="+body); System.out.println("### items="+items);
+				 System.out.println("### item="+item);
+				 
+	 
 				
 				/*
-				 * urlBuilder.append("&"+URLEncoder.encode("numOfRows", "UTF-8")+"="+"1");
-				 * urlBuilder.append("&"+URLEncoder.encode("pageNo", "UTF-8")+"="+"10");*/
-				 urlBuilder.append("&"+URLEncoder.encode("title1","UTF-8")+"="+"%EC%9E%85%EA%B5%AD");
-				 
+				 * resultMap.put("Result", "0000"); resultMap.put("numOfRows",
+				 * body.get("numOfRows")); resultMap.put("pageNo", body.get("pageNo"));
+				 * resultMap.put("totalCount", body.get("totalCount"));
+				 */
+				resultMap.put("item", item);
+	 
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	            resultMap.clear();
+	            resultMap.put("Result", "0001");
+	        }
+	 
+	        return resultMap;
+	    }
+
+   @RequestMapping(value = "/mainsafe/list2", method= {RequestMethod.GET, RequestMethod.POST})
+   public Map<String, Object> callapiCorona(@RequestParam Map<String, Object> paramMap) throws Exception {
+	   
+	        System.out.println("### getActualDealPrice paramMap=>"+paramMap);
+	        Map<String, Object> resultMap = new HashMap<>();
+	 
+	        try {
+	        	
+	            StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1262000/SafetyNewsList/getCountrySafetyNewsList");
+	            urlBuilder.append("?"+URLEncoder.encode("serviceKey", "UTF-8")+"="+"0ikkJvVW7UM8H0a5VZwT%2BrON8XVeS2aeZC%2Bi51wnHpOIh34ihoZ5AMOhPDGnyKSOzSChEVHk2q1Ap8E%2BZrodSg%3D%3D");
+				urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8")+"="+"20");
+				urlBuilder.append("&" + URLEncoder.encode("pageNo", "UTF-8")+"="+"1");
+				urlBuilder.append("&" + URLEncoder.encode("title2","UTF-8") + "=" + URLEncoder.encode("%EC%BD%94%EB%A1%9C%EB%82%98", "UTF-8"));
 				 
 	            URL url = new URL(urlBuilder.toString());
 	 
@@ -102,8 +179,8 @@ public class SafeMainController {
 	            Map<String, Object> response = (Map<String, Object>) map.get("response");
 	            Map<String, Object> body = (Map<String, Object>) response.get("body");
 	            Map<String, Object> items = null;
-				List<Map<String, Object>> item = null;
-	 
+	            List<Map<String, Object>> item = null;
+	       	 
 				items = (Map<String, Object>) body.get("items");
 				item = (List<Map<String, Object>>) items.get("item");
 			
