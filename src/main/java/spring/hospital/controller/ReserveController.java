@@ -44,6 +44,7 @@ public class ReserveController {
 		return "/reserve/list";
 	}
 
+	//test
 	//예약버튼을 눌렀을 때 입력하는 폼
 	@GetMapping("/reserve/writeform")
 	public String reserveForm()
