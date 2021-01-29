@@ -54,9 +54,27 @@
 	
 	<!-- 내용 시작 -->
 	<h2>스크랩</h2>
-	
+	<c:if test="${totalCount==0}">
+		<div class="alert alert-info">
+			<b>스크랩한 글이 없습니다</b>
+		</div>
+	</c:if>
+	<c:if test="${totalCount>0}">
+		<div class="alert alert-info">
+			<b>총 ${totalCount}개의 글이 있습니다</b>
+		</div>
+	</c:if>
 	
 	
 </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
