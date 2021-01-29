@@ -10,4 +10,10 @@ public class SafeController {
 	{
 		return "/mainsafe/safelist";
 	}
+	
+	@GetMapping("/safe/detail")
+	public String gosafeDetail()
+	{
+		return "/mainsafe/safedetail";
+	}
 }

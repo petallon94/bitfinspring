@@ -40,8 +40,12 @@ html,body {
 
 .safe-cell {
 	float: left;
+	
 }
+.safe-img-box {
+	border: 1px solid #cccccc;
 
+}
 
 .safe-img-box img {
 	display: block;
@@ -82,6 +86,13 @@ html,body {
 	}
 } 
 
+	/* 배너 */
+/* .img-cover{position: absolute;height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.5);z-index:1;} */
+.sub_visual .txt{position: absolute;top:50%;left:50%;transform: translate(-50%, -50%);color: white;z-index: 2;text-align: center;}
+.sub_visual .txt h1:after{display:block;width:40px;height:3px;margin:32px auto;background:white;content:'';}
+.sub_visual .txt p{font-size: 14pt; font-weight: 300;}
+.sub_visual{position: relative;background-image: url(https://previews.123rf.com/images/sapannpix/sapannpix1604/sapannpix160400008/54710924-%EC%9D%98%EC%82%AC%EC%99%80-%EA%B0%84%ED%98%B8%EC%82%AC-%EB%B0%8F-%EC%9D%98%EB%A3%8C-%EC%A7%81%EC%9B%90%EC%9D%80-%ED%8F%89%EB%A9%B4-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%95%84%EC%9D%B4%EC%BD%98-%EC%84%B8%ED%8A%B8.jpg);height: 600px;background-size:cover;background-position:center;}
+/* 배너 */
 
 </style>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -99,8 +110,21 @@ function callApiXml() {
             //alert(data);
             s="";
             $.each(data,function(index,item){
-            	alert(index);
-            	console.log(item.countryEnName);
+            	$.each(item,function(a,b){
+            		//alert(b.content);
+            		s+="<li class='safe-cell'>";
+            		s+="<a href='detail'>";
+            		s+="<div class='safe-img-box'>";
+            		s+="<img src='https://pds.joins.com//news/component/htmlphoto_mmdata/201803/15/358b703f-2d05-4ebc-8911-9e91e56048e0.jpg' alt=''>";
+            		
+            		s+="<div class='safe-title'>"+b.countryName+"</div>";
+            		s+="<div class='safe-content'>"+b.title+"</div>";
+            		s+="<div class='safe-writer'>"+b.wrtDt+"</div>";
+            		s+="</div>";
+            		s+="</a>";
+            		s+="</li>";
+            	});
+            	$("#safe").html(s);
 			});
          }
      });
@@ -109,67 +133,21 @@ function callApiXml() {
 </script>
 
 <body>
-	<div id="safe"></div>
-	<!-- <div class="safe-top-box safe-con">
-		<div class="safe-img-box">
-			<img style="height: 400px;" alt="" src="https://pds.joins.com//news/component/htmlphoto_mmdata/201803/15/358b703f-2d05-4ebc-8911-9e91e56048e0.jpg">
-		</div>
-	</div>
+<div class="sub_visual bg-menu">
+    <div class="txt">
+        <!-- <h1>커뮤니티</h1>
+        <p>의견을 공유하세요</p> -->
+    </div>
+    <div class="img-cover"></div>
+</div>
 	
 	<div class="safe-list-bar safe-con">
 		<div class="safe-list-box">
 		  <ul class="safe-row">
-			<li class="safe-cell">
-			  <a href="#">
-				<div class="safe-img-box"><img src="https://pds.joins.com//news/component/htmlphoto_mmdata/201803/15/358b703f-2d05-4ebc-8911-9e91e56048e0.jpg" alt=""></div>
-				<div class="safe-title">방역수칙</div>
-				<div class="safe-content">손씻기</div>
-				<div class="safe-writer">이상헌</div>
-			  </a>
-			</li>
-		 	<li class="safe-cell">
-			  <a href="#">
-				<div class="safe-img-box"><img src="https://pds.joins.com//news/component/htmlphoto_mmdata/201803/15/358b703f-2d05-4ebc-8911-9e91e56048e0.jpg" alt=""></div>
-				<div class="safe-title">방역수칙</div>
-				<div class="safe-content">손씻기</div>
-				<div class="safe-writer">이상헌</div>
-			  </a>
-			</li>
-		 	<li class="safe-cell">
-			  <a href="#">
-				<div class="safe-img-box"><img src="https://pds.joins.com//news/component/htmlphoto_mmdata/201803/15/358b703f-2d05-4ebc-8911-9e91e56048e0.jpg" alt=""></div>
-				<div class="safe-title">방역수칙</div>
-				<div class="safe-content">손씻기</div>
-				<div class="safe-writer">이상헌</div>
-			  </a>
-			</li>
-		 	<li class="safe-cell">
-			  <a href="#">
-				<div class="safe-img-box"><img src="https://pds.joins.com//news/component/htmlphoto_mmdata/201803/15/358b703f-2d05-4ebc-8911-9e91e56048e0.jpg" alt=""></div>
-				<div class="safe-title">방역수칙</div>
-				<div class="safe-content">손씻기</div>
-				<div class="safe-writer">이상헌</div>
-			  </a>
-			</li>
-		  	<li class="safe-cell">
-			  <a href="#">
-				<div class="safe-img-box"><img src="https://pds.joins.com//news/component/htmlphoto_mmdata/201803/15/358b703f-2d05-4ebc-8911-9e91e56048e0.jpg" alt=""></div>
-				<div class="safe-title">방역수칙</div>
-				<div class="safe-content">손씻기</div>
-				<div class="safe-writer">이상헌</div>
-			  </a>
-			</li>
-		  	<li class="safe-cell">
-			  <a href="#">
-				<div class="safe-img-box"><img src="https://pds.joins.com//news/component/htmlphoto_mmdata/201803/15/358b703f-2d05-4ebc-8911-9e91e56048e0.jpg" alt=""></div>
-				<div class="safe-title">방역수칙</div>
-				<div class="safe-content">손씻기</div>
-				<div class="safe-writer">이상헌</div>
-			  </a>
-			</li>
+			  <div id="safe"></div>
 		  </ul>
 		</div>
-	</div> -->
+	</div>
 	
 </body>
 </html>
