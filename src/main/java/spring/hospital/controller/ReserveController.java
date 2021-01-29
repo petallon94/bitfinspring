@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,7 +21,6 @@ import spring.dto.ReserveDto;
 import spring.reserve.dao.ReserveDao;
 
 @Controller
-@SessionAttributes("mdto")
 public class ReserveController {
 
 
@@ -54,13 +54,14 @@ public class ReserveController {
 	//insert	
 	@PostMapping("/reserve/insert") 
 	public ModelAndView reserveInsert(@ModelAttribute ReserveDto dto, 
+			@SessionAttribute("mdto") MemberDto mdto,
 			HttpServletRequest request) 
 	{ 
 		ModelAndView model=new ModelAndView(); 
-		//@SessionAttributes("mdto")를 사용하면 model에 담아서 사용가능하다.
+		//@SessionAttribute("mdto")를 사용하면 model에 담아서 사용가능하다.
 		//HttpSession session = request.getSession();
 		//MemberDto mdto=(MemberDto)session.getAttribute("mdto");
-		
+		//System.out.println(mdto.getMnick());
 		model.addObject("mdto", mdto); 
 		model.addObject("dto",dto);
 
