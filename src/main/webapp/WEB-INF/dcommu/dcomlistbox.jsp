@@ -45,12 +45,7 @@
 	</div>
 	<!-- card end-->
 	
-		s+='<div class="dcom-prod-list-bar dcom-con">';
-						s+='<div class="dcom-prod-list-box">';
-						s+='<ul class="dcom-row">';
-						s+='<li class="dcom-cell">';
-						
-						
+		
 <div class="page-bar">
 		<ul class="pagination page-box">
 			<c:if test="${startPage>1 }">

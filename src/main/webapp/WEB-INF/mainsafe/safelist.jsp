@@ -84,54 +84,33 @@ html,body {
 
 
 </style>
-<script type="text/javascript">
-
-$(document).ready(function() {
-
-	$('.total').click(function() {
-		$(this).toggleClass('on');
-		$('.slide_bar').toggleClass('on');
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+ 
+<script>
+	$(document).ready(function(){
+		callApiXml();
 	});
-
-	$('.menu_login').hover(function() {
-		$('.login_icon0').css('opacity', '0');
-		$('.login_icon1').css('opacity', '1');
-	}, function() {
-		$('.login_icon0').css('opacity', '1');
-		$('.login_icon1').css('opacity', '0');
-	});
-
-});
-
+function callApiXml() {
+	 $.ajax({
+         url:'/mainsafe/list',
+         type:'get',
+         dataType:'json', // 리턴해주는 타입을 지정해줘야함
+         success: function(data) {
+            //alert(data);
+            s="";
+            $.each(data,function(index,item){
+            	alert(index);
+            	console.log(item.countryEnName);
+			});
+         }
+     });
+}
+    
 </script>
+
 <body>
-	<div class="menu_bar">
-		<div class="total">
-			<span></span>
-		</div>
-		<div class="menu_title">
-			<a href="${root}/home">COVID-OUT</a>
-		</div>
-		<div class="menu_login">
-			<a href="${root}/member/login"> <img class="login_icon0"
-				src="${root}/image/login_red.svg" /> <img class="login_icon1"
-				src="${root}/image/login_green.svg" />
-			</a>
-		</div>
-	</div>
-
-
-	<div class="slide_bar">
-		<ul class="slide_bar_list">
-			<li><a href="">우리집</a></li>
-			<li><a href="">강아지는</a></li>
-			<li><a href="">복슬강</a></li>
-			<li><a href="">아지~</a></li>
-		</ul>
-		<div class="slide_bar_login"></div>
-	</div>
-
-	<div class="safe-top-box safe-con">
+	<div id="safe"></div>
+	<!-- <div class="safe-top-box safe-con">
 		<div class="safe-img-box">
 			<img style="height: 400px;" alt="" src="https://pds.joins.com//news/component/htmlphoto_mmdata/201803/15/358b703f-2d05-4ebc-8911-9e91e56048e0.jpg">
 		</div>
@@ -190,7 +169,7 @@ $(document).ready(function() {
 			</li>
 		  </ul>
 		</div>
-	</div>
+	</div> -->
 	
 </body>
 </html>
