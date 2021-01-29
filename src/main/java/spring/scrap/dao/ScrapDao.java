@@ -61,9 +61,9 @@ public class ScrapDao extends SqlSessionDaoSupport implements ScrapDaoInter {
 	}
 
 	@Override
-	public void deleteCardScrap(String scnum) {
+	public void deleteCardScrap(ScrapDto dto) {
 		// TODO Auto-generated method stub
-		getSqlSession().delete("deleteOfCardScrap",scnum);
+		getSqlSession().delete("deleteOfScrap",dto);
 	}
 
 	@Override

@@ -30,8 +30,8 @@
 	</select>
 	
 	<!-- card스크랩삭제 -->
-	<delete id = "deleteOfCardScrap" parameterType="String">
-		delete from board where scnum=#{scnum}
+	<delete id = "deleteOfScrap" parameterType="String">
+		delete from scrap where smidnum=#{smidnum} and scnum=#{scnum} and sbnum=#{sbnum}
 	</delete>
 	
 	<!-- board중복확인 -->
