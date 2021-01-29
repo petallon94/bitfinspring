@@ -22,7 +22,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
 public class SafeMainController {
-<<<<<<< HEAD
+
    @RequestMapping(value = "/safe/list",method = {RequestMethod.GET,RequestMethod.POST},produces="text/plain;charset=UTF-8")
    public String callapihttp() {
       StringBuffer result = new StringBuffer();
@@ -51,7 +51,7 @@ public class SafeMainController {
       }
       return result+toString();
    }
-=======
+
 
 	
    @RequestMapping(value = "/mainsafe/list", method= {RequestMethod.GET, RequestMethod.POST})
@@ -132,6 +132,5 @@ public class SafeMainController {
 	 
 	        return resultMap;
 	    }
->>>>>>> 3DO
 }
 
