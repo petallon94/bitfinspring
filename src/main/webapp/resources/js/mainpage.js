@@ -18,17 +18,50 @@ $(function(){
 				{
 					label:"코로나 일일 발병현황",
 					data:inflectionpeople, //데이터
-					backgroundColor:'rgba(0,0,255,0.3)', //그래프밑 색
+					backgroundColor:'rgba(64,71,96,0)', //그래프밑 색
 					borderColor:'rgba(64,71,96,1.0)', // 선 색
 					pointRadius:4, //포인트 크기
 					pointHoverRadius:8, //호버시 포인트 크기
-					pointBackgroundColor:'rgba(19,58,168,1.0)' //포인트 색
+					pointBackgroundColor:'rgba(19,58,168,1.0)', //포인트 색
+					
 				}
 			]
 		},
 		options:{
-			maintainAspectRatio:false
+			maintainAspectRatio:false,
+			legend: {
+				labels: {
+					fontColor: "black",
+					fontSize: 18,
+					fontFamily:'nanum',
+				}
+			},
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero: true,
+						fontColor : "black",
+						fontSize : 14,
+						fontFamily:'nanum',
+					},
+					gridLines:{
+						color: "rgba(0, 0, 0, 1)",
+						lineWidth:1
+					}
+				}],
+				xAxes: [{
+					ticks:{
+						fontColor : 'rgba(12, 13, 13, 1)',
+						fontSize : 14
+					},
+					gridLines:{
+						color: "rgba(0, 0, 0, 0)",
+						lineWidth: 1
+					}
+				}]
+			}
 		}
+		
 	});	
 	
 	$(document).ready(function () {
@@ -45,10 +78,6 @@ $(function(){
 			"margin-left":"0",
 			"opacity":"1"
 		});
-
-
-
-
 	});
 	
 });
