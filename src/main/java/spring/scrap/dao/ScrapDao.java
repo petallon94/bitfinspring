@@ -66,6 +66,14 @@ public class ScrapDao extends SqlSessionDaoSupport implements ScrapDaoInter {
 		getSqlSession().delete("deleteOfCardScrap",scnum);
 	}
 
+	@Override
+	public int boardScrapCheck(String sbnum, String smidnum) {
+		HashMap<String, String> params=new HashMap<String, String>();
+		params.put("sbnum", sbnum);
+		params.put("smidnum", smidnum);
+		return getSqlSession().selectOne("boardCheck", params);
+	}
+
 
 	
 	

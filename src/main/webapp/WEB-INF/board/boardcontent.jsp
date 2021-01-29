@@ -12,18 +12,15 @@
 <!-- css -->
 <link rel="stylesheet" href="${root}/css/board/boardcontent.css" />
 
-<!-- bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
 <!-- jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <!-- smarteditior -->
 <script type="text/javascript" src="../se2/js/HuskyEZCreator.js" charset="utf-8"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
 <!-- jquery  -->
-<script type="text/javascript">
+<script type="text/javascript">  
 $(function(){
 	
 	answer_list();
@@ -49,8 +46,6 @@ $(function(){
 	
 	/////////////댓글 저장
 	$("#ans_savebtn").click(function(){
-		
-		
 		
 		var acnum=$("#acnum").val();
 		var amidnum=$("#amidnum").val();
@@ -109,10 +104,65 @@ function answer_list()
 
 	}
 
-
 </script>
 </head>
 <body>
+ <!-- 스크랩 로그인 안했을 때 Modal -->
+  <div class="modal fade" id="bModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">로그인을 해주세요.</h4>
+        </div>
+        <div class="modal-body">
+          <p>로그인하시겠습니까?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href='/member/login'">확인</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <!-- Modal -->
+  
+  <!-- 스크랩추가 모달 -->
+	<div class="modal fade" id="mybModalscrap" role="dialog" style="margin-top: 100px;">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header" style="padding: 35px 50px;">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4>
+						게시물을 스크랩하시겠습니까?
+						bnum: ${dto.bnum}
+						bmidnum: ${mdto.mnum}
+						boardcheck: ${boardcheck}
+					</h4>
+				</div>
+				<form action="boardscrap" method="post" class="form-inline">
+					<input type="hidden" name="scnum" value="0">
+					<input type="hidden" name="sbnum" value="${dto.bnum}">
+  					<input type="hidden" name="smidnum" value="${mdto.mnum}">
+  					<input type="hidden" name="num" value="${dto.bnum}">
+                	<input type="hidden" name="pageNum" value="${pageNum}"> 	
+					<div class="modal-body" style="padding: 40px 50px; text-align: center;">
+						<button type="submit" style="width: 80px;">
+							<span class="glyphicon glyphicon-trash"></span> 확인
+						</button>
+						<button type="button" style="width: 80px;" data-dismiss="modal">
+							<span class="glyphicon glyphicon-remove"></span> 취소
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+  
 	<div class="board_contentlayout">
 
 		<div class="board_contentsmain">
@@ -139,13 +189,29 @@ function answer_list()
 			</div>				
 	</div>	
 			<div class ="board_conbtngrp">
-			<hr>
-			<button type="button" class="board_clistbtn" onclick = "location.href='../board/list'">목록</button>
-			<button type ="button" class ="board_cupdbutton" onclick="location.href='updatepassform?num=${dto.bnum}&pageNum=${pageNum}'" >수정</button>			
-			<button type ="button" class ="board_cdelbutton" onclick="location.href='deletepassform?num=${dto.bnum}'">삭제</button>
-			<button type ="button" class ="board_cdelbutton" >스크랩</button>
+				<hr>
+				<button type="button" class="board_clistbtn" onclick = "location.href='../board/list'">목록</button>
+				<c:if test="${mdto.mnum == dto.bmidnum }">
+					<button type ="button" class ="board_cupdbutton" onclick="location.href='updatepassform?num=${dto.bnum}&pageNum=${pageNum}'" >수정</button>			
+					<button type ="button" class ="board_cdelbutton" onclick="location.href='deletepassform?num=${dto.bnum}'">삭제</button>
+				</c:if>
+				<%-- <c:if test="${mdto != null }"></c:if> --%>
+				
+				<c:if test="${loginok != null }">
+					<c:if test="${boardcheck>0}">
+						<button type ="button" class ="board_cscrbutton" id="scrapdel-btn" style="background-color: yellow;">스크랩</button>
+					</c:if>
+					<c:if test="${boardcheck==0||boardcheck==null}">
+						<button type ="button" class ="board_cscrbutton" id="scrap-btn" data-toggle="modal" data-target="#mybModalscrap">스크랩</button>
+					</c:if>
+				</c:if>
+				<c:if test="${loginok == null}">
+					<button type ="button" class ="board_cscrbutton" data-toggle="modal" data-target="#bModal">스크랩</button>
+				</c:if>
+
 			
 			</div>
+			
 			<div class ="comments_section">
 			<span class="glyphicon glyphicon-expand">  댓글 총 ${totalcount}개</span>
 			<hr>
@@ -153,7 +219,6 @@ function answer_list()
 			
 			</div>
 			
-			<hr>
 			<div class="ans_writeform form-inline form-group" >
 			<div>
 			<div class ="ans_id">
@@ -171,5 +236,3 @@ function answer_list()
 </body>
 
 </html>
-
-

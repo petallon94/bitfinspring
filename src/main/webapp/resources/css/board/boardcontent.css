@@ -23,13 +23,18 @@
 	background-color: #f2f3f5;
 	text-align : center;
 	padding-bottom : 30px;
-	
 }
+
+.board_contentsc hr{
+	width: 80%;
+	margin-left: 10%;	
+}
+
 .board_contentsform{
 	background-color: #f2f3f5;	
 	padding: 5px 10px;
 	text-align : left;
-	margin-left : 5%;
+	margin-left : 10%;
 }
 
 .board_contentsform ul li{
@@ -39,14 +44,15 @@
 
 
 .board_concon{
-	width : 90%;
-	margin-left : 5%;
+	width : 80%;
+	min-height : 20em;
+	margin-left : 10%;
 	background-color : #f2f3f5;
 	height : 120%;
 }
 
 
-.board_clistbtn,.board_cupdbutton,.board_cdelbutton{
+.board_clistbtn,.board_cupdbutton,.board_cdelbutton,.board_cscrbutton{
 	
 	width: 100px;
 	padding: 5px 10px;
@@ -62,6 +68,11 @@
 	text-align : center; 
 	padding-top:30px;
 	padding-bottom: 30px;
+}
+
+.board_conbtngrp hr{
+	width: 80%;
+	margin-left: 10%;	
 }
 
 /* 댓글 관련 css*/
@@ -133,3 +144,6 @@
 	
 }
 
+#bModal-open{
+	overflow: hidden;
+}
