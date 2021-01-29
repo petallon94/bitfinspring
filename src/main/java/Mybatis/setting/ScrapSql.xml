@@ -34,5 +34,9 @@
 		delete from board where scnum=#{scnum}
 	</delete>
 	
+	<!-- board중복확인 -->
+	<select id="boardCheck" parameterType="String" resultType="int">
+   		select count(*) from scrap where sbnum=#{sbnum} and smidnum=#{smidnum}
+	</select>
 	
 </mapper>

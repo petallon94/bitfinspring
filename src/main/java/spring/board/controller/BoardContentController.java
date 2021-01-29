@@ -17,6 +17,7 @@ import spring.board.dao.BoardDaoInter;
 import spring.dto.BoardDto;
 import spring.dto.MemberDto;
 import spring.member.service.MemberServiceInter;
+import spring.scrap.dao.ScrapDao;
 
 
 @Controller
@@ -24,7 +25,9 @@ public class BoardContentController {
 	
 	@Autowired
 	private BoardDao dao;
-	private AnswerDao adao;
+	
+	@Autowired
+	private ScrapDao sdao;
 	//private MemberServiceInter mservice;
 	
 	
@@ -55,14 +58,50 @@ public class BoardContentController {
 	   
 		//int totalCount = adao.totalCountAnswer(bnum);
 		
-		mview.addObject("dto", dto);
 		mview.addObject("hdto",hdto);
 		//mview.addObject("totalCount",totalCount);
-		mview.addObject("pageNum", pageNum);
 		mview.addObject("mdto",mdto);
 
-		mview.setViewName("/board/boardcontent");
-		return mview; 
+		////////// 스크랩 ///////////
+		if(request.getSession().getAttribute("loginok")!=null)
+		{
+			System.out.println("로그인O");
+			System.out.println("mdto.getMnum:"+mdto.getMnum());
+			
+			int data=sdao.getTotalCount(Integer.toString(mdto.getMnum()));
+			System.out.println("data:"+data);
+			
+			//id에 스크랩한거있는경우
+			if(data>0)
+			{
+				//해당 글 스크랩했는지안했는지확인(글num, 아디num)
+				int boardcheck=sdao.boardScrapCheck(bnum, Integer.toString(mdto.getMnum()));
+				System.out.println("boardcheck:"+boardcheck);
+				
+				 mview.addObject("boardcheck", boardcheck);
+				 mview.addObject("dto", dto);
+	             mview.addObject("pageNum", pageNum);
+	             
+	             mview.setViewName("/board/boardcontent");
+	     		return mview; 
+			}else {
+				mview.addObject("dto", dto);
+				mview.addObject("pageNum", pageNum);
+				
+				mview.setViewName("/board/boardcontent");
+		     	return mview; 
+			}
+			
+		//로그인안했을경우
+		}else {
+			System.out.println("로그인X");
+			
+			mview.addObject("dto", dto);
+			mview.addObject("pageNum", pageNum);
+			
+			mview.setViewName("/board/boardcontent");
+	     	return mview;
+		}
 		
 	} 
 	

@@ -12,5 +12,6 @@ public interface ScrapDaoInter {
 	public void deleteCardScrap(String scnum);
 	public void insertScrap(ScrapDto dto);
 	public int cardScrapCheck(String scnum, String smidnum);
+	public int boardScrapCheck(String sbnum, String smidnum);
 	public ScrapDto getCardData(String scnum);
 }
