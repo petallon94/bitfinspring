@@ -1,6 +1,8 @@
 package spring.card.controller;
 
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,68 +29,82 @@ public class CardDetailController {
 	public ModelAndView cardDetail(@RequestParam String num, 
 									@RequestParam String pageNum, 
 									@RequestParam(required = false) String key,
-									HttpServletRequest request)
+									HttpServletRequest request, HttpServletResponse response)
 	{
 		ModelAndView mview = new ModelAndView();
+
 		
-		//key가 null이 아닌 경우 조회수 1 증가
+		
 		if(key!=null)
 			carddi.updateReadCount(num);
 		
-		//dto얻기
-		CardDto dto = carddi.getCardData(num);
+			//dto얻기
+			CardDto dto = carddi.getCardData(num);
 		
-		HttpSession session = request.getSession();
-		MemberDto mdto=(MemberDto)request.getSession().getAttribute("mdto");
-		System.out.println("1mdto.getMnum:"+mdto.getMnum());
 		
-		//로그인했는지확인
-		if(mdto!=null)
+
+		//로그인했을경우
+		if(request.getSession().getAttribute("loginok")!=null) 
 		{
-			//id가 스크랩한거 있나확인하기
-			int data=sdao.getTotalCount(Integer.toString(mdto.getMnum()));
+
+			System.out.println("로그인O");
 			
-			System.out.println("2mdto.getMnum:"+mdto.getMnum());
-			System.out.println("data:"+data);
+			HttpSession session = request.getSession();
+		    MemberDto mdto=(MemberDto)request.getSession().getAttribute("mdto");
+		    System.out.println("mdto.getMnum:"+mdto.getMnum());
+
 			
-			//id에 스크랩한거있는경우
-			if(data>0)
-			{
-				
-				//ScrapDto sdto=sdao.getCardData(num);
-				
-				
-				//해당 글 스크랩했는지안했는지확인(글num, 아디num)
-				int cardcheck=sdao.cardScrapCheck(num, Integer.toString(mdto.getMnum()));
-				System.out.println("cardcheck:"+cardcheck);
-				
-				
-				mview.addObject("cardcheck", cardcheck);
-				mview.addObject("dto", dto);
-				mview.addObject("pageNum", pageNum);
-				
-				mview.setViewName("/dcommu/dcomdetail");
-				return mview;
-				
-			//id에 스크랩한거 없는경우
-			}else {
-				mview.addObject("dto", dto);
-				mview.addObject("pageNum", pageNum);
-				
-				System.out.println("스크랩0");
-				
-				mview.setViewName("/dcommu/dcomdetail");
-				return mview;
-			}
-		//로그인안한경우	
+		    int data=sdao.getTotalCount(Integer.toString(mdto.getMnum()));
+	         
+
+	        System.out.println("data:"+data);
+
+			
+			
+	      //id에 스크랩한거있는경우
+	         if(data>0)
+	         {
+	            
+	            
+	            
+	            
+	            //해당 글 스크랩했는지안했는지확인(글num, 아디num)
+	            int cardcheck=sdao.cardScrapCheck(num, Integer.toString(mdto.getMnum()));
+	            System.out.println("cardcheck:"+cardcheck);
+	            
+	            
+	            mview.addObject("cardcheck", cardcheck);
+	            mview.addObject("dto", dto);
+	            mview.addObject("pageNum", pageNum);
+	            
+	            mview.setViewName("/dcommu/dcomdetail");
+	            return mview;
+	            
+	         //id에 스크랩한거 없는경우
+	         }else {
+	            mview.addObject("dto", dto);
+	            mview.addObject("pageNum", pageNum);
+	            
+	            //System.out.println("스크랩0");
+	            
+	            mview.setViewName("/dcommu/dcomdetail");
+	            return mview;
+	         }
+
+			
+			
+			
+			
+	    //로그인안했을경우
 		}else {
+			System.out.println("로그인X");
+			
 			mview.addObject("dto", dto);
-			mview.addObject("pageNum", pageNum);
-			mview.setViewName("/dcommu/dcomdetail");
-			System.out.println("로그인x");
-			return mview;
+	        mview.addObject("pageNum", pageNum);
+	        mview.setViewName("/dcommu/dcomdetail");
+			
+			
+	        return mview;
 		}
-
 	}
-
 }

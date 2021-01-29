@@ -70,17 +70,18 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 					style="width: 80px;">삭제</button>
 				</c:if>
 				<!-- 스크랩버튼추가 -->
-				<c:if test="${loginok!=null}">
-					<c:if test="${cardcheck>0}">
-						<button type="button" class="btn btn-info btn-sm" id="scrapdel-btn"
-							style="width: 80px;" >스크랩취소</button>
-					</c:if>
-					<c:if test="${cardcheck==0}">
-						<button type="button" class="btn btn-info btn-sm" id="scrap-btn"
-						style="width: 80px;" >스크랩</button>
-					</c:if>
-				</c:if>
-				<!-- 위까지 -->
+            <c:if test="${loginok!=null}">
+               <c:if test="${cardcheck>0}">
+                  <button type="button" class="btn btn-info btn-sm" id="scrapdel-btn"
+                     style="width: 80px;" >스크랩취소</button>
+               </c:if>
+               <c:if test="${cardcheck==null||cardcheck==0}">
+                  <button type="button" class="btn btn-info btn-sm" id="scrap-btn"
+                  style="width: 80px;" >스크랩</button>
+               </c:if>
+            </c:if>
+            <!-- 위까지 -->
+
 				<button type="button" class="btn btn-info btn-sm"
 				style="width: 80px;"
 				onclick="location.href='list?pageNum=${pageNum}'">목록</button>
@@ -137,7 +138,9 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 				<form action="cardscrap" method="post" class="form-inline">
 					<input type="hidden" name="sbnum" value="0">
 					<input type="hidden" name="scnum" value="${dto.cnum}">
-  					<input type="hidden" name="smidnum" value="${mdto.mnum}">	
+  					<input type="hidden" name="smidnum" value="${mdto.mnum}">
+  					<input type="hidden" name="num" value="${dto.cnum}">
+  					<input type="hidden" name="pageNum" value="${pageNum}">		
 					<div class="modal-body" style="padding: 40px 50px; text-align: center;">
 						<button type="submit" style="width: 80px;">
 							<span class="glyphicon glyphicon-trash"></span> 확인
@@ -168,7 +171,10 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 				</div>
 				<form action="cardscrapdel" method="post" class="form-inline">
 					<input type="hidden" name="sbnum" value="0">
-					<input type="hidden" name="scnum" value="${dto.cnum}">	
+					<input type="hidden" name="scnum" value="${dto.cnum}">
+					<input type="hidden" name="smidnum" value="${mdto.mnum}">
+					<input type="hidden" name="num" value="${dto.cnum}">
+  					<input type="hidden" name="pageNum" value="${pageNum}">	
 					<div class="modal-body" style="padding: 40px 50px; text-align: center;">
 						<button type="submit" style="width: 80px;">
 							<span class="glyphicon glyphicon-trash"></span> 확인
