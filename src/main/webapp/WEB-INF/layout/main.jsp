@@ -18,23 +18,34 @@
 		<!-- 홈페이지 소개 페이지 -->
 		<div class="section sec0">
 			<div class="slide slideno1" data-anchor="slide1">
-				<video src="${root}/image/Virus.mp4" data-autoplay autoplay muted loop></video>
+				<video data-autoplay autoplay muted>
+					<source data-src="${root}/image/Virus.mp4" type="video/mp4" />
+				</video>
 				<div class="slideno1Content">
 					<h1>Covid-Out</h1>
 					<h3>코로나로부터 서로을 지키는 법</h3>
-					<h5>사회적거리두기</h5>
+					<h4>사회적거리두기</h4>
+					<br><br><br><br><br><br><br><br>
+					
+					
+			
+					
 				</div>
 			</div>
 			<div class="slide slideno2" data-anchor="slide2">
-				<video src="${root}/image/Virus3.mp4" data-autoplay autoplay muted loop></video>
+				<video data-autoplay autoplay muted>
+					<source data-src="${root}/image/Virus3.mp4" type="video/mp4" />
+				</video>
 				<div class="slideno2Content">
 					<h1>Covid-Out</h1>
 					<h3>코로나로부터 자신을 지키는 법</h3>
-					<h5>손씻기를 생활화하기</h5>
+					<h4>손씻기를 생활화하기</h4>
 				</div>
 			</div>
 			<div class="slide slideno3" data-anchor="slide3">
-				<video src="${root}/image/Virus2.mp4" data-autoplay autoplay muted loop></video>
+				<video data-autoplay autoplay muted>
+					<source data-src="${root}/image/Virus2.mp4" type="video/mp4" />
+				</video>
 				<div class="slideno3Content">
 					<h1>Covid-Out</h1>
 					<h3>우리모두 코로나를 물리쳐요!</h3>
@@ -47,14 +58,14 @@
 		
 		<!-- 코로나 그래프 페이지 -->
 		<div class="section sec1">
-			<!-- 그래프 소개 -->
-			<div class="sec1_content0">
-			
-			</div>
 			<!-- 그래프  -->
-			<div class="sec1_content1">
+			<div class="sec1_content0">
 				<canvas id="line-chart">
 				</canvas>
+			</div>
+			<!-- 그래프 소개 -->
+			<div class="sec1_content1">
+				<h1>코로나 일일 발병 현황</h1>
 			</div>
 
 		</div>
@@ -312,9 +323,61 @@
 		
 		<!-- 페이지 이동할 수 있는 버튼들 -->
 		<div class="section sec3">
+		
+		
 			<div class="sec3_content0">
-				내용1
+			
+			
+				<div class="sec3_box sec3_box1" OnClick="location.href='${root}/hospitalmain'">
+					<div class="sec3_wrapper sec3_wrapper1">
+						<div class="sec3_tsm sec3_title">병원예약안내</div>
+						<div class="sec3_tsm sec3_subcon">
+							<img style="width:150px;height:150px;" src="${root}/image/hospitalicon.png"/>
+							<h3>전국 병원 검색을 하시고<br><br> 손쉽게 예약까지 해 보세요!</h3>
+						</div>
+						
+					</div>
+				</div>
+				
+				
+				<div class="sec3_box sec3_box2">
+					<div class="sec3_wrapper sec3_wrapper2">
+						<div class="sec3_tsm sec3_title"><b>카드뉴스</b></div>
+						<div class="sec3_tsm sec3_subcon">
+							<img style="width:150px;height:150px;" src="${root}/image/cardicon.png"/>
+							<h3>의학 전문가가 올린 카드뉴스를 <br><br>보시고 건강을 챙기세요.</h3>
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class="sec3_box sec3_box3">
+					<div class="sec3_wrapper sec3_wrapper3">
+						<div class="sec3_tsm sec3_title">커뮤니티</div>
+						<div class="sec3_tsm sec3_subcon">
+							<img style="width:150px;height:150px;" src="${root}/image/commuicon.png"/>
+							<h3>다른 사람들과 함께하는 <br><br>Helth 커뮤니티를 체험해 보세요!</h3>
+						</div>
+						
+					</div>
+				</div>
+				
+				
+				<div class="sec3_box sec3_box4">
+					<div class="sec3_wrapper sec3_wrapper4">
+						<div class="sec3_tsm sec3_title">의약품 검색</div>
+						<div class="sec3_tsm sec3_subcon">
+							<img style="width:150px;height:150px;" src="${root}/image/piilicon.png"/>
+							<h3>의약품 검색을 통해 <br><br>내 몸에 맞는지 확인해보세요!</h3>
+						</div>
+						
+					</div>
+				</div>
+				
+				
 			</div>
+			
+			
 		</div>
 		
 		

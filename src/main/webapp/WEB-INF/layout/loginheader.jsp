@@ -42,14 +42,12 @@
     
     <div class="menu_title">
     	<a href="${root}/home">
-    	<img id="coout_icon" src="${root}/image/covid_symbol.png">
     	<b>COVID-OUT</b>
     	</a>
     </div>
     
     <div class="menu_login">
     	<a href="${root}/member/logout">
-    		<img class="login_icon1" src="${root}/image/login_red.svg"/>
     		<img class="login_icon0" src="${root}/image/login_green.svg"/>
     	</a>
     </div>
@@ -63,10 +61,10 @@
 <div class="slide_bar_out">
 	<div class="slide_bar">
 		<ul class="slide_bar_list">
-			<li><a href="">병원안내/예약</a></li>
+			<li><a href="${root}/hospitalmain">병원안내/예약</a></li>
 			<li><a href="">방역수칙</a></li>
 			<li><a href="${root}/doctor/list">카드뉴스</a></li>
-			<li><a href="">커뮤니티</a></li>
+			<li><a href="${root}/board/list">커뮤니티</a></li>
 			<li><a href="">의약품검색</a></li>
 		</ul>
 		<ul class="slide_bar_list end">

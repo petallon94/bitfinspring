@@ -30,7 +30,7 @@ public class inflection2 {
             String addr="http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson?serviceKey=";
             
             //주소에 들어갈 내 키
-            String servicekey="KLRsg8XwdmlVRNMjR2RLNRJqTtVc1KFTIPz%2BwNu8cuhlSEuF7Jg3V7CJ%2Bw0pXOx1VurMlU93VuWMn8IJOsP%2Bwg%3D%3D";
+            String servicekey="I7iTYNwpm48uv56il%2BOmX0zDiEUoAIlAn%2BU1HOFuGfVW8cT04smffOwzKRbEyOzdh%2BLzCFovf3OMp1uXmeP6aQ%3D%3D";
             
             //주소에 들어갈 파라미터 넣기.
             String parameter="";
@@ -62,6 +62,7 @@ public class inflection2 {
             //주소 완성하기!
             addr = addr + servicekey + parameter;
             
+            System.out.println(addr);
             //직접 웹url에 테스트 해보세요~
             //System.out.println(addr);
 			
