@@ -64,7 +64,41 @@
 			<b>총 ${totalCount}개의 글이 있습니다</b>
 		</div>
 	</c:if>
+	<br>
 	
+	<table class="table table-bordered" style="width: 1000px;">
+		<caption><b>스크랩 목록 출력</b></caption>
+		<tr bgcolor="#ddd">
+			<th style="width: 60px">번호</th>
+			<th style="width: 400px">제목</th>
+			<th style="width: 80px">작성자</th>
+			<th style="width: 120px">작성일</th>
+			<th style="width: 60px">조회수</th>
+		</tr>
+		<c:forEach var="dto" items="${list}" varStatus="i">
+			<tr align="center" style="cursor: pointer;"
+			onclick="location.href=detail?num=${dto.snum}">
+			<!-- 글번호 -->
+			<td>${i.count}</td>
+			<!-- 이미지 -->
+			<c:if test="${dto.cphoto!='no'}">
+				<img src="../../resources/save/${dto.cphoto}"
+				style="width: 60px;height: 60px;">
+			</c:if>
+			<!-- 제목 -->
+			<td>${dto.csubject}</td>
+			<!-- 작성자 -->
+			<td>${dto.cmidnum}</td>
+			<!-- 작성일  -->
+			<td>
+				<fmt:formatDate value="${dto.cwritedate}"	
+				pattern="yyyy-MM-dd"></fmt:formatDate>			
+			</td>
+			<!-- 조회수 -->
+			<td>${dto.creadcount}</td>
+			</tr>
+		</c:forEach>
+	</table>
 	
 </div>
 </body>
