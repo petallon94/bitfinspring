@@ -22,4 +22,6 @@ public interface BoardDaoInter {
 	   public void insertHashtag(BoardDto dto);
 	   public void deleteHashtag(BoardDto dto);
 	   public List<BoardDto> searchHashtag(String hashtag);
+	   public List<BoardDto> getMyBoard(int bmidnum, int start, int perpage);
+	   public int getMyCount(String bmidnum);
 }

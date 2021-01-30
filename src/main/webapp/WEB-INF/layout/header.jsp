@@ -50,7 +50,7 @@
 			<li><a href="${root}/safe/list">방역수칙</a></li>
 			<li><a href="${root}/doctor/list">카드뉴스</a></li>
 			<li><a href="${root}/board/list">커뮤니티</a></li>
-			<li><a href="">의약품검색</a></li>
+			<li><a href="${root}/medicine/search">의약품검색</a></li>
 		</ul>
 		<ul class="slide_bar_list end">
 			<li><a href="${root}/member/login">로그인</a></li>
