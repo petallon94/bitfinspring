@@ -25,11 +25,6 @@
 					<h1>Covid-Out</h1>
 					<h3>코로나로부터 서로을 지키는 법</h3>
 					<h4>사회적거리두기</h4>
-					<br><br><br><br><br><br><br><br>
-					
-					
-			
-					
 				</div>
 			</div>
 			<div class="slide slideno2" data-anchor="slide2">
@@ -49,7 +44,6 @@
 				<div class="slideno3Content">
 					<h1>Covid-Out</h1>
 					<h3>우리모두 코로나를 물리쳐요!</h3>
-					
 				</div>
 			</div>
 		</div>
@@ -60,12 +54,17 @@
 		<div class="section sec1">
 			<!-- 그래프  -->
 			<div class="sec1_content0">
-				<canvas id="line-chart">
-				</canvas>
+				<h2>코로나 일일 확진환자 추세</h2>
+				<div class="con0_graph">
+					<canvas id="line-chart"></canvas>
+				</div>
 			</div>
 			<!-- 그래프 소개 -->
 			<div class="sec1_content1">
-				<h1>코로나 일일 발병 현황</h1>
+				<h2>
+					COVID-OUT은 보건복지부의 코로나19 감염 현황을 통해 데이터를 시각화하여 제공합니다.
+					일일 확진자추세를 확인해 보시고 카드뉴스를 통해 새로운 뉴스를 접하세요.
+				</h2>
 			</div>
 
 		</div>
@@ -77,11 +76,14 @@
 		
 			<!-- 지도 그래프 소개 -->
 			<div class="sec2_content0">
-				내용1
+				<h2>전국 지역별 코로나 누적 현황입니다.</h2>
+				<h2>우리가 살고있는 지역은 어떤지 확인해보시고 
+				커뮤니티를 통해 서로 소통해보세요.</h2>
 			</div>
 			
 			<!-- 지도 그래프 -->
 			<div class="sec2_content1">
+				<h2>전국 지역별 보로나 누적 현황</h2><br>
 				<div id="main_maplayout">
                   	<button type="button" data-city="map_city1">
                    	<span class="name">서울</span>
@@ -356,7 +358,7 @@
 						<div class="sec3_tsm sec3_title">커뮤니티</div>
 						<div class="sec3_tsm sec3_subcon">
 							<img style="width:150px;height:150px;" src="${root}/image/commuicon.png"/>
-							<h3>다른 사람들과 함께하는 <br><br>Helth 커뮤니티를 체험해 보세요!</h3>
+							<h3>다른 사람들과 함께하는 <br><br>건강 커뮤니티를 체험해 보세요!</h3>
 						</div>
 						
 					</div>
@@ -373,8 +375,6 @@
 						
 					</div>
 				</div>
-				
-				
 			</div>
 			
 			
@@ -447,6 +447,35 @@ e-메일 : <a href="sanneommeo@bitcamp.com">sanneommeo@bitcamp.com</a> | Fax : 0
 					"margin-left":"0",
 					"opacity":"1"
 				});
+				$('.slideno1Content h4').css({
+					"margin-left":"0%",
+					"opacity":"1"
+				});
+			};
+			// 슬라이드2 시작
+			if(section.index == 0 && destination.anchor == 'slide2'){
+				$('.slideno2Content h1').css({
+					"margin-right":"10%",
+					"opacity":"1"
+				});
+				$('.slideno2Content h3').css({
+					"margin-right":"10%",
+					"opacity":"1"
+				});
+				$('.slideno2Content h4').css({
+					"margin-right":"10%",
+					"opacity":"1"
+				});
+
+			};
+			// 슬라이드3 시작
+			if(section.index == 0 && destination.anchor == 'slide3'){
+				$('.slideno3Content h1').css({
+					"opacity":"1"
+				});
+				$('.slideno3Content h3').css({
+					"opacity":"1"
+				});
 			};
 
 		},
@@ -462,11 +491,46 @@ e-메일 : <a href="sanneommeo@bitcamp.com">sanneommeo@bitcamp.com</a> | Fax : 0
 					"margin-left":"-10%",
 					"opacity":"0"
 				});
+				$('.slideno1Content h4').css({
+					"margin-left":"-10%",
+					"opacity":"0"
+				});
+			};
+			
+			//슬라이드2 떠날때
+			if(section.index == 0 && origin.index==1){
+				$('.slideno2Content h1').css({
+					"margin-right":"0%",
+					"opacity":"0"
+				});
+				$('.slideno2Content h3').css({
+					"margin-right":"0%",
+					"opacity":"0"
+				});
+				$('.slideno2Content h4').css({
+					"margin-right":"0%",
+					"opacity":"0"
+				});
+			};
+			//슬라이드3 떠날떄
+			if(section.index == 0 && origin.index==1){
+				$('.slideno2Content h1').css({
+					
+					"opacity":"0"
+				});
+				$('.slideno2Content h3').css({
+					
+					"opacity":"0"
+				});
 			};
 		},
 
 		
-		//section
+		
+		
+		
+		
+		//section==================================================================================================
 		//실행
 		afterLoad:function(origin, destination, direction){
 			//섹션0를 실행할 때.
@@ -476,7 +540,7 @@ e-메일 : <a href="sanneommeo@bitcamp.com">sanneommeo@bitcamp.com</a> | Fax : 0
 					"background-color": "rgba(255, 255, 255, 0.5)",
 					"opacity":"0"
 				});
-			}
+			};
 			
 			//섹션1을 실행할 때.
 			//메뉴바 나타내기.
@@ -485,14 +549,96 @@ e-메일 : <a href="sanneommeo@bitcamp.com">sanneommeo@bitcamp.com</a> | Fax : 0
 					"background-color": "rgba(255, 255, 255, 0.5)",
 					"opacity":"1"
 				});
-			}
+				//그래프
+				$('.sec1 .fp-tableCell>div.sec1_content0').css({
+					"margin-left":"0",
+					"opacity":"1"
+				});
+				//그래프 옆 글
+				$('.sec1 .fp-tableCell>div.sec1_content1').css({
+					"margin-left":"0",
+					"opacity":"1"
+				});
+				
+			};
 			
-			
+			//섹션2 실행
+			if(destination.index == 2){
+				//지도 옆 글
+				$('.sec2 .fp-tableCell>div.sec2_content0').css({
+					"margin-right":"0",
+					"opacity":"1"
+				});
+				//지도
+				$('.sec2 .fp-tableCell>div.sec2_content1').css({
+					"margin-right":"0",
+					"opacity":"1"
+				});
+				
+				
+			};
+			//섹션3을 실행
+			if(destination.index == 3){
+				$('.sec3_box').css({
+					"margin-bottom":"0%",
+					"opacity":"1"
+				});
+			};
 		},
 		//끝나고나서...
 		onLeave:function(origin, destination, direction){
 			//섹션0을 떠났을 때.
-
+			if(origin.index == 0){
+				$('.slideno1Content h1').css({
+					"margin-left":"-10%",
+					"opacity":"0"
+				});
+				$('.slideno1Content h3').css({
+					"margin-left":"-10%",
+					"opacity":"0"
+				});
+				$('.slideno1Content h4').css({
+					"margin-left":"-10%",
+					"opacity":"0"
+				});
+			};
+			//섹션1을 떠났을 때.
+			if(origin.index == 1){
+				//그래프
+				$('.sec1 .fp-tableCell>div.sec1_content0').css({
+					"margin-left":"-10%",
+					"opacity":"0"
+				});
+				//그래프 옆 글
+				$('.sec1 .fp-tableCell>div.sec1_content1').css({
+					"margin-left":"-10%",
+					"opacity":"0"
+				});
+				
+			};
+			
+			//섹션2를 떠났을 때.
+			if(origin.index == 2){
+				//지도 옆 글
+				$('.sec2 .fp-tableCell>div.sec2_content0').css({
+					"margin-right":"-10%",
+					"opacity":"0"
+				});
+				//지도
+				$('.sec2 .fp-tableCell>div.sec2_content1').css({
+					"margin-right":"-10%",
+					"opacity":"0"
+				});
+			};
+			
+			//섹션3을 떠났을 때.
+			if(origin.index == 3){
+				$('.sec3_box').css({
+					"margin-bottom":"-10%",
+					"opacity":"0"
+				});
+			};
+			
 		}	
 	});//fullpage end	
 </script>

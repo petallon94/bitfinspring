@@ -27,8 +27,8 @@
 			</label>
 			
 			<label class="signup_input">
-				<input type="text" name="memail" class="memail" value="${mdto.memail}" required>
-				<span class="signup_input_sp"> <span class="glyphicon glyphicon-envelope"></span> Email</span>
+				<input type="text" name="memail" class="memail" value="${mdto.memail}" readonly>
+				<span class="signup_input_sp update"> <span class="glyphicon glyphicon-envelope"></span> Email</span>
 			</label>
 			
 			<input type="hidden" name="mpw" class="mpw" required>

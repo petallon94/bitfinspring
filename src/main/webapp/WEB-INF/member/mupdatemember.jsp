@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="insert_member_container">
-	<div class="insert_member_wrapper">
+	<div class="insert_member_wrapper updatewrapper">
 		<form action="updatemember" method="post" id="signupform">
 			<input type="hidden" name="mrole" value="0">
 			<input type="hidden" name="mchat" value="0">
@@ -29,8 +29,8 @@
 			</label>
 			
 			<label class="signup_input">
-				<input type="text" name="memail" class="memail" value="${mdto.memail}" required>
-				<span class="signup_input_sp"> <span class="glyphicon glyphicon-envelope"></span> Email</span>
+				<input type="text" name="memail" class="memail" value="${mdto.memail}" readonly>
+				<span class="signup_input_sp update"> <span class="glyphicon glyphicon-envelope"></span> Email</span>
 			</label>
 			
 			<label class="signup_input">

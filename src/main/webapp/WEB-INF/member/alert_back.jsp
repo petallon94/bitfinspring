@@ -8,7 +8,7 @@
 </head>
 <style>
 	div.memeber_alert{
-		background-color:#1f2c59;
+		background-color:#fff;
 		width:100%;
 		height:1980px;;
 	}

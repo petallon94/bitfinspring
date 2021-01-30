@@ -16,7 +16,7 @@ $(function(){
 			labels:inflectiondate,
 			datasets:[
 				{
-					label:"코로나 일일 발병현황",
+					display:false,
 					data:inflectionpeople, //데이터
 					backgroundColor:'rgba(64,71,96,0)', //그래프밑 색
 					borderColor:'rgba(64,71,96,1.0)', // 선 색
@@ -31,15 +31,15 @@ $(function(){
 			maintainAspectRatio:false,
 			legend: {
 				labels: {
-					fontColor: "black",
-					fontSize: 18,
+					fontColor: "rgba(0,0,0,0)",
+					fontSize: 0,
 					fontFamily:'nanum',
 				}
 			},
 			scales: {
 				yAxes: [{
 					ticks: {
-						beginAtZero: true,
+						beginAtZero: false,
 						fontColor : "black",
 						fontSize : 14,
 						fontFamily:'nanum',
@@ -70,12 +70,17 @@ $(function(){
 	    }, function() {
 	        $(this).css('opacity','1');
 	    });
+
 		$('.slideno1Content h1').css({
 			"margin-left":"0",
 			"opacity":"1"
 		});
 		$('.slideno1Content h3').css({
 			"margin-left":"0",
+			"opacity":"1"
+		});
+		$('.slideno1Content h4').css({
+			"margin-left":"0%",
 			"opacity":"1"
 		});
 	});
