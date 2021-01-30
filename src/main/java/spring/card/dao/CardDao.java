@@ -72,6 +72,7 @@ public class CardDao extends SqlSessionDaoSupport implements CardDaoInter {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("searchType", searchType);
 		map.put("keyword", keyword);
+
 		System.out.println(keyword);
 		System.out.println(searchType);
 		

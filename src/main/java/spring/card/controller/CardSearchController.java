@@ -25,4 +25,6 @@ public class CardSearchController {
 		
 		return list;
 	}
+	
+	
 }

@@ -27,7 +27,8 @@
 <script type="text/javascript"
 	src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script type="text/javascript">
-$(function(){
+$(document).ready(function() {
+		callCardList();
 		$("#btn-insert").click(function() {
 			var loginok= $("#loginok").val();
 			if(loginok != ""){
@@ -37,56 +38,57 @@ $(function(){
 				location.href="/member/login";
 			}
 		});
-		//검색 
-		$("#searchBtn").click(function(){
-			//변수
-			var searchType=$("#searchType").val();
-			var keyword=$("#keyword").val();
-			//alert(word+","+search);
-			//alert(search+":"+word);
-			//검색한 값이랑 단어의 값을 넣으면
-			//전체 선택했을 경우,
-			$.ajax({
-				type:"get",
-				dataType: "json",
-				url:"/doctor/dsearch",
-				data:{"searchType":searchType,"keyword":keyword},
-				success:function(data){
-					//alert(data);
-					var s = '';
-					$.each(data,function(index,item){
-						var cphoto = item.cphoto;
-						var csubject = item.csubject;
-						var cwriter = item.cwriter;
-						var cwritedate = item.cwritedate;
-						
-						s+='<div class="dcom-prod-list-bar dcom-con">';
-						s+='<div class="dcom-prod-list-box">';
-						s+='<ul class="dcom-row">';
-						s+='<li class="dcom-cell">';
-						s+='<a href="detail?num=${d.cnum}&pageNum=${currentPage }&key=list">';
-						s+='<div class="dcom-img-bar">';
-						s+='<div class="dcom-img-box">';
-						s+='<img src="${pageContext.request.contextPath}/resources/save/'+cphoto+'"alt="">';
-						s+='</div>';
-						s+='<div style="position: relative; max-width: 100%; background-color: black; display: block; white-space: nowrap;">';
-						s+='<div class="dcom-prod-subject">'+csubject+'</div>';
-						s+='<div class="dcom-prod-writer">'+cwriter+'</div>';
-						s+='<div class="dcom-prod-day">'+cwritedate+'</div>';	
-						s+='</div></div></a></li></ul></div></div>';
-						
-					});
-					$("#cnffur").html(s);	
-			}
-		});
-	});	
+		
 		//전체 선택하면 입력단어 지워주기
 		$("#searchType").change(function(){
 			$("#keyword").val("");
 		});
 	});//$function close
 	
-
+	/* 검색 함수*/
+function callCardList() {
+		var searchType=$("#searchType").val();
+		var keyword=$("#keyword").val();
+		//alert(word+","+search);
+		//alert(search+":"+word);
+		//검색한 값이랑 단어의 값을 넣으면
+		//전체 선택했을 경우,
+		$.ajax({
+			type:"get",
+			dataType: "json",
+			url:"/doctor/dsearch",
+			data:{"searchType":searchType,"keyword":keyword},
+			success:function(data){
+				//alert(data);
+				
+				var s = '';
+				$.each(data,function(index,item){
+					var cphoto = item.cphoto;
+					var csubject = item.csubject;
+					var cwriter = item.cwriter;
+					var cwritedate = item.cwritedate;
+					
+					s+='<div class="dcom-prod-list-bar dcom-con">';
+					s+='<div class="dcom-prod-list-box">';
+					s+='<ul class="dcom-row">';
+					s+='<li class="dcom-cell">';
+					s+='<a href="detail?num=${d.cnum}&pageNum=${currentPage }&key=list">';
+					s+='<div class="dcom-img-bar">';
+					s+='<div class="dcom-img-box">';
+					s+='<img src="${pageContext.request.contextPath}/resources/save/'+cphoto+'"alt="">';
+					s+='</div>';
+					s+='<div style="position: relative; max-width: 100%; background-color: black; display: block; white-space: nowrap;">';
+					s+='<div class="dcom-prod-subject">'+csubject+'</div>';
+					s+='<div class="dcom-prod-writer">'+cwriter+'</div>';
+					s+='<div class="dcom-prod-day">'+cwritedate+'</div>';	
+					s+='</div></div></a></li></ul></div></div>';
+					
+				});
+				$("#cnffur").html(s);	
+			}
+		});
+	}
+/* 검색 함수*/
 </script>
 <style>
 	/* 배너 */
@@ -136,14 +138,16 @@ $(function(){
 			<div class="form-inline">
 			<input type="hidden" id="totalCount" name="totalCount" value="${totalCount }">
 			<input type="hidden" id="currentPage" name="currentPage" value="${currentPage}">
+			<form action="/doctor/list">
 				<select id="searchType" name="searchType">
 					<option value="all">전체</option>
 					<option value="t">제목</option>
 					<option value="c">내용</option>
 					<option value="w">작성자</option>
 				</select> <input class="form-control" type="text" id="keyword" name="keyword"
-					placeholder="검색어를 입력하세요" />
-				<button id="searchBtn" class="btn btn-primary">Search</button>
+				placeholder="검색어를 입력하세요" />
+				<button id="searchBtn" class="btn btn-primary" type="submit">검 색</button>
+			</form>
 			</div>
 			<button type="button" id="btn-insert" class="dcom-write-btn" style="width: 100px;"
 			>게시글작성</button>
@@ -155,11 +159,11 @@ $(function(){
 	<hr class="slideline">
 	
   	<!-- card start-->
-	<div class="dcom-prod-list-bar dcom-con"  id="cnffur">
+	<div class="dcom-prod-list-bar dcom-con">
 		<div class="dcom-prod-list-box">
 			<ul class="dcom-row">
 				<c:forEach var="d" items="${list }" varStatus="i">
-					<li class="dcom-cell" ><a href="detail?num=${d.cnum}&pageNum=${currentPage }&key=list">
+					<li class="dcom-cell"><a href="detail?num=${d.cnum}&pageNum=${currentPage }&key=list">
 							<input type="hidden" value="${i.count}">
 							<div class="dcom-img-bar">
 								<div class="dcom-img-box">

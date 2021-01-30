@@ -33,8 +33,6 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
      $("#scrapdel-btn").click(function(){
       $("#myModaldelscrap").modal();
      });
-     
-     
    });  
 </script>
 <body>
