@@ -2,6 +2,8 @@ package spring.dto;
 
 import java.sql.Timestamp;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class AnswerDto {
 	
 	private int aidx;
@@ -13,6 +15,7 @@ public class AnswerDto {
 	private int arelevel;
 	private int aregroup;
 	private String msg;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
 	private Timestamp awritedate;
 	public int getAidx() {
 		return aidx;
