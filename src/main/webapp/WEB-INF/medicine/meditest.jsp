@@ -1,88 +1,114 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<c:set var="root" value="<%=request.getContextPath()%>" />
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 
 <!-- css -->
 <link rel="stylesheet" href="${root}/css/medicine/mainlayout.css" />
 
+
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
-$(function(){
+	$(function() {
 
+		$("#med_searchbtn").click(
+			function() {
+						var keyword = $("#med_text1").val();
+							$.ajax({
+									url : 'medicinetest',
+									type : 'get',
+									dataType : 'xml', // ë¦¬í„´í•´ì£¼ëŠ” íƒ€ì…ì„ ì§€ì •í•´ì¤˜ì•¼í•¨
+									data : {
+										"keyword" : keyword},
+									beforeSend : function(jqXHR) {
+											console.log("ajaxí˜¸ì¶œì „");
+									},// ì„œë²„ ìš”ì²­ ì „ í˜¸ì¶œ ë˜ëŠ” í•¨ìˆ˜ return false; ì¼ ê²½ìš° ìš”ì²­ ì¤‘ë‹¨
+									success : function(data) {
+											//ìš”ì†Œì´ë¦„ ë½‘ì•„ë‚´ê¸°
+								var len = data.getElementsByTagName("item").length;
+								var item = data.getElementsByTagName("entpName"); // ê¸°ì—…
+								var item2 = data.getElementsByTagName("itemName"); // ì´ë¦„
+								var item3 = data.getElementsByTagName("itemSeq"); 
+								var item4 = data.getElementsByTagName("efcyQesitm");
+								var item5 = data.getElementsByTagName("atpnQesitm");
+								var item6 = data.getElementsByTagName("depositMethodQesitm");
+								var totalCount = data.getElementsByTagName("totalCount");
+								console.log(data);
 
-	
-	
-	$("#med_searchbtn").click(function(){
-		var keyword =$("#med_text1").val();
-		//alert(keyword);
-		
-		
-		 $.ajax({
-	        url:'medicinetest',
-	        type:'get',
-	        dataType:'xml', // ¸®ÅÏÇØÁÖ´Â Å¸ÀÔÀ» ÁöÁ¤ÇØÁà¾ßÇÔ
-	        data : {"keyword" : keyword},
-	        beforeSend:function(jqXHR) {
-	            console.log("ajaxÈ£ÃâÀü");
-	        },// ¼­¹ö ¿äÃ» Àü È£Ãâ µÇ´Â ÇÔ¼ö return false; ÀÏ °æ¿ì ¿äÃ» Áß´Ü
-	        success: function(data) {
-	        	//alert(keyword);
-	        	console.log(data);
-	        	var a =  data.getElementsByTagName("itemName");
-	        	var s =  data.getElementsByTagName("efcyQesitm");
-				var b = data.getElementsByTagName("itemImage");
-	        	
-	        	$("#med_searchlist").html(b);
-	        	
-	        }// ¿äÃ» ½ÇÆĞ.
-	    }); 
-		
+								var s = "ì´ "+len+"ê°œì˜ ê²€ìƒ‰ ê²°ê³¼ê°€ ìˆìŠµë‹ˆë‹¤.";
+
+									for (var i = 0; i < len; i++) {
+									
+									  s +="<div class='medi_test'><div class='medi_click' id='medi"+i+"' onclick ='answer_list(this)'><div class='medi_no'>"+(i+1)+"</div>";
+									  s +="<div class='medi_title'>"+item2[i].childNodes[0].textContent+"<span class='glyphicon glyphicon-list'></span></div></div>";
+									  s +="<div class='medi_contents'>";
+									  s +="<a>"+item[i].childNodes[0].textContent+"</a>";
+									  s +="<p>"+item4[i].childNodes[0].textContent+"</p>";
+									  s +="<p>"+item5[i].childNodes[0].textContent+"</p>";
+									  s +="<p>"+item6[i].childNodes[0].textContent+"</p>";
+									  s +="</div>";		
+											}
+											
+
+									$("#med_searchlist").html(s);
+
+									}// success
+									}); //ajax ë
+
+						});// btn ë
+
+		// í† ê¸€ ê´€ë ¨ êµ¬í˜„
+		/* $(".medi_click").on("click", function() {
+			//$(this).next(".medi_contents").slideToggle(100);
+			alert("??");
+		}); */
 	});
 	
-
+	function answer_list(e){
+			if($(".medi_contents").css("display")=="none"){
+	            
+				$(".medi_contents").slideDown("fast");
+	            } else {
+	            $(".medi_contents").slideUp("fast");
+	            }
+			//var a = $(this).attr("id");
+			//alert(a);
+		
+	}
 	
-});
 </script>
 
 </head>
 <body>
-<div class="med_layout">
-		<div class ="med_layout_title">
-		<h3>¸Şµğ½Å ·¹ÀÌ¾Æ¿ôÀÔ´Ï´Ù. </h3>
+	<div class="med_layout_title">
+
+		<h3 onclick="location.href='../medicine/search'">ì˜ì•½í’ˆ ê²€ìƒ‰</h3>
 		<div class="med_search">
-			<h3>°Ë»ö ½ÃÀÛ È­¸é ·¹ÀÌ¾Æ¿ôÀÔ´Ï´Ù. </h3>
+			<h4>ê°€ì§€ê³  ìˆëŠ” ì•½í’ˆì„ ê²€ìƒ‰í•´ë³´ì„¸ìš”!</h4>
 			<input class="med_text1" id="med_text1" type="text" />
-			<button type="button" class="med_searchbtn" id = "med_searchbtn">
-				°Ë»öÇÏ±â</button>
-			<div class="med_test" id="med_div"></div>
-			<div class="med_test2" id="med_div2"></div>
+			<button type="button" class="med_searchbtn" id="med_searchbtn">
+				ê²€ìƒ‰í•˜ê¸°</button>
 		</div>
-		</div>
-		<div class="med_searchlist" id ="med_searchlist">
-			¸®½ºÆ®
-		<div class ="med_searchleft" name = "med_searchleft">
-		<img class ="med_searchpic" src ="${root}/image/no_image.png">
-		</div>
-		<div class ="med_searchright" name = "med_searchright">
-		<h3>¾àÀÌ¸§</h3>
-		<a></a>
-		<p>¾à ³»¿ë ¼³¸í</p>
-		<P>ÁÖÀÇ »çÇ×</P>
-		<p>intrcQesitm(»óÈ£ÀÛ¿ë)</p>
-		<p>seQesitm(ºÎÀÛ¿ë)</p>
-		</div>
-		
-
-		</div>
-
+	</div>
+	<div class="med_searchlist" id="med_searchlist">
+		<h3>ì½”ë¹„ë‹¤ì›ƒê³¼ í•¨ê»˜ ì˜ì•½í’ˆì„ ì°¾ì•„ë³´ì•„ìš”!</h3>
+		<video width="600" height="450" src="${root}/image/medvirus.mp4"
+			data-autoplay autoplay muted loop></video>
+		<h5>â€» í•´ë‹¹ ê²€ìƒ‰ í™”ë©´ì€ ì‹ì•½ì²˜ì—ì„œ ì œê³µí•´ì£¼ëŠ” 'ì•½ì€ìš”'api ì—ì„œ ê°€ì ¸ì˜¤ê³  ìˆìŠµë‹ˆë‹¤. ì •í™•í•œ ë³µì•½ì§€ë„ëŠ” ì˜ì‚¬ ë°
+			ì•½ì‚¬ì™€ ìƒë‹´í•˜ì„¸ìš”</h5>
 	</div>
 
-
 </body>
+
 </html>

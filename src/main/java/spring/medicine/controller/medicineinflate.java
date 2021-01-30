@@ -55,7 +55,7 @@ public String callFlectionData(@RequestParam String keyword) throws Exception {
 		StringBuilder urlBuilder = new StringBuilder(serviceurl);
 		urlBuilder.append("&" + URLEncoder.encode("itemName","UTF-8") + "=" + URLEncoder.encode(keyword, "UTF-8")); /*제품명 -> 인코딩을 진행해줘야 한글이 먹힙니다*/ 
 		
-		//System.out.println(urlBuilder.toString());
+		System.out.println(urlBuilder.toString());
 		/*chap2. 데이터 읽기!*/
 		
 		//사이트의 데이터를 읽어오기! java는 사이트데이터 읽어올 때 html, json, xml, 등을 읽어올 수 이써여
@@ -70,8 +70,8 @@ public String callFlectionData(@RequestParam String keyword) throws Exception {
 		con.setRequestMethod("GET");
 		//con.setRequestMethod("post");
 		//json데이터일 경우.(안해봐서 확실치 않음)
-		con.setRequestProperty("Content-type", "application/json");
-		System.out.println("Response code: " + con.getResponseCode());
+		//con.setRequestProperty("Content-type", "application/json");
+		//System.out.println("Response code: " + con.getResponseCode());
 		
 		//여기서 여러 방법이 나뉜댜ㅏ... 사람마다 다른데 inputStream과 outputstream을 이용할수도 있고...
 		//그냥 inputStream으로 받고 버퍼에 저장해서 받아오기도 하고.... 여기선 버퍼로 해보자.
@@ -84,9 +84,9 @@ public String callFlectionData(@RequestParam String keyword) throws Exception {
 		//스트림(파이트) -> 스트림리더(char) -> 버퍼리더(String)
 		BufferedReader rd;
         if(con.getResponseCode() >= 200 && con.getResponseCode() <= 300) {
-            rd = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            rd = new BufferedReader(new InputStreamReader(con.getInputStream(),"UTF-8"));
         } else {
-            rd = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+            rd = new BufferedReader(new InputStreamReader(con.getErrorStream(),"UTF-8"));
         }
 		//스트링뷜더를 사용하는 이유는 스트링객체들을 서로 + 하면 메모리가 새로 생성되어 성능적으로 좋지 않다고 한다. 따라서 기존 메모리 값만 추가하는 stringbuilder을 추천한다.
 		StringBuilder sb=new StringBuilder();
