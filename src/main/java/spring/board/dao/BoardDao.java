@@ -108,6 +108,22 @@ public class BoardDao extends SqlSessionDaoSupport implements BoardDaoInter {
 		// TODO Auto-generated method stub
 		return getSqlSession().selectList("searchHashtag",hashtag);
 	}
+
+	@Override
+	public List<BoardDto> getMyBoard(int bmidnum, int start, int perpage) {
+		// TODO Auto-generated method stub
+		HashMap<String, Integer> map=new HashMap<String, Integer>();
+	      map.put("bmidnum",bmidnum);
+		  map.put("start", start);
+	      map.put("perpage", perpage);
+		return getSqlSession().selectList("selectMyBoard", map);
+	}
+
+	@Override
+	public int getMyCount(String bmidnum) {
+		// TODO Auto-generated method stub
+		return getSqlSession().selectOne("totalMyBoard",bmidnum);
+	}
 	
 	
 
