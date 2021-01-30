@@ -35,7 +35,7 @@ public class inflection2 {
             //주소에 들어갈 파라미터 넣기.
             String parameter="";
             parameter = parameter + "&" + "pageNo=1";
-            parameter = parameter + "&" + "numOfRows=31";
+            parameter = parameter + "&" + "numOfRows=40";
             
             //오늘 날짜, 한달전 날짜 구하기
             Calendar cal = Calendar.getInstance();
@@ -62,11 +62,10 @@ public class inflection2 {
             //주소 완성하기!
             addr = addr + servicekey + parameter;
             
-            System.out.println(addr);
+            //System.out.println(addr);
             //직접 웹url에 테스트 해보세요~
             //System.out.println(addr);
 			
-            
             /*chap2. 읽기*/
     		/*
     		 * DOM이란 xml및 html문서를 응용프로그램에서 사용하기 위한 api 규격. 
@@ -122,13 +121,13 @@ public class inflection2 {
                 inflectionday[temp] = getTagValue("stateDt", eElement);
             }	// if end
 
-            int[] inflectionPeopleResult = new int[31];
-            String[] inflectionDayResult = new String[31];
-            for (int i = 0; i < inflectionpeople.length-1; i++) {
-            	inflectionPeopleResult[i]=inflectionpeople[30-i]-inflectionpeople[31-i];
+            int[] inflectionPeopleResult = new int[15];
+            String[] inflectionDayResult = new String[15];
+            for (int i = 0; i < 15; i++) {
+            	inflectionPeopleResult[i]=inflectionpeople[14-i]-inflectionpeople[15-i];
             }
-            for (int i = 0; i < inflectionday.length-1; i++) {
-            	inflectionDayResult[i]= inflectionday[30-i];
+            for (int i = 0; i < 15; i++) {
+            	inflectionDayResult[i]= inflectionday[14-i];
             }
 
             String a = Arrays.toString(inflectionPeopleResult);

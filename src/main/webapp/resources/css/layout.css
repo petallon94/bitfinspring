@@ -372,7 +372,7 @@ ul.slide_bar_list.end {
 	color:black;
 	margin-left:-10%;
 	opacity:0;
-	transition:ease-in 1s;
+	transition:ease-in 0.8s;
 	font-family: 'nanumb';
 	font-weight: bold;
 }
@@ -386,9 +386,9 @@ ul.slide_bar_list.end {
 .slideno1 .fp-tableCell .slideno1Content h4{
 	font-size:3rem;
 	color:black;
- 	margin-right:10%;
-	opacity:1;
-	transition:ease-in 1s;
+ 	margin-left:-10%;
+	opacity:0;
+	transition:ease-in 1.2s;
 }
 
 
@@ -405,28 +405,29 @@ ul.slide_bar_list.end {
 	margin-top:10%;
 	align-items:flex-end;
 	flex-direction: column;
+
 }
 .slideno2 .fp-tableCell .slideno2Content h1{
 	font-size:10rem;
 	font-weight:bold;
 	color:black;
-	margin-right:10%;
-	opacity:1;
-	transition:ease-in 1s;
+	margin-right:0%;
+	opacity:0;
+	transition:ease-in 0.8s;
 }
 .slideno2 .fp-tableCell .slideno2Content h3{
 	font-size:5rem;
 	color:black;
- 	margin-right:10%;
-	opacity:1;
+ 	margin-right:0%;
+	opacity:0;
 	transition:ease-in 1s;
 }
 .slideno2 .fp-tableCell .slideno2Content h4{
 	font-size:3rem;
 	color:black;
- 	margin-right:10%;
-	opacity:1;
-	transition:ease-in 1s;
+ 	margin-right:0%;
+	opacity:0;;
+	transition:ease-in 1.2s;
 }
 
 
@@ -442,22 +443,20 @@ ul.slide_bar_list.end {
 	display:flex;
 	align-items:center;
 	justify-content:center;
-	flex-direction: column;
+	flex-direction: column;	
 }
 .slideno3 .fp-tableCell .slideno3Content h1{
 	font-size:10rem;
 	font-weight:bold;
 	color:black;
-	margin-left:0;
-	opacity:1;
-	transition:ease-in 1s;
+	opacity:0;
+	transition:ease-in 1.2s;
 }
 .slideno3 .fp-tableCell .slideno3Content h3{
 	font-size:5rem;
 	color:black;
-	margin-left:0;
-	opacity:1;
-	transition:ease-in 1s;
+	opacity:0;
+	transition:ease-in 1.2s;
 }
 
 
@@ -529,28 +528,25 @@ ul.slide_bar_list.end {
 	flex-wrap: wrap;
 }
 
-
-.sec1 .fp-tableCell>div.sec1_content0 {
-	width:700px;
-	height:600px;
-	padding:10px;
-	border-radius: 8px;
-	background: rgba(255,255,255,0.5)
-	
+/* sec1 con0 */
+.sec1 .fp-tableCell>div.sec1_content0{
+	margin-left:-10%;
+	opacity:0;
+	transition:ease-in 0.8s;
 }
 
-.sec1 .fp-tableCell>div.sec1_content1 {
-	
+.sec1 .fp-tableCell>div.sec1_content0 .con0_graph {
 	width:700px;
-	height:600px;
+	height:500px;
 	padding:10px;
 	border-radius: 8px;
+/* 	background: rgba(255,255,255,0.5)	 */
 }
-.sec1 .fp-tableCell>div.sec1_content1 h1{
-	font-size:5rem;
+.sec1 .fp-tableCell>div.sec1_content0 h2{
+	font-size:4rem;
 	font-weight:bold;
 	color:black;
-	margin-left:-10%;
+	/* margin-left:-10%; */
 	transition:ease-in 1s;
 	font-family: 'nanumb';
 	font-weight: bold;
@@ -558,10 +554,18 @@ ul.slide_bar_list.end {
 
 
 
-
-.sec0 .fp-tableCell>div.sec1_content1 canvas{
-
+/* sec1 con1 */
+.sec1 .fp-tableCell>div.sec1_content1 {
+	width:700px;
+	height:600px;
+	padding:10px;
+	border-radius: 8px;
+	margin-left:-10%;
+	opacity:0;
+	transition:ease-in 1.2s;
 }
+
+
 
 
 
@@ -597,7 +601,7 @@ ul.slide_bar_list.end {
 /* section 2=============================================== */
 .sec2 .fp-tableCell {
 	width: 100%;
-	background-image: url('../image/mainimg3.jpg');
+	background-image: url('../image/sec1.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -607,17 +611,27 @@ ul.slide_bar_list.end {
 	flex-wrap: wrap;
 }
 
+/* sec2 con0*/
 .sec2 .fp-tableCell>div.sec2_content0 {
-	background-color: rgba(0, 0, 0, 50%);
 	width:700px;
 	height:600px;
 	padding:10px;
 	border-radius: 8px;
+	margin-right:-10%;
+	opacity:0;
+	transition:ease-in 1.2s;
 }
 
+
+/* sec2 con1 */
 .sec2 .fp-tableCell>div.sec2_content1 {
 	display:flex;
 	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	margin-right:-10%;
+	opacity:0;
+	transition:ease-in 1.2s;
 }
 
 
@@ -764,7 +778,7 @@ ul.slide_bar_list.end {
 .sec3 .fp-tableCell {
 	width: 100%;
 	height:100%;
-	background-image: url('../image/backnote.jpg');
+	background-image: url('../image/se00.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -789,7 +803,9 @@ ul.slide_bar_list.end {
 	width:24%;
 	height:650px;
 	margin-top:60px;
-	transition: 0.35s;
+	margin-bottom:-10%;
+	opacity:0;
+	transition: 1.2s;
 	box-shadow:10px 10px 30px #000808;
 	display:flex;
 	justify-content: center;

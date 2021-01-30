@@ -39,26 +39,20 @@
 				<label><span class="glyphicon glyphicon-lock"></span>  Password</label>
 			</div>
 			<div class="find_informaion">
-				<p id="findid_btn">아이디 찾기</p>
-				<p id="findpw_btn">비밀번호 찾기</p>
+				<p id="findid_btn">아이디 찾기</p>&nbsp;/&nbsp;<p id="findpw_btn">비밀번호 찾기</p>
 			</div>
 			<div class="login_btns">
-				<button type="submit" class="login_btn">L o g  I n</button><br>
+				<button type="submit" class="login_btn">L O G  I N</button><br>
 				<button type="button" class="login_btn signup_btn" onclick="location.href='signup'">S I G N  U P</button>
 			</div>
 			
 			
-			
-			
-			
 			<!-- 카카오 자바 사용 스크립트 -->
-			<a href="javascript:loginWithKakao()"><img src="${root}/image/kakao_login.png" class="kakaologin_btn" alt="카카오 로그인 이미지"></a>
+			<a href="javascript:loginWithKakao()"><img src="${root}/image/kakao_login.png" style="width:350px; height:55px;margin-top:10px;" class="kakaologin_btn" alt="카카오 로그인 이미지"></a>
 			
 			<!-- 구글 -->
-			<div id="google_login" class="circle google" onclick="init();"><img alt="구글 로그인 이미지" src="${root}/image/google_login.png" class="googlelogin_btn"></div>
+			<div id="google_login" class="circle google" onclick="init();"><img alt="구글 로그인 이미지" src="${root}/image/google_login.png" style="width:350px; height:55px;margin-top:10px;cursor:pointer " class="googlelogin_btn"></div>
 			<%-- <a href="init();"><img alt="구글 로그인 이미지" src="${root}/image/google_login.png" class="googlelogin_btn"></a> --%>
-			
-			
 			
 		</form>
 	</div>

@@ -47,8 +47,6 @@
 				<span class="signup_input_sp"> <span class="glyphicon glyphicon-earphone"></span> Phone Number</span>
 			</label>
 			
-			
-			
 			<div class="insert_member_btn">
 				<button class="insrt_membtn" type="submit">가입</button><br>
 				<button class="insrt_membtn insrt_membtn2" type="button" onclick="history.back();">취소</button>
