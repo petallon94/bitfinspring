@@ -172,6 +172,9 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
             <form action="cardscrapdel" method="post" class="form-inline">
                <input type="hidden" name="sbnum" value="0">
                <input type="hidden" name="scnum" value="${dto.cnum}">   
+               <input type="hidden" name="smidnum" value="${mdto.mnum}">
+               <input type="hidden" name="num" value="${dto.cnum}">
+               <input type="hidden" name="pageNum" value="${pageNum}">
                <div class="modal-body" style="padding: 40px 50px; text-align: center;">
                   <button type="submit" style="width: 80px;">
                      <span class="glyphicon glyphicon-trash"></span> 확인
