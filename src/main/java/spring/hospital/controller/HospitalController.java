@@ -22,5 +22,10 @@ public class HospitalController {
       return "/hospital/hospitaldetail";
    }
    
+   @GetMapping("/tablist")
+   public String goTablist() {
+      return "/hospital/tablist";
+   }
 
+   
 }
