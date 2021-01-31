@@ -8,6 +8,7 @@
 <head>
 <meta charset="utf-8">
 <title>Insert title here</title>
+
 <!-- css -->
 <link rel="stylesheet" href="${root}/css/mypage/m_scrap.css" />
 </head>
