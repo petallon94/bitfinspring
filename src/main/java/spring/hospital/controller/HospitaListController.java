@@ -29,7 +29,7 @@ public class HospitaListController {
 
     	        URL url = new URL(urlBuilder.toString());
     	        //웹url에 테스트해보기
-    	        //System.out.println(url);
+    	        System.out.println(url);
 
     	        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
     	        conn.setRequestMethod("GET");

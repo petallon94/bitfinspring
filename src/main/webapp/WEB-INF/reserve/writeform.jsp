@@ -15,9 +15,6 @@
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script type="text/javascript">
-$(document).ready(fu)
-</script>
 </head>
 <body>
 <div class="rsv__con">

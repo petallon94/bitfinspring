@@ -220,11 +220,12 @@
 	vertical-align: middle;
 }
 
-.hospital__list_container {
+#hospital__list_container {
+	/*display: none;*/
 	width: 900px;
 	margin: 60px auto;
 }
-.hospital__list_cards {
+#hospital__list_cards {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-gap: 16px;
@@ -235,6 +236,7 @@
 	padding: 24px;
 	margin: 8px;
 	box-shadow: 0 0 16px rgba(0,0,0,0.1);
+	cursor:pointer;
 }
 
 .hospital__list_card h3{
@@ -272,7 +274,24 @@
     width: auto;
   }
 }
-  
+.paging{  
+font-size: 0;
+    line-height: 0;
+    text-align: center;
+    margin-top: 15px;
+    padding-bottom: 30px;
+    vertical-align: middle;
+}  
+.paging .first, .paging .prev {
+    margin-right: 4px;
+}
+.paging span, .paging ul li {
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+}
+
+      
 /* Container media queries */
 @media (min-width: 500px) {
   .hospital__list_container {
