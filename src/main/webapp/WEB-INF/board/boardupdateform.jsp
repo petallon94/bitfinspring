@@ -123,9 +123,9 @@ function hashtag_list()
 			<div class="board_updateform">
 				<h3>글제목</h3>
 				<input type="text" class="board_topic" id="board_topic" name="bsubject" value ="${dto.bsubject}"/>
-				<input type="text" class="board_bid" id="board_bid" name="bnum" value="${dto.bnum}" />
-				<input type="text" class="board_id" id="board_id" name="bmidnum" value="${mdto.mnum}" />
-				<input type="text" class="board_nick" id="board_nick" name="bwriter" value="${mdto.mnick}"/>
+				<input type="text" class="board_bid" id="board_bid" name="bnum" value="${dto.bnum}"  disabled/>
+				<input type="text" class="board_id" id="board_id" name="bmidnum" value="${mdto.mnum}"  disabled/>
+				<input type="text" class="board_nick" id="board_nick" name="bwriter" value="${mdto.mnick}" disabled/>
 				<input type ="hidden" name="pageNum" value ="${pageNum}">
 				<input type ="hidden" name="regroup" value ="${dto.regroup}">
 				<input type ="hidden" name="restep" value ="${dto.restep}">

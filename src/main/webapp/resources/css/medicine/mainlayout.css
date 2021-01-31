@@ -110,16 +110,25 @@
 }
 
 /*의약품 출력 관련 css */
+
+#med_searchlist h4{
+	
+	font-size : 1.3em;
+
+}
+
 .medi_test{
 	margin-bottom : 20px;
+	margin-top : 10px;
+	
 }
 
 .medi_click{
-	border : 1px solid gray;
 	height : 60px;
-		display : flex;
+	display : flex;
 	align-items : center;
-	
+	font-weight : bold;
+	border-bottom : 1px solid #eee;
 }
 
 .medi_no{
@@ -138,7 +147,7 @@
 	cursor : pointer;
 } 
 .medi_title span {
-	padding-right : 3px;
+	padding-right : 10px;
 	float : right;
 }
 
@@ -151,7 +160,14 @@ display:block;
 	padding-top : 5px;
 	padding-left : 10px;
 	padding-bottom : 10px;
-	border : 1px solid red;
 	height : 120%;
+	line-height : 200%;
 }
+
+.medi_contents >a{
+	
+	font-weight : bold;
+	text-decoration : none;
+}
+
 

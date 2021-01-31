@@ -37,9 +37,9 @@
 				<input type="text" class="board_topic" id="board_topic"
 					name="bsubject" /> 
 					<input type="text" class="board_id"
-					id="board_id" name="bmidnum" value="${mdto.mnum}" /> 
+					id="board_id" name="bmidnum" value="${mdto.mnum}" disabled /> 
 					<input type="text" class="board_nick" id="board_nick" name="bwriter"
-					value="${mdto.mnick}" /> 
+					value="${mdto.mnick}" disabled /> 
 					<input type="hidden" name="pageNum" value="${pageNum}"> 
 					<input type="hidden" name="regroup" value="${regroup}"> 
 					<input type="hidden" name="restep" value="${restep}"> 

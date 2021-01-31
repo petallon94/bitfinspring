@@ -46,16 +46,19 @@
 								var totalCount = data.getElementsByTagName("totalCount");
 								console.log(data);
 
-								var s = "총 "+len+"개의 검색 결과가 있습니다.";
+								var s = "<h4>총 "+len+"개의 검색 결과가 있습니다.</h4>";
 
 									for (var i = 0; i < len; i++) {
 									
 									  s +="<div class='medi_test'><div class='medi_click' id='medi"+i+"' onclick ='answer_list(this)'><div class='medi_no'>"+(i+1)+"</div>";
 									  s +="<div class='medi_title'>"+item2[i].childNodes[0].textContent+"<span class='glyphicon glyphicon-list'></span></div></div>";
 									  s +="<div class='medi_contents'>";
-									  s +="<a>"+item[i].childNodes[0].textContent+"</a>";
-									  s +="<p>"+item4[i].childNodes[0].textContent+"</p>";
+									  s +="<a>"+item[i].childNodes[0].textContent+"</a></br>";
+									  s +="<a> ● 약 소개 : </a>";									  
+									  s +="<p> "+item4[i].childNodes[0].textContent+"</p>";
+									  s +="<a> ● 복용시 주의 사항 : </a>";									  
 									  s +="<p>"+item5[i].childNodes[0].textContent+"</p>";
+									  s +="<a> ● 보관시 주의 사항 : </a>";									  	
 									  s +="<p>"+item6[i].childNodes[0].textContent+"</p>";
 									  s +="</div>";		
 											}

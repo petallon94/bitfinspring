@@ -151,6 +151,7 @@ function search_list(){
 			<div class="board_right">
 				<img
 					src="${pageContext.request.contextPath}/resources/save/${b.bphoto}"
+					 onerror = "this.src='/image/no_image.png'"
 					style="width: 200px; height: 200px;" />
 			</div>
 		</div>

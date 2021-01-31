@@ -3,6 +3,11 @@
 
 /* 상단 레이아웃 */
 
+a{
+	
+	text-decoration : none;
+}
+
 .board_layout{
 	
 	background-color: #1f2c59;
@@ -115,6 +120,10 @@
 	margin-left : 10%;
 	margin-right : 10%;
 }
+
+
+
+
 
 .board_left{
 	background-color : #eee;
