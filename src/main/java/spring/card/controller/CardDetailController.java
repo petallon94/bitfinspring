@@ -53,7 +53,7 @@ public class CardDetailController {
           System.out.println("mdto.getMnum:"+mdto.getMnum());
 
          
-          int data=sdao.getTotalCount(Integer.toString(mdto.getMnum()));
+          int data=sdao.getTotalCount(mdto.getMnum());
             
 
            System.out.println("data:"+data);
@@ -68,7 +68,7 @@ public class CardDetailController {
                
                
                //해당 글 스크랩했는지안했는지확인(글num, 아디num)
-               int cardcheck=sdao.cardScrapCheck(num, Integer.toString(mdto.getMnum()));
+               int cardcheck=sdao.cardScrapCheck(Integer.parseInt(num), mdto.getMnum());
                System.out.println("cardcheck:"+cardcheck);
                
                

@@ -8,10 +8,8 @@
 <head>
 <meta charset="utf-8">
 <title>Insert title here</title>
-
 <!-- css -->
 <link rel="stylesheet" href="${root}/css/mypage/m_scrap.css" />
-
 </head>
 <body>
 <div class="mypage_wrapper">
@@ -64,65 +62,58 @@
 		<button type="button" class="sbtn cscrap" onclick="location.href='/mypage.cscrap'" style="float:right;">카드뉴스</button>
 	</div>
 	<c:if test="${totalCount==0}">
-		<table class="bscrap-table">
-				<thead>
-					<tr>
-						<th style="width: 10%">번호</th>
-						<th style="width: 40%">제목</th>
-						<th style="width: 30%">작성자</th>
-						<th style="width: 20%">작성날짜</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td colspan="4">등록된 글이 없습니다.</td>
-					</tr>
-				</tbody>
-		</table>
+		<div class="alert alert-info" style="width: 1260px; height: 330px; text-align: center; font-size: 1.2em;">
+			<div class="nonelink" style="margin-top: 110px; line-height: 30px;"><a href="doctor/list"><b>스크랩한 글이 없습니다.<br>카드뉴스페이지로 이동하시겠습니까?</b></a></div>
+		</div>
 	</c:if>
 	<c:if test="${totalCount>0}">
-		<table class="bscrap-table">
-				<thead>
-					<tr>
-						<th style="width: 10%">번호</th>
-						<th style="width: 40%">제목</th>
-						<th style="width: 30%">작성자</th>
-						<th style="width: 20%">작성날짜</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="bdto" items="${list }" varStatus="i">
-						<tr>
-							<td>${i.count }</td>
-							<td style="cursor: pointer;"><a href="board/boardcontent?bnum=${bdto.bnum}&pageNum=1">${bdto.bsubject }</a></td>
-							<td>${bdto.bwriter }</td>
-							<td><fmt:formatDate value="${bdto.bwritedate }" pattern="yyyy-MM-dd"/></td>
-						</tr>
+		<div class="cscrap-wrap">
+			<div class="cscrap-card-wrap">
+				<ul class="cscrap-row">
+					<c:forEach var="cdto" items="${list }" varStatus="i">
+							<li class="dcom-cell">
+								<a href="doctor/detail?num=${cdto.cnum}&pageNum=1&key=list">
+									<input type="hidden" value="${i.count}">
+									<div class="cscrap-con">
+										<div class="img-box">
+											<!-- 상대경로  ${pageContext.request.contextPath}-->
+											<img src="${pageContext.request.contextPath}/resources/save/${cdto.cphoto }" 
+													alt="" onerror="this.src='${pageContext.request.contextPath}/resources/image/nonimg.png'">
+										</div>
+										<div class="cscrap-txt" style="position: relative; max-width: 100%; display: block; white-space: nowrap;">
+											<div class="csubject">${cdto.csubject}</div>
+											<div class="cwriter">${cdto.cwriter}</div>
+											<div class="cday">
+												<fmt:formatDate value="${cdto.cwritedate}" pattern="yyyy MM-dd HH:mm" />
+											</div>
+										</div>
+									</div>
+								</a>
+							</li>
 					</c:forEach>
-				</tbody>
-			</table>
+				</ul>
+			</div>
 			
-			<div style="width: 800px; text-align: center;">
+			<!-- 페이징 -->
+			<div class="cpagination">
 				
 				<ul class="pagination">
 					<c:forEach var="pp" begin="${startPage}" end="${endPage}">
 						<c:if test="${pp==currentPage}">
-							<li class="active"><a href="mypage.scrap?pageNum=${pp}">${pp}</a></li>
+							<li class="active"><a href="mypage.cscrap?pageNum=${pp}">${pp}</a></li>
 						</c:if>
 						<c:if test="${pp!=currentPage}">
-							<li><a href="mypage.scrap?pageNum=${pp}">${pp}</a></li>
+							<li><a href="mypage.cscrap?pageNum=${pp}">${pp}</a></li>
 						</c:if>
 					</c:forEach>
 					<c:if test="${endPage<totalPage}">
-						<li><a href="mypage.scrap?pageNum=${endPage+1}">다음</a></li>
+						<li><a href="mypage.cscrap?pageNum=${endPage+1}">다음</a></li>
 					</c:if>
 		
 				</ul>
-			</div>
+			</div>	
+		</div>
 	</c:if>
-
-	
-	
 </div>
 </body>
 </html>

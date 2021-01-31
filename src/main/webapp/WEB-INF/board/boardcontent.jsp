@@ -129,6 +129,41 @@ function answer_list()
   </div>
   <!-- Modal -->
   
+  <!-- 스크랩삭제 모달 -->
+   <div class="modal fade" id="mybModaldelscrap" role="dialog" style="margin-top: 100px;">
+      <div class="modal-dialog">
+
+         <!-- Modal content-->
+         <div class="modal-content">
+            <div class="modal-header" style="padding: 35px 50px;">
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+               <h4>
+					게시물을 스크랩취소하시겠습니까?
+					bnum: ${dto.bnum}
+					bmidnum: ${mdto.mnum}
+					boardcheck: ${boardcheck}
+               </h4>
+            </div>
+            <form action="boardscrapdel" method="post" class="form-inline">
+               <input type="hidden" name="scnum" value="0">
+				<input type="hidden" name="sbnum" value="${dto.bnum}">
+				<input type="hidden" name="smidnum" value="${mdto.mnum}">
+				<input type="hidden" name="num" value="${dto.bnum}">
+               	<input type="hidden" name="pageNum" value="${pageNum}">     
+               <div class="modal-body" style="padding: 40px 50px; text-align: center;">
+                  <button type="submit" style="width: 80px;">
+                     <span class="glyphicon glyphicon-trash"></span> 확인
+                  </button>
+                  <button type="button" style="width: 80px;" data-dismiss="modal">
+                     <span class="glyphicon glyphicon-remove"></span> 취소
+                  </button>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+  <!-- 스크랩삭제 모달 -->
+  
   <!-- 스크랩추가 모달 -->
 	<div class="modal fade" id="mybModalscrap" role="dialog" style="margin-top: 100px;">
 		<div class="modal-dialog">
@@ -199,7 +234,7 @@ function answer_list()
 				
 				<c:if test="${loginok != null }">
 					<c:if test="${boardcheck>0}">
-						<button type ="button" class ="board_cscrbutton" id="scrapdel-btn" style="background-color: yellow;">스크랩</button>
+						<button type ="button" class ="board_cscrbutton" id="scrapdel-btn" style="background-color: yellow;" data-toggle="modal" data-target="#mybModaldelscrap">스크랩</button>
 					</c:if>
 					<c:if test="${boardcheck==0||boardcheck==null}">
 						<button type ="button" class ="board_cscrbutton" id="scrap-btn" data-toggle="modal" data-target="#mybModalscrap">스크랩</button>
