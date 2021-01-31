@@ -41,11 +41,11 @@ public class MypageController {
 	}
 	
 	//내 스크랩
-	@GetMapping("/mypage.scrap")
-	public String goMypagescrap()
-	{
-		return "/mypage/myscrap";
-	}
+//	@GetMapping("/mypage.scrap")
+//	public String goMypagescrap()
+//	{
+//		return "/mypage/myscrap";
+//	}
 	
 	//내 예약
 	@GetMapping("/mypage.reservation")

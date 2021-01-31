@@ -68,14 +68,14 @@ public class BoardContentController {
 			System.out.println("로그인O");
 			System.out.println("mdto.getMnum:"+mdto.getMnum());
 			
-			int data=sdao.getTotalCount(Integer.toString(mdto.getMnum()));
+			int data=sdao.getTotalCount(mdto.getMnum());
 			System.out.println("data:"+data);
 			
 			//id에 스크랩한거있는경우
 			if(data>0)
 			{
 				//해당 글 스크랩했는지안했는지확인(글num, 아디num)
-				int boardcheck=sdao.boardScrapCheck(bnum, Integer.toString(mdto.getMnum()));
+				int boardcheck=sdao.boardScrapCheck(Integer.parseInt(bnum), mdto.getMnum());
 				System.out.println("boardcheck:"+boardcheck);
 				
 				 mview.addObject("boardcheck", boardcheck);

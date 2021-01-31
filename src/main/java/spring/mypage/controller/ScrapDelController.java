@@ -32,4 +32,21 @@ public class ScrapDelController {
 		model.addAttribute("url",("/doctor/detail?num="+num+"&pageNum="+pageNum+"&key=list"));
 		return "/member/alert";
 	}
+	
+	@PostMapping("/board/boardscrapdel")
+	public String boardScrapDel(@ModelAttribute ScrapDto dto
+			,@RequestParam(required = false) String num
+			,@RequestParam(required = false) String pageNum
+			,@RequestParam(required = false) String key
+			,Model model)
+	{
+		dao.deleteboardScrap(dto);
+		
+		model.addAttribute("boardcheck", 0);
+		
+		model.addAttribute("alert_title","스크랩취소");
+		model.addAttribute("alert_icon","success");
+		model.addAttribute("url",("/board/boardcontent?bnum="+num+"&pageNum="+pageNum));
+		return "/member/alert";
+	}
 }

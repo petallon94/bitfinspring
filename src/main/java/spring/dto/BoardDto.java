@@ -2,6 +2,8 @@ package spring.dto;
 
 import java.sql.Timestamp;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class BoardDto {
 	
 	private int bnum;
@@ -10,6 +12,7 @@ public class BoardDto {
 	private String bsubject;
 	private String bcontent;
 	private String bphoto;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
 	private Timestamp bwritedate;
 	private int breadcount;
 	private int readcount;
@@ -18,7 +21,10 @@ public class BoardDto {
 	private int relevel;
 	private int hbnum;
 	private String hashtag;
-	
+	private int snum;
+	private int smidnum;
+	private int sbnum;
+	private int scnum;
 	
 	
 	public String getBphoto() {
@@ -105,6 +111,29 @@ public class BoardDto {
 	public void setBreadcount(int breadcount) {
 		this.breadcount = breadcount;
 	}
+	public int getSnum() {
+		return snum;
+	}
+	public void setSnum(int snum) {
+		this.snum = snum;
+	}
+	public int getSmidnum() {
+		return smidnum;
+	}
+	public void setSmidnum(int smidnum) {
+		this.smidnum = smidnum;
+	}
+	public int getSbnum() {
+		return sbnum;
+	}
+	public void setSbnum(int sbnum) {
+		this.sbnum = sbnum;
+	}
+	public int getScnum() {
+		return scnum;
+	}
+	public void setScnum(int scnum) {
+		this.scnum = scnum;
+	}
 	
-
 }
