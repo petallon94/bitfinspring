@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+
+
+.myinformation_title{
+	position:relative;
+	margin-bottom:-25px;
+	margin-left:10px;
+	color:black;
+	font-size:3em;
+	font-weight: bold;
+}
+
+.myinformation_btn{
+	display:flex;
+	justify-content: flex-end;
+	margin-right:15px;
+}
+
+
+.myinformation_card{
+	background-color:rgba(170,204,255,1);
+	width:100%;
+	height: 300px;
+	border-radius: 10px;
+	justify-content: center;
+	align-items: center;
+	padding:5% 10%;
+	display:flex;
+	justify-content:flex-start;
+	align-items: center;
+}
+
+.myinformation_card .myinformation_cardinfo{
+	margin-left:45px;
+	width:80%;
+	
+}
+
+.myinformation_cardinfo tbody tr{
+	height:35px;
+}
+.myinformation_cardinfo tbody th{
+	width: 15%;
+}
+
+.myinformation_cardinfo tbody td{
+	width: 50%;
+	font-family: 'nanum'; 
+	
+}
+
+@media screen and (max-width:768px){
+	
+	.mycontent_info{
+		width:480px;
+	}	
+	
+	.myinformation_card .myinformation_cardinfo{
+		margin-left:45px;
+		width:450px;
+	
+	}
+}

@@ -342,7 +342,7 @@
 				</div>
 				
 				
-				<div class="sec3_box sec3_box2">
+				<div class="sec3_box sec3_box2" OnClick="location.href='${root}/doctor/list'">
 					<div class="sec3_wrapper sec3_wrapper2">
 						<div class="sec3_tsm sec3_title"><b>카드뉴스</b></div>
 						<div class="sec3_tsm sec3_subcon">
@@ -353,7 +353,7 @@
 				</div>
 				
 				
-				<div class="sec3_box sec3_box3">
+				<div class="sec3_box sec3_box3" OnClick="location.href='${root}/board/list'">
 					<div class="sec3_wrapper sec3_wrapper3">
 						<div class="sec3_tsm sec3_title">커뮤니티</div>
 						<div class="sec3_tsm sec3_subcon">
@@ -365,7 +365,7 @@
 				</div>
 				
 				
-				<div class="sec3_box sec3_box4">
+				<div class="sec3_box sec3_box4" OnClick="location.href='${root}/medicine/search'">
 					<div class="sec3_wrapper sec3_wrapper4">
 						<div class="sec3_tsm sec3_title">의약품 검색</div>
 						<div class="sec3_tsm sec3_subcon">

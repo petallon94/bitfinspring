@@ -59,49 +59,59 @@
 	
 	<!-- 내용 시작 -->
 	<div class="mycontent_info">
-		나의 정보
-		<button type="button" id="mupdate_btn">정보수정</button>
-		<button type="button" id="mdelete_btn">회원탈퇴</button>
-		<button type="button" id="updatempw_btn">비밀번호 변경</button>
-		<hr>
-		<table>
-			<tbody>
-				<tr>
-					<th>아이디</th>
-					<td>${mdto.mid }</td>
-				</tr>
-				<tr>
-					<th>닉네임</th>
-					<td>${mdto.mnick}</td>
-				</tr>
-				<tr>
-					<th>이메일</th>
-					<td>${mdto.memail}</td>
-				</tr>
-				<tr>
-					<th>전화번호</th>
-					<td>${mdto.mhp}</td>
-				</tr>
-				<tr>
-					<th>회원타입</th>
-					<td>
-						<c:if test="${mdto.mrole==0}">
-							일반회원
-						</c:if>
-						<c:if test="${mdto.mrole==1}">
-							전문회원
-						</c:if>
-					</td>
-				</tr>
-				<c:if test="${mdto.mrole==1}">
+			
+		<div class="myinformation_title">나의 정보</div>
+		<div class="myinformation_btn">	
+			<button type="button" id="mupdate_btn">정보수정</button>
+			<button type="button" id="mdelete_btn">회원탈퇴</button>
+			<button type="button" id="updatempw_btn">비밀번호 변경</button>
+		</div>
+		<div class="myinformation_card">
+			<div>
+				<img src="${root}/image/covid_symbol.png" />
+			</div>
+			<table class="myinformation_cardinfo">
+				<tbody>
 					<tr>
-						<th>채팅사용여부</th>
-						<td></td>
+						<th>아이디</th>
+						<td>${mdto.mid }</td>
 					</tr>
-				</c:if>
-			</tbody>
-		</table>
+					<tr>
+<!-- 						<th>닉네임</th> -->
+						<td>${mdto.mnick}</td>
+					</tr>
+					<tr>
+						<th>이메일</th>
+						<td>${mdto.memail}</td>
+					</tr>
+					<tr>
+						<th>전화번호</th>
+						<td>${mdto.mhp}</td>
+					</tr>
+					<tr>
+						<th>회원타입</th>
+						<td>
+							<c:if test="${mdto.mrole==0}">
+								일반회원
+							</c:if>
+							<c:if test="${mdto.mrole==1}">
+								전문회원
+							</c:if>
+						</td>
+					</tr>
+					<c:if test="${mdto.mrole==1}">
+						<tr>
+							<th>채팅사용여부</th>
+							<td></td>
+						</tr>
+					</c:if>
+				</tbody>
+			</table>
+		</div>		
+		
 	</div>
+		
+		
 	
 	
 	
