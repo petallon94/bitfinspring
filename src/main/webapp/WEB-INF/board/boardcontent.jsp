@@ -257,10 +257,11 @@ function answer_list()
 			<div class="ans_writeform form-inline form-group" >
 			<div>
 			<div class ="ans_id">
-			<input type="text" class="form-control input-sm" id="acnum" value ="${dto.bnum}">
-			<input type="text" class="form-control input-sm" id="amidnum" value ="${mdto.mnum}">
-			<input type="text" class="form-control input-sm" id="awriter" value ="${mdto.mnick}">
+			<input type="hidden" class="form-control input-sm" id="acnum" value ="${dto.bnum}">
+			<input type="hidden" class="form-control input-sm" id="amidnum" value ="${mdto.mnum}">
+			<input type="hidden" class="form-control input-sm" id="awriter" value ="${mdto.mnick}">
 			
+			<div> ${mdto.mnick}</div>
 			
 			</div>
 			<textarea class = "ans_writearea" id="amemo" name="amemo"> </textarea><br>
