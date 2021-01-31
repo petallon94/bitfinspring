@@ -10,8 +10,10 @@
 </head>
 <body>
 <div class="mypage_wrapper">
-	<div class="mypage_title">
-		My Page
+	<div class="mypage_hadder">
+		<div class="header_title">
+			My Reservation
+		</div>
 	</div>
 	
 	<!-- 메뉴 -->
@@ -20,7 +22,7 @@
 		<ul class="mypage_menu_icon">
 			<li>
 				<a href="${root}/mypage.main">
-					<div class="mypage_icon icon_mycontent"></div>
+					<div class="mypage_icon icon_mypage"></div>
 					마이페이지
 				</a>
 			</li>
@@ -54,10 +56,12 @@
 	
 	
 	<!-- 내용 시작 -->
+	<div class="mycontent_reservation">
+	
+		<!-- 안에 채우시오. -->
 	
 	
-	
-	
+	</div>	
 </div>
 </body>
 </html>

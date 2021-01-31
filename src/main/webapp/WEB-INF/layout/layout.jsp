@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="${root}/css/hospital/hospital.css" />
 <link rel="stylesheet" href="${root}/css/member.css" />
 <link rel="stylesheet" href="${root}/css/mypage/m_member.css" />
+<link rel="stylesheet" href="${root}/css/mypage/Mypage.css" />
 <link rel="stylesheet" href="${root}/css/dcommu/dcomlist.css">
 <link rel="stylesheet" href="${root}/css/dcommu/normalize.8.0.1.css">
 <link rel="stylesheet" href="${root}/css/hospital/reservation.css" />
@@ -31,6 +32,7 @@
 <script src="${root}/js/fullpage.min.js" ></script>
 <script src="${root}/js/map.js"></script>
 <script src="${root}/js/mainpage.js"></script>
+<script src="${root}/js/mypage.js"></script>
 
 
 

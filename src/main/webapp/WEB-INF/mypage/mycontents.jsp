@@ -18,8 +18,10 @@
 </head>
 <body>
 <div class="mypage_wrapper">
-	<div class="mypage_title">
-		My Page
+	<div class="mypage_hadder">
+		<div class="header_title">
+			My Contents
+		</div>
 	</div>
 	
 	<!-- 메뉴 -->
@@ -28,7 +30,7 @@
 		<ul class="mypage_menu_icon">
 			<li>
 				<a href="${root}/mypage.main">
-					<div class="mypage_icon icon_mycontent"></div>
+					<div class="mypage_icon icon_mypage"></div>
 					마이페이지
 				</a>
 			</li>
@@ -105,6 +107,6 @@
 		</ul>
 	</div>
 
-		</div>
+</div>
 </body>
 </html>
