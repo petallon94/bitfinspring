@@ -11,6 +11,7 @@
 	content="width=device-width, maximum-scale=1.0, minimum-scale=1, 
 user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="${root}/css/mainsafe/safelist.css">
 <script type="text/javascript" src="${root }/js/safelist.js"></script>
 <title>Insert title here</title>
 </head>
@@ -237,6 +238,12 @@ content:'\f1cb';
 <script>
 	$(document).ready(function(){
 		callApiXml();
+		$(".option").click(function(){
+			   $(".option").removeClass("active");
+			   $(this).addClass("active");
+			   
+			});
+
 	});
 function callApiXml() {
 	 $.ajax({
@@ -246,23 +253,23 @@ function callApiXml() {
          success: function(data) {
             //alert(data);
             s="";
+            c="";
+            v="";
+            scv="";
             $.each(data,function(index,item){
-      			//alert(item.content);
-            	$.each(item,function(a,b){
-            		//alert(b.content);
-            		var id = b.id;
-            		//alert(id);
-            		s+="<li class='safe-cell'>";
-            		s+="<div class='safe-img-box'>";
-            		s+="<div class='safe-countryName'>"+b.countryName+"</div>";
-            		s+="<div class='safe-title'>"+b.title+"</div>";
-            		s+="<div class='safe-content'>"+b.content+"</div>";
-            		s+="<div class='safe-writer'>"+b.wrtDt+"</div>";
-            		s+="</div>";
-            		s+="</li>";
-            	});
-            	$("#safe").html(s);
+            	var countryName1=item[0].countryName;
+            	var title1=item[0].title;
+            	var content1=item[0].content;
+            	var wrtDt1=item[0].wrtDt;
+            	s+="<div>"+countryName1+"</div>"
+            	c+="<div>"+title1+"</div>"
+            	v+="<div>"+content1+"</div>"
+            	scv+="<div>"+wrtDt1+"</div>"
 			});
+            $("#countryName1").append(s);
+            $("#title1").append(c);
+            $("#content1").append(v);
+            $("#wrtDt1").append(scv);
          }
      });
 }
@@ -377,10 +384,76 @@ function callApiIsolation() {
 		<div class="safe-list-box">
 			<ul class="safe-row">
 				<div id="safe"></div>
-				<div class="safe-hide" id="safe"></div>
 			</ul>
 		</div>
 	</div>
+	<!-- ///////////////////////////////////////// -->
+	
+<div class="options">
+   <div class="option active">
+      <div class="shadow"></div>
+      <div class="label">
+         <div class="icon">
+            <i class="fas fa-walking"></i>
+         </div>
+         <div class="info">
+            <div class="main" id="countryName1"></div>
+            <div class="sub" id="title1"></div>
+            <div class="sub" id="content1"></div>
+      		<div class="sub" id="wrtDt1"></div>
+         </div>
+      </div>
+	</div>
+	<div class="option">
+      <div class="shadow"></div>
+      <div class="label">
+         <div class="icon">
+            <i class="fas fa-snowflake"></i>
+         </div>
+         <div class="info">
+            <div class="main"></div>
+            <div class="sub"></div>
+         </div>
+      </div>
+   </div>
+   <div class="option">
+      <div class="shadow"></div>
+      <div class="label">
+         <div class="icon">
+            <i class="fas fa-tree"></i>
+         </div>
+         <div class="info">
+            <div class="main"></div>
+            <div class="sub"></div>
+         </div>
+      </div>
+   </div>
+   <div class="option">
+      <div class="shadow"></div>
+      <div class="label">
+         <div class="icon">
+            <i class="fas fa-tint"></i>
+         </div>
+         <div class="info">
+            <div class="main"></div>
+            <div class="sub"></div>
+         </div>
+      </div>
+   </div>
+   <div class="option">
+      <div class="shadow"></div>
+      <div class="label">
+         <div class="icon">
+            <i class="fas fa-sun"></i>
+         </div>
+         <div class="info">
+            <div class="main"></div>
+            <div class="sub"></div>
+         </div>
+      </div>
+   </div>
+</div>
+
 
 </body>
 </html>

@@ -28,7 +28,6 @@
 	src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-		callCardList();
 		$("#btn-insert").click(function() {
 			var loginok= $("#loginok").val();
 			if(loginok != ""){
@@ -49,6 +48,7 @@ $(document).ready(function() {
 function callCardList() {
 		var searchType=$("#searchType").val();
 		var keyword=$("#keyword").val();
+		var num=$("#num").val();
 		//alert(word+","+search);
 		//alert(search+":"+word);
 		//검색한 값이랑 단어의 값을 넣으면
@@ -67,12 +67,12 @@ function callCardList() {
 					var csubject = item.csubject;
 					var cwriter = item.cwriter;
 					var cwritedate = item.cwritedate;
-					
+					s+='<img src="https://previews.123rf.com/images/sapannpix/sapannpix1604/sapannpix160400008/54710924-%EC%9D%98%EC%82%AC%EC%99%80-%EA%B0%84%ED%98%B8%EC%82%AC-%EB%B0%8F-%EC%9D%98%EB%A3%8C-%EC%A7%81%EC%9B%90%EC%9D%80-%ED%8F%89%EB%A9%B4-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%95%84%EC%9D%B4%EC%BD%98-%EC%84%B8%ED%8A%B8.jpg" width="0px" height="0px"/>'
 					s+='<div class="dcom-prod-list-bar dcom-con">';
 					s+='<div class="dcom-prod-list-box">';
 					s+='<ul class="dcom-row">';
 					s+='<li class="dcom-cell">';
-					s+='<a href="detail?num=${d.cnum}&pageNum=${currentPage }&key=list">';
+					s+='<a href="detail?num='+num+'&pageNum=${currentPage }&key=list">';
 					s+='<div class="dcom-img-bar">';
 					s+='<div class="dcom-img-box">';
 					s+='<img src="${pageContext.request.contextPath}/resources/save/'+cphoto+'"alt="">';
@@ -84,7 +84,7 @@ function callCardList() {
 					s+='</div></div></a></li></ul></div></div>';
 					
 				});
-				$("#cnffur").html(s);	
+				$("#cnffur").html(s);
 			}
 		});
 	}
@@ -138,7 +138,6 @@ function callCardList() {
 			<div class="form-inline">
 			<input type="hidden" id="totalCount" name="totalCount" value="${totalCount }">
 			<input type="hidden" id="currentPage" name="currentPage" value="${currentPage}">
-			<form action="/doctor/list">
 				<select id="searchType" name="searchType">
 					<option value="all">전체</option>
 					<option value="t">제목</option>
@@ -146,8 +145,8 @@ function callCardList() {
 					<option value="w">작성자</option>
 				</select> <input class="form-control" type="text" id="keyword" name="keyword"
 				placeholder="검색어를 입력하세요" />
-				<button id="searchBtn" class="btn btn-primary" type="submit">검 색</button>
-			</form>
+				<button id="searchBtn" class="btn btn-primary" onclick="callCardList()">검 색</button>
+		
 			</div>
 			<button type="button" id="btn-insert" class="dcom-write-btn" style="width: 100px;"
 			>게시글작성</button>
@@ -159,10 +158,11 @@ function callCardList() {
 	<hr class="slideline">
 	
   	<!-- card start-->
-	<div class="dcom-prod-list-bar dcom-con">
+	<div class="dcom-prod-list-bar dcom-con" id="cnffur">
 		<div class="dcom-prod-list-box">
 			<ul class="dcom-row">
 				<c:forEach var="d" items="${list }" varStatus="i">
+					<input type="hidden" id="num" value="${d.cnum}">
 					<li class="dcom-cell"><a href="detail?num=${d.cnum}&pageNum=${currentPage }&key=list">
 							<input type="hidden" value="${i.count}">
 							<div class="dcom-img-bar">
