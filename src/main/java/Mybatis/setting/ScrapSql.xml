@@ -2,12 +2,12 @@
 <mapper namespace="scrap">
 	<!--   board scrap list 출력 -->
 	<select id="selectAllOfbScrap" parameterType="HashMap" resultType="bdto">
-		select * from scrap s, board b where s.sbnum=b.bnum and s.smidnum=#{smidnum} order by smidnum desc limit #{start},#{perpage}
+		select * from scrap s, board b where s.sbnum=b.bnum and s.smidnum=#{smidnum} order by snum desc limit #{start},#{perpage}
 	</select>
 	
 	<!--   card scrap list 출력 -->
 	<select id="selectAllOfcScrap" parameterType="HashMap" resultType="cdto">
-		select * from scrap s, card c where s.scnum=c.cnum and s.smidnum=#{smidnum} order by smidnum desc limit #{start},#{perpage}
+		select * from scrap s, card c where s.scnum=c.cnum and s.smidnum=#{smidnum} order by snum desc limit #{start},#{perpage}
 	</select>
 	
 	<!-- insert -->
