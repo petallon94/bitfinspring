@@ -3,6 +3,7 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="root" value="<%=request.getContextPath()%>" />
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,12 +11,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+<!-- 배너 -->
 	<div class="sub_visual bg-menu">
 		<div class="txt">
 		</div>
 		<div class="img-cover"></div>
 	</div>
-
+<!-- 배너 -->
+	
+<!-- 메뉴바 -->
 <nav class="tabs">
   <div>
     <button class="tab active" onclick="callApiXml()">
@@ -36,12 +40,18 @@
     </button> 
   </div>
 </nav>
+<!-- 메뉴바 -->
 
+<!-- 타이틀 -->
 <div class="safe-title-bar">
-	<div class="safe-title"></div>
+	<div class="safe-title-box">
+		<div class="safe-title"></div>
+	</div>
 </div>
+<!-- 타이틀 -->
 
-<div class="options" id="nav">
+<!-- 아코디언 리스트 -->
+<div class="options">
    <div class="option active opt1 op1 o1 opti1" id="option1">
       <div class="label">
          <div class="icon">
@@ -108,8 +118,6 @@
       </div>
    </div>
 </div>
-
-
-
+<!-- 아코디언 리스트 -->
 </body>
 </html>

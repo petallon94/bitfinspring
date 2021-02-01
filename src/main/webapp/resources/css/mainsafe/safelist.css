@@ -133,13 +133,28 @@ nav.tabs > div > button > span {
 
 /* 타이틀 */
 .safe-title-bar{
-  display: flex;
-  justify-content: center;
+	position: relative;
+  	margin: 0 auto;
+	padding: 0;
+	list-style: none;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	top: -400px;
+	
 }
 
+.safe-title-box{
+ 	width:600px;
+	height:100px;
+	background-color: #457B9D;
+  	text-align: center;
+}
 .safe-title{
 	font-weight: bold;
 	font-size: 3em;
+	margin-top: 20px;
+	color: white;
 }
 /* 타이틀 */
 
