@@ -14,8 +14,10 @@
 </head>
 <body>
 <div class="mypage_wrapper">
-	<div class="mypage_title">
-		My Page
+	<div class="mypage_hadder">
+		<div class="header_title">
+			My Contents
+		</div>
 	</div>
 	
 	<!-- 메뉴 -->
@@ -55,7 +57,7 @@
 		</ul>
 	</div>
 	
-	
+	<div class="mycontent_scrap">
 	<!-- 내용 시작 -->
 	<h2><b>스크랩</b></h2>
 	<div class="scrapbtn">
@@ -94,7 +96,7 @@
 					</c:forEach>
 				</ul>
 			</div>
-			
+			<br>
 			<!-- 페이징 -->
 			<div class="cpagination">
 				
@@ -115,6 +117,7 @@
 			</div>	
 		</div>
 	</c:if>
+	</div>
 </div>
 </body>
 </html>

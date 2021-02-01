@@ -10,6 +10,10 @@ a {
 	color: inherit;
 	text-decoration: none;
 }
+a:hover {
+	color: inherit;
+	text-decoration: none;
+}
 /*라이브러리*/
 html, body {
 	overflow-x: hidden;
@@ -37,7 +41,7 @@ html, body {
 
 /*커스텀*/
 .dcom-con {
-	max-width: 100%;
+	max-width: 80%;
 }
 
 
@@ -84,11 +88,17 @@ html, body {
 	.dcom-prod-list-bar .dcom-prod-list-box>ul>li {
 		width: calc(100%/ 3);
 	}
+	.slide-img-bar .slide-img-box {
+		height:200px;
+	}
 }
 
 @media ( max-width :600px) {
 	.dcom-prod-list-bar .dcom-prod-list-box>ul>li {
 		width: calc(100%/ 2);
+	}
+	.slide-img-bar .slide-img-box {
+		height:160px;
 	}
 }
 
@@ -96,16 +106,18 @@ html, body {
 	.dcom-prod-list-bar .dcom-prod-list-box>ul>li {
 		width: calc(100%/ 1);
 	}
+	.slide-img-bar .slide-img-box {
+		height:100px;
+	}
 }
 /*리스트 제목, 작성자, 작성날짜*/
-.dcom-prod-subject,.dcom-prod-writer,.dcom-prod-day {
-	font-weight: bold;
-	color: white;
-	margin-left: 7px;
-	
+.dcom-prod-writer,.dcom-prod-day {
+	font-weight: 400;
+	color: #333;
 }
 
 .dcom-prod-subject {
+	font-weight: 600;
 	font-size: 1.2em;
 }
 .dcom-prod-writer,.dcom-prod-day {
@@ -119,9 +131,9 @@ html, body {
 	position: relative;
 	border-top-left-radius: 10px; border-top-right-radius: 10px;
 	border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;
-	border: 2px solid #4a4643;
+	border: 1px solid #ddd;
 	padding-top: 75%;
-	background-color: black;
+	background-color: #eee;
 }
 .dcom-img-bar .dcom-img-box {
 	position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
@@ -131,7 +143,8 @@ html, body {
 	border-top-left-radius: 7px; border-top-right-radius: 7px;
 }
 .dcom-img-bar .dcom-img-box img {
-	position: absolute; top: 0; left: 0; width: auto; height: 100%; 
+	position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+	object-fit: cover; 
 	-webkit-transform: translate(-50%,-50%); 
 	-ms-transform: translate(-50%,-50%); transform: translate(-50%,-50%);
 
@@ -173,34 +186,30 @@ html, body {
 	
 }
 
-.dcom-prod-list-bar .dcom-prod-list-box>ul>li:hover>a>.dcom-img-bar::after
-	{
+.dcom-prod-list-bar .dcom-prod-list-box>ul>li:hover>a>.dcom-img-bar::after{
 	opacity: 1;
-	
 }
 
 /* 검색창 */
 .dcom-search-bar{
-	
 	margin: 0 auto;
 	max-width: 100%;
 	text-align: center;
 }
 
 .dcom-search-box{
-	background-color: #4a4643;
+	background-color: #eee;
 	padding : 20px;
-	
-}
-
-.dcom-search {
-	width: 50%;
-	border-radius: 8px;
+	margin-bottom: 30px;
 }
 
 .dcom-search-btn, .dcom-write-btn{
-	width: 120px;
-	border-radius: 8px;
+	width: 90px;
+	height: 32px;
+	border-radius: 6px;
+	background-color: #0685C9;
+	color: white;
+	border: 0;
 }
 
 .dcom-write-btn{
@@ -208,8 +217,9 @@ html, body {
 }
 
 .dcom-tc{
-	color: white;
-	font-size: 0.7em;
+	color: #999;
+	font-size: 0.8em;
+	margin-bottom: 8px;
 }
 
 .dcom-write-box{
@@ -227,29 +237,34 @@ html, body {
 	
 }
 .slide-img-bar {
-	margin-top: 20px;
-	border: 2px solid #4a4643;
-	border-top-left-radius: 10px; border-top-right-radius: 10px;
-	border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;
-	width: 97%;
 	overflow: hidden;
 	position: relative;
-	padding-top: 75%;
-	background-color: black;
-	
+	border-top-left-radius: 10px; border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;
+	border: 1px solid #ddd;
+	width: 97%;
+	background-color: #eee;
 }
 .slide-img-bar .slide-img-box {
-	position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
+	height:280px;
 	-webkit-transform: translate(50%,50%); 
 	-ms-transform: translate(50%,50%); 
 	transform: translate(50%,50%);
 	border-top-left-radius: 7px; border-top-right-radius: 7px;
 }
+.slide-img-bar .slide-txt-box {
+	position: relative; 
+	max-width: 100%;
+	display: block; 
+	white-space: nowrap;
+	background-color: #eee;
+	padding: 10px;
+}
 .slide-img-bar .slide-img-box img {
-	position: absolute; top: 0; left: 0; width: auto; height: 100%;
+	position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+	object-fit: cover;
 	-webkit-transform: translate(-50%,-50%); 
 	-ms-transform: translate(-50%,-50%); transform: translate(-50%,-50%);
-
 }
 
 .dcom-slide>a>.slide-img-box::before {

@@ -97,12 +97,16 @@
 	font-size: 1.2em;
 	
 }
+.cscrap-wrap .cscrap-card-wrap .cscrap-row .dcom-cell .cscrap-con .cscrap-txt .csubject{
+	font-weight: 600;
+}
 .cscrap-wrap .cscrap-card-wrap .cscrap-row .dcom-cell a{
 	text-decoration: none;
 }
 .cscrap-wrap .cpagination{
-	width: 1260px;
+	width: 100%;
 	text-align: center;
 	height: 60px;
+	display: flow-root;
 }
 
