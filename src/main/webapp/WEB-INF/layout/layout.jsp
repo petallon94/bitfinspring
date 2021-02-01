@@ -39,12 +39,9 @@
 <link rel="stylesheet" href="${root}/css/dcommu/dcomlist.css">
 <link rel="stylesheet" href="${root}/css/dcommu/normalize.8.0.1.css">
 <link rel="stylesheet" href="${root}/css/hospital/reservation.css" />
-<<<<<<< HEAD
 
-
-=======
 <link rel="stylesheet" href="${root}/css/mainsafe/safelist.css">
->>>>>>> 3DO
+
 <!-- JS 파일 -->
 <script src="${root}/js/fullpage.min.js" ></script>
 <script src="${root}/js/map.js"></script>
