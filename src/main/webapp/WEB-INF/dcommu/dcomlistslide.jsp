@@ -70,24 +70,23 @@
 		});
 	})
 </script>
-<body style="background-color: #1f2c59;">
+<body>
 	<!-- slide start-->
 	<div class="dcom-slide-bar">
 		<div class="dcom-slide-box">
-			<div style="color: white;"><h4><b>인기 조회 게시물 TOP10</b></h4></div>
+			<div><h4><b>인기 조회 게시물 TOP10</b></h4></div>
 			<ul class="dcom-slide-list" id="dcom-slider-list">
 				<c:forEach var="d" items="${dlist }" varStatus="i">
-					<li class="dcom-slide"><a
-						href="detail?num=${d.cnum}&pageNum=${currentPage }&key=list">
+					<li class="dcom-slide">
+						<a href="detail?num=${d.cnum}&pageNum=${currentPage }&key=list">
 							<input type="hidden" value="${i.count}">
 							<div class="slide-img-bar" id="slide-img-bar">
 								<div class="slide-img-box">
 								<!-- 상대경로  ${pageContext.request.contextPath}-->
-									<img
-									src="${pageContext.request.contextPath}/resources/save/${d.cphoto }"
-									alt="">
+									<img src="${pageContext.request.contextPath}/resources/save/${d.cphoto }" alt=""
+										onerror="this.src='${pageContext.request.contextPath}/resources/image/nonimg.png'">
 								</div>
-								<div style="position: relative; max-width: 100%; background-color: black; display: block; white-space: nowrap;">
+								<div class="slide-txt-box">
 									<div class="dcom-prod-subject">${d.csubject}</div>
 									<div class="dcom-prod-writer">${d.cwriter}</div>
 									<div class="dcom-prod-day">
@@ -95,7 +94,8 @@
 									</div>
 								</div>
 							</div>
-					</a></li>
+						</a>
+					</li>
 				</c:forEach>
 			</ul>
 		</div>

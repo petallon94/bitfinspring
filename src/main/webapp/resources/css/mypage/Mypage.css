@@ -158,6 +158,10 @@ ul.mypage_menu_icon > li.mpick > a{
 	margin-left:18%;
 	margin-right:18%;
 	margin-bottom:120px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 .mycontent_reservation{
 	height:100%;

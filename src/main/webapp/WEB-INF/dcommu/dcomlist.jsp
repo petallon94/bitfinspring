@@ -93,16 +93,14 @@ function callCardList() {
 <style>
 	/* 배너 */
 /* .img-cover{position: absolute;height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.5);z-index:1;} */
-.sub_visual .txt{position: absolute;top:50%;left:50%;transform: translate(-50%, -50%);color: white;z-index: 2;text-align: center;}
+.sub_visual .txt{position: absolute;top:50%;left:50%;transform: translate(-50%, -50%);color: black;z-index: 2;text-align: center;}
 .sub_visual .txt h1:after{display:block;width:40px;height:3px;margin:32px auto;background:white;content:'';}
 .sub_visual .txt p{font-size: 14pt; font-weight: 300;}
-.sub_visual{position: relative;background-image: url(https://previews.123rf.com/images/sapannpix/sapannpix1604/sapannpix160400008/54710924-%EC%9D%98%EC%82%AC%EC%99%80-%EA%B0%84%ED%98%B8%EC%82%AC-%EB%B0%8F-%EC%9D%98%EB%A3%8C-%EC%A7%81%EC%9B%90%EC%9D%80-%ED%8F%89%EB%A9%B4-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%95%84%EC%9D%B4%EC%BD%98-%EC%84%B8%ED%8A%B8.jpg);height: 600px;background-size:cover;background-position:center;}
+.sub_visual{position: relative;background-image: url("${root}/image/dcommu_visual.png");
+				height: 400px;background-size:cover;background-position:center;}
 /* 배너 */
 </style>
-<body>
-	<input type="hidden" id="loginok" value="${mdto.mid }" />
 	
-
 
 <body>
 <div class="sub_visual bg-menu">
@@ -118,9 +116,9 @@ function callCardList() {
 				src="https://www.fashionseoul.com/wp-content/uploads/2017/01/20170112_SBS-2.jpg"
 				alt="">
 		</div>
-	</div -->>
-
-	<!— search start—>
+	</div -->
+	<input type="hidden" id="loginok" value="${mdto.mid }" />
+	<!-- search start -->
 	<div class="dcom-search-bar">
 		<div class="dcom-search-box">
 			<div class="dcom-tc">
@@ -138,22 +136,20 @@ function callCardList() {
 			<div class="form-inline">
 			<input type="hidden" id="totalCount" name="totalCount" value="${totalCount }">
 			<input type="hidden" id="currentPage" name="currentPage" value="${currentPage}">
-				<select id="searchType" name="searchType">
+				<select id="searchType" name="searchType" style="width: 100px; height: 32px;">
 					<option value="all">전체</option>
 					<option value="t">제목</option>
 					<option value="c">내용</option>
 					<option value="w">작성자</option>
-				</select> <input class="form-control" type="text" id="keyword" name="keyword"
-				placeholder="검색어를 입력하세요" />
-				<button id="searchBtn" class="btn btn-primary" onclick="callCardList()">검 색</button>
-		
+				</select> 
+				<input class="form-control" type="text" id="keyword" name="keyword" placeholder="검색어를 입력하세요" />
+				<button id="searchBtn" class="dcom-search-btn" onclick="callCardList()">검 색</button>
+				<button type="button" id="btn-insert" class="dcom-write-btn" style="width: 100px;">게시글작성</button>
 			</div>
-			<button type="button" id="btn-insert" class="dcom-write-btn" style="width: 100px;"
-			>게시글작성</button>
+			
 		</div>
 	</div>
 	<!-- search end -->
-	<hr class="slideline">
 	<jsp:include page="dcomlistslide.jsp"></jsp:include>
 	<hr class="slideline">
 	
@@ -168,9 +164,10 @@ function callCardList() {
 							<div class="dcom-img-bar">
 								<div class="dcom-img-box">
 								<!-- 상대경로  ${pageContext.request.contextPath}-->
-									<img src="${pageContext.request.contextPath}/resources/save/${d.cphoto }"alt="">
+									<img src="${pageContext.request.contextPath}/resources/save/${d.cphoto }" alt=""
+										onerror="this.src='${pageContext.request.contextPath}/resources/image/nonimg.png'">
 								</div>
-								<div style="position: relative; max-width: 100%; background-color: black; display: block; white-space: nowrap;">
+								<div style="position: relative; max-width: 100%; background-color: #eee; display: block; white-space: nowrap; padding: 10px;">
 									<div class="dcom-prod-subject">${d.csubject}</div>
 									<div class="dcom-prod-writer">${d.cwriter}</div>
 									<div class="dcom-prod-day">

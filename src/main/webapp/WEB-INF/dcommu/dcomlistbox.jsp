@@ -16,7 +16,7 @@
 </head>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-<body style="background-color: #1f2c59;">
+<body>
 
 	<!-- card start-->
 	<div class="dcom-prod-list-bar dcom-con">
@@ -28,9 +28,10 @@
 							<div class="dcom-img-bar">
 								<div class="dcom-img-box">
 								<!-- 상대경로  ${pageContext.request.contextPath}-->
-									<img src="${pageContext.request.contextPath}/resources/save/${d.cphoto }"alt="">
+									<img src="${pageContext.request.contextPath}/resources/save/${d.cphoto }"alt=""
+										onerror="this.src='${pageContext.request.contextPath}/resources/image/nonimg.png'">
 								</div>
-								<div style="position: relative; max-width: 100%; background-color: black; display: block; white-space: nowrap;">
+								<div style="position: relative; max-width: 100%; display: block; white-space: nowrap;">
 									<div class="dcom-prod-subject">${d.csubject}</div>
 									<div class="dcom-prod-writer">${d.cwriter}</div>
 									<div class="dcom-prod-day">
