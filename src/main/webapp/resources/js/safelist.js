@@ -1,3 +1,4 @@
+
 	/*아코디언 리스트*/
 $(document).ready(function(){
 		callApiXml();
@@ -7,7 +8,7 @@ $(document).ready(function(){
 			   $(this).addClass("active");
 			   
 			});
-	});
+		});
 	/*아코디언 리스트*/
 	
 	/*세계입국현황 1~5국*/
