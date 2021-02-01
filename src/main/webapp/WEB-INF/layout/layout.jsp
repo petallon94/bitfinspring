@@ -18,6 +18,16 @@
 <!-- Boot Strap -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">
+<!-- slick -->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<title>Insert title here</title>
 <!-- CSS 파일 -->
 <link rel="stylesheet" href="${root}/css/fullpage.min.css" />
 <link rel="stylesheet" href="${root}/css/layout.css" />
@@ -29,14 +39,18 @@
 <link rel="stylesheet" href="${root}/css/dcommu/dcomlist.css">
 <link rel="stylesheet" href="${root}/css/dcommu/normalize.8.0.1.css">
 <link rel="stylesheet" href="${root}/css/hospital/reservation.css" />
+<<<<<<< HEAD
 
 
+=======
+<link rel="stylesheet" href="${root}/css/mainsafe/safelist.css">
+>>>>>>> 3DO
 <!-- JS 파일 -->
 <script src="${root}/js/fullpage.min.js" ></script>
 <script src="${root}/js/map.js"></script>
 <script src="${root}/js/mainpage.js"></script>
 <script src="${root}/js/mypage.js"></script>
-
+<script type="text/javascript" src="${root }/js/safelist.js"></script>
 
 
 
