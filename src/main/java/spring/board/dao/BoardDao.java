@@ -64,6 +64,7 @@ public class BoardDao extends SqlSessionDaoSupport implements BoardDaoInter {
 	@Override
 	public void updateBoard(BoardDto dto) {
 		// TODO Auto-generated method stub
+		System.out.println(dto.getBnum() +" dddd "+dto.getBmidnum());
 		getSqlSession().update("updateOfBoard",dto);
 	}
 

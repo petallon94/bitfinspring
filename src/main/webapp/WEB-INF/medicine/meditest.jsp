@@ -108,8 +108,8 @@
 		<h3>코비다웃과 함께 의약품을 찾아보아요!</h3>
 		<video width="600" height="450" src="${root}/image/medvirus.mp4"
 			data-autoplay autoplay muted loop></video>
-		<h5>※ 해당 검색 화면은 식약처에서 제공해주는 '약은요'api 에서 가져오고 있습니다. 정확한 복약지도는 의사 및
-			약사와 상담하세요</h5>
+		<p>※ 해당 검색 화면은 식약처에서 제공해주는 '약은요'api 에서 가져오고 있습니다. 
+		정확한 복약지도는 의사 및 약사와 상담하세요</p>
 	</div>
 
 </body>

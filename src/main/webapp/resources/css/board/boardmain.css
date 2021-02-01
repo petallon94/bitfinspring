@@ -9,16 +9,20 @@ a{
 }
 
 .board_layout{
-	
-	background-color: #1f2c59;
+	text-align: center;
+}
+
+.board_main{
+	height : 600px;
+	background-image: url('../../image/board1.jpg');
+	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
-	text-align: center;
-	padding: 100px 0;
 }
 
 
 .board_main h3 {
+	padding-top : 260px;
 	color: white;
 	font-size : 3em;
 	cursor : pointer;
@@ -28,7 +32,7 @@ a{
 
 
 .hashtagform{
-	margin-top : 30px;
+	margin-top : 70px;
 	margin-bottom : 30px;
 	width : 70%;
 	background-color: #eee;
@@ -38,7 +42,7 @@ a{
 .hashtagform span{
 	color : black;
 	font-size : 1.5em;
-	margin-bottom : 5px;	
+	margin-bottom : 10px;	
 }
 
 .hashtag{
@@ -59,7 +63,7 @@ a{
 
 .board_search h3{
 	
-	font-size : 16px;
+	font-size : 1.5em;
 }
 
 .board_textfield {

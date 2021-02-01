@@ -58,15 +58,16 @@ public class BoardUpdController {
 		
 	}
 	
-	@PostMapping("board/update")
-	public String bupdate(
+	@PostMapping("/board/update")
+	public ModelAndView bupdate(
 			@ModelAttribute BoardDto dto,
 			@RequestParam MultipartFile file,
-			@RequestParam String bnum,
 			@RequestParam String pageNum,
 			HttpServletRequest request
 			) {
 		
+		ModelAndView mview = new ModelAndView();
+		MemberDto mdto=(MemberDto)request.getSession().getAttribute("mdto");
 		String path = request.getSession().getServletContext().getRealPath("/resources/save");
 		System.out.println(path);
 		
@@ -76,6 +77,9 @@ public class BoardUpdController {
 		writer.writeFile(file, fileName, path);
 		
 		//저장된 파일 먼저 삭제
+		System.out.println("delete file : "+Integer.toString(dto.getBnum()));
+		
+		
 		String deleteFile=dao.getData(Integer.toString(dto.getBnum())).getBphoto();
 		if(!deleteFile.equals("no"))
 		{
@@ -87,7 +91,10 @@ public class BoardUpdController {
 		dto.setBphoto(fileName);
 		
 		dao.updateBoard(dto);
-		return "redirect:boardcontent?bnum="+bnum+"&pageNum="+pageNum;				
+		mview.addObject("mdto", mdto);
+		mview.addObject("dto",dto);
+		mview.setViewName("redirect:boardcontent?bnum="+dto.getBnum()+"&pageNum="+pageNum);
+		return mview;			
 	}
 	
 	///댓글 수정!@@@@@@@@@
