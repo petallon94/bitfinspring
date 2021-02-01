@@ -78,9 +78,9 @@ public class SafeMainController {
 	 
 	            BufferedReader rd;
 	            if (conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
-	                rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+	                rd = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
 	            } else {
-	                rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
+	                rd = new BufferedReader(new InputStreamReader(conn.getErrorStream(),"UTF-8"));
 	            }
 	 
 	            StringBuilder sb = new StringBuilder();
@@ -159,9 +159,9 @@ public class SafeMainController {
 	 
 	            BufferedReader rd;
 	            if (conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
-	                rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+	                rd = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
 	            } else {
-	                rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
+	                rd = new BufferedReader(new InputStreamReader(conn.getErrorStream(),"UTF-8"));
 	            }
 	 
 	            StringBuilder sb = new StringBuilder();
@@ -237,9 +237,9 @@ public class SafeMainController {
 	 
 	            BufferedReader rd;
 	            if (conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
-	                rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+	                rd = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
 	            } else {
-	                rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
+	                rd = new BufferedReader(new InputStreamReader(conn.getErrorStream(),"UTF-8"));
 	            }
 	 
 	            StringBuilder sb = new StringBuilder();
@@ -316,9 +316,9 @@ public class SafeMainController {
 	 
 	            BufferedReader rd;
 	            if (conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
-	                rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+	                rd = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
 	            } else {
-	                rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
+	                rd = new BufferedReader(new InputStreamReader(conn.getErrorStream(),"UTF-8"));
 	            }
 	 
 	            StringBuilder sb = new StringBuilder();

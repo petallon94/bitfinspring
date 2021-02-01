@@ -32,8 +32,8 @@
 		delete from board where bnum=#{bnum}
 	</delete>
 	<update id ="updateOfBoard" parameterType="bdto">
-		update board set bsubject=#{bsubject}, bcontent=#{bcontent},
-		<if test="bphoto!=null">bphoto =#{bphoto}</if> where bnum = #{bnum}
+		update board set bsubject=#{bsubject}, bcontent=#{bcontent}
+		<if test="bphoto!=null">,bphoto =#{bphoto}</if> where bnum = #{bnum}
 	</update>
 	<delete id ="deletehashtag" parameterType="bdto">
 		delete from hashtag where hashtag = #{hashtag} and hbnum = #{hbnum}

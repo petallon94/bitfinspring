@@ -9,7 +9,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
 <link rel="stylesheet" href="${root}/css/board/boardmain.css" />
 
@@ -161,7 +160,7 @@ function search_list(){
 
 
 	<hr>
-	<div style="width: 800px; text-align: center;">
+	<div class="board_bottom" style="width: 100%; text-align: center; float: left;">
 		
 		<ul class="pagination">
 			<c:forEach var="pp" begin="${startPage}" end="${endPage}">
@@ -177,14 +176,11 @@ function search_list(){
 			</c:if>
 
 		</ul>
+		
+		<button value="글쓰기" onclick="location.href='./boardwrite'" >글쓰기</button>
 	</div>
 
-	<div class="board_bottom">
 	
-		<button type="button" class="board_write_btn"
-			onclick="location.href='./boardwrite'">글쓰기</button>
-
-	</div>
 	
 	
 </body>

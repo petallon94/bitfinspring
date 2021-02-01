@@ -1,4 +1,4 @@
-package spring.board.controller;
+ package spring.board.controller;
 
 import java.util.List;
 

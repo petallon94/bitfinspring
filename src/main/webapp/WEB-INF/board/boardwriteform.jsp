@@ -37,9 +37,9 @@
 				<input type="text" class="board_topic" id="board_topic"
 					name="bsubject" /> 
 					<input type="text" class="board_id"
-					id="board_id" name="bmidnum" value="${mdto.mnum}" disabled /> 
+					id="board_id" name="bmidnum" value="${mdto.mnum}"/> 
 					<input type="text" class="board_nick" id="board_nick" name="bwriter"
-					value="${mdto.mnick}" disabled /> 
+					value="${mdto.mnick}"/> 
 					<input type="hidden" name="pageNum" value="${pageNum}"> 
 					<input type="hidden" name="regroup" value="${regroup}"> 
 					<input type="hidden" name="restep" value="${restep}"> 
@@ -72,7 +72,7 @@
 				<hr>
 				<div class="board_btngroup">
 					<button type="button" class="board_listbtn"
-						onclick="location.href='../list'">목록</button>
+						onclick="location.href='../board/list'">목록</button>
 					<button type="button" class="board_savebutton" onclick="submitContents(this)" >저장</button>
 
 				</div>
