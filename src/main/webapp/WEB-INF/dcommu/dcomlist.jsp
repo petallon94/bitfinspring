@@ -12,20 +12,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- Add the slick-theme.css if you want default styling -->
-<link rel="stylesheet" type="text/css"
-	href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-<!-- Add the slick-theme.css if you want default styling -->
-<link rel="stylesheet" type="text/css"
-	href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
-	<link rel="stylesheet" href="${root}/css/dcommu/dcomlist.css">
 <title>Insert title here</title>
 </head>
-<script type="text/javascript"
-	src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 		$("#btn-insert").click(function() {
