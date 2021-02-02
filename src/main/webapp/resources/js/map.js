@@ -27,14 +27,19 @@ var mapContainer = document.getElementById('hospital__map'), // 지도를 표시
 
 // 지도를 생성합니다    
 var map = new kakao.maps.Map(mapContainer, mapOption); 
-var mnick = document.getElementById('mnick').value;
+var keyword = document.getElementById('keyword').value;
 
 
 // 장소 검색 객체를 생성합니다
 var ps = new kakao.maps.services.Places(); 
-//var mnick= $("#mnick").val();
+
 // 키워드로 장소를 검색합니다
-ps.keywordSearch(mnick, placesSearchCB); 
+ps.keywordSearch(keyword, placesSearchCB); 
+
+
+
+
+
 
 // 키워드 검색 완료 시 호출되는 콜백함수 입니다
 function placesSearchCB (data, status, pagination) {
