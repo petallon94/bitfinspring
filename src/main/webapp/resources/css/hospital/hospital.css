@@ -237,6 +237,7 @@
 	margin: 8px;
 	box-shadow: 0 0 16px rgba(0,0,0,0.1);
 	cursor:pointer;
+	width: auto;
 }
 
 .hospital__list_card h3{
@@ -248,11 +249,7 @@
   .hospital__list_cards {
     grid-template-columns: 1fr;
   }
-  
-  .hospital__list_card {
-    width: auto;
-  }
-}
+}/* 
 .paging{  
 font-size: 0;
     line-height: 0;
@@ -269,7 +266,7 @@ font-size: 0;
     height: 28px;
     display: inline-block;
 }
-
+ */
       
 /* Container media queries */
 @media (min-width: 500px) {
