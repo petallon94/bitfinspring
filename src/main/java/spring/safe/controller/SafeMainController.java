@@ -82,12 +82,15 @@ public class SafeMainController {
 	            } else {
 	                rd = new BufferedReader(new InputStreamReader(conn.getErrorStream(),"UTF-8"));
 	            }
-	 
+
 	            StringBuilder sb = new StringBuilder();
 	            String line;
 	            while ((line=rd.readLine()) != null) {
-	                sb.append(line);
+	            	String text = line.replace("○", "\n ○").replace("-", "\n -").replace("※", "\n ※").replaceAll("\\p{Z}\\p{Z}\\p{Z}", "");
+	            
+	                sb.append(text);
 	            }
+	            
 	            rd.close();
 	            conn.disconnect();
 	 
