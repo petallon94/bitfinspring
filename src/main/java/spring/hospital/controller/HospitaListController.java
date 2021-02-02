@@ -16,14 +16,17 @@ import java.io.IOException;
 public class HospitaListController {
 		
 		@RequestMapping(value = "hospital/list",method = {RequestMethod.GET,RequestMethod.POST},produces="text/plain;charset=UTF-8")
-    	 public static String getHlist(@RequestParam String hcate) throws IOException {
+    	 public static String getHlist(@RequestParam String hcate, @RequestParam(value = "pageNum",defaultValue = "1") String pageNum,
+    			 @RequestParam(value = "numOfRows",defaultValue = "9") String perPage) throws IOException {
 			
     	        
+			System.out.println("java hcate" + hcate);
+			System.out.println("java pageno" +pageNum);
     		 StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/B551182/pubReliefHospService/getpubReliefHospList"); /*URL*/
     	        
     	        urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "=ELPlnUlo0CxXA8FbXT0V%2B0wkutn45xHxgWifiU35dIFwr3r1ngGdPJCbxlz59QRhYMoSmt2nzUIZYiCxjFQXgg%3D%3D"); /*Service Key*/
-    	        urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*페이지번호*/
-    	        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("9", "UTF-8")); /*한 페이지 결과 수*/
+    	        urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode(pageNum, "UTF-8")); /*페이지번호*/
+    	        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode(perPage, "UTF-8")); /*한 페이지 결과 수*/
     	        urlBuilder.append("&" + URLEncoder.encode("spclAdmTyCd","UTF-8") + "=" + URLEncoder.encode(hcate, "UTF-8")); /*A0: 국민안심병원/97: 코로나검사 실시기관/99: 코로나 선별진료소 운영기관*/
     	        
 
@@ -38,9 +41,9 @@ public class HospitaListController {
     	        //System.out.println("Response code: " + conn.getResponseCode());
     	        BufferedReader rd;
     	        if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
-    	            rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+    	            rd = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
     	        } else {
-    	            rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
+    	            rd = new BufferedReader(new InputStreamReader(conn.getErrorStream(),"UTF-8"));
     	        }
     	        StringBuilder sb = new StringBuilder();
     	        String line;
@@ -54,60 +57,5 @@ public class HospitaListController {
     	        return sb.toString();
     	    }
 		
-//	
-//
-//		@GetMapping("/hospital/list")
-//		public String goBoardList(
-//				@RequestParam(value = "pageNo",defaultValue = "1") int currentPage,
-//				@RequestParam(value = "numOfRows",defaultValue = "9") int perPage,
-//				Model model
-//				) 
-//		{
-//	        int totalCount = service.getTotalCount();
-//	        int perBlock = 5; //�Ѻ��� Ǯ���� �������� ����    
-//	        int totalPage; //�� �������� ����
-//	        int startPage; //������ ���� ������ ��ȣ
-//	        int endPage; //������ �������� ��ȣ
-//	        int start; //�� ���� �ҷ��� ���� ���۹�ȣ
-//			
-//	        totalPage=totalCount/perPage+(totalCount%perPage>0?1:0);
-//	    	startPage=(currentPage-1)/perBlock*perBlock+1;
-//	    	endPage=startPage+perBlock-1;
-//	    	if(endPage>totalPage)
-//	    		endPage=totalPage;
-//
-//	    	//mysql �� ù ���� 0��(����Ŭ�� 1��)
-//	    	start=(currentPage-1)*perPage;
-//	    	
-//	    	//�� ���������� ����� ���۹�ȣ
-//	    	//�� 50���ϰ�� 1�������� 50
-//	    	//              2�������� 40
-//	    	int no=totalCount-(currentPage-1)*perPage;
-//	    	//mysql ���� �ش� �������� �ʿ��� ��� ��������
-//	    	List<ReBoardDto> list=service.getList(start, perPage);
-//	    	//�ش� ���������� ������ �ϳ����� ������ ������ �����Ͱ� �ȳ����� �Ǵ� ���� �ذ�
-//	    	if(list.size()==0)
-//	    	{
-//	    		return "redirect:list?pageNum="+(currentPage-1);
-//	    	}
-//	    	
-//	    	for(ReBoardDto dto:list)
-//	    	{
-//	    		//�� �Խñۿ� �޸� ����� ������ ���ؼ� cnt�� ����
-//	    		int n=adao.getAnswerList(dto.getNum()).size();
-//	    		dto.setCnt(n);;
-//	    	}
-//	    	//model�� ����
-//	    	model.addAttribute("currentPage",currentPage);
-//	    	model.addAttribute("list",list);
-//	    	model.addAttribute("no",no);
-//	    	model.addAttribute("startPage",startPage);
-//	    	model.addAttribute("endPage",endPage);
-//	    	model.addAttribute("totalCount",totalCount);
-//	    	model.addAttribute("totalPage",totalPage);
-//			
-//			return "/board/boardlist";
-//		}
-		
-		
+
 }
