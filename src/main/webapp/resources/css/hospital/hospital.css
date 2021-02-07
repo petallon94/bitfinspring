@@ -349,8 +349,8 @@ border-radius: 5px;
 		font-family: 'nanum';
 	} */
 	/* 버튼 */
-	#btn-insert{
-		float: none;
+	#rsv__btn-insert{
+		display: none;
 	}
 	/* 지도 */
 	#hospital__map{

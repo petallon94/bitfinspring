@@ -58,7 +58,7 @@
       </div>
        
       <!-- 페이징처리할것 -->
-      <button id="btn">버튼</button>
+    <!--   <button id="btn">버튼</button> -->
       <nav aria-label="Page navigation example" id="pagination"></nav>
       
    </div>
@@ -341,7 +341,7 @@ function searchPagingList(hcate,pageNum){
 
    }
 
-const btn = document.getElementById("btn");
+/* const btn = document.getElementById("btn");
 btn.addEventListener("click", function() {
 	searching(hcates[0]);
 });
@@ -362,13 +362,13 @@ function searching (hcate) {
            console.log(item);
  	XmlNodeList nodes = root.SelectNodes("//items/item");
  	console.log(nodes);
-	/*foreach (XmlNode node in nodes)
+	foreach (XmlNode node in nodes)
 	{
 	    listBox1.Items.Add(node["name"].InnerText);
-	}*/
+	}
         } 
 	})
 
-}
+} */
 </script>
 </body>

@@ -23,13 +23,6 @@
       <div class="hospital__detail_addr glyphicon glyphicon-home">
       ${addr}</div>
       <br><br>
-      <div class="hospital__detail_time">
-      <b>진료시간</b><br>
-      평   일: 09:00 ~ 21:00<br>
-      토요일: 09:00 ~ 19:00<br>
-      일요일: 09:00 ~ 19:00<br>
-      </div>
-      <br>
       <div class="hospital__detail_tel glyphicon glyphicon-earphone">
       ${tel}</div>
       <br><br>
@@ -44,11 +37,11 @@
                   
 <script type="text/javascript">
  $(function() {
-	 $("#rsv__btn-insert").hide();
+	 
 $(document).ready(function() {	  
 		var mr= $("#hlist_role").val(); 
 	      if(mr == 1){
-	    	  $("#rsv__btn-insert").show();
+	    	  $("#rsv__btn-insert").css("display", "block");
 	      }
 	   }); 
 	
