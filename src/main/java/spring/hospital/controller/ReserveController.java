@@ -44,6 +44,22 @@ public class ReserveController {
 		return "/reserve/list";
 	}
 
+	@GetMapping("/mypage.reservation")
+	public String reserveList(Model model,HttpServletRequest request)
+	{
+		HttpSession session = request.getSession();
+		MemberDto mdto=(MemberDto)session.getAttribute("mdto");
+		String rmnum=Integer.toString(mdto.getMnum());
+		//전체 데이터 얻기		
+		List<ReserveDto> list=dao.getDataRm(rmnum);
+		
+		//model에 저장		
+		model.addAttribute("list", list);
+
+		return "/mypage/myreservation";
+	}
+	
+	
 	//test
 	//예약버튼을 눌렀을 때 입력하는 폼
 	@GetMapping("/reserve/writeform")
@@ -54,14 +70,13 @@ public class ReserveController {
 
 	//insert	
 	@PostMapping("/reserve/insert") 
-	public ModelAndView reserveInsert(@ModelAttribute ReserveDto dto, 
-			@SessionAttribute("mdto") MemberDto mdto,
+	public ModelAndView reserveInsert(@ModelAttribute ReserveDto dto, 			
 			HttpServletRequest request) 
 	{ 
 		ModelAndView model=new ModelAndView(); 
 		//@SessionAttribute("mdto")를 사용하면 model에 담아서 사용가능하다.
-		//HttpSession session = request.getSession();
-		//MemberDto mdto=(MemberDto)session.getAttribute("mdto");
+		HttpSession session = request.getSession();
+		MemberDto mdto=(MemberDto)session.getAttribute("mdto");
 		//System.out.println(mdto.getMnick());
 		model.addObject("mdto", mdto); 
 		model.addObject("dto",dto);
@@ -92,23 +107,22 @@ public class ReserveController {
 	//update
 	@PostMapping("/reserve/update")
 	public String updateReserve(
-			@ModelAttribute ReserveDto dto,
-			@RequestParam String rmnum)
+			@ModelAttribute ReserveDto dto)
 	{
+				
 		dao.updateReserve(dto);
-		return "redirect:list?rmnum="+rmnum;
+		return "redirect:/mypage.reservation";
 	}
 
 	//delete
 	@GetMapping("/reserve/delete")
 	public String deleteReserve(
-			@RequestParam String rnum,
-			@RequestParam String rmnum)
+			@RequestParam String rnum)
 	{
 		
 		dao.deleteReserve(rnum);		
 		
-		return "redirect:list?rmnum="+rmnum;
+		return "redirect:/mypage.reservation";
 	}
 
 }

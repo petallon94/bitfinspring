@@ -18,7 +18,7 @@
             <a class="hospital__list_listitem active1" name="A0">국민안심병원</a> 
             <a class="hospital__list_listitem" name="97">호흡기전담클리닉</a> 
                <a class="hospital__list_listitem" name="99">선별진료소</a> 
-               <a class="hospital__list_listitem" name="98">승차검진 선별진료소</a>
+               <a class="hospital__list_listitem" name="98">예약가능병원</a>
          </div>
       </div>
       <!--검색창-->
@@ -44,9 +44,21 @@
       <!-- Cards section -->
       <div id="hospital__list_container">
       </div>
-         
+	
+		<div id="hospital__list_container2">
+     
+      <div class="hospital__list_cards">
+       <c:forEach var="m" items="${list}" varStatus="i">      
+   		<div class="hospital__list_card">
+         <h3 class="hospital__list_hname" id="hlist_name">${m.mnick }</h3>
+        <input type="hidden" id="hlist_role" value="${m.mrole }">
+      </div> </c:forEach>        
+       </div>
+        
+      </div>
+       
       <!-- 페이징처리할것 -->
-      
+      <button id="btn">버튼</button>
       <nav aria-label="Page navigation example" id="pagination"></nav>
       
    </div>
@@ -87,7 +99,7 @@
                 //var card = document.querySelectorAll('.hospital__list_card'); 
                 //var h3 = document.getElementsByTagName('h3');
                                       
-                var h = '<div id="hospital__list_cards">';
+                var h = '<div class="hospital__list_cards">';
              for (var i=0; i< item.length; i++) {
                                 
                 var hname= yadmNm[i].textContent;
@@ -104,6 +116,7 @@
                   }
                 h += '</div>';
                 $("#hospital__list_container").html(h);
+                
                 searchPagingList(hcate,pageNum); 
            }//success
        });
@@ -124,7 +137,9 @@
     var tablist = document.getElementById("hospital__list_tablist");
     var title = document.getElementById("hospital__list_title");
     var btns = tablist.getElementsByClassName("hospital__list_listitem");
-        
+    
+    
+    
     for (var i = 0; i < btns.length; i++) {
        btns[i].addEventListener("click", function () {
        var current = document.getElementsByClassName("active1");                     
@@ -133,24 +148,34 @@
           }
          this.className += " active1"; 
        var hcate =$(this).attr('name');
+       if(hcate=="98" && $(this).hasClass("active1")){
+    	   console.log(this);
+    	   $("#hospital__list_container2").css("display", "grid");
+    	   $("#hospital__list_container").css("display", "none");
+       }else{
        getData(hcate);
-       
+       $("#hospital__list_container2").css("display", "none");
+       $("#pagination").css("display", "block");
+       }
        })
     }
     
+ 
    
    /*  해당병원 카드 클릭하면 디테일페이지로 넘어가기 */
     const card = document.getElementsByClassName("hospital__list_card");
     $(document).ready(function(){
     $(document).on("click",".hospital__list_card",function(e) {
-       console.log(this);
+       //console.log(this);
        var hname = $(this).children("#hlist_name").text();
        var haddr = $(this).children("#hlist_addr").text();
        var htel = $(this).children("#hlist_tel").text();
+       var mrole = $(this).children("#hlist_role").val();
+       //console.log(mrole);
        //children에서 결과를 찾아도 되고 find로 해도 동일하게 작동함 
        //var htel = $(this).find("#hlist_tel").text();
               
-       location.href="hospitaldetail?name="+hname+"&addr="+haddr+"&tel="+htel+"";
+       location.href="hospitaldetail?name="+hname+"&addr="+haddr+"&tel="+htel+"&role="+mrole+"";
        
        });
     });
@@ -167,7 +192,7 @@ $(document).ready(function(){
       // 너비 값이 특정 값 이상 줄어들면 페이징을 변경한다.
       if(x < 1000){
           // 페이지 리스트 카운트 개수는 5개로 변경한다.
-         nPageListCnt = 10
+         nPageListCnt = 5
       }else{
           // 페이지 리스트 카운트 개수는 10개로 변경한다.
          nPageListCnt = 10
@@ -287,7 +312,7 @@ function searchPagingList(hcate,pageNum){
          nPageNum = nPageCount + nStartPageNum;
          nPageCount++;
          if( nPage == nPageNum) {
-            pageHtml += "<li><span>현재페이지</span><strong>" + nPageNum + "</strong></li>";
+            pageHtml += "<li class=\"current\">" + nPageNum + "</li>";
          }else {
             pageHtml += "<li><b href=\"?page="+nPageNum + "" + strAnker + "\" title="+nPageNum+" class=\"hdn\">"+ nPageNum +"</b></li>";
          }
@@ -316,5 +341,34 @@ function searchPagingList(hcate,pageNum){
 
    }
 
+const btn = document.getElementById("btn");
+btn.addEventListener("click", function() {
+	searching(hcates[0]);
+});
+function searching (hcate) {
+	
+	$.ajax({
+        url:'/hospital/list',
+        type:'get',
+        dataType:'xml',
+        data : {"hcate" : hcate},
+        beforeSend:function(jqXHR) {
+            console.log("ajax호출전");
+        },// 서버 요청 전 호출 되는 함수 return false; 일 경우 요청 중단
+        success: function(data) {
+           //console.log("ajax start page : "+pageNum);
+           
+           var item = data.getElementsByTagName("item");
+           console.log(item);
+ 	XmlNodeList nodes = root.SelectNodes("//items/item");
+ 	console.log(nodes);
+	/*foreach (XmlNode node in nodes)
+	{
+	    listBox1.Items.Add(node["name"].InnerText);
+	}*/
+        } 
+	})
+
+}
 </script>
 </body>

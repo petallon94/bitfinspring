@@ -1,5 +1,7 @@
 package spring.member.service;
 
+import java.util.List;
+
 import spring.dto.MemberDto;
 
 public interface MemberServiceInter {
@@ -17,4 +19,5 @@ public interface MemberServiceInter {
 	public int mnickCheck(String mnick);
 	public MemberDto getMailId(String memail);
 	public int findPwToLogin(String mid,String memail);
+	public List<MemberDto> getData3(int mrole);
 }

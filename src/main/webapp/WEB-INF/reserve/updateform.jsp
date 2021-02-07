@@ -16,6 +16,54 @@
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 <body>
+<div class="mypage_wrapper">
+	<div class="mypage_hadder">
+		<div class="header_title">
+			My Reservation
+		</div>
+	</div>
+	
+	<!-- 메뉴 -->
+	
+	<div class="mypage_menubar">
+		<ul class="mypage_menu_icon">
+			<li>
+				<a href="${root}/mypage.main">
+					<div class="mypage_icon icon_mypage"></div>
+					마이페이지
+				</a>
+			</li>
+		
+			<li>
+				<a href="${root}/mypage.content">
+					<div class="mypage_icon icon_mycontent"></div>
+					내가 쓴 글
+				</a>
+			</li>
+			<li>
+				<a href="${root}/mypage.scrap">
+					<div class="mypage_icon icon_scrap"></div>
+					스크랩
+				</a>
+			</li>
+			<li class="mpick">
+				<a href="${root}/mypage.reservation">
+					<div class="mypage_icon icon_reservation"></div>
+					예약내역
+				</a>
+			</li>
+			<li>
+				<a href="${root}/mypage.information">
+					<div class="mypage_icon icon_myinformation"></div>
+					나의 정보
+				</a>
+			</li>
+		</ul>
+	</div>
+	
+	
+	<!-- 내용 시작 -->
+	<div class="mycontent_reservation">
 <div class="rsv__con">
 <div class="rsv__container">
 		<h2 class="rsv__title">병원예약수정</h2>
@@ -46,6 +94,7 @@
 			<button type="button" class="rsv__gotolistbtn" onclick="location.href='list?rmnum=${dto.rmnum}'">목록</button>
 		</div>
 		</form>
+</div>
 </div>
 </div>
 </body>

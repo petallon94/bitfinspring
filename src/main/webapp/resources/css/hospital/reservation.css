@@ -7,8 +7,6 @@
 }
 .rsv__container{	
 	width: 1000px;	
-	border-top: 1px solid #000;
-	margin: 100px 0;
 	align-items: center;
 }
 .rsv__title, .rsv__section_title, .rsv__section_txt, .rsv__section3 {

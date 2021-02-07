@@ -2,12 +2,14 @@ package spring.member.dao;
 
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.stereotype.Repository;
 
 import spring.dto.MemberDto;
+import spring.dto.ReserveDto;
 
 @Repository
 public class MemberDao extends SqlSessionDaoSupport implements MemberDaoInter {
@@ -120,7 +122,11 @@ public class MemberDao extends SqlSessionDaoSupport implements MemberDaoInter {
 		return getSqlSession().selectOne("findpwtologin",params);
 	}
     
-    
-    
+	@Override
+	public List<MemberDto> getData3(int mrole) {
+		// TODO Auto-generated method stub
+		return getSqlSession().selectList("selectAllOfMrole", mrole);
+	}
+
     
 }

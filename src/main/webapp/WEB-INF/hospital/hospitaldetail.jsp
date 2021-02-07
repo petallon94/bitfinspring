@@ -11,8 +11,10 @@
 <body>
 <div class="hospital_detail_container">
    <div class="hospital_detail form-inline">
-      <input type="hidden" name="hname" velue="${hname}">
       <input type="hidden" id="loginok" value="${mdto.mid }" />
+      <input type="hidden" id="hlist_name" value="${name}" />
+      <input type="hidden" id="hlist_mnick" value="${mdto.mnick }" />
+      <input type="hidden" id="hlist_role" value="${role}">
       <input type="hidden" id="keyword" name="keyword" value="${name}" />
       
       <div id="hospital__detail_title" name="hname" value="">${name}</div>
@@ -32,7 +34,7 @@
       ${tel}</div>
       <br><br>
       
-      <button type="button" id="btn-insert" class="btn btn-info">예약하기</button>
+      <button type="button" id="rsv__btn-insert" class="rsv__btn_update">예약하기</button> 
       <br><br>
    </div>   
    <!-- 지도를 표시할 div 입니다 -->
@@ -41,8 +43,17 @@
 
                   
 <script type="text/javascript">
-$(function() {
-   $("#btn-insert").click(function() {
+ $(function() {
+	 $("#rsv__btn-insert").hide();
+$(document).ready(function() {	  
+		var mr= $("#hlist_role").val(); 
+	      if(mr == 1){
+	    	  $("#rsv__btn-insert").show();
+	      }
+	   }); 
+	
+	
+   $("#rsv__btn-insert").click(function() {
       var loginok= $("#loginok").val();
       if(loginok != ""){
          location.href="/reserve/writeform";
@@ -54,6 +65,9 @@ $(function() {
       }
    });
 });
+
+
+
 
 </script>
 

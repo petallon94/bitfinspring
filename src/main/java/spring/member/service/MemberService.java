@@ -1,5 +1,6 @@
 package spring.member.service;
 
+import java.util.List;
 import java.util.Random;
 
 import javax.mail.internet.InternetAddress;
@@ -114,7 +115,13 @@ public class MemberService implements MemberServiceInter{
 		// TODO Auto-generated method stub
 		return dao.findPwToLogin(mid, memail);
 	}
-
+	
+	@Override
+	public List<MemberDto> getData3(int mrole) {
+		// TODO Auto-generated method stub
+		return dao.getData3(mrole);
+	}
+	
 	
 	
 	

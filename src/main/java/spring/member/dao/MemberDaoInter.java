@@ -1,5 +1,7 @@
 package spring.member.dao;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import spring.dto.MemberDto;
@@ -19,5 +21,6 @@ public interface MemberDaoInter {
 	public int mnickCheck(String mnick);
 	public MemberDto getMailId(String memail);
 	public int findPwToLogin(String mid,String memail);
-	
+	public List<MemberDto> getData3(int mrole);
+
 }

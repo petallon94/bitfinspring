@@ -13,8 +13,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="rsv__con">
-		<div class="rsv__container">
+<div class="rsv__con">
+	<div class="rsv__container">
 			<h2 class="rsv__title">예약 확인</h2>
 			<p class="rsv__section_txt">
 				코비다웃 예약서비스를 이용해주셔서 감사합니다.<br> 예약서비스 이용시 불편함이 없도록 최선을
@@ -33,10 +33,10 @@
 							</div>
 						</div>
 						<div class="rsv_listbox_info">
-							<div class="rsv__list_name">예 약 자 : ${a.rmnum}님</div>
+							<div class="rsv__list_name">예 약 자 : ${mdto.mid}님</div>
 							<div class="rsv__list_hname">병 원 이 름 : ${a.rdmnum}</div>
 							<div>증상 :${a.rmemo}</div>
-							<div>예약되어있습니다. ${a.rnum}</div>
+							<div>예약되어있습니다.</div>
 							<div class="rsv__list_btn">
 								<input type="button" class="rsv__btn_update"
 									onclick="location.href='updateform?rnum=${a.rnum}'"
@@ -51,5 +51,4 @@
 		</div>
 	</div>
 </body>
-
 </html>

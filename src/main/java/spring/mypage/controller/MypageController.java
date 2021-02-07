@@ -48,12 +48,12 @@ public class MypageController {
 //	}
 	
 	//내 예약
-	@GetMapping("/mypage.reservation")
-	public String goMypagereservation()
-	{
-		return "/mypage/myreservation";
-	}
-	
+//	@GetMapping("/mypage.reservation")
+//	public String goMypagereservation()
+//	{
+//		return "/mypage/myreservation";
+//	}
+//	
 	//내가 쓴 글
 	@GetMapping("/mypage.content")
 	public String goMypagecontent(Model model,

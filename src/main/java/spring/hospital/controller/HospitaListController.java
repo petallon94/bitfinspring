@@ -19,9 +19,7 @@ public class HospitaListController {
     	 public static String getHlist(@RequestParam String hcate, @RequestParam(value = "pageNum",defaultValue = "1") String pageNum,
     			 @RequestParam(value = "numOfRows",defaultValue = "9") String perPage) throws IOException {
 			
-    	        
-			System.out.println("java hcate" + hcate);
-			System.out.println("java pageno" +pageNum);
+
     		 StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/B551182/pubReliefHospService/getpubReliefHospList"); /*URL*/
     	        
     	        urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "=ELPlnUlo0CxXA8FbXT0V%2B0wkutn45xHxgWifiU35dIFwr3r1ngGdPJCbxlz59QRhYMoSmt2nzUIZYiCxjFQXgg%3D%3D"); /*Service Key*/
