@@ -18,37 +18,43 @@ html,body {
 	width: 100%;
 }
 .editor {
-	margin: 0 auto;
+	margin: 40px auto;
 }
 
 .dcom-con {
 	max-width: 1200px;
-	color: white;
 }
 
 .dcom-start {
-	
-	top: 100px;
+	margin-bottom: 20px;
 }
-
+.dcom-con-box{
+	width: 100%;
+}
 .dcom-title {
-	position: relative;
-
+	float: left;
 }
 
 .dcom-photo {
-	position: relative;
-	left: 320px;
-	top: -54px;
+	float: left;
+	margin-left: 10px;
 }
 
 .dcom-writer {
-	position: relative;
-	left: 1080px;
-	top: -110px;
-
+	float: right;
 }
 
-.dcom-button {
-	margin-top: 20px;
+.con-btn{
+	width: 100%;
+	height: 45px;
+	margin-left: 40%;
+	margin-bottom: 100px;
+}
+
+.con-btn .btn{
+	color: #70788d;
+}
+.con-btn .btn:hover{
+	background-color: #70788d;
+	color: white;
 }

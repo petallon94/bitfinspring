@@ -110,7 +110,7 @@ function search_list(){
 						<!-- ★여기에 해시태그 for each 넣어야됩니당★ -->
 						<c:forEach var="a" items="${hashlist}">
 						<div class="hashtag" name = "hashtag">
-							<span class="glyphicon glyphicon-ok"></span> <a>${a.hashtag}</a>
+							<a><img src="${root }/image/hashtag_w.png" style="width: 21px;"><span>${a.hashtag}</span></a>
 						</div>
 						</c:forEach>
 
@@ -122,7 +122,7 @@ function search_list(){
 	</div>
 	<div class="board_search" id ="board_search">
 			<h3>#해시태그 검색</h3>
-			<input type="text" class="board_textfield" />
+			<input type="text" class="board_textfield"/>
 			<input type = "hidden" class = "currentPage" id ="currentPage" value ="${currentPage}">
 			<button type="button" class="board_searchbtn">검색하기</button>
 		</div>
@@ -157,12 +157,8 @@ function search_list(){
 	</c:forEach>
 	</div>
 
-
-
-	<hr>
-	<div class="board_bottom" style="width: 100%; text-align: center; float: left;">
-		
-		<ul class="pagination">
+	<div class="board_bottom">
+		<ul class="pagination" style="margin-top: 3px;">
 			<c:forEach var="pp" begin="${startPage}" end="${endPage}">
 				<c:if test="${pp==currentPage}">
 					<li class="active"><a href="list?pageNum=${pp}">${pp}</a></li>
@@ -174,10 +170,9 @@ function search_list(){
 			<c:if test="${endPage<totalPage}">
 				<li><a href="list?pageNum=${endPage+1}">다음</a></li>
 			</c:if>
-
 		</ul>
+		<button class="board_write_btn" value="글쓰기" onclick="location.href='./boardwrite'" >글쓰기</button>
 		
-		<button value="글쓰기" onclick="location.href='./boardwrite'" >글쓰기</button>
 	</div>
 
 	

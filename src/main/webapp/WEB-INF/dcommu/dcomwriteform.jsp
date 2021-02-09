@@ -34,12 +34,12 @@ user-scalable=yes,initial-scale=1.0, target-densitydpi=medium-dpi" />
       });
 
 </script>
-<body style="background-color: #1f2c59">
+<body>
 
    <div class="dcom-top-bn-box dcom-con2">
       <div class="dcom-img-box">
          <img style="height: 400px;"
-            src="https://pds.joins.com//news/component/htmlphoto_mmdata/201803/15/358b703f-2d05-4ebc-8911-9e91e56048e0.jpg"
+            src="${root}/image/dcommu_visual.png"
             alt="">
       </div>
    </div>
@@ -55,42 +55,44 @@ enctype="multipart/form-data" action="insert">
     
    <!-- SmartEditor2 -->
    <div class="jsx-2303464893 editor dcom-con">
-      <div style="height: 100px;">
-         <div class="dcom-row dcom-start" style="color: white;"><h3><b>게시글작성</b></h3></div>
-         <div class="dcom-con dcom-title">
-         <b>제목</b>
-            <input type="text" class="form-control dcom-row"
-                     style="width: 300px;" required="required"
-                     name="csubject" placeholder="제목">    
+      <div style="height: 100px; margin-bottom: 20px;">
+         <div class="dcom-row dcom-start"><h3><b>게시글작성</b></h3></div>
+         <div class="dcom-con-box">
+	         <div class="dcom-con dcom-title">
+	         	<b>제목</b>
+	            <input type="text" class="form-control dcom-row"
+	                     style="width: 300px;" required="required"
+	                     name="csubject" placeholder="제목">    
+	         </div>
+	         <div class="dcom-con dcom-photo">
+	        	 <b>메인사진</b>
+	            <input type="file" class="form-control dcom-row" id="mainpicture"
+	                     style="width: 300px; line-height: 1;" name="file" required="required">    
+	         </div>
+	         <div class="dcom-con dcom-writer">
+	         <b>작성자</b>
+	            <input type="text" class="form-control dcom-row" readonly="readonly"
+	                     style="width: 120px;" required="required"
+	                     name="cwriter" value="${mdto.mnick }"> 
+	         </div>
          </div>
-         <div class="dcom-con dcom-photo">
-         <b>메인사진</b>
-            <input type="file" class="form-control dcom-row" id="mainpicture"
-                     style="width: 300px;" name="file" required="required">    
-         </div>
-         <div class="dcom-con dcom-writer">
-         <b>작성자</b>
-            <input type="text" class="form-control dcom-row" readonly="readonly"
-                     style="width: 120px;" required="required"
-                     name="cwriter" value="${mdto.mnick }"> 
-         </div>
+         
       </div>
       <div class="fr-box fr-basic fr-top" role="application">
-         <div class="fr-wrapper show-placeholder" dir="auto"
-            style="overflow: scroll;">
+         <div class="fr-wrapper show-placeholder" dir="auto">
             <textarea name="ccontent" id="smartEditor"
                style="width: 100%; height: 412px;" required="required"></textarea>
          </div>
       </div>
-      <div class="dcom-con">
+      <div class="dcom-con con-btn">
          <input type="submit" value="게시글등록" id="dcom-save"
-              class="btn btn-default btn-block dcom-button"
-              style="border: 2px solid #70788d"
+              class="btn btn-default dcom-button"
+              style="border: 1px solid #70788d; width: 100px; height: 42px; float: left; margin-top: 30px;"
                onclick="submitContents(this)">
                
             <input type="button" value="커뮤니티목록"
-              class="btn btn-default btn-block dcom-button"
-               style="border: 2px solid #70788d"
+              class="btn btn-default dcom-button"
+               style="border: 1px solid #70788d; width: 100px; height: 42px; float: left; margin-top: 30px; margin-left: 10px;"
                onclick="location.href='list'">  
       </div>
    </div>

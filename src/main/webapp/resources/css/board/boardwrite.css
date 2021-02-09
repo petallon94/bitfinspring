@@ -2,7 +2,7 @@
 
 .board_writemain{
 	
-	height : 600px;
+	height : 400px;
 	background-image: url('../../image/board1.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -11,32 +11,29 @@
 }
 
 .board_writemain h3 {
-	padding-top : 260px;
+	padding-top : 200px;
 	color: white;
 	font-size : 3em;
 	cursor : pointer;
+	margin: 0;
 }
 
 /* 본문 폼 쪽 css*/
 
 .board_writec{
 	
-	background-color: #f2f3f5;
 	text-align : center;
-	
+	margin-top: 40px;
 }
 
 .board_writeform{
-	background-color: #f2f3f5;	
-	padding: 5px 10px;
 	text-align : left;
-	margin-left : 5%;
+	margin-left : 10%;
+	margin-right: 10%;
 }
 
 #smartEditor{
-	background-color: #f2f3f5;
 	color : #f2f3f5;
-	
 }
 
 .board_writecontents{
@@ -46,28 +43,40 @@
 
 .board_topic {
 	width: 500px;
-	padding: 0px 10px;
-	box-sizing: border-box;
-	border: 2px solid #ccc;
-	height: 30px;
 	font-size: 16px;
-	vertical-align: middle;
+}
+
+.dcom-title{
+	float: left;
+	margin-bottom: 20px;
+}
+
+.dcom-writer{
+	float: right;
+}
+
+.dcom-photo{
+	margin-left: 20px;
 }
 
 .board_hashform{
-	background-color: #f2f3f5;
 	text-align : center;
+	margin: 30px auto;
 }
 
+.dcom-con{
+	float: left;
+}
 
 .board_hashtag{
 	width: 500px;
 	padding: 14px 20px;
 	box-sizing: border-box;
-	border: 2px solid #ccc;
+	border: 1px solid #ddd;
 	height: 55px;
 	font-size: 16px;
 	vertical-align: middle;
+	border-radius: 5px;
 }
 
 .board_hashbtn{
@@ -75,21 +84,33 @@
 	padding: 14px 20px;
 	height: 55px;
 	font-size : 1em;
-	margin-left : 25px;
+	margin-left : 5px;
+	border: 1px solid #70788d;
+	background-color: #70788d;
+	border-radius: 4px;
+	color: white;
 }
 
 .board_btngroup{
-	
 	text-align : center; padding-bottom: 30px
 }
 
 
 .board_listbtn, .board_savebutton{
-	
 	width: 120px;
 	padding: 14px 20px;
 	height: 55px;
 	font-size : 1em;
-	margin-left : 25px;
+	margin-left : 10px;
+	border-radius: 4px;
+	border: 1px solid #70788d;
+	color: #70788d;
+	background-color: white;
+	margin-bottom: 80px;
+}
+
+.board_listbtn:hover, .board_savebutton:hover{
+	background-color: #70788d;
+	color: white;
 }
 
