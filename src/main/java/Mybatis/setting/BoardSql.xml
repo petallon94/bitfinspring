@@ -20,7 +20,10 @@
 		update board set breadcount = breadcount+1 where bnum = #{bnum};
 	</update>
 	<select id ="selecthashtag" resultType="bdto">
-		select distinct hashtag from hashtag;
+		select distinct hashtag from hashtag limit 10;
+	</select>
+	<select id ="selboardhash" resultType = "bdto" parameterType = "String">
+		select * from hashtag where hbnum = #{hbnum}
 	</select>
 	<select id ="selectboardtag" resultType="bdto" parameterType = "String">
 		select * from board b, hashtag h where b.bnum = h.hbnum and b.bnum = #{bnum};
@@ -36,7 +39,7 @@
 		<if test="bphoto!=null">,bphoto =#{bphoto}</if> where bnum = #{bnum}
 	</update>
 	<delete id ="deletehashtag" parameterType="bdto">
-		delete from hashtag where hashtag = #{hashtag} and hbnum = #{hbnum}
+		delete from hashtag where hbnum = #{hbnum} and hashtag = #{hashtag}
 	</delete>
 	<insert id ="inserthashtag" parameterType ="bdto">
 		insert into hashtag (hbnum,hashtag) values (#{hbnum},#{hashtag}) 

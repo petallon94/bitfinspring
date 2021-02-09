@@ -36,9 +36,7 @@ $(function(){
 		
 		 var index = $(".hashtag").index(this);
 		 var hashtag = $(".hashtag a").eq(index).text();
-		 //alert(attr);
-		 
-		 if(confirm("댓글을 삭제하려면 [확인]을 눌러주세요")==true){				
+		 //alert(hashtag); 	 
 				$.ajax({
 					type:"post",
 					url:"hashtagdel",
@@ -49,8 +47,6 @@ $(function(){
 						hashtag_list();//댓글 다시 출력					
 					}
 				});
-			}
-		 
 		 
 	}); 
 	

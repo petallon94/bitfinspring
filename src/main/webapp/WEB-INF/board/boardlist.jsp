@@ -27,7 +27,7 @@ $(function(){
 				dataType : "JSON",
 				data:{"hashtag":hashtag},
 				success:function(data){					
-					var s="<div>";					
+					var s="<div class = 'board_content' style ='border : 2px solid black;'>";					
 					$.each(data,function(i,n){	
 						s+="<div class='board_left' onclick='location.href='./boardcontent?bnum="+n.bnum+"&pageNum="+currentPage+"'>";
 						s+="<h4>"+n.bsubject+"</h4>";
@@ -77,11 +77,11 @@ $(function(){
 						
 							
 					});
-					s+= "</div>";
+					s+= "<div style ='margin-top:100px;'></div></div>";
 					
 					$("#board_lli").html(s);
+					content.trigger( "create" );
 					
-				
 				}
 				
 			});
@@ -110,7 +110,7 @@ function search_list(){
 						<!-- ★여기에 해시태그 for each 넣어야됩니당★ -->
 						<c:forEach var="a" items="${hashlist}">
 						<div class="hashtag" name = "hashtag">
-							<a><img src="${root }/image/hashtag_w.png" style="width: 21px;"><span>${a.hashtag}</span></a>
+							<a><img src="${root}/image/hashtag_w.png" style="width: 21px;"><span>${a.hashtag}</span></a>
 						</div>
 						</c:forEach>
 
@@ -141,22 +141,17 @@ function search_list(){
 					</h5>
 					<h5>${b.bwriter}</h5>
 					</div>
-					<ul>
-						<li>해시태그 자리</li>
-						<li>추후구현예정</li>
-					</ul>
 				</div>
 			</div>
 			<div class="board_right">
 				<img
 					src="${pageContext.request.contextPath}/resources/save/${b.bphoto}"
-					 onerror = "this.src='/image/no_image.png'"
 					style="width: 200px; height: 200px;" />
 			</div>
 		</div>
 	</c:forEach>
-	</div>
-
+	
+	
 	<div class="board_bottom">
 		<ul class="pagination" style="margin-top: 3px;">
 			<c:forEach var="pp" begin="${startPage}" end="${endPage}">
@@ -174,6 +169,10 @@ function search_list(){
 		<button class="board_write_btn" value="글쓰기" onclick="location.href='./boardwrite'" >글쓰기</button>
 		
 	</div>
+	
+	</div>
+
+	
 
 	
 	

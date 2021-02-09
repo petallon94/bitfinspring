@@ -101,6 +101,7 @@ public class BoardDao extends SqlSessionDaoSupport implements BoardDaoInter {
 	@Override
 	public void deleteHashtag(BoardDto dto) {
 		// TODO Auto-generated method stub
+		System.out.println(dto.getHashtag()+" ++++++ "+dto.getHbnum());
 		getSqlSession().delete("deletehashtag",dto);
 	}
 
@@ -124,6 +125,12 @@ public class BoardDao extends SqlSessionDaoSupport implements BoardDaoInter {
 	public int getMyCount(String bmidnum) {
 		// TODO Auto-generated method stub
 		return getSqlSession().selectOne("totalMyBoard",bmidnum);
+	}
+
+	@Override
+	public List<BoardDto> getBoardHashtag(String num) {
+		// TODO Auto-generated method stub
+		return getSqlSession().selectList("searchHashtag",num);
 	}
 	
 	

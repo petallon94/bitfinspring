@@ -94,7 +94,9 @@ public class BoardController {
 	   
 	   List<BoardDto> hashlist = dao.getTagList();
 	   
+	   
 	   //// 각 글 리스트 따오기
+	   
 	   
 	   //List<BoardDto> boardtaglist = dao.getOneTagList();
 	   

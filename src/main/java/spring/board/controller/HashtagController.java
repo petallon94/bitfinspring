@@ -58,11 +58,13 @@ public class HashtagController {
 			@RequestParam String hashtag)
 	{
 		BoardDto dto=new BoardDto();
-
+		
+		
 		dto.setHbnum(Integer.parseInt(hbnum));
 		dto.setHashtag(hashtag);
 		
 		//db 에 저장
+		System.out.println(dto.getHbnum()+" ++ "+dto.getHashtag());
 
 		hdao.deleteHashtag(dto);
 
