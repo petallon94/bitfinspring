@@ -23,7 +23,7 @@
 	<div class="board_writelayout">
 
 		<div class="board_writemain">
-			<h3 "location.href='../board/list'" >의료정보 커뮤니티</h3>
+			<h3 onclick="location.href='../board/list'" >의료정보 커뮤니티</h3>
 			<div style="display: flex; justify-content: center;"></div>
 		</div>
 	</div>
@@ -33,48 +33,43 @@
 			class="board_writeform">
 
 			<div class="jsx-2303464893 editor">
-				<h3>글제목</h3>
-				<input type="text" class="board_topic" id="board_topic"
-					name="bsubject" /> 
-					<input type="text" class="board_id"
-					id="board_id" name="bmidnum" value="${mdto.mnum}"/> 
-					<input type="text" class="board_nick" id="board_nick" name="bwriter"
-					value="${mdto.mnick}"/> 
+				<h3>게시글 작성</h3>
+				<div class="dcom-con-wrap">
+					<div class="dcom-con dcom-title">
+						<b>제목</b>
+						<input type="text" class="board_topic form-control dcom-row" id="board_topic" name="bsubject" /> 
+					</div>
+					<input type="hidden" class="board_id" id="board_id" name="bmidnum" value="${mdto.mnum}"/> 
 					<input type="hidden" name="pageNum" value="${pageNum}"> 
 					<input type="hidden" name="regroup" value="${regroup}"> 
 					<input type="hidden" name="restep" value="${restep}"> 
 					<input type="hidden" name="relevel" value="${relevel}">
-					
+						
 					<div class="dcom-con dcom-photo">
-         		<b>메인사진</b>
-            		<input type="file" class="form-control dcom-row"
-                     style="width: 300px;" name="file" required="required">    
-         </div>
-
-
+	        			<b>메인사진</b>
+	           			<input type="file" class="form-control dcom-row" style="width: 300px; line-height: 1;" name="file" required="required">    
+	        		</div>
+					<div class="dcom-writer">
+						<b>작성자</b>
+						<input type="text" class="form-control dcom-row" id="board_nick" name="bwriter" readonly="readonly" value="${mdto.mnick}"/> 
+					</div>
+				</div>
 				<div class="fr-box fr-basic fr-top" role="application">
-					<div class="fr-wrapper show-placeholder" dir="auto"
-						style="overflow: scroll;">
-						<textarea name="bcontent" id="smartEditor"
+					<div class="fr-wrapper show-placeholder" dir="auto">
+						<textarea class="form-control dcom-row" name="bcontent" id="smartEditor"
 							style="width: 100%; height: 412px; background-color: white; opacity: 1;"></textarea>
 					</div>
 
 				</div>
 
-
-
-
 				<div class="board_hashform"> 
-					<hr>
 					<input type="text"  class="board_hashtag" />
 					<button type="button" class="board_hashbtn">태그 추가</button>
 				</div>
-				<hr>
 				<div class="board_btngroup">
 					<button type="button" class="board_listbtn"
 						onclick="location.href='../board/list'">목록</button>
 					<button type="button" class="board_savebutton" onclick="submitContents(this)" >저장</button>
-
 				</div>
 			</div>
 		</form>

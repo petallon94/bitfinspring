@@ -102,9 +102,6 @@ function hashtag_list()
 	});
  
 }
-
-
-
 </script>
 
 </head>
@@ -112,7 +109,7 @@ function hashtag_list()
 	<div class="board_updatelayout">
 
 		<div class="board_updatemain">
-			<h3 "location.href='../board/list'" >의료정보 커뮤니티</h3>
+			<h3 onclick="location.href='../board/list'" >의료정보 커뮤니티</h3>
 			<div style="display: flex; justify-content: center;"></div>
 		</div>
 	</div>
@@ -121,28 +118,33 @@ function hashtag_list()
 		<form action="update" method="post" enctype="multipart/form-data">
 
 			<div class="board_updateform">
-				<h3>글제목</h3>
-				<input type="text" class="board_topic" id="board_topic" name="bsubject" value ="${dto.bsubject}"/>
-				<input type="text" class="board_bid" id="board_bid" name="bnum" value="${dto.bnum}"  />
-				<input type="text" class="board_id" id="board_id" name="bmidnum" value="${mdto.mnum}"  />
-				<input type="text" class="board_nick" id="board_nick" name="bwriter" value="${mdto.mnick}" />
-				<input type ="hidden" name="pageNum" value ="${pageNum}">
-				<input type ="hidden" name="regroup" value ="${dto.regroup}">
-				<input type ="hidden" name="restep" value ="${dto.restep}">
-				<input type ="hidden" name="relevel" value ="${dto.relevel}">
-				<div class="dcom-con dcom-photo">
-         		<b>메인사진</b>
-            		<input type="file" class="form-control dcom-row"
-                     style="width: 300px;" name="file" required="required">    
-         </div>
+				<h3>게시글 수정</h3>
+				<div class="com-up-wrap">
+					<div class="com-up-title">
+						<b>글제목</b>
+						<input type="text" class="board_topic form-control dcom-row" id="board_topic" name="bsubject" value ="${dto.bsubject}"/>
+					</div>
+					<input type ="hidden" class="board_bid" id="board_bid" name="bnum" value="${dto.bnum}"  />
+					<input type ="hidden" class="board_id" id="board_id" name="bmidnum" value="${mdto.mnum}"  />
+					<input type ="hidden" name="pageNum" value ="${pageNum}">
+					<input type ="hidden" name="regroup" value ="${dto.regroup}">
+					<input type ="hidden" name="restep" value ="${dto.restep}">
+					<input type ="hidden" name="relevel" value ="${dto.relevel}">
+					<div class="dcom-con dcom-photo">
+	         			<b>메인사진</b>
+	            		<input type="file" class="form-control dcom-row" style="width: 300px; line-height: 1;" name="file" required="required">    
+					</div>
+					<div class="com-up-writer">
+	         			<b>작성자</b>
+						<input type ="text" class="form-control dcom-row" id="board_nick" name="bwriter" readonly="readonly"  value="${mdto.mnick}" />
+					</div>
+        		 </div>
 			</div>
 
-			<hr>
 			<div class="board_updatecontents">
 				<div class="jsx-2303464893 editor">
 					<div class="fr-box fr-basic fr-top" role="application">
-						<div class="fr-wrapper show-placeholder" dir="auto"
-							style="overflow: scroll;">
+						<div class="fr-wrapper show-placeholder" dir="auto">
 							<textarea  id="smartEditor" name="bcontent" 
 								style="width: 100%; height: 412px; background-color: white; opacity: 1;">${dto.bcontent}</textarea>
 						</div>
@@ -153,12 +155,10 @@ function hashtag_list()
 			<div class="board_hashform" id ="board_hashform">
 			
 			</div>
-			<div>
-				<hr>
+			<div class="tagform">
 				<input type="text" class="board_hashtag" id ="board_hashtag" />
 				<button type="button" class="board_hashbtn">태그 추가</button>
 			</div>
-			<hr>
 			<div class ="board_btngroup" >
 			<button type="button" class="board_listbtn" onclick="location.href='../board/list'">목록</button>
 			<button type="submit" class="board_savebutton" onclick="submitContents(this)" >저장</button>

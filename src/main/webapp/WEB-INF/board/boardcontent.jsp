@@ -91,9 +91,9 @@ function answer_list()
 				var s="<div class = 'each_comments'>";
 				$.each(data,function(i,n){
 
-					s+= "<div style ='padding-top : 10px;'><a>"+n.awriter+"</a><span>"+n.awritedate+"</span>";
-					s+= "<a class='update' href='answerupdpass?aidx="+n.aidx+"' aidx="+n.aidx+">수정</a><a class='del' aidx="+n.aidx+">삭제</a></div>";
-					s+= "<div class ='board_memo' style ='padding-bottom : 10px;border-bottom : 1px solid gray'>"+n.amemo+"</div>";
+					s+= "<div style ='padding : 20px 20px 0 20px;'><a class='awriter'>"+n.awriter+"</a><span>"+n.awritedate+"</span>";
+					s+= "<div class='atag'><a class='update' href='answerupdpass?aidx="+n.aidx+"' aidx="+n.aidx+">수정</a><a class='del' aidx="+n.aidx+">삭제</a></div></div>";
+					s+= "<div class ='board_memo' style ='padding-bottom : 20px; padding-left:20px;border-bottom : 1px solid #ddd'>"+n.amemo+"</div>";
 				});
 
 				s+="</div>";
@@ -137,12 +137,9 @@ function answer_list()
          <div class="modal-content">
             <div class="modal-header" style="padding: 35px 50px;">
                <button type="button" class="close" data-dismiss="modal">&times;</button>
-               <h4>
+               <h3>
 					게시물을 스크랩취소하시겠습니까?
-					bnum: ${dto.bnum}
-					bmidnum: ${mdto.mnum}
-					boardcheck: ${boardcheck}
-               </h4>
+               </h3>
             </div>
             <form action="boardscrapdel" method="post" class="form-inline">
                <input type="hidden" name="scnum" value="0">
@@ -151,12 +148,8 @@ function answer_list()
 				<input type="hidden" name="num" value="${dto.bnum}">
                	<input type="hidden" name="pageNum" value="${pageNum}">     
                <div class="modal-body" style="padding: 40px 50px; text-align: center;">
-                  <button type="submit" style="width: 80px;">
-                     <span class="glyphicon glyphicon-trash"></span> 확인
-                  </button>
-                  <button type="button" style="width: 80px;" data-dismiss="modal">
-                     <span class="glyphicon glyphicon-remove"></span> 취소
-                  </button>
+                 <button type="submit" class="modal-btn modal-btn-yes" style="width: 80px;">확인</button>
+                 <button type="button" class="modal-btn modal-btn-no" style="width: 80px;" data-dismiss="modal">취소</button>
                </div>
             </form>
          </div>
@@ -172,12 +165,9 @@ function answer_list()
 			<div class="modal-content">
 				<div class="modal-header" style="padding: 35px 50px;">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4>
+					<h3>
 						게시물을 스크랩하시겠습니까?
-						bnum: ${dto.bnum}
-						bmidnum: ${mdto.mnum}
-						boardcheck: ${boardcheck}
-					</h4>
+					</h3>
 				</div>
 				<form action="boardscrap" method="post" class="form-inline">
 					<input type="hidden" name="scnum" value="0">
@@ -186,12 +176,8 @@ function answer_list()
   					<input type="hidden" name="num" value="${dto.bnum}">
                 	<input type="hidden" name="pageNum" value="${pageNum}"> 	
 					<div class="modal-body" style="padding: 40px 50px; text-align: center;">
-						<button type="submit" style="width: 80px;">
-							<span class="glyphicon glyphicon-trash"></span> 확인
-						</button>
-						<button type="button" style="width: 80px;" data-dismiss="modal">
-							<span class="glyphicon glyphicon-remove"></span> 취소
-						</button>
+						<button type="submit" class="modal-btn modal-btn-yes" style="width: 80px;">확인</button>
+                  		<button type="button" class="modal-btn modal-btn-no" style="width: 80px;" data-dismiss="modal">취소</button>
 					</div>
 				</form>
 			</div>
@@ -225,30 +211,30 @@ function answer_list()
 	</div>	
 			<div class ="board_conbtngrp">
 				<hr>
-				<button type="button" class="board_clistbtn" onclick = "location.href='../board/list'">목록</button>
+				<button type="button" class="bbtn board_clistbtn" onclick = "location.href='../board/list'">목록</button>
 				<c:if test="${mdto.mnum == dto.bmidnum }">
-					<button type ="button" class ="board_cupdbutton" onclick="location.href='updatepassform?num=${dto.bnum}&pageNum=${pageNum}'" >수정</button>			
-					<button type ="button" class ="board_cdelbutton" onclick="location.href='deletepassform?num=${dto.bnum}'">삭제</button>
+					<button type ="button" class ="bbtn board_cupdbutton" onclick="location.href='updatepassform?num=${dto.bnum}&pageNum=${pageNum}'" >수정</button>			
+					<button type ="button" class ="bbtn board_cdelbutton" onclick="location.href='deletepassform?num=${dto.bnum}'">삭제</button>
 				</c:if>
 				<%-- <c:if test="${mdto != null }"></c:if> --%>
 				
 				<c:if test="${loginok != null }">
 					<c:if test="${boardcheck>0}">
-						<button type ="button" class ="board_cscrbutton" id="scrapdel-btn" style="background-color: yellow;" data-toggle="modal" data-target="#mybModaldelscrap">스크랩</button>
+						<button type ="button" class ="bbtn board_cscrdbutton" id="scrapdel-btn" style="background-color: #F7D14C;" data-toggle="modal" data-target="#mybModaldelscrap">스크랩</button>
 					</c:if>
 					<c:if test="${boardcheck==0||boardcheck==null}">
-						<button type ="button" class ="board_cscrbutton" id="scrap-btn" data-toggle="modal" data-target="#mybModalscrap">스크랩</button>
+						<button type ="button" class ="bbtn board_cscrbutton" id="scrap-btn" data-toggle="modal" data-target="#mybModalscrap">스크랩</button>
 					</c:if>
 				</c:if>
 				<c:if test="${loginok == null}">
-					<button type ="button" class ="board_cscrbutton" data-toggle="modal" data-target="#bModal">스크랩</button>
+					<button type ="button" class ="bbtn board_cscrbutton" data-toggle="modal" data-target="#bModal">스크랩</button>
 				</c:if>
 
 			
 			</div>
 			
 			<div class ="comments_section">
-			<span class="glyphicon glyphicon-expand">  댓글 총 ${totalcount}개</span>
+			<span class="glyphicon glyphicon-expand">  댓글 총 ${totalCount}개</span>
 			<hr>
 			<div id = "board_comments" class ="board_comments">
 			
@@ -264,9 +250,9 @@ function answer_list()
 			<div> ${mdto.mnick}</div>
 			
 			</div>
-			<textarea class = "ans_writearea" id="amemo" name="amemo"> </textarea><br>
-			</div>
+			<textarea class = "ans_writearea" id="amemo" name="amemo"> </textarea>
 			<button class ="ans_savebtn" id = "ans_savebtn" type ="button" >댓글쓰기</button>
+			</div>
 			</div>
 			</div>
 </body>
