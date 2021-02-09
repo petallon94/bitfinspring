@@ -9,7 +9,7 @@ import spring.dto.ReserveDto;
 public class ReserveDao extends SqlSessionDaoSupport implements ReserveDaoInter {
 
 	@Override
-	public int getTotalCount() {
+	public int getTotalCount(int rmnum) {
 		// TODO Auto-generated method stub
 		return getSqlSession().selectOne("totalCountOfReserve");
 	}

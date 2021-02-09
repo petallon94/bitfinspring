@@ -30,32 +30,24 @@ public class ReserveController {
 	//member dao 선언
 	MemberDto mdto;
 
-	@GetMapping("/reserve/list")
-	public String reserveList(Model model, 
-			@RequestParam String rmnum)
-	{
-		
-		//전체 데이터 얻기		
-		List<ReserveDto> list=dao.getDataRm(rmnum);
-		
-		//model에 저장		
-		model.addAttribute("list", list);
-
-		return "/reserve/list";
-	}
 
 	@GetMapping("/mypage.reservation")
 	public String reserveList(Model model,HttpServletRequest request)
 	{
+		
+		
 		HttpSession session = request.getSession();
 		MemberDto mdto=(MemberDto)session.getAttribute("mdto");
 		String rmnum=Integer.toString(mdto.getMnum());
-		//전체 데이터 얻기		
+		//총예약수 얻기
+		int totalCount = dao.getTotalCount(mdto.getMnum());	
+		//전체 데이터 얻기	
 		List<ReserveDto> list=dao.getDataRm(rmnum);
 		
-		//model에 저장		
+		model.addAttribute("totalCount",totalCount);
 		model.addAttribute("list", list);
-
+		
+		
 		return "/mypage/myreservation";
 	}
 	
@@ -63,8 +55,13 @@ public class ReserveController {
 	//test
 	//예약버튼을 눌렀을 때 입력하는 폼
 	@GetMapping("/reserve/writeform")
-	public String reserveForm()
+	public String reserveForm(@RequestParam String name
+	         ,@RequestParam String num,
+	         Model model)
 	{	
+		model.addAttribute("num",num);
+		model.addAttribute("name",name);
+		
 		return "/reserve/writeform";
 	}
 

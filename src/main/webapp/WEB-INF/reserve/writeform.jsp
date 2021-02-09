@@ -20,14 +20,14 @@
 <div class="rsv__con">
 	<div class="rsv__container">
 		<h2 class="rsv__title">병원예약</h2>
-		<h3 class="rsv__section_title">산넘어산병원</h3>
-		<p class="rsv__section_txt">
-			영업시간: 월~ 금 8:30~ 16:00<br>
+		<h3 class="rsv__section_title">${name}</h3>
+		<p class="rsv__section_txt">예약하시겠습니까?</p>
 		<hr>
 		<form action="insert" method="post">
 		<input type="hidden" name="rmnum" class="rsv__select"
 					value="${mdto.mnum}">
-					
+      	<input type="hidden" name="rdmnum" value="${num}" />
+	
 			<div class="rsv__section1">
 				<input type="text" id="rsv__select_date" name="rdate"
 					placeholder="예약날짜를 선택하세요." required="required"/> 
@@ -36,10 +36,7 @@
 			</div>
 			<div class="rsv__section2">
 				 <div class="rsv__select_name">${mdto.mnick}님</div> 
-				<%--<c:if test="${mdto.mrole==1}">${mdto.mnick}</c:if>예약하시겠습니까? --%>
-				<!-- 병원리스트 받아서 불러오는걸로 수정예정 -->	
-			<input type="text" name="rdmnum" class="rsv__select" required="required"
-					placeholder="병원를 입력해주세요.">
+			<div class="rsv__select_name">${name}</div>
 				<textarea id="rsv__memo" name="rmemo" class="rsv__select"
 					placeholder="증상을 입력해주세요 " required="required"></textarea>
 			</div>		
