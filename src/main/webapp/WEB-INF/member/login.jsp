@@ -34,7 +34,7 @@
 				<label><span class="glyphicon glyphicon-user"></span>  ID</label>
 			</div>
 			<div class="login_input1">
-				<input type="password" name="mpw" class="login_id" required />
+				<input type="password" name="mpw" class="login_id" style="font-family:serif;" required />
 				<div class="underline"></div>
 				<label><span class="glyphicon glyphicon-lock"></span>  Password</label>
 			</div>

@@ -14,6 +14,7 @@
 		<form action="updatemember" method="post" id="signupform">
 			<input type="hidden" name="mrole" value="1">
 			
+			
 			<h2 class="signup_main_title">전문인 정보수정</h2>
 			
 			<label class="signup_input">

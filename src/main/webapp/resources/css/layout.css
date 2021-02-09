@@ -1361,9 +1361,11 @@ span.alert{
 footer div div pre{
 	background-color: rgba(255,255,255,0.5);
 	border-radius: 15px;
-	width:400px;
+	width:450px;
 	height:200px;
 	vertical-align: center;
+	overflow:hidden;
+	scrollbar-width: none;
 	
 }
 

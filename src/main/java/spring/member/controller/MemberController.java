@@ -71,6 +71,7 @@ public class MemberController {
 	{
 		int idcheck = service.idCheck(dto.getMid()); //1이면 존재, 0이면 존재안함.
 		int nickcheck = service.mnickCheck(dto.getMnick()); //1이면 존재, 0이면 존재안함.
+		System.out.println("nickcheck:"+ nickcheck + "and" + dto.getMnick());
 		int emailcheck = service.mailCheck(dto.getMemail()); //1이면 존재, 0이면 존재안함.
 		boolean passcheck = mpw1.equals(dto.getMpw());
 		
@@ -184,7 +185,7 @@ public class MemberController {
 		   //비밀번호가 틀릴 경우 마이페이지의 마이 인포메이션으로 가기.
 		   model.addAttribute("alert_title","패스워드가 맞지 않습니다.");
 		   model.addAttribute("alert_icon","error");
-		   model.addAttribute("url","/mypage.information");
+		   model.addAttribute("url","/mypage.main");
 		   return "/member/alert";
 	   }
 	   
@@ -201,7 +202,7 @@ public class MemberController {
       request.getSession().setAttribute("mdto",dto);
       model.addAttribute("alert_title","정보가 수정되었습니다.");
 	  model.addAttribute("alert_icon","success");
-	  model.addAttribute("url","/mypage.information");
+	  model.addAttribute("url","/mypage.main");
       return "/member/alert";
    }
 	
@@ -230,7 +231,7 @@ public class MemberController {
 			//결과가 틀리면 마이페이지로 돌아가기
 		    model.addAttribute("alert_title","패스워드가 알맞지 않습니다.");
 			model.addAttribute("alert_icon","error");
-			model.addAttribute("url","/mypage.information");
+			model.addAttribute("url","/mypage.main");
 			return "/member/alert";
 		}
 		
@@ -266,13 +267,13 @@ public class MemberController {
 		}else {
 		    model.addAttribute("alert_title","패스워드가 알맞지 않습니다.");
 			model.addAttribute("alert_icon","error");
-			model.addAttribute("url","/mypage.information");
+			model.addAttribute("url","/mypage.main");
 			return "/member/alert";
 		}
 		//성공 메세지 후, 리턴
 	    model.addAttribute("alert_title","패스워드가 수정되었습니다.");
 		model.addAttribute("alert_icon","success");
-		model.addAttribute("url","/mypage.information");
+		model.addAttribute("url","/mypage.main");
 		return "/member/alert";
 	}
 	

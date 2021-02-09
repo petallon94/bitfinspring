@@ -6,7 +6,7 @@ div.mypage_hadder{
 	background-size: cover;
 	background-position: center;
 	width:100%;
-	height:700px;
+	height:550px;
 	display:flex;
 	justify-content: center;
 	align-items: center;
@@ -120,14 +120,14 @@ ul.mypage_menu_icon > li{
 
 
 ul.mypage_menu_icon > li > a:hover{
-	background-color:#e93a3f;	
+	background-color:rgba(170,204,255,1);
 	transform:scale(1.2);
-	color:white;
+	color:black;
 }
 
 ul.mypage_menu_icon > li.mpick > a{
-	background-color:#e93a3f;
-	color:white;
+	background-color:rgba(170,204,255,1);
+	color:black;
 }
 
 
@@ -179,6 +179,18 @@ ul.mypage_menu_icon > li.mpick > a{
 	margin-right:18%;
 	margin-bottom:120px;
 }
+
+@media screen and (max-width:768px){
+	.mycontent_info{
+	height:50vh;
+	width:100%;
+	margin-top:60px;
+	margin-left:0%;
+	margin-right:0%;
+	margin-bottom:120px;
+}
+	
+} 
 
 
 
