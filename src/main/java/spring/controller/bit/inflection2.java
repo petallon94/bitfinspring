@@ -134,7 +134,7 @@ public class inflection2 {
             String b = Arrays.toString(inflectionDayResult);
             //System.out.println(a);
             //System.out.println(b);
-            HashMap<String, String> params=new HashMap<>();
+            HashMap<String, String> params=new HashMap<String, String>();
             params.put("inflectionPeople", a);
     		params.put("inflectionDay", b);
     		
@@ -176,7 +176,7 @@ public class inflection2 {
 			Document doc = dBuilder.parse(addr);
             doc.getDocumentElement().normalize();
             NodeList nList = doc.getElementsByTagName("item");
-            HashMap<String, String[]> params=new HashMap<>();
+            HashMap<String, String[]> params=new HashMap<String, String[]>();
             for(int temp = 0; temp < nList.getLength()-1; temp++){
                 Node nNode = nList.item(temp);
                 Element eElement = (Element) nNode;

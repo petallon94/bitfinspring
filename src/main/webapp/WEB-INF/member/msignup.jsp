@@ -33,12 +33,12 @@
 			</label>
 			
 			<label class="signup_input">
-				<input type="password" name="mpw" class="mpw" required>
+				<input type="password" name="mpw" class="mpw" style="font-family:serif;" required>
 				<span class="signup_input_sp"> <span class="glyphicon glyphicon-lock"></span> Password</span>
 			</label>
 			
 			<label class="signup_input">
-				<input type="password" name="mpw1" class="mpw" required>
+				<input type="password" name="mpw1" class="mpw" style="font-family:serif;" required>
 				<span class="signup_input_sp"> <span class="glyphicon glyphicon-lock"></span> Check Your Password</span>
 			</label>
 			

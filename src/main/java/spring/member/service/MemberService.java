@@ -98,7 +98,7 @@ public class MemberService implements MemberServiceInter{
 	@Override
 	public int mnickCheck(String mnick) {
 		// TODO Auto-generated method stub
-		return dao.mailCheck(mnick);
+		return dao.mnickCheck(mnick);
 	}
 
 	

@@ -53,12 +53,6 @@
 					예약내역
 				</a>
 			</li>
-			<li>
-				<a href="${root}/mypage.information">
-					<div class="mypage_icon icon_myinformation"></div>
-					나의 정보
-				</a>
-			</li>
 		</ul>
 	</div>
 	
