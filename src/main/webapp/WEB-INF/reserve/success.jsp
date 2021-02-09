@@ -18,7 +18,7 @@
 </div>
 	<div class="rsv_success_btnlist">
 		<button type="button" class="rsv__success_gotomainbtn" onclick="location.href='${root}/'">메인으로 돌아가기</button>
-		<button type="button" class="rsv__success_gotolistbtn" onclick="location.href='list?rmnum=${dto.rmnum}'">나의 예약목록보기</button>
+		<button type="button" class="rsv__success_gotolistbtn" onclick="location.href='${root}/mypage.reservation'">나의 예약목록보기</button>
 	</div>
 
 </body>

@@ -15,18 +15,18 @@
       <!--탭 박스-->
       <div class="hospital__list_tabbox">
          <div id="hospital__list_tablist">
-            <a class="hospital__list_listitem active1" name="A0">국민안심병원</a> 
-            <a class="hospital__list_listitem" name="97">호흡기전담클리닉</a> 
-               <a class="hospital__list_listitem" name="99">선별진료소</a> 
-               <a class="hospital__list_listitem" name="98">예약가능병원</a>
+            <a class="hospital__list_listitem active1" name="A0" id="tab1">국민안심병원</a> 
+            <a class="hospital__list_listitem" name="97" id="tab2">호흡기전담클리닉</a> 
+               <a class="hospital__list_listitem" name="99" id="tab3">선별진료소</a> 
+               <a class="hospital__list_listitem" name="98" id="tab4">예약가능병원</a>
          </div>
       </div>
       <!--검색창-->
       <div id="hospital__list_inputform" class="hospital__list_inputform">
-         <div class="hospital__list_searchcont">
-            <form class="hospital__list_search_area">
+         <div class="hospital__list_searchcont">         
+            <form class="hospital__list_search_area" name="fmList" >
                <input type="hidden" name="page" value="1" id="hlist_page"> 
-               <input class="hospital__list_search_text" id="hlist_searchtext" type="text" name="fname" placeholder="검색어를 입력하세요"> 
+               <input class="hospital__list_search_text" id="hlist_searchtext" type="text" name="SEARCHVALUE" id="SEARCHVALUE" value="" placeholder="검색어를 입력하세요"> 
                <input type="button" id="hlist_searchbtn" class="hospital__list_search_btn
                " value="검색" />
                <button type="button" id="hlist_viewlistbtn" class="hospital__list_viewlist_btn">전체목록</button>
@@ -52,16 +52,19 @@
    		<div class="hospital__list_card">
          <h3 class="hospital__list_hname" id="hlist_name">${m.mnick }</h3>
         <input type="hidden" id="hlist_role" value="${m.mrole }">
+        <input type="hidden" id="hlist_hnum" value="${m.mnum }">
       </div> </c:forEach>        
        </div>
         
       </div>
        
       <!-- 페이징처리할것 -->
-    <!--   <button id="btn">버튼</button> -->
+    
       <nav aria-label="Page navigation example" id="pagination"></nav>
       
    </div>
+   <button id="btn">버튼</button>
+   <div id="idd">강남성모</div> 
    <script>
    var hcates =['', 'A0','97','99'];
    
@@ -81,10 +84,7 @@
           beforeSend:function(jqXHR) {
               console.log("ajax호출전");
           },// 서버 요청 전 호출 되는 함수 return false; 일 경우 요청 중단
-          success: function(data) {
-             console.log("ajax start page : "+pageNum);
-             console.log(data);
-              //alert(hcate);                        
+          success: function(data) {                   
                  var container = document.getElementById("hospital__list_container");
                 container.style.display="grid";
                //요소이름 뽑아내기
@@ -133,16 +133,49 @@
    //   getData(hcates[0]);
    //});       
        
-   /* 탭버튼 누르면 해당되는 목록 불러오기 */
+   /* hospitalmain에서 아이콘 누르면 해당되는 목록 불러오기 */
     var tablist = document.getElementById("hospital__list_tablist");
     var title = document.getElementById("hospital__list_title");
     var btns = tablist.getElementsByClassName("hospital__list_listitem");
-    
-    
-    
+   
+    $(document).ready(function(){
+	
+    if (location.hash == "#tab1"){
+    		$('#hospital__list_tablist').find('a').eq(0).addClass(' active1').siblings().removeClass(' active1');
+    		$('.hospital__list_listitem').find('#tab1').addClass(' active1').siblings().removeClass(' active1');
+    		 
+    } else if(location.hash == "#tab2"){
+		$('#hospital__list_tablist').find('a').eq(1).addClass(' active1').siblings().removeClass(' active1');
+		$('.hospital__list_listitem').find('#tab2').addClass(' active1').siblings().removeClass(' active1');
+		 
+    } else if(location.hash == "#tab3"){
+		$('#hospital__list_tablist').find('a').eq(2).addClass(' active1').siblings().removeClass(' active1');
+		$('.hospital__list_listitem').find('#tab3').addClass(' active1').siblings().removeClass(' active1');
+		 
+    } else if(location.hash == "#tab4"){
+    	$('#hospital__list_tablist').find('a').eq(3).addClass(' active1').siblings().removeClass(' active1');
+		$('.hospital__list_listitem').find('#tab4').addClass(' active1').siblings().removeClass(' active1');
+	 
+    }    
+    var current = document.getElementsByClassName("active1");  
+    for (i = 0; i < current.length; i++) {
+    	var hcate =current[i].getAttribute('name');
+    	 if(hcate=="98"){
+      	   $("#hospital__list_container2").css("display", "grid");
+      	   $("#hospital__list_container").css("display", "none");
+      	 	$("#pagination").css("display", "none");
+         }else{
+         getData(hcate);
+         $("#hospital__list_container2").css("display", "none");
+         $("#pagination").css("display", "block");
+         }
+    	}
+    });
+		
+     /*탭 클릭시 리스트불러오기*/
     for (var i = 0; i < btns.length; i++) {
        btns[i].addEventListener("click", function () {
-       var current = document.getElementsByClassName("active1");                     
+       var current = document.getElementsByClassName("active1");  
           if (current.length > 0) {
              current[0].className = current[0].className.replace(" active1", "");                            
           }
@@ -152,6 +185,7 @@
     	   console.log(this);
     	   $("#hospital__list_container2").css("display", "grid");
     	   $("#hospital__list_container").css("display", "none");
+    	   $("#pagination").css("display", "none");
        }else{
        getData(hcate);
        $("#hospital__list_container2").css("display", "none");
@@ -171,11 +205,12 @@
        var haddr = $(this).children("#hlist_addr").text();
        var htel = $(this).children("#hlist_tel").text();
        var mrole = $(this).children("#hlist_role").val();
+       var hnum = $(this).children("#hlist_hnum").val();
        //console.log(mrole);
        //children에서 결과를 찾아도 되고 find로 해도 동일하게 작동함 
        //var htel = $(this).find("#hlist_tel").text();
               
-       location.href="hospitaldetail?name="+hname+"&addr="+haddr+"&tel="+htel+"&role="+mrole+"";
+       location.href="hospitaldetail?name="+hname+"&addr="+haddr+"&tel="+htel+"&role="+mrole+"&num="+hnum+"";
        
        });
     });
@@ -340,6 +375,68 @@ function searchPagingList(hcate,pageNum){
    
 
    }
+
+const btn = document.getElementById("btn");
+const idd = document.getElementById("idd").textContent;
+btn.addEventListener("click", function() {
+	searchList(hcates[0], idd);
+});
+
+function searchList(hcate, keyword)
+{
+	$.ajax({
+        url:'/hospital/list',
+        type:'get',
+        dataType:'xml',
+        data : {"hcate" : hcate, "keyword" : keyword},
+        beforeSend:function(jqXHR) {
+            console.log("ajax호출전");
+        },// 서버 요청 전 호출 되는 함수 return false; 일 경우 요청 중단
+        success: function(data) {
+        	console.log(keyword);
+        	$(data).find('item').each(function(){ // xml 문서 item 기준으로 분리후 반복
+        		var yadmNm = $(this).find("yadmNm").text(); 
+        		var sidoNm = $(this).find("sidoNm").text(); 
+        		var sgguNm = $(this).find("sgguNm").text(); 
+        		var telno = $(this).find("telno").text();
+        	
+        		 if (yadmNm.indexOf(keyword) != -1) {
+
+        			 var y =$(this).getElementsByTagName("yadmNm");
+        			 console.log(y);
+        		
+        		} 
+        		//var view_text = yadmNm + sidoNm + sgguNm + telno ;
+
+        		//$("#idd").append(view_text); // #id 에 view_text 삽입
+        		
+        	}); 
+        	}
+	})
+}
+
+        		
+	
+	/* 
+	var searchvalue = document.getElementById("SEARCHVALUE");
+	var searchQuery	= searchvalue.value;
+
+		if(searchQuery == ""){
+			alert("검색어를 입력하세요");
+			searchvalue.focus();
+			return false;
+		}
+		//특수문자 체크
+		if (containsChars(form.SEARCHVALUE,"~!@#$%^&*()+|`-=\\[]{};:'\",.<>/?")) {
+			alert("검색 필드에는 특수 문자를 사용할 수 없습니다.");
+			form.SEARCHVALUE.focus();
+			return false;
+		}
+	console.log */
+	//form.page.value = 1;
+	
+	//form.submit();
+
 
 /* const btn = document.getElementById("btn");
 btn.addEventListener("click", function() {

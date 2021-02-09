@@ -40,27 +40,19 @@ public class HospitalController {
    public String goHdetail(@RequestParam String name
          ,@RequestParam String addr
          ,@RequestParam String tel
-         ,@RequestParam String role
+         ,@RequestParam String num
+         ,@RequestParam String role       
          ,Model model) {
       //System.out.println(name);
       
       model.addAttribute("name",name);
       model.addAttribute("addr",addr);
       model.addAttribute("tel",tel);
+      model.addAttribute("num",num);
       model.addAttribute("role",role);
       
       return "/hospital/hospitaldetail";
    }
    
-//   @GetMapping("/hospitallist")
-//   public String getHlist(Model model, @RequestParam int mrol) {
-//	   int mrole = 1;
-//		//전체 데이터 얻기		
-//		List<MemberDto> list=mdao.getData3(mrole);
-//		
-//		//model에 저장		
-//		model.addAttribute("list", list);
-//      return "/hospital/hospitallist";
-//   } 
-//   
+
 }

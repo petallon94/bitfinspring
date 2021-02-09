@@ -65,11 +65,11 @@
 	<!-- 내용 시작 -->
 	<div class="mycontent_reservation">
 <div class="rsv__con">
-<div class="rsv__container">
+<div class="rsv__container1">
 		<h2 class="rsv__title">병원예약수정</h2>
 		<h3 class="rsv__section_title">산넘어산병원</h3>
 		<p class="rsv__section_txt">
-			영업시간: 월~ 금 8:30~ 16:00<br>
+			날짜와 시간, 진료보실 내용만 수정이 가능합니다. 다른병원예약을 원하시면 다시 예약해주세요<br>
 		<hr>		
 		<form action="update" method="post" enctype="multipart/form-data">
 	<!-- hidden -->
@@ -91,7 +91,7 @@
 		<div class="rsv__section3">
 			<hr>
 			<button type="submit" class="rsv__updateformbtn">예약수정</button>
-			<button type="button" class="rsv__gotolistbtn" onclick="location.href='list?rmnum=${dto.rmnum}'">목록</button>
+			<button type="button" class="rsv__gotolistbtn" onclick="location.href='${root}/mypage.reservation'">목록</button>
 		</div>
 		</form>
 </div>

@@ -1,13 +1,15 @@
 /* 병원검색 메인 */
 .hospital__main {
-	background-color: #1f2c59;
-	background-size: cover;
 	background-position: center;
 	text-align: center;
-	padding: 140px 0;	
+	margin-top: 140px;
 }
+.hospital__main_title{
+	margin-top: 100px;
+}
+
 .hospital__main_title h2 {
-	color: white;
+	color: #1f2c59;
 	font-size: 60px;	
 }
 
@@ -72,11 +74,16 @@
 	margin-top: 10px;
 }
 .hospital__main_tiles {
+	margin-top: 100px;
 	display: flex;
 	justify-content: center;
+	background-color: #1f2c59;
+	background-size: cover;
+	padding: 140px 0;
 }
 .hospital__main_inner{
 	max-width: 1200px;	
+
 }
 
 /* main_inner media queries */
