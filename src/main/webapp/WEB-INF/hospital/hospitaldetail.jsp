@@ -23,7 +23,7 @@
 				<div class="hospital__detail_tel">
 					<label>전 화 번 호:</label>${tel}
 				</div><br>
-			</div>
+			</div> 
 			<div>
 				<button type="button" id="rsv__btn-insert" class="rsv__btn_update">예약하기</button>
 			</div>
