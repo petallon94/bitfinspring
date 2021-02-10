@@ -66,8 +66,10 @@
 	<div class="mycontent_reservation">
 <div class="rsv__con">
 <div class="rsv__container1">
+ 		<input type="hidden" name="name" value="${name}" />
 		<h2 class="rsv__title">병원예약수정</h2>
-		<h3 class="rsv__section_title">산넘어산병원</h3>
+		
+		<h3 class="rsv__section_title">${name}</h3>
 		<p class="rsv__section_txt">
 			날짜와 시간, 진료보실 내용만 수정이 가능합니다. 다른병원예약을 원하시면 다시 예약해주세요<br>
 		<hr>		
@@ -83,8 +85,9 @@
 					value="${dto.rtime}"/>
 			</div>
 			<div class="rsv__section2">
-				<input type="text" name="rmnum" class="rsv__select_name" value="${dto.rmnum}" readonly="readonly"> 
-				<input type="text" name="rdmnum" class="rsv__select" value="${dto.rdmnum}" readonly="readonly">
+				<input type="hidden" name="rmnum" class="rsv__select_name" value="${dto.rmnum}" readonly="readonly"> 
+				<input type="hidden" name="rdmnum" class="rsv__select" value="${dto.rdmnum}" readonly="readonly">
+				<label>증 상 내 용:</label><br>
 				<input id="rsv__memo" name="rmemo" class="rsv__select" value="${dto.rmemo}">
 			</div>
 		

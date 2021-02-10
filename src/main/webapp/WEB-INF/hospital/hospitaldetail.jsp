@@ -9,63 +9,59 @@
 
 </head>
 <body>
-<div class="hospital_detail_container">
-   <div class="hospital_detail form-inline">
-      <input type="hidden" id="loginok" value="${mdto.mid }" />
-      <input type="hidden" id="hlist_name" value="${name}" />
-      <input type="hidden" id="hlist_mnick" value="${mdto.mnick }" />
-      <input type="hidden" id="hlist_role" value="${role}">
-      <input type="hidden" id="hlist_mnum" value="${num}" />
-      
-      <div id="hospital__detail_title" name="hname" value="">${name}</div>
-      <br><br>
-   		<div class="hospital_detail_info">
-      <div class="hospital__detail_addr glyphicon glyphicon-home">
-      ${addr}</div>
-      <br><br>
-      <div class="hospital__detail_tel glyphicon glyphicon-earphone">
-      ${tel}</div>
-      <br><br>
-      </div>
-      <button type="button" id="rsv__btn-insert" class="rsv__btn_update">예약하기</button> 
-      <br><br>
-   </div>   
-   <!-- 지도를 표시할 div 입니다 -->
-   <div id="hospital__map" class="form-control"></div>
-</div>
+	<div class="hospital_detail_container">
+		<input type="hidden" id="loginok" value="${mdto.mid}" /> 
+		<input type="hidden" id="hlist_name" value="${name}" /> 
+		<input type="hidden" id="hlist_role" value="${role}"/> 
+		<input 	type="hidden" id="hlist_mnum" value="${num}" />
+		<div class="hospital_detail_informa">
+			<div id="hospital__detail_title" name="hname" value="">${name}</div><br>
+			<div class="hospital_detail_txt">
+				<div class="hospital__detail_addr">
+					<label>위 치 안 내:</label> ${addr}
+				</div><br>
+				<div class="hospital__detail_tel">
+					<label>전 화 번 호:</label>${tel}
+				</div><br>
+			</div>
+			<div>
+				<button type="button" id="rsv__btn-insert" class="rsv__btn_update">예약하기</button>
+			</div>
+		</div>
 
-                  
-<script type="text/javascript">
- $(function() {
-	 
-$(document).ready(function() {	  
-		var mr= $("#hlist_role").val(); 
-	      if(mr == 1){
-	    	  $("#rsv__btn-insert").css("display", "block");
-	    	  $(".hospital_detail_info").css("display", "none");
-	      }
-	   }); 
-	
-	
-   $("#rsv__btn-insert").click(function() {
-      var loginok= $("#loginok").val();
-      var hnum= $("#hlist_mnum").val();
-      var hname= $("#hlist_name").val();
-      if(loginok != ""){
-         location.href="/reserve/writeform?num="+hnum+"&name="+hname+"";
-      }else{
-         swal("로그인후 다시 이용해주세요","","warning")
-         .then(function(){
-            location.href="/member/login";
-         });
-      }
-   });
-});
+		<!-- 지도를 표시할 div 입니다 -->
+		<div id="hospital__map" class="form-control"></div>
+	</div>
 
 
+	<script type="text/javascript">
+		$(function() {
 
+			$(document).ready(function() {
+				var mr = $("#hlist_role").val();
+				if (mr == 1) {
+					$("#rsv__btn-insert").css("display", "block");
+					$(".hospital_detail_txt").css("display", "none");
+				}
+			});
 
-</script>
+			$("#rsv__btn-insert").click(
+					function() {
+						var loginok = $("#loginok").val();
+						var hnum = $("#hlist_mnum").val();
+						var hname = $("#hlist_name").val();
+						if (loginok != "") {
+							location.href = "/reserve/writeform?num=" + hnum
+									+ "&name=" + hname + "";
+						} else {
+							swal("로그인후 다시 이용해주세요", "", "warning").then(
+									function() {
+										location.href = "/member/login";
+									});
+						}
+					});
+		});
+	</script>
 
 </body>
 </html>

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="reserve">
 	<!-- 로그인한 사람의 예약 갯수 얻기 -->
-	<select id="totalCountOfReserve" parameterType="int" resultType="int">
+	<select id="totalCountOfReserve" parameterType="String" resultType="String">
 		select count(*) from reserve where rmnum=#{rmnum}
 	</select>
 	<!-- insert -->
@@ -26,11 +26,11 @@
 		delete from reserve where rnum=#{rnum}
 	</delete>
 		<!-- getdataID: id로 데이터가져오기 -->
-	<select id="selectRmOfReserve" parameterType="String" resultType="rdto">
-		select * from reserve where rmnum=#{rmnum} order by rnum desc
-	</select>
-	<!-- getdataID: id로 데이터가져오기 -->
 	<!-- <select id="selectRmOfReserve" parameterType="String" resultType="rdto">
-		select * from reserve r, member m where m.mnum=r.rdmnum and rmnum=#{rmnum} order by rnum desc
+		select * from reserve where rmnum=#{rmnum} order by rnum desc
 	</select> -->
+	<!-- getdataID: id로 데이터가져오기 -->
+	<select id="selectRmOfReserve" parameterType="String" resultType="rdto">
+		select * from reserve r, member m where m.mnum=r.rdmnum and rmnum=#{rmnum} order by rnum desc
+	</select> 
 </mapper>
