@@ -20,6 +20,7 @@
 <script type="text/javascript">
 $(function(){
 	
+	hashtag_list();
 	
 	var grpl = $("div[name=hashtag]").length;
 	
@@ -37,10 +38,10 @@ $(function(){
 					dataType:"html",
 					success:function(data)
 					{
-						hashtag_list();//댓글 다시 출력					
+									
 					}
 				});
-		 
+				hashtag_list();//댓글 다시 출력		
 	}); 
 	
 	$(".board_hashbtn").click(function(){
@@ -55,10 +56,10 @@ $(function(){
 			dataType:"html",
 			success:function(data)
 			{
-				hashtag_list();//해시태그 다시 출력					
+				//해시태그 다시 출력					
 			}
 		});
-		
+		hashtag_list();
 	});
 	
 });
@@ -74,13 +75,13 @@ function hashtag_list()
 		type:"get",
 		url:"hashtaglist",
 		dataType:"json",
-		data:{"num":num},
+		data:{"num":0},
 		success:function(data){				
 			var s="<div class = 'hashtag_all'>";
 			$.each(data,function(i,n){
 				
 				s+="<div class='hashtag' name ='hashtag'>";
-				s+= "<span class='glyphicon glyphicon-remove'></span><a class='hashaa'> "+n.hashtag+" </a>";
+				s+= "<span class='glyphicon glyphicon-remove'></span><a class='hashaa'>"+i+"</a>";
 				s+="</div>";
 			});
 
@@ -116,7 +117,7 @@ function hashtag_list()
 						<b>제목</b>
 						<input type="text" class="board_topic form-control dcom-row" id="board_topic" name="bsubject" /> 
 					</div>
-					<input type ="hidden" class="board_bid" id="board_bid" name="bnum" value="0"  />
+					<input type ="hidden" class="board_bid" id="board_bid" name="bnum" value=0  />
 					<input type="hidden" class="board_id" id="board_id" name="bmidnum" value="${mdto.mnum}"/> 
 					<input type="hidden" name="pageNum" value="${pageNum}"> 
 					<input type="hidden" name="regroup" value="${regroup}"> 

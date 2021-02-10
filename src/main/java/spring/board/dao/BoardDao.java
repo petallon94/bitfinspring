@@ -89,6 +89,7 @@ public class BoardDao extends SqlSessionDaoSupport implements BoardDaoInter {
 	@Override
 	public List<BoardDto> getOneTagList(String bnum) {
 		// TODO Auto-generated method stub
+		System.out.println(bnum);
 		return getSqlSession().selectList("selectboardtag",bnum);
 	}
 
@@ -101,7 +102,6 @@ public class BoardDao extends SqlSessionDaoSupport implements BoardDaoInter {
 	@Override
 	public void deleteHashtag(BoardDto dto) {
 		// TODO Auto-generated method stub
-		System.out.println(dto.getHashtag()+" ++++++ "+dto.getHbnum());
 		getSqlSession().delete("deletehashtag",dto);
 	}
 

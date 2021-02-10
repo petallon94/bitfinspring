@@ -23,7 +23,7 @@ public class HashtagController {
 	@GetMapping("/board/searchlist")
 	public List<BoardDto> boardli(@RequestParam String hashtag){
 		
-
+ 
 		return hdao.searchHashtag(hashtag);
 
 	}
@@ -33,7 +33,6 @@ public class HashtagController {
 	@GetMapping("/board/hashtaglist")
 	public List<BoardDto> list (@RequestParam String num){
 		
-
 		return hdao.getOneTagList(num);
 
 	}
