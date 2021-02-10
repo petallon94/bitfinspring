@@ -73,7 +73,7 @@ $(function(){
 function hashtag_list()
 
 {
-	//db로부터 댓글 목록을 가져와서 id "answer" 출력하기
+	//db로부터 댓글 목록을 가져와서 id "hashtag" 출력하기
 	var num=$("#board_bid").val();
 	//alert(num);
 	

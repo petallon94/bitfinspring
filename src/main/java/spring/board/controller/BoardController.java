@@ -160,9 +160,15 @@ public class BoardController {
 		writer.writeFile(file, fileName, path);
 		
 		dto.setBphoto(fileName);
-		System.out.println(dto.getBphoto());
 		
 		dao.insertBoard(dto);
+		
+		///hashtag update
+		String hbnum = dao.getHbnum(fileName);
+		System.out.println("hbnum is : "+hbnum);
+		
+		dao.updateHashtag(hbnum);
+		
 		return "redirect:list?pageNum="+pageNum;
 	}
 	

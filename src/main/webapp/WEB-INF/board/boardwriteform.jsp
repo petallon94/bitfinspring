@@ -17,6 +17,83 @@
 	charset="utf-8"></script>
 <script type="text/javascript"
 	src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	
+	
+	var grpl = $("div[name=hashtag]").length;
+	
+	var hbnum = $("#board_bid").val();
+	
+	$(document).on("click",".hashtag",function(){
+		
+		 var index = $(".hashtag").index(this);
+		 var hashtag = $(".hashtag a").eq(index).text();
+		 //alert(hashtag); 	 
+				$.ajax({
+					type:"post",
+					url:"hashtagdel",
+					data:{"hbnum":0,"hashtag":hashtag},
+					dataType:"html",
+					success:function(data)
+					{
+						hashtag_list();//댓글 다시 출력					
+					}
+				});
+		 
+	}); 
+	
+	$(".board_hashbtn").click(function(){
+		
+		var text = $("#board_hashtag").val();
+		alert(text);
+		
+		$.ajax({
+			type:"post",
+			url:"hashtagsave",
+			data:{"hbnum":0,"hashtag":text},
+			dataType:"html",
+			success:function(data)
+			{
+				hashtag_list();//해시태그 다시 출력					
+			}
+		});
+		
+	});
+	
+});
+
+function hashtag_list()
+
+{
+	//db로부터 댓글 목록을 가져와서 id "hashtag" 출력하기
+	var num=$("#board_bid").val();
+	//alert(num);
+	
+	 $.ajax({
+		type:"get",
+		url:"hashtaglist",
+		dataType:"json",
+		data:{"num":num},
+		success:function(data){				
+			var s="<div class = 'hashtag_all'>";
+			$.each(data,function(i,n){
+				
+				s+="<div class='hashtag' name ='hashtag'>";
+				s+= "<span class='glyphicon glyphicon-remove'></span><a class='hashaa'> "+n.hashtag+" </a>";
+				s+="</div>";
+			});
+
+			s+="</div>";
+			$("#board_hashform").html(s);
+		}
+
+	});
+ 
+}
+</script>
+
+
 
 </head>
 <body>
@@ -39,6 +116,7 @@
 						<b>제목</b>
 						<input type="text" class="board_topic form-control dcom-row" id="board_topic" name="bsubject" /> 
 					</div>
+					<input type ="hidden" class="board_bid" id="board_bid" name="bnum" value="0"  />
 					<input type="hidden" class="board_id" id="board_id" name="bmidnum" value="${mdto.mnum}"/> 
 					<input type="hidden" name="pageNum" value="${pageNum}"> 
 					<input type="hidden" name="regroup" value="${regroup}"> 
@@ -62,10 +140,13 @@
 
 				</div>
 
-				<div class="board_hashform"> 
-					<input type="text"  class="board_hashtag" />
-					<button type="button" class="board_hashbtn">태그 추가</button>
-				</div>
+				<div class="board_hashform" id ="board_hashform">
+			
+			</div>
+			<div class="tagform">
+				<input type="text" class="board_hashtag" id ="board_hashtag" />
+				<button type="button" class="board_hashbtn">태그 추가</button>
+			</div>
 				<div class="board_btngroup">
 					<button type="button" class="board_listbtn"
 						onclick="location.href='../board/list'">목록</button>

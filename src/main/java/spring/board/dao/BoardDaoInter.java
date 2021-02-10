@@ -25,4 +25,7 @@ public interface BoardDaoInter {
 	   public List<BoardDto> searchHashtag(String hashtag);
 	   public List<BoardDto> getMyBoard(int bmidnum, int start, int perpage);
 	   public int getMyCount(String bmidnum);
+	   public String getHbnum(String fileName);
+	   public void updateHashtag(String hbnum);
+	   
 }
