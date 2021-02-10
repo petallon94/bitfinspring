@@ -64,8 +64,8 @@
 				<thead>
 					<tr>
 						<th style="width: 10%">번호</th>
-						<th style="width: 40%">제목</th>
-						<th style="width: 30%">작성자</th>
+						<th style="width: 50%">제목</th>
+						<th style="width: 20%">작성자</th>
 						<th style="width: 20%">작성날짜</th>
 					</tr>
 				</thead>

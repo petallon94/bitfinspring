@@ -209,13 +209,28 @@ ul.mypage_menu_icon > li.mpick > a{
 
 @media screen and (max-width:768px){
 	.mycontent_info{
-	height:50vh;
-	width:100%;
-	margin-top:60px;
-	margin-left:0%;
-	margin-right:0%;
-	margin-bottom:120px;
-}
+		height:50vh;
+		width:100%;
+		margin-top:60px;
+		margin-left:0%;
+		margin-right:0%;
+		margin-bottom:120px;
+	}
+	.mycontent_scrap{
+		height:100%;
+		width:100%;
+		margin-top:60px;
+		margin-left:0%;
+		margin-right:0%;
+		margin-bottom:120px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.bscrap-table{
+		width: 100%;
+	}
 	
 } 
 
