@@ -20,9 +20,18 @@
 }
 .myinformation_btn >button{
 	width: 110px;
+	height:40px;
 	margin-right:10px;
+	border:none;
+	font-weight:bold;
+	border-radius:5px;
+	box-shadow:inset 0px 0px 300px rgb(21,168,222);
+	transition:1s;
 }
 
+.myinformation_btn >button:hover{
+	box-shadow:inset 300px 0px 300px rgb(11,84,150);
+}
 
 .myinformation_card{
 	background-color:wthie;

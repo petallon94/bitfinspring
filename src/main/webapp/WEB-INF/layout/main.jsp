@@ -84,7 +84,7 @@
 			
 			<!-- 지도 그래프 -->
 			<div class="sec2_content1">
-				<h2>전국 지역별 보로나 누적 현황</h2><br>
+				<h2>전국 지역별 코로나 누적 현황</h2><br>
 				<div id="main_maplayout">
                   	<button type="button" data-city="map_city1">
                    	<span class="name">서울</span>
@@ -422,7 +422,7 @@
 		showActiveTooltip:true,
 		slidesNavigation:true,
 		slidesNavPosition:'bottom',
-		navigationTooltips:['Home','Graph','MapGraph','Contant','About'],
+		navigationTooltips:['Home','Graph','MapGraph','Contents','About'],
 		scrollingSpeed:1000,
 		//스크롤이 시작할 때.
 		//origin : 원래 있었던 섹션에 대한 정보(0부터)
