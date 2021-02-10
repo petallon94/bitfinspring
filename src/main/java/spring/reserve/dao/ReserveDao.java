@@ -11,7 +11,6 @@ public class ReserveDao extends SqlSessionDaoSupport implements ReserveDaoInter 
 	@Override
 	public String getTotalCount(String rmnum) {
 		// TODO Auto-generated method stub
-		System.out.println(rmnum);
 		return getSqlSession().selectOne("totalCountOfReserve", rmnum);
 	}
 

@@ -40,6 +40,7 @@
 }
 .rsv__section3{
 	clear: both;
+	margin-bottom: 30px;
 }
 .rsv__select {
 float: left;
@@ -224,7 +225,7 @@ div.rsv_alert{
 /* success */
 .rsv_success{
 	margin: auto; 
-	margin-top: 180px; 
+	margin-top: 250px; 
 	width: 1000px;
 	align-items: center;	
 	display: flex;

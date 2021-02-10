@@ -11,6 +11,7 @@
 <body>
 	<div class="hospital_detail_container">
 		<input type="hidden" id="loginok" value="${mdto.mid}" /> 
+		<input type="hidden" id="keyword" name="keyword" value="${name}">
 		<input type="hidden" id="hlist_name" value="${name}" /> 
 		<input type="hidden" id="hlist_role" value="${role}"/> 
 		<input 	type="hidden" id="hlist_mnum" value="${num}" />
@@ -23,41 +24,41 @@
 				<div class="hospital__detail_tel">
 					<label>전 화 번 호:</label>${tel}
 				</div><br>
-			</div> 
+			</div>
 			<div>
 				<button type="button" id="rsv__btn-insert" class="rsv__btn_update">예약하기</button>
 			</div>
 		</div>
-</div>
+
+		<!-- 지도를 표시할 div 입니다 -->
+		<div id="hospital__map" class="form-control"></div>
+	</div>
+
 </body>
-<script type="text/javascript">
- $(function() {
-	 
-$(document).ready(function() {	  
-		var mr= $("#hlist_role").val(); 
-	      if(mr == 1){
-	    	  $("#rsv__btn-insert").css("display", "block");
-	    	  $(".hospital_detail_info").css("display", "none");
-	      }
-	   }); 
-	
-	
-   $("#rsv__btn-insert").click(function() {
-      var loginok= $("#loginok").val();
-      var hnum= $("#hlist_mnum").val();
-      var hname= $("#hlist_name").val();
-      if(loginok != ""){
-         location.href="/reserve/writeform?num="+hnum+"&name="+hname+"";
-      }else{
-         swal("로그인후 다시 이용해주세요","","warning")
-         .then(function(){
-            location.href="/member/login";
-         });
-      }
-   });
-});
+	<script type="text/javascript">
+		$(function() {
 
-</script>
+			$(document).ready(function() {
+				var mr = $("#hlist_role").val();
+				if (mr == 1) {
+					$("#rsv__btn-insert").css("display", "block");
+					$(".hospital_detail_txt").css("display", "none");
+				}
+			});
+
+			$("#rsv__btn-insert").click(function() {
+						var loginok = $("#loginok").val();
+						var hnum = $("#hlist_mnum").val();
+						var hname = $("#hlist_name").val();
+						if (loginok != "") {
+							location.href = "/reserve/writeform?num="+hnum+"&name="+hname+"";
+						} else {
+							swal("로그인후 다시 이용해주세요", "", "warning")
+						.then(function() {
+							location.href = "/member/login";
+						});
+					}
+				});
+		});
+	</script>
 </html>
-
-
