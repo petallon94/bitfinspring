@@ -53,4 +53,11 @@
 	<select id ="totalMyBoard" parameterType="String" resultType ="int">
 		select count(*) from board where bmidnum = #{bmidnum} order by bwritedate desc;
 	</select>
+	<select id="getphobnum" parameterType="String" resultType ="String">
+		select bnum from board where bphoto = #{bphoto};
+	</select>
+	<update id ="updatehasht" parameterType="String">
+		update hashtag set hbnum=#{hbnum} where hbnum=0
+	</update>
+	
 </mapper>

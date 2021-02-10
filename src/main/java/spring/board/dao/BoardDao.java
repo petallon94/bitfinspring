@@ -132,6 +132,18 @@ public class BoardDao extends SqlSessionDaoSupport implements BoardDaoInter {
 		// TODO Auto-generated method stub
 		return getSqlSession().selectList("searchHashtag",num);
 	}
+
+	@Override
+	public String getHbnum(String fileName) {
+		// TODO Auto-generated method stub
+		return getSqlSession().selectOne("getphobnum",fileName);
+	}
+
+	@Override
+	public void updateHashtag(String hbnum) {
+		// TODO Auto-generated method stub
+		getSqlSession().update("updatehasht",hbnum);
+	}
 	
 	
 

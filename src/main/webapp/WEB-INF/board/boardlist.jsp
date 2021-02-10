@@ -26,18 +26,22 @@ $(function(){
 				url:"searchlist",
 				dataType : "JSON",
 				data:{"hashtag":hashtag},
-				success:function(data){					
-					var s="<div class = 'board_content' style ='border : 2px solid black;'>";					
+				success:function(data){	
+					var s= "";
+					
 					$.each(data,function(i,n){	
+						s+="<div class = 'board_content' style ='height : 250px;border-top: 3px solid black;border-bottom: 1px solid #ddd;padding: 30px 0;margin-bottom : 50px;margin-left : 10%;margin-right : 10%;'>";					
+						
 						s+="<div class='board_left' onclick='location.href='./boardcontent?bnum="+n.bnum+"&pageNum="+currentPage+"'>";
 						s+="<h4>"+n.bsubject+"</h4>";
 						s+="<div class='board_content_bottom'><div><h5>"
 						s+= n.bwritedate+"</h5> <h5>"+n.bwriter+"</h5></div></div></div>";
-					    s+= "<div class='board_right'>";
+					    s+= "<div class='board_right' style = ' float: right;width: 24%;margin-left :20px;height : 200px;'>";
 						s+= "<img src='${pageContext.request.contextPath}/resources/save/"+n.bphoto+"'";
-						s+= "style='width: 200px; height: 200px;' /></div>";		
+						s+= "style='width: 200px; height: 200px;' /></div>";
+						s+= "</div>";
+						
 					});
-					s+= "</div>";
 					
 					$("#board_lli").html(s);
 					
@@ -61,27 +65,25 @@ $(function(){
 				dataType : "JSON",
 				data:{"hashtag":hashtag},
 				success:function(data){	
+					var s= "";
 					
-					var s="<div>";
-					
-					$.each(data,function(i,n){
-						
+					$.each(data,function(i,n){	
+						s+="<div class = 'board_content' style ='height : 250px;border-top: 3px solid black;border-bottom: 1px solid #ddd;padding: 30px 0;margin-bottom : 50px;margin-left : 10%;margin-right : 10%;'>";					
 						
 						s+="<div class='board_left' onclick='location.href='./boardcontent?bnum="+n.bnum+"&pageNum="+currentPage+"'>";
 						s+="<h4>"+n.bsubject+"</h4>";
 						s+="<div class='board_content_bottom'><div><h5>"
 						s+= n.bwritedate+"</h5> <h5>"+n.bwriter+"</h5></div></div></div>";
-					    s+= "<div class='board_right'>";
+					    s+= "<div class='board_right' style = ' float: right;width: 24%;margin-left :20px;height : 200px;'>";
 						s+= "<img src='${pageContext.request.contextPath}/resources/save/"+n.bphoto+"'";
 						s+= "style='width: 200px; height: 200px;' /></div>";
+						s+= "</div>";
 						
-							
 					});
-					s+= "<div style ='margin-top:100px;'></div></div>";
 					
 					$("#board_lli").html(s);
-					content.trigger( "create" );
 					
+				
 				}
 				
 			});

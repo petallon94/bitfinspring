@@ -187,7 +187,7 @@ function answer_list()
 	<div class="board_contentlayout">
 
 		<div class="board_contentsmain">
-			<h3 onclick = "location.href='../board/'" >의료정보 커뮤니티</h3>
+			<h3 onclick = "location.href='../board/list'" >의료정보 커뮤니티</h3>
 		</div>
 	</div>
 	
