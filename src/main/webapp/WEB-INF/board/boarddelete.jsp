@@ -28,11 +28,10 @@
 	<form action ="delete" method = "post" class ="form-inline board_delsc">
 	<div class="board_delform">						
 		<input type ="hidden" name="num" value="${num}">	
-			<h3>삭제하시겠습니까???</h3>
+		<h2>해당 글을 삭제하시겠습니까?</h2>
 			
 		</div>
 		<div class ="board_delgrp">
-			<hr>
 			<button type="button" class="board_clistbtn" onclick = "location.href='../board/list'">목록</button>			
 			<button type ="submit" class ="board_cdelbutton">삭제</button>
 			</div>
