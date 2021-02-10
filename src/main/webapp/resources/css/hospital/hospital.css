@@ -1,25 +1,37 @@
-/* 병원검색 메인 */
+/* 蹂묒썝寃��깋 硫붿씤 */
 .hospital__main {
 	background-position: center;
 	text-align: center;
-	margin-top: 140px;
+	
 }
 .hospital__main_title{
-	margin-top: 100px;
+	background-image: url('../../image/hospitallist.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	margin: 0;
+	height: 550px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
-
 .hospital__main_title h2 {
-	color: #1f2c59;
-	font-size: 60px;	
+	color: black;
+	font-size: 60px;
+	margin: 0;	
 }
-
+.hospital__main_txt {
+	 background-color: rgba( 255, 255, 255, 0.4 );
+}
 .hospital__main_title span {
-	color: #70788d;
+	color: #1f2c59;
 	font-size: 22px;
-	opacity: 0.7;
-	margin: 30px 0 0 0;
+	margin: 50px 0 0 0;
     line-height: 27px;
     font-weight: 300;
+   	padding: 30px;
+   	 background-color: rgba( 255, 255, 255, 0.4 );
 }
 
 .hospital__searchcont {	
@@ -74,12 +86,12 @@
 	margin-top: 10px;
 }
 .hospital__main_tiles {
-	margin-top: 100px;
 	display: flex;
 	justify-content: center;
 	background-color: #1f2c59;
 	background-size: cover;
-	padding: 177px 0;
+	padding: 100px 0 120px 0 ;
+
 }
 .hospital__main_inner{
 	max-width: 1200px;	
@@ -127,7 +139,7 @@
 }
 
 
-/* 애니메이션넣을려고햇지만 안됨
+/* �븷�땲硫붿씠�뀡�꽔�쓣�젮怨좏뻼吏�留� �븞�맖
 .hospital__main_menu ul li a img.grow-img 
 {
 	width: 100px;
@@ -138,7 +150,7 @@
 	transition: 2s ease-in-out;
 } */
 
-/* 병원 검색 목록 */
+/* 蹂묒썝 寃��깋 紐⑸줉 */
 
 .hospital__list {
 	background-size: cover;
@@ -174,6 +186,7 @@
 	margin: 0;	
 	text-decoration: none;
 	vertical-align: middle;	
+	cursor:pointer;
 }
 
 .active1 {
@@ -252,6 +265,7 @@
 	width: auto;
 }
 
+
 .hospital__list_card h3{
 	margin: 0;
 }
@@ -275,6 +289,7 @@ nav#pagination ul li {
     width: 28px;
     height: 28px;
     display: inline-block;
+    cursor:pointer;
 }
 nav#pagination ul li.current{
     background-color: #1f2c59;
@@ -320,51 +335,62 @@ border-radius: 5px;
 	font-family:"nanum";
 }
 
-	/* 페이지 전체 div */
+	/* �럹�씠吏� �쟾泥� div */
 	.hospital_detail_container{
-		overflow: hidden;
-		margin-top:	100px;
-		background-color: #1f2c59;
-		height: 750px;
-		padding-top: 50px;
-	}
-	/* 병원정보 및 버튼 */
-	.hospital_detail{
-		float: left;
-		flex-direction: column;
+		display: flex;
+		align-items: center;
+		flex-direction:column;
 		justify-content: center;
-		width: 35%;
-		height: 650px;
-		padding:45px;
+		
+	}
+
+	.hospital_detail_informa{
+	background-image: url('../../image/hospitallist.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	margin: 0;
+	height: 550px;
+	width: 100%;
+	display: flex;
+		align-items: center;
+		flex-direction:column;
+		justify-content: center;	
+	}
+	
+	/* 蹂묒썝�젙蹂� 諛� 踰꾪듉 */
+	.hospital_detail_txt{
 		/* border: 1px solid gray; */
-		color:#ffffff;
 		font-size: 20px;
 		font-family: 'nanum';
+
 	}
-	/* 산 넘어산 병원 제목  */
+
+	/* �궛 �꽆�뼱�궛 蹂묒썝 �젣紐�  */
 	#hospital__detail_title{
 		font-size: 40px;
 		color: #0770bb;
 		text-align: center;
 		font-family: 'nanum';
 	}
-	/* 병원정보 묶음 */
-	/* .hospital__detail_info{
-		border: 1px solid gray;
-		font-size: 18px;
-		margin: 0 auto;
-		font-family: 'nanum';
-	} */
-	/* 버튼 */
+	
+	.hospital__detail_addr, .hospital__detail_tel{
+		margin: 0 50px;
+	}
+	
+	.hospital__detail_addr label, .hospital__detail_tel label{
+	margin: 0 50px;
+	}
 	#rsv__btn-insert{
 		display: none;
 	}
-	/* 지도 */
+	/* 吏��룄 */
 	#hospital__map{
-		float: left;
 		width:	65%;	
-		height: 650px;
+		height: 450px;
 		border-radius: 50px;
+		margin-top: 50px;
+		margin-bottom: 100px;
 	 /*	border: 1px solid rgba(0,0,0,.2);
 		border-bottom: none;
 		box-shadow: 0 0 20px rgba(0,0,0,.2);

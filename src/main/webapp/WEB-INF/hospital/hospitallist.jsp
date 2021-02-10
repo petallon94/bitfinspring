@@ -15,22 +15,24 @@
       <!--탭 박스-->
       <div class="hospital__list_tabbox">
          <div id="hospital__list_tablist">
+         
             <a class="hospital__list_listitem active1" name="A0" id="tab1">국민안심병원</a> 
             <a class="hospital__list_listitem" name="97" id="tab2">호흡기전담클리닉</a> 
                <a class="hospital__list_listitem" name="99" id="tab3">선별진료소</a> 
                <a class="hospital__list_listitem" name="98" id="tab4">예약가능병원</a>
+            <a class="hospital__list_listitem" name="" id="hlist_viewlistbtn">전체목록</a>   
          </div>
       </div>
       <!--검색창-->
-      <div id="hospital__list_inputform" class="hospital__list_inputform">
+      <!-- <div id="hospital__list_inputform" class="hospital__list_inputform">
          <div class="hospital__list_searchcont">         
             <form class="hospital__list_search_area" name="fmList" >
                <input type="hidden" name="page" value="1" id="hlist_page"> 
                <input class="hospital__list_search_text" id="hlist_searchtext" type="text" name="SEARCHVALUE" id="SEARCHVALUE" value="" placeholder="검색어를 입력하세요"> 
                <input type="button" id="hlist_searchbtn" class="hospital__list_search_btn
-               " value="검색" />
-               <button type="button" id="hlist_viewlistbtn" class="hospital__list_viewlist_btn">전체목록</button>
-            </form>
+               " value="검색" /> 
+               <button type="button" id="hlist_viewlistbtn" class="hospital__list_viewlist_btn">전체목록</button>-->
+           <!--  </form>
             <div class="hospital__search_info">
                <p>시도 및 시군구, 기관명, 전화번호를 통합하여 검색합니다.</p>
                <span>검색어 예시 : <span class="line">'서울'</span> 또는 <span
@@ -39,7 +41,7 @@
                </span>
             </div>
          </div>
-      </div>
+      </div> -->
 
       <!-- Cards section -->
       <div id="hospital__list_container">
@@ -63,8 +65,8 @@
       <nav aria-label="Page navigation example" id="pagination"></nav>
       
    </div>
-   <button id="btn">버튼</button>
-   <div id="idd">강남성모</div> 
+   <!-- <button id="btn">버튼</button>
+   <div id="idd">강남성모</div>  -->
    <script>
    var hcates =['', 'A0','97','99'];
    

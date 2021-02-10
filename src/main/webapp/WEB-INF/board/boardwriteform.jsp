@@ -20,7 +20,6 @@
 <script type="text/javascript">
 $(function(){
 	
-	hashtag_list();
 	
 	var grpl = $("div[name=hashtag]").length;
 	
@@ -30,7 +29,7 @@ $(function(){
 		
 		 var index = $(".hashtag").index(this);
 		 var hashtag = $(".hashtag a").eq(index).text();
-		 //alert(hashtag); 	 
+		  	 
 				$.ajax({
 					type:"post",
 					url:"hashtagdel",
@@ -38,17 +37,16 @@ $(function(){
 					dataType:"html",
 					success:function(data)
 					{
-									
+						hashtag_list();//댓글 다시 출력					
 					}
 				});
-				hashtag_list();//댓글 다시 출력		
+		 
 	}); 
 	
 	$(".board_hashbtn").click(function(){
 		
 		var text = $("#board_hashtag").val();
-		alert(text);
-		
+		alert(text+"가 추가되었습니다.");
 		$.ajax({
 			type:"post",
 			url:"hashtagsave",
@@ -56,10 +54,9 @@ $(function(){
 			dataType:"html",
 			success:function(data)
 			{
-				//해시태그 다시 출력					
+				
 			}
 		});
-		hashtag_list();
 	});
 	
 });
@@ -75,13 +72,13 @@ function hashtag_list()
 		type:"get",
 		url:"hashtaglist",
 		dataType:"json",
-		data:{"num":0},
+		data:{"num":num},
 		success:function(data){				
 			var s="<div class = 'hashtag_all'>";
 			$.each(data,function(i,n){
 				
 				s+="<div class='hashtag' name ='hashtag'>";
-				s+= "<span class='glyphicon glyphicon-remove'></span><a class='hashaa'>"+i+"</a>";
+				s+= "<span class='glyphicon glyphicon-remove'></span><a class='hashaa'> "+n.hashtag+" </a>";
 				s+="</div>";
 			});
 
@@ -117,7 +114,7 @@ function hashtag_list()
 						<b>제목</b>
 						<input type="text" class="board_topic form-control dcom-row" id="board_topic" name="bsubject" /> 
 					</div>
-					<input type ="hidden" class="board_bid" id="board_bid" name="bnum" value=0  />
+					<input type ="hidden" class="board_bid" id="board_bid" name="bnum" value="0"  />
 					<input type="hidden" class="board_id" id="board_id" name="bmidnum" value="${mdto.mnum}"/> 
 					<input type="hidden" name="pageNum" value="${pageNum}"> 
 					<input type="hidden" name="regroup" value="${regroup}"> 
@@ -143,7 +140,7 @@ function hashtag_list()
 
 				<div class="board_hashform" id ="board_hashform">
 			
-			</div>
+				</div>
 			<div class="tagform">
 				<input type="text" class="board_hashtag" id ="board_hashtag" />
 				<button type="button" class="board_hashbtn">태그 추가</button>

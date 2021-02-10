@@ -96,11 +96,18 @@
 	vertical-align: middle;
 	border-radius: 5px;
 }
+
+.glyphicon{
+	top: 2px;
+}
+
 .dcom-con{
 	float: left;
 }
 
-
+.board_hashform{
+	widows: 100%;
+}
 
 .board_hashbtn{
 	width: 120px;
@@ -120,6 +127,7 @@
 }
 
 .tagform{
+	text-align: center;
 	width: 100%;
 	margin-top: 40px;
 	margin-bottom: 60px;

@@ -95,8 +95,9 @@
 </head>
 <body>
 	<div class="med_layout_title">
-
-		<h3 onclick="location.href='../medicine/search'">의약품 검색</h3>
+		<div class="med_search_container">
+			<h3 onclick="location.href='../medicine/search'">의약품 검색</h3>
+		</div>
 		<div class="med_search">
 			<h4>가지고 있는 약품을 검색해보세요!</h4>
 			<input class="med_text1" id="med_text1" type="text" />
