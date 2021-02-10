@@ -32,6 +32,10 @@
 .rsv__section1{
 	float: left;
     width: 450px;
+    align-items: flex-end;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 
 }
 .rsv__section2{
@@ -41,6 +45,18 @@
 .rsv__section3{
 	clear: both;
 	margin-bottom: 30px;
+}
+.rsv__section4{
+	float: left;
+    width: 450px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.rsv__section5{
+	float: right;
+    width: 450px;
 }
 .rsv__select {
 float: left;
@@ -65,7 +81,7 @@ box-sizing:border-box;
 margin-bottom: 20px;
 }	
 #rsv__select_date{
-width: 350px;
+width: 308px;
 height: 60px;
 line-height: 60px;
 font-size: 16px;
@@ -75,7 +91,7 @@ box-sizing:border-box;
 }
 #rsv__select_time{
 float: left;
-width: 350px;
+width: 308px;
 height: 60px;
 line-height: 60px;
 font-size: 16px;
