@@ -67,27 +67,27 @@
 <div class="rsv__con">
 <div class="rsv__container1">
  		<input type="hidden" name="name" value="${name}" />
-		<h2 class="rsv__title">병원예약수정</h2>
+		<h2 class="rsv__title">병원 예약 수정</h2>
 		
 		<h3 class="rsv__section_title">${name}</h3>
 		<p class="rsv__section_txt">
-			날짜와 시간, 진료보실 내용만 수정이 가능합니다. 다른병원예약을 원하시면 다시 예약해주세요<br>
+			날짜와 시간, 진료보실 내용만 수정이 가능합니다.<br> 다른 병원 예약을 원하시면 다시 예약해주세요<br>
 		<hr>		
 		<form action="update" method="post" enctype="multipart/form-data">
 	<!-- hidden -->
 	<input type="hidden" name="rnum" value="${dto.rnum}">
 
-	<div class="rsv__section1">
+	<div class="rsv__section4">
 				<input type="text" id="rsv__select_date" name="rdate"
 					value="${dto.rdate}"/> 
 					<input type="text"
 					id="rsv__select_time" class="rsv__select" name="rtime"
 					value="${dto.rtime}"/>
 			</div>
-			<div class="rsv__section2">
+			<div class="rsv__section4">
 				<input type="hidden" name="rmnum" class="rsv__select_name" value="${dto.rmnum}" readonly="readonly"> 
 				<input type="hidden" name="rdmnum" class="rsv__select" value="${dto.rdmnum}" readonly="readonly">
-				<label>증 상 내 용:</label><br>
+				<label>증 상 내 용</label><br>
 				<input id="rsv__memo" name="rmemo" class="rsv__select" value="${dto.rmemo}">
 			</div>
 		
