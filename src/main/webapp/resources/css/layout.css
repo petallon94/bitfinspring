@@ -1394,37 +1394,29 @@ footer div.footer_info{
     padding-top:30px;
     padding-bottom:30px;
 }
-footer div div.info{
-    display:inline-block;
-    margin-top:30px;
-    margin-bottom: 30px;
-}
-footer div div.help{
-    display:inline-block;
-    margin-top:30px;
-    margin-bottom: 30px;
 
+footer div.footer_info .info{
+	height:150px;
 }
-footer div div p.footer_title{
-    font-size:22px;
-    font-weight: bolder;
+footer div.footer_info .contents{
+	height:150px;
 }
-span.phone{
-    color:orange;
-    font-size:28px;
-    display:block;
+
+footer div.footer_info .info h1{
+	color:#999;
 }
-span.alert{
-    color:gray;
+
+span.footer_index{
+	color:black;
+	font-weight: bold;
 }
-footer div div pre{
-	background-color: rgba(255,255,255,0.5);
-	border-radius: 15px;
-	width:450px;
-	height:200px;
-	vertical-align: center;
-	overflow:hidden;
-	scrollbar-width: none;
+span.footer_index.abc{
+	display: block;
+	margin: 0 auto;
+}
+
+.footer_info .contents p{
+	display: inline;
 	
 }
 

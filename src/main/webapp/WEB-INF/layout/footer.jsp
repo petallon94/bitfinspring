@@ -8,31 +8,27 @@
 </head>
 <body>
 <div class="footer_container">
-				<footer>
-				<div class="footer_info">
-		            <div class="info">
-		                <P class="footer_title">INFO</P>
-<pre>		           
-
-콘텐츠산업진흥법에 의한 표시
-① 콘텐츠의 명칭 : 의약정보
-② 콘텐츠의 제작 및 표시 : 2021년 02월 21일 
-③ 콘텐츠의 제작자 : 산넘어 산
-④ 콘텐츠의 이용조건 : 동의없이 무단복제를 금함
-</pre>
-	           		</div>
-	            	<div class="help">
-<P class="footer_title">GET HELP</P>
-<pre>
-	
-<span>* 운영시간 이후에는 e-메일 문의 가능</span>
-<span class="phone">010-0000-0000</span>
-e-메일 : <a href="sanneommeo@bitcamp.com">sanneommeo@bitcamp.com</a> | Fax : 02:000:0000
-<span class="glyphicon glyphicon-alert alert"></span>전화 전 확인하세요.
-</pre>
-	            	</div>
-	        	</div>
-	        </footer>
+	<footer>
+		<div class="footer_info">
+            <div class="info">
+            	<br>
+            	<span class="footer_index">고객센터</span><br>
+				<h1>010-8827-7957</h1>
+           	</div>
+           	<div class="contents">
+           		<br>
+           		
+           		<span class="footer_index">주소 </span> <p>서울 서초구 강남대로 459 비트빌딩 산넘어산 컴퍼니</p><br>
+           		<span class="footer_index">대표이사 </span> <p>갓지혜</p><br>
+           		<span class="footer_index">팩스 </span> <p>010-0123-4567</p> 
+           		<p><span class="footer_index">메일</span> sansum123@sannumeo.com</p>
+           		<br>
+           		<br>
+           		
+           		<span class="footer_index abc">Copyright by sanneomeo, All rights reserved</span>
+           	</div>
+       	</div>
+       </footer>
 </div>
 </body>
 </html>
