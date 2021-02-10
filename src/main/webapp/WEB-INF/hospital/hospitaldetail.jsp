@@ -11,6 +11,7 @@
 <body>
 <div class="hospital_detail_container">
    <div class="hospital_detail form-inline">
+   	  <input type="hidden" id="keyword" name="keyword" value="${name}">
       <input type="hidden" id="loginok" value="${mdto.mid }" />
       <input type="hidden" id="hlist_name" value="${name}" />
       <input type="hidden" id="hlist_mnick" value="${mdto.mnick }" />
