@@ -44,6 +44,8 @@ public class HashtagController {
 	{
 		BoardDto dto=new BoardDto();
 
+		
+	
 		dto.setHbnum(Integer.parseInt(hbnum));
 		dto.setHashtag(hashtag);
 		
@@ -59,12 +61,11 @@ public class HashtagController {
 	{
 		BoardDto dto=new BoardDto();
 		
-		
+		String hashtag2 = hashtag.replaceAll(" ", "");
+		System.out.println(hashtag2);
 		dto.setHbnum(Integer.parseInt(hbnum));
-		dto.setHashtag(hashtag);
-		
+		dto.setHashtag(hashtag2);
 		//db 에 저장
-		System.out.println(dto.getHbnum()+" ++ "+dto.getHashtag());
 
 		hdao.deleteHashtag(dto);
 
