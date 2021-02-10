@@ -348,14 +348,15 @@ border-radius: 5px;
 		text-align: center;
 		font-family: 'nanum';
 	}
-	/* 병원정보 묶음 */
-	/* .hospital__detail_info{
-		border: 1px solid gray;
-		font-size: 18px;
-		margin: 0 auto;
-		font-family: 'nanum';
-	} */
-	/* 버튼 */
+	
+	.hospital__detail_addr, .hospital__detail_tel{
+		margin: 0 50px;
+	} 
+	
+	.hospital__detail_addr label, .hospital__detail_tel label{
+	margin: 0 50px;
+	}
+
 	#rsv__btn-insert{
 		display: none;
 	}
