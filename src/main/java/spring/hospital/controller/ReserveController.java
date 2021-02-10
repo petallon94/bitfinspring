@@ -40,7 +40,9 @@ public class ReserveController {
 		MemberDto mdto=(MemberDto)session.getAttribute("mdto");
 		String rmnum=Integer.toString(mdto.getMnum());
 		//총예약수 얻기
-		int totalCount = dao.getTotalCount(mdto.getMnum());	
+		String totalCount = dao.getTotalCount(rmnum);	
+		//System.out.println(totalCount);
+		
 		//전체 데이터 얻기	
 		List<ReserveDto> list=dao.getDataRm(rmnum);
 		
@@ -87,7 +89,8 @@ public class ReserveController {
 	//getData:dto보내기
 	@GetMapping("/reserve/updateform")
 	public ModelAndView updateForm(
-			@RequestParam String rnum)
+			@RequestParam String rnum,
+			@RequestParam String name)
 	{
 		//선언
 		ModelAndView model=new ModelAndView();
@@ -95,6 +98,7 @@ public class ReserveController {
 		ReserveDto dto=dao.getData(rnum);
 		//model에 저장
 		model.addObject("dto", dto);
+		model.addObject("name", name);
 		//포워드
 		model.setViewName("/reserve/updateform");
 
@@ -106,8 +110,9 @@ public class ReserveController {
 	public String updateReserve(
 			@ModelAttribute ReserveDto dto)
 	{
-				
 		dao.updateReserve(dto);
+
+		
 		return "redirect:/mypage.reservation";
 	}
 

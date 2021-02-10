@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="root" value="<%=request.getContextPath()%>" />
 <!DOCTYPE html>
@@ -33,16 +35,14 @@
 				<li class="mpick"><a href="${root}/mypage.reservation">
 						<div class="mypage_icon icon_reservation"></div> 예약내역
 				</a></li>
-				<li><a href="${root}/mypage.information">
-						<div class="mypage_icon icon_myinformation"></div> 나의 정보
-				</a></li>
+				
 			</ul>
 		</div>
 
 
 		<!-- 내용 시작 -->
 		<div class="mycontent_reservation">
-			<div>${totalCount}</div>
+			
 			<!-- 안에 채우시오. -->
 			<div class="rsv__con">
 				<div class="rsv__container">
@@ -67,8 +67,8 @@
 					<hr>
 					<div class="rsv_list">
 						<c:forEach var="a" items="${list}" varStatus="i">
-							<input type="text" name="rnum" value="${a.rnum}" />
-							<input type="text" name="rmnum" value="${a.rmnum }" />
+							<input type="hidden" name="rnum" value="${a.rnum}" />
+							<input type="hidden" name="rmnum" value="${a.rmnum }" />
 							<div class="rsv__listbox">
 								<div class="rsv__listbox_time">
 									<div class="rsv__listbox_timeinfo">
@@ -78,13 +78,14 @@
 								</div>
 								<div class="rsv_listbox_info">
 									<div class="rsv__list_name">예 약 자 : ${mdto.mid}님</div>
-									<div class="rsv__list_hname">병 원 이 름 : ${a.rdmnum}</div>
-									<div>증상 :${a.rmemo}</div>
+									<div class="rsv__list_hname">병 원 이 름 : ${a.mnick}</div>
+									<div>증 상 내 용 :${a.rmemo}</div>
 									<div>예약되어있습니다.</div>
 									<div class="rsv__list_btn">
 										<input type="button" class="rsv__btn_update"
-											onclick="location.href='reserve/updateform?rnum=${a.rnum}'"
-											value="예약변경하기" /> <input type="button"
+											onclick="location.href='reserve/updateform?rnum=${a.rnum}&name=${a.mnick}'"
+											value="예약변경하기" /> 
+											<input type="button"
 											class="rsv__btn_delete" value="예약취소하기"
 											onclick="delReserve(${a.rnum})" />
 									</div>
@@ -104,12 +105,18 @@ function delReserve(rnum) {
 swal({
     title: "예약을 취소 하시겠습니까?",
     icon: "warning",
-    buttons: ["아니오", "예"],
-}).then(function() {
-    	swal('', '예약이 취소되었습니다.', "success");
-   
-    	location.href="/reserve/delete?rnum="+rnum;
-    });
+    buttons: true,
+    dangerMode: true,
+}).then((willDelete) => {
+	  if (willDelete) {
+		    swal('', '예약이 취소되었습니다.', "success")
+		     
+		      location.href="/reserve/delete?rnum="+rnum;
+		   
+		  } else {
+		    swal("예약 취소를 중단하였습니다.");
+		  }
+		});
 }
 </script>
 </body>
