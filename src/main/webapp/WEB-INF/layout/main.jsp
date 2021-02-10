@@ -56,15 +56,15 @@
 			<div class="sec1_content0">
 				<h2>코로나 일일 확진환자 추세</h2>
 				<div class="con0_graph">
+					
 					<canvas id="line-chart"></canvas>
 				</div>
 			</div>
 			<!-- 그래프 소개 -->
 			<div class="sec1_content1">
-				<h2>
-					COVID-OUT은 보건복지부의 코로나19 감염 현황을 통해 데이터를 시각화하여 제공합니다.
-					일일 확진자추세를 확인해 보시고 카드뉴스를 통해 새로운 뉴스를 접하세요.
-				</h2>
+				<h2>COVID-OUT은 보건복지부의 데이터를 통해 <br> 코로나 일일 확진자 추세를 제공합니다.<br><br>
+				일일 확진자추세를 확인해 보시고 <br> 카드뉴스를 통해 새로운 뉴스를 접하세요.</h2>
+				<button type="button" class="sec2_content0_btn" OnClick="location.href='${root}/doctor/list'">카드뉴스로 이동</button>
 			</div>
 
 		</div>
@@ -76,9 +76,10 @@
 		
 			<!-- 지도 그래프 소개 -->
 			<div class="sec2_content0">
-				<h2>전국 지역별 코로나 누적 현황입니다.</h2>
-				<h2>우리가 살고있는 지역은 어떤지 확인해보시고 
-				커뮤니티를 통해 서로 소통해보세요.</h2>
+				
+				<h2>살고 있는 지역의 코로나 현황을 확인하고<br>
+				사람들과 커뮤니티에서 소통해보세요!</h2>
+				<button type="button" class="sec2_content0_btn" OnClick="location.href='${root}/board/list'">커뮤니티로 이동</button>
 			</div>
 			
 			<!-- 지도 그래프 -->
@@ -332,7 +333,7 @@
 			
 				<div class="sec3_box sec3_box1" OnClick="location.href='${root}/hospitalmain'">
 					<div class="sec3_wrapper sec3_wrapper1">
-						<div class="sec3_tsm sec3_title">병원예약안내</div>
+						<div class="sec3_tsm sec3_title">병원예약</div>
 						<div class="sec3_tsm sec3_subcon">
 							<img style="width:150px;height:150px;" src="${root}/image/hospitalicon.png"/>
 							<h3>전국 병원 검색을 하시고<br><br> 손쉽게 예약까지 해 보세요!</h3>

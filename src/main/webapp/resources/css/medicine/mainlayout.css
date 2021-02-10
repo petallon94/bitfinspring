@@ -24,10 +24,10 @@
 }
 
 .med_layout_title h3{
-	
+	margin:0;
 	font-size : 3.0em;
 	padding-top : 170px; 
-	cursor : pointer;
+/* 	cursor : pointer; */
 }
 
 /*검색 */
