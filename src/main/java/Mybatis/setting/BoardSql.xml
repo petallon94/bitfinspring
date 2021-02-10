@@ -45,7 +45,7 @@
 		insert into hashtag (hbnum,hashtag) values (#{hbnum},#{hashtag}) 
 	</insert>
 	<select id = "searchHashtag" resultType ="bdto" parameterType ="String">
-	 select * from board b, hashtag h where hashtag = #{hashtag} and b.bnum=h.hbnum
+	 select * from board b, hashtag h where hashtag = #{hashtag} and b.bnum=h.hbnum order by bwritedate desc;
 	</select>
 	<select id ="selectMyBoard" parameterType ="HashMap" resultType = "bdto">
 	select * from board where bmidnum = #{bmidnum} limit #{start},#{perpage} 
