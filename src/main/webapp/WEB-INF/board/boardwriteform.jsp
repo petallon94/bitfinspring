@@ -29,7 +29,7 @@ $(function(){
 		
 		 var index = $(".hashtag").index(this);
 		 var hashtag = $(".hashtag a").eq(index).text();
-		 //alert(hashtag); 	 
+		  	 
 				$.ajax({
 					type:"post",
 					url:"hashtagdel",
@@ -46,8 +46,7 @@ $(function(){
 	$(".board_hashbtn").click(function(){
 		
 		var text = $("#board_hashtag").val();
-		alert(text);
-		
+		alert(text+"가 추가되었습니다.");
 		$.ajax({
 			type:"post",
 			url:"hashtagsave",
@@ -55,10 +54,9 @@ $(function(){
 			dataType:"html",
 			success:function(data)
 			{
-				hashtag_list();//해시태그 다시 출력					
+				
 			}
 		});
-		
 	});
 	
 });
@@ -142,7 +140,7 @@ function hashtag_list()
 
 				<div class="board_hashform" id ="board_hashform">
 			
-			</div>
+				</div>
 			<div class="tagform">
 				<input type="text" class="board_hashtag" id ="board_hashtag" />
 				<button type="button" class="board_hashbtn">태그 추가</button>
