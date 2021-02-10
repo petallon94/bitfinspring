@@ -677,7 +677,7 @@ ul.slide_bar_list.end {
 
 /* sec1 con0 */
 .sec1 .fp-tableCell>div.sec1_content0{
-	margin-left:-10%;
+	/* margin-left:-10%; */
 	opacity:0;
 	transition:ease-in 0.8s;
 }
@@ -690,15 +690,18 @@ ul.slide_bar_list.end {
 /* 	background: rgba(255,255,255,0.5)	 */
 }
 .sec1 .fp-tableCell>div.sec1_content0 h2{
-	font-size:4rem;
+	font-size:2rem;
 	font-weight:bold;
 	color:black;
-	/* margin-left:-10%; */
+	margin-left:60px;
 	transition:ease-in 1s;
 	font-family: 'nanumb';
 	font-weight: bold;
 }
 
+.sec1_content1 .sec2_content0_btn{
+	margin-left:30px;
+}
 
 
 /* sec1 con1 */
@@ -710,6 +713,21 @@ ul.slide_bar_list.end {
 	margin-left:-10%;
 	opacity:0;
 	transition:ease-in 1.2s;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	
+}
+
+
+
+.sec1 .fp-tableCell>div.sec1_content1 > h2{
+	font-size: 2.3rem;
+	font-family: 'nanumeb';
+	color:black;
+	margin-bottom:25px;
+	line-height: 3rem;
 }
 
 
@@ -834,6 +852,38 @@ ul.slide_bar_list.end {
 	margin-right:-10%;
 	opacity:0;
 	transition:ease-in 1.2s;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background-color:rgba(255,255,255,0.2);
+	border-radius: 20px;
+	box-shadow:5px 5px 5px #bbb;
+}
+
+.sec2 .fp-tableCell>div.sec2_content0 > h2{
+	font-size: 2.3rem;
+	font-family: 'nanumeb';
+	color:black;
+	margin-bottom:25px;
+	line-height: 3rem;
+}
+
+.sec2_content0_btn{
+	align-self: flex-start;
+	margin-left:50px;
+	margin-top:30px;
+	width:180px;
+	background-color:rgb(21,168,222);
+	border:none;
+	color:white;
+	height:40px;
+	border-radius: 5px;
+	box-shadow:inset 0px 0px 300px rgb(21,168,222);
+	transition:1s;
+}
+.sec2_content0_btn:hover{
+	box-shadow:inset 300px 0px 300px rgb(11,84,150);
 }
 
 
@@ -848,6 +898,15 @@ ul.slide_bar_list.end {
 	transition:ease-in 1.2s;
 }
 
+.sec2 .fp-tableCell>div.sec2_content1 > h2 {
+	font-size:2rem;
+	font-weight:bold;
+	color:black;
+	
+	transition:ease-in 1s;
+	font-family: 'nanumb';
+	font-weight: bold;
+}
 
 
 @media screen and (max-width:1407px) {
@@ -1130,12 +1189,12 @@ ul.slide_bar_list.end {
 .sec3_wrapper .sec3_title{
 	margin-top:100px;
 	width:100%;
-	height:20%;
+	height:120px;
 	background-color:rgba(0,0,0,0);
 	text-align: center;
 	position:relative;
 	font-family: 'nanumeb';
-	font-size: 3rem;
+	font-size: 2.5rem;
 	letter-spacing: 3px;
 	transition: 0.3s;
 }
