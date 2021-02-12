@@ -56,16 +56,16 @@ function callCardList() {
 					var cwriter = item.cwriter;
 					var cwritedate = item.cwritedate;
 					s+='<img src="https://previews.123rf.com/images/sapannpix/sapannpix1604/sapannpix160400008/54710924-%EC%9D%98%EC%82%AC%EC%99%80-%EA%B0%84%ED%98%B8%EC%82%AC-%EB%B0%8F-%EC%9D%98%EB%A3%8C-%EC%A7%81%EC%9B%90%EC%9D%80-%ED%8F%89%EB%A9%B4-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%95%84%EC%9D%B4%EC%BD%98-%EC%84%B8%ED%8A%B8.jpg" width="0px" height="0px"/>'
-					s+='<div class="dcom-prod-list-bar dcom-con">';
-					s+='<div class="dcom-prod-list-box">';
-					s+='<ul class="dcom-row">';
-					s+='<li class="dcom-cell">';
+					s+='<div class="dcom-prod-list-bar dcom-con" id="dcom-ax" style="float:left; width: calc(100%/ 5); padding:0;">';
+					s+='<div class="dcom-prod-list-box" style="width:100%">';
+					s+='<ul class="dcom-row" style="width:100%">';
+					s+='<li class="dcom-slide" style="width:100%">';
 					s+='<a href="detail?num='+num+'&pageNum=${currentPage }&key=list">';
-					s+='<div class="dcom-img-bar">';
-					s+='<div class="dcom-img-box">';
+					s+='<div class="slide-img-bar" style="width:100%">';
+					s+='<div class="slide-img-box" style="width:100%">';
 					s+='<img src="${pageContext.request.contextPath}/resources/save/'+cphoto+'"alt="">';
 					s+='</div>';
-					s+='<div style="position: relative; max-width: 100%; background-color: black; display: block; white-space: nowrap;">';
+					s+='<div class="slide-txt-box">';
 					s+='<div class="dcom-prod-subject">'+csubject+'</div>';
 					s+='<div class="dcom-prod-writer">'+cwriter+'</div>';
 					s+='<div class="dcom-prod-day">'+cwritedate+'</div>';	

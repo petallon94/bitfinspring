@@ -47,7 +47,7 @@
 	<div class="slide_bar">
 		<ul class="slide_bar_list">
 			<li><a href="${root}/hospitalmain">병원안내/예약</a></li>
-			<li><a href="${root}/safe/list">방역수칙</a></li>
+			<li><a href="${root}/safe/list">국가별 코로나 정보</a></li>
 			<li><a href="${root}/doctor/list">카드뉴스</a></li>
 			<li><a href="${root}/board/list">커뮤니티</a></li>
 			<li><a href="${root}/medicine/search">의약품검색</a></li>
